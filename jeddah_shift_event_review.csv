@@ -1,0 +1,34 @@
+timestamp_utc,relative_to_lap_start_s,audio_time_s,audio_time_predicted_s,audio_time_refined_s,audio_refinement_delta_ms,spectral_flux_relative_score,clip_start_s,clip_end_s,previous_gear,new_gear,direction,telemetry_skipped_gears,review_note,rpm,speed_kmh,throttle_pct,brake
+2025-04-19T18:08:36.234000+00:00,4.869,7.303,7.303,7.318,15.0,1.24,7.268,7.488,8,6,downshift,True,Telemetry gear jump skips one or more gears; event does not identify each intermediate shift.,10456,188,0,0
+2025-04-19T18:08:36.473000+00:00,5.108,7.542,7.542,7.592,50.0,1.608,7.542,7.762,6,5,downshift,False,Audio-refined candidate; listen-check recommended.,11196,162,0,0
+2025-04-19T18:08:36.673000+00:00,5.308,7.742,7.742,7.722,-20.0,1.223,7.672,7.892,5,4,downshift,False,Audio-refined candidate; listen-check recommended.,10348,149,0,0
+2025-04-19T18:08:36.833000+00:00,5.468,7.902,7.902,7.917,15.0,1.189,7.867,8.087,4,3,downshift,False,Audio-refined candidate; listen-check recommended.,10190,142,0,0
+2025-04-19T18:08:41.713000+00:00,10.348,12.782,12.782,12.767,-15.0,1.451,12.717,12.937,3,4,upshift,False,Audio-refined candidate; listen-check recommended.,10758,175,100,0
+2025-04-19T18:08:42.434000+00:00,11.069,13.503,13.503,13.483,-20.0,1.515,13.433,13.653,4,5,upshift,False,Audio-refined candidate; listen-check recommended.,10720,201,100,0
+2025-04-19T18:08:43.833000+00:00,12.468,14.902,14.902,14.922,20.0,1.139,14.872,15.092,5,6,upshift,False,Audio-refined candidate; listen-check recommended.,10656,239,100,0
+2025-04-19T18:08:46.794000+00:00,15.429,17.863,17.863,17.913,50.0,1.433,17.863,18.083,6,5,downshift,False,Audio-refined candidate; listen-check recommended.,10086,205,0,100
+2025-04-19T18:08:49.794000+00:00,18.429,20.863,20.863,20.803,-60.0,1.239,20.753,20.973,5,6,upshift,False,Audio-refined candidate; listen-check recommended.,10436,229,100,0
+2025-04-19T18:08:59.473000+00:00,28.108,30.542,30.542,30.517,-25.0,1.353,30.467,30.687,6,7,upshift,False,Audio-refined candidate; listen-check recommended.,10738,270,100,0
+2025-04-19T18:09:02.394000+00:00,31.029,33.463,33.463,33.433,-30.0,1.37,33.383,33.603,7,8,upshift,False,Audio-refined candidate; listen-check recommended.,10599,297,100,0
+2025-04-19T18:09:06.153000+00:00,34.788,37.222,37.222,37.287,65.0,1.602,37.237,37.457,8,7,downshift,False,Audio-refined candidate; listen-check recommended.,11742,205,1,100
+2025-04-19T18:09:06.314000+00:00,34.949,37.383,37.383,37.368,-15.0,1.152,37.318,37.538,7,6,downshift,False,Audio-refined candidate; listen-check recommended.,11300,192,1,100
+2025-04-19T18:09:06.513000+00:00,35.148,37.582,37.582,37.547,-35.0,1.248,37.497,37.717,6,4,downshift,True,Telemetry gear jump skips one or more gears; event does not identify each intermediate shift.,10983,184,1,100
+2025-04-19T18:09:09.474000+00:00,38.109,40.543,40.543,40.528,-15.0,1.07,40.478,40.698,4,5,upshift,False,Audio-refined candidate; listen-check recommended.,10740,206,100,0
+2025-04-19T18:09:11.153000+00:00,39.788,42.222,42.222,42.217,-5.0,1.207,42.167,42.387,5,6,upshift,False,Audio-refined candidate; listen-check recommended.,10972,245,100,0
+2025-04-19T18:09:12.473000+00:00,41.108,43.542,43.542,43.552,10.0,1.207,43.502,43.722,6,7,upshift,False,Audio-refined candidate; listen-check recommended.,10738,268,100,0
+2025-04-19T18:09:16.634000+00:00,45.269,47.703,47.703,47.688,-15.0,1.157,47.638,47.858,7,5,downshift,True,Telemetry gear jump skips one or more gears; event does not identify each intermediate shift.,10753,215,3,100
+2025-04-19T18:09:18.793000+00:00,47.428,49.862,49.862,49.832,-30.0,1.161,49.782,50.002,5,6,upshift,False,Audio-refined candidate; listen-check recommended.,10316,226,100,0
+2025-04-19T18:09:21.233000+00:00,49.868,52.302,52.302,52.282,-20.0,1.374,52.232,52.452,6,7,upshift,False,Audio-refined candidate; listen-check recommended.,10688,268,100,0
+2025-04-19T18:09:24.033000+00:00,52.668,55.102,55.102,55.132,30.0,1.271,55.082,55.302,7,8,upshift,False,Audio-refined candidate; listen-check recommended.,10561,296,100,0
+2025-04-19T18:09:31.993000+00:00,60.628,63.062,63.062,63.082,20.0,1.228,63.032,63.252,8,5,downshift,True,Telemetry gear jump skips one or more gears; event does not identify each intermediate shift.,10682,209,5,100
+2025-04-19T18:09:34.594000+00:00,63.229,65.663,65.663,65.623,-40.0,1.171,65.573,65.793,5,6,upshift,False,Audio-refined candidate; listen-check recommended.,10799,238,100,0
+2025-04-19T18:09:36.554000+00:00,65.189,67.623,67.623,67.663,40.0,1.254,67.613,67.833,6,7,upshift,False,Audio-refined candidate; listen-check recommended.,10691,268,100,0
+2025-04-19T18:09:38.873000+00:00,67.508,69.942,69.942,69.967,25.0,1.616,69.917,70.137,7,8,upshift,False,Audio-refined candidate; listen-check recommended.,10586,296,100,0
+2025-04-19T18:09:47.714000+00:00,76.349,78.783,78.783,78.768,-15.0,1.331,78.718,78.938,8,6,downshift,True,Telemetry gear jump skips one or more gears; event does not identify each intermediate shift.,9935,166,0,100
+2025-04-19T18:09:47.873000+00:00,76.508,78.942,78.942,78.917,-25.0,1.205,78.867,79.087,6,4,downshift,True,Telemetry gear jump skips one or more gears; event does not identify each intermediate shift.,10566,153,0,100
+2025-04-19T18:09:48.074000+00:00,76.709,79.143,79.143,79.123,-20.0,1.492,79.073,79.293,4,3,downshift,False,Audio-refined candidate; listen-check recommended.,10128,142,0,100
+2025-04-19T18:09:51.273000+00:00,79.908,82.342,82.342,82.327,-15.0,1.141,82.277,82.497,3,4,upshift,False,Audio-refined candidate; listen-check recommended.,10325,170,100,0
+2025-04-19T18:09:52.513000+00:00,81.148,83.582,83.582,83.547,-35.0,1.175,83.497,83.717,4,5,upshift,False,Audio-refined candidate; listen-check recommended.,11154,215,100,0
+2025-04-19T18:09:53.674000+00:00,82.309,84.743,84.743,84.773,30.0,1.211,84.723,84.943,5,6,upshift,False,Audio-refined candidate; listen-check recommended.,11004,244,100,0
+2025-04-19T18:09:55.314000+00:00,83.949,86.383,86.383,86.363,-20.0,1.103,86.313,86.533,6,7,upshift,False,Audio-refined candidate; listen-check recommended.,10897,273,100,0
+2025-04-19T18:09:57.273000+00:00,85.908,88.342,88.342,88.327,-15.0,1.097,88.277,88.497,7,8,upshift,False,Audio-refined candidate; listen-check recommended.,10745,302,100,0
