@@ -1,0 +1,10 @@
+===== /sys/devices/svc/Camera/SVC_front_module =====
+CVMBP077A000A01
+
+===== /sys/devices/svc/Camera/SVC_rear_module =====
+OVMBI101B130201
+
+===== /sys/devices/svc/Camera/SVC_rear_module2 =====
+CVMBG0D98002E01
+
+===== CAMERA SYSFS =====
