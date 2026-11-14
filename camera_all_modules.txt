@@ -1,0 +1,95 @@
+
+========== /sys/firmware/devicetree/base/fimc-is_sensor_3j1@10 ==========
+af/i2c_ch:  00 00 00 05
+af/name:  61 66 00
+af/product_name:  00 00 00 12
+compatible:  73 61 6d 73 75 6e 67 2c 73 65 6e 73 6f 72 2d 6d 6f 64 75 6c 65 2d 33 6a 31 00
+flash/name:  66 6c 61 73 68 00
+flash/product_name:  00 00 00 64
+gpio_mclk:  00 00 01 a3 00 00 00 05 00 00 00 01
+gpio_reset:  00 00 00 96 00 00 00 05 00 00 00 01
+id:  00 00 00 01
+linux,phandle:  00 00 03 65
+mclk_ch:  00 00 00 01
+name:  66 69 6d 63 2d 69 73 5f 73 65 6e 73 6f 72 5f 33 6a 31 00
+ois/name:  6f 69 73 00
+ois/product_name:  00 00 00 64
+phandle:  00 00 03 65
+pinctrl-0: 
+pinctrl-1:  00 00 01 a9
+pinctrl-2:  00 00 01 ae
+pinctrl-3: 
+pinctrl-names:  70 69 6e 30 00 70 69 6e 31 00 70 69 6e 32 00 72 65 6c 65 61 73 65 00
+position:  00 00 00 01
+rom_cal_index:  00 00 00 00
+rom_id:  00 00 00 01
+rom_type:  00 00 00 02
+sensor_i2c_ch:  00 00 00 04
+status:  6f 6b 61 79 00
+
+========== /sys/firmware/devicetree/base/fimc-is_sensor_3p9@2D ==========
+af/name:  61 66 00
+af/product_name:  00 00 00 64
+compatible:  73 61 6d 73 75 6e 67 2c 73 65 6e 73 6f 72 2d 6d 6f 64 75 6c 65 2d 33 70 39 00
+flash/name:  66 6c 61 73 68 00
+flash/product_name:  00 00 00 0b
+gpio_mclk:  00 00 01 a3 00 00 00 07 00 00 00 01
+gpio_reset:  00 00 02 f4 00 00 00 03 00 00 00 01
+id:  00 00 00 04
+linux,phandle:  00 00 03 63
+mclk_ch:  00 00 00 03
+name:  66 69 6d 63 2d 69 73 5f 73 65 6e 73 6f 72 5f 33 70 39 00
+ois/name:  6f 69 73 00
+ois/product_name:  00 00 00 64
+phandle:  00 00 03 63
+pinctrl-0: 
+pinctrl-1:  00 00 01 ab
+pinctrl-2:  00 00 01 b0
+pinctrl-3: 
+pinctrl-names:  70 69 6e 30 00 70 69 6e 31 00 70 69 6e 32 00 72 65 6c 65 61 73 65 00
+position:  00 00 00 04
+preprocessor/name:  70 72 65 70 72 6f 63 65 73 73 6f 72 00
+preprocessor/product_name:  00 00 00 64
+rom_cal_index:  00 00 00 00
+rom_dualcal_id:  00 00 00 00
+rom_dualcal_index:  00 00 00 00
+rom_id:  00 00 00 02
+rom_type:  00 00 00 02
+sensor_i2c_ch:  00 00 00 04
+status:  6f 6b 61 79 00
+
+========== /sys/firmware/devicetree/base/fimc-is_sensor_2l4@20 ==========
+af/i2c_ch:  00 00 00 01
+af/name:  61 66 00
+af/product_name:  00 00 00 12
+aperture/name:  61 70 65 72 74 75 72 65 00
+aperture/product_name:  00 00 00 64
+compatible:  73 61 6d 73 75 6e 67 2c 73 65 6e 73 6f 72 2d 6d 6f 64 75 6c 65 2d 32 6c 34 00
+flash/name:  66 6c 61 73 68 00
+flash/product_name:  00 00 00 0b
+gpio_mclk:  00 00 01 a3 00 00 00 04 00 00 00 01
+gpio_ois_reset:  00 00 02 f4 00 00 00 06 00 00 00 01
+gpio_reset:  00 00 00 96 00 00 00 06 00 00 00 01
+id:  00 00 00 00
+linux,phandle:  00 00 03 62
+mclk_ch:  00 00 00 00
+mcu/i2c_addr:  00 00 00 51
+mcu/i2c_ch:  00 00 00 01
+mcu/name:  6d 63 75 00
+mcu/product_name:  00 00 00 01
+name:  66 69 6d 63 2d 69 73 5f 73 65 6e 73 6f 72 5f 32 6c 34 00
+ois/name:  6f 69 73 00
+ois/product_name:  00 00 00 64
+phandle:  00 00 03 62
+pinctrl-0: 
+pinctrl-1:  00 00 01 a8
+pinctrl-2:  00 00 01 ad
+pinctrl-3: 
+pinctrl-names:  70 69 6e 30 00 70 69 6e 31 00 70 69 6e 32 00 72 65 6c 65 61 73 65 00
+position:  00 00 00 00
+power_seq_id:  00 00 00 01
+rom_cal_index:  00 00 00 00
+rom_id:  00 00 00 00
+rom_type:  00 00 00 02
+sensor_i2c_ch:  00 00 00 00
+status:  6f 6b 61 79 00
