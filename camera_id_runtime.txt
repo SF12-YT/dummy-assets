@@ -1,0 +1,188 @@
+===== REAR SUPPORTED CAMERA IDS =====
+0 1 23 50 
+
+===== CAMERA INIT CONFIG =====
+    chown cameraserver cameraserver /sys/class/camera/front/front2_awb_module
+    chown system radio /sys/class/camera/ois/selftest
+    chown system radio /sys/class/camera/ois/calibrationtest
+    chown system radio /sys/class/camera/ois/ois_power
+    chown system radio /sys/class/camera/ois/ois_rawdata
+    chown system radio /sys/class/camera/ois/oisfw
+    chown system radio /sys/class/camera/ois/ois_diff
+    chown system radio /sys/class/camera/ois/autotest
+    chown system radio /sys/class/camera/ois/autotest_2nd
+    chown system radio /sys/class/camera/ois/ois_gain_rear
+    chown system radio /sys/class/camera/ois/ois_gain_rear3
+    chown system radio /sys/class/camera/ois/ois_supperssion_ratio_rear
+    chown system radio /sys/class/camera/ois/ois_supperssion_ratio_rear3
+    chown cameraserver cameraserver /sys/class/camera/ois/ois_exif
+    chown cameraserver cameraserver /sys/class/camera/ois/reset_check
+    chown system radio /sys/class/camera/secure/iris_camfw
+    chown system radio /sys/class/camera/secure/iris_camfw_full
+    chown system radio /sys/class/camera/secure/iris_checkfw_factory
+    chown system radio /sys/class/camera/secure/iris_checkfw_user
+    chown system system /sys/class/camera/secure/iris_hwparam
+    chown system radio /sys/class/camera/rear/supported_cameraIds
+    chown system radio /sys/class/camera/rear/rear_aperture_halltest
+
+# Permissions for SVC
+    chown system system /sys/devices/svc/Camera/SVC_rear_module
+    chown system system /sys/devices/svc/Camera/SVC_rear_module2
+    chown system system /sys/devices/svc/Camera/SVC_rear_module3
+    chown system system /sys/devices/svc/Camera/SVC_front_module
+    chown system system /sys/devices/svc/Camera/SVC_front_module2
+
+# Permissions Camera
+    mkdir /data/camera 0777 root root
+  
+    chmod 0755 /sys/kernel/debug/tracing
+    restorecon /sys/kernel/debug/tracing/trace_marker
+
+
+===== CAMERA PROFILE IDS =====
+19:                         VideoEncoderCap+,
+23:<!ELEMENT CamcorderProfiles (EncoderProfile+, ImageEncoding+, ImageDecoding, Camera)>
+24:<!ELEMENT EncoderProfile (Video, Audio)>
+25:<!ATTLIST EncoderProfile quality (low|high|qcif|qvga|480p|720p|1080p|2160p|timelapselow|timelapsehigh|timelapseqcif|timelapseqvga|timelapse480p|timelapse720p|timelapse1080p|timelapse2160p) #REQUIRED>
+26:<!ATTLIST EncoderProfile fileFormat (mp4|3gp) #REQUIRED>
+27:<!ATTLIST EncoderProfile duration (30|60) #REQUIRED>
+28:<!ATTLIST EncoderProfile cameraId (0|1|2|3) #REQUIRED>
+48:<!ELEMENT VideoEncoderCap EMPTY>
+49:<!ATTLIST VideoEncoderCap name (hevc|h264|h263|m4v|wmv) #REQUIRED>
+50:<!ATTLIST VideoEncoderCap enabled (true|false) #REQUIRED>
+51:<!ATTLIST VideoEncoderCap minBitRate CDATA #REQUIRED>
+52:<!ATTLIST VideoEncoderCap maxBitRate CDATA #REQUIRED>
+53:<!ATTLIST VideoEncoderCap minFrameWidth CDATA #REQUIRED>
+54:<!ATTLIST VideoEncoderCap maxFrameWidth CDATA #REQUIRED>
+55:<!ATTLIST VideoEncoderCap minFrameHeight CDATA #REQUIRED>
+56:<!ATTLIST VideoEncoderCap maxFrameHeight CDATA #REQUIRED>
+57:<!ATTLIST VideoEncoderCap minFrameRate CDATA #REQUIRED>
+58:<!ATTLIST VideoEncoderCap maxFrameRate CDATA #REQUIRED>
+82:    <CamcorderProfiles cameraId="0">
+84:    <EncoderProfile quality="low" fileFormat="3gp" duration="30">
+95:    </EncoderProfile>
+97:    <EncoderProfile quality="high" fileFormat="mp4" duration="30">
+108:    </EncoderProfile>
+110:    <EncoderProfile quality="qcif" fileFormat="3gp" duration="30">
+121:    </EncoderProfile>
+123:    <EncoderProfile quality="qvga" fileFormat="mp4" duration="30">
+134:    </EncoderProfile>
+136:    <EncoderProfile quality="480p" fileFormat="mp4" duration="30">
+147:    </EncoderProfile>
+149:    <EncoderProfile quality="720p" fileFormat="mp4" duration="30">
+160:    </EncoderProfile>
+162:    <EncoderProfile quality="1080p" fileFormat="mp4" duration="30">
+173:    </EncoderProfile>
+175:    <EncoderProfile quality="2160p" fileFormat="mp4" duration="30">
+186:    </EncoderProfile>
+188:    <EncoderProfile quality="timelapselow" fileFormat="mp4" duration="30">
+203:    </EncoderProfile>
+205:    <EncoderProfile quality="timelapsehigh" fileFormat="mp4" duration="30">
+220:    </EncoderProfile>
+222:    <EncoderProfile quality="timelapseqcif" fileFormat="mp4" duration="30">
+237:    </EncoderProfile>
+239:    <EncoderProfile quality="timelapseqvga" fileFormat="mp4" duration="30">
+254:    </EncoderProfile>
+256:    <EncoderProfile quality="timelapse480p" fileFormat="mp4" duration="30">
+271:    </EncoderProfile>
+273:    <EncoderProfile quality="timelapse720p" fileFormat="mp4" duration="30">
+288:    </EncoderProfile>
+290:    <EncoderProfile quality="timelapse1080p" fileFormat="mp4" duration="30">
+305:    </EncoderProfile>
+307:    <EncoderProfile quality="timelapse2160p" fileFormat="mp4" duration="30">
+322:    </EncoderProfile>
+332:    <CamcorderProfiles cameraId="1">
+334:    <EncoderProfile quality="low" fileFormat="3gp" duration="30">
+345:    </EncoderProfile>
+347:    <EncoderProfile quality="high" fileFormat="mp4" duration="30">
+358:    </EncoderProfile>
+360:    <EncoderProfile quality="qcif" fileFormat="3gp" duration="30">
+371:    </EncoderProfile>
+373:    <EncoderProfile quality="qvga" fileFormat="mp4" duration="30">
+384:    </EncoderProfile>
+386:    <EncoderProfile quality="480p" fileFormat="mp4" duration="30">
+397:    </EncoderProfile>
+399:    <EncoderProfile quality="720p" fileFormat="mp4" duration="30">
+410:    </EncoderProfile>
+412:    <EncoderProfile quality="1080p" fileFormat="mp4" duration="30">
+423:    </EncoderProfile>
+425:    <EncoderProfile quality="timelapselow" fileFormat="mp4" duration="30">
+440:    </EncoderProfile>
+442:    <EncoderProfile quality="timelapsehigh" fileFormat="mp4" duration="30">
+457:    </EncoderProfile>
+459:    <EncoderProfile quality="timelapseqcif" fileFormat="mp4" duration="30">
+474:    </EncoderProfile>
+476:    <EncoderProfile quality="timelapseqvga" fileFormat="mp4" duration="30">
+491:    </EncoderProfile>
+493:    <EncoderProfile quality="timelapse480p" fileFormat="mp4" duration="30">
+508:    </EncoderProfile>
+510:    <EncoderProfile quality="timelapse720p" fileFormat="mp4" duration="30">
+525:    </EncoderProfile>
+527:    <EncoderProfile quality="timelapse1080p" fileFormat="mp4" duration="30">
+542:    </EncoderProfile>
+552:    <CamcorderProfiles cameraId="2">
+554:    <EncoderProfile quality="low" fileFormat="3gp" duration="30">
+565:    </EncoderProfile>
+567:    <EncoderProfile quality="high" fileFormat="mp4" duration="30">
+578:    </EncoderProfile>
+580:    <EncoderProfile quality="qcif" fileFormat="3gp" duration="30">
+591:    </EncoderProfile>
+593:    <EncoderProfile quality="qvga" fileFormat="mp4" duration="30">
+604:    </EncoderProfile>
+606:    <EncoderProfile quality="480p" fileFormat="mp4" duration="30">
+617:    </EncoderProfile>
+619:    <EncoderProfile quality="720p" fileFormat="mp4" duration="30">
+630:    </EncoderProfile>
+632:    <EncoderProfile quality="1080p" fileFormat="mp4" duration="30">
+643:    </EncoderProfile>
+645:    <EncoderProfile quality="2160p" fileFormat="mp4" duration="30">
+656:    </EncoderProfile>
+658:    <EncoderProfile quality="timelapselow" fileFormat="mp4" duration="30">
+673:    </EncoderProfile>
+675:    <EncoderProfile quality="timelapsehigh" fileFormat="mp4" duration="30">
+690:    </EncoderProfile>
+692:    <EncoderProfile quality="timelapseqcif" fileFormat="mp4" duration="30">
+707:    </EncoderProfile>
+709:    <EncoderProfile quality="timelapseqvga" fileFormat="mp4" duration="30">
+724:    </EncoderProfile>
+726:    <EncoderProfile quality="timelapse480p" fileFormat="mp4" duration="30">
+741:    </EncoderProfile>
+743:    <EncoderProfile quality="timelapse720p" fileFormat="mp4" duration="30">
+758:    </EncoderProfile>
+760:    <EncoderProfile quality="timelapse1080p" fileFormat="mp4" duration="30">
+775:    </EncoderProfile>
+777:    <EncoderProfile quality="timelapse2160p" fileFormat="mp4" duration="30">
+792:    </EncoderProfile>
+802:    <CamcorderProfiles cameraId="3">
+804:    <EncoderProfile quality="low" fileFormat="3gp" duration="30">
+815:    </EncoderProfile>
+817:    <EncoderProfile quality="high" fileFormat="mp4" duration="30">
+828:    </EncoderProfile>
+830:    <EncoderProfile quality="qcif" fileFormat="3gp" duration="30">
+841:    </EncoderProfile>
+843:    <EncoderProfile quality="qvga" fileFormat="mp4" duration="30">
+854:    </EncoderProfile>
+856:    <EncoderProfile quality="480p" fileFormat="mp4" duration="30">
+867:    </EncoderProfile>
+869:    <EncoderProfile quality="720p" fileFormat="mp4" duration="30">
+880:    </EncoderProfile>
+882:    <EncoderProfile quality="1080p" fileFormat="mp4" duration="30">
+893:    </EncoderProfile>
+895:    <EncoderProfile quality="timelapselow" fileFormat="mp4" duration="30">
+910:    </EncoderProfile>
+912:    <EncoderProfile quality="timelapsehigh" fileFormat="mp4" duration="30">
+927:    </EncoderProfile>
+929:    <EncoderProfile quality="timelapseqcif" fileFormat="mp4" duration="30">
+944:    </EncoderProfile>
+946:    <EncoderProfile quality="timelapseqvga" fileFormat="mp4" duration="30">
+961:    </EncoderProfile>
+963:    <EncoderProfile quality="timelapse480p" fileFormat="mp4" duration="30">
+978:    </EncoderProfile>
+980:    <EncoderProfile quality="timelapse720p" fileFormat="mp4" duration="30">
+995:    </EncoderProfile>
+997:    <EncoderProfile quality="timelapse1080p" fileFormat="mp4" duration="30">
+1012:    </EncoderProfile>
+1034:    <VideoEncoderCap name="h264" enabled="true"
+1040:    <VideoEncoderCap name="h263" enabled="true"
+1046:    <VideoEncoderCap name="m4v" enabled="true"
+1052:    <VideoEncoderCap name="hevc" enabled="true"
