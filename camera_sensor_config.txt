@@ -1,0 +1,1458 @@
+
+========== fimc-is_sensor_2l4@20 ==========
+--- i2c_ch ---
+HEX:
+ 00 00 00 01
+
+TEXT:
+   
+--- name ---
+HEX:
+ 61 66 00
+
+TEXT:
+af 
+--- product_name ---
+HEX:
+ 00 00 00 12
+
+TEXT:
+   
+--- name ---
+HEX:
+ 61 70 65 72 74 75 72 65 00
+
+TEXT:
+aperture 
+--- product_name ---
+HEX:
+ 00 00 00 64
+
+TEXT:
+   d
+--- compatible ---
+HEX:
+ 73 61 6d 73 75 6e 67 2c 73 65 6e 73 6f 72 2d 6d
+ 6f 64 75 6c 65 2d 32 6c 34 00
+
+TEXT:
+samsung,sensor-module-2l4 
+--- name ---
+HEX:
+ 66 6c 61 73 68 00
+
+TEXT:
+flash 
+--- product_name ---
+HEX:
+ 00 00 00 0b
+
+TEXT:
+   
+--- gpio_mclk ---
+HEX:
+ 00 00 01 a3 00 00 00 04 00 00 00 01
+
+TEXT:
+  £      
+--- gpio_ois_reset ---
+HEX:
+ 00 00 02 f4 00 00 00 06 00 00 00 01
+
+TEXT:
+  Ù      
+--- gpio_reset ---
+HEX:
+ 00 00 00 96 00 00 00 06 00 00 00 01
+
+TEXT:
+   ñ      
+--- id ---
+HEX:
+ 00 00 00 00
+
+TEXT:
+    
+--- linux,phandle ---
+HEX:
+ 00 00 03 62
+
+TEXT:
+  b
+--- mclk_ch ---
+HEX:
+ 00 00 00 00
+
+TEXT:
+    
+--- i2c_addr ---
+HEX:
+ 00 00 00 51
+
+TEXT:
+   Q
+--- i2c_ch ---
+HEX:
+ 00 00 00 01
+
+TEXT:
+   
+--- name ---
+HEX:
+ 6d 63 75 00
+
+TEXT:
+mcu 
+--- product_name ---
+HEX:
+ 00 00 00 01
+
+TEXT:
+   
+--- name ---
+HEX:
+ 66 69 6d 63 2d 69 73 5f 73 65 6e 73 6f 72 5f 32
+ 6c 34 00
+
+TEXT:
+fimc-is_sensor_2l4 
+--- name ---
+HEX:
+ 6f 69 73 00
+
+TEXT:
+ois 
+--- product_name ---
+HEX:
+ 00 00 00 64
+
+TEXT:
+   d
+--- phandle ---
+HEX:
+ 00 00 03 62
+
+TEXT:
+  b
+--- pinctrl-0 ---
+HEX:
+
+TEXT:
+
+--- pinctrl-1 ---
+HEX:
+ 00 00 01 a8
+
+TEXT:
+  ®
+--- pinctrl-2 ---
+HEX:
+ 00 00 01 ad
+
+TEXT:
+  ≠
+--- pinctrl-3 ---
+HEX:
+
+TEXT:
+
+--- pinctrl-names ---
+HEX:
+ 70 69 6e 30 00 70 69 6e 31 00 70 69 6e 32 00 72
+ 65 6c 65 61 73 65 00
+
+TEXT:
+pin0 pin1 pin2 release 
+--- position ---
+HEX:
+ 00 00 00 00
+
+TEXT:
+    
+--- power_seq_id ---
+HEX:
+ 00 00 00 01
+
+TEXT:
+   
+--- rom_cal_index ---
+HEX:
+ 00 00 00 00
+
+TEXT:
+    
+--- rom_id ---
+HEX:
+ 00 00 00 00
+
+TEXT:
+    
+--- rom_type ---
+HEX:
+ 00 00 00 02
+
+TEXT:
+   
+--- sensor_i2c_ch ---
+HEX:
+ 00 00 00 00
+
+TEXT:
+    
+--- status ---
+HEX:
+ 6f 6b 61 79 00
+
+TEXT:
+okay 
+
+========== fimc-is_sensor_3p9@2D ==========
+--- name ---
+HEX:
+ 61 66 00
+
+TEXT:
+af 
+--- product_name ---
+HEX:
+ 00 00 00 64
+
+TEXT:
+   d
+--- compatible ---
+HEX:
+ 73 61 6d 73 75 6e 67 2c 73 65 6e 73 6f 72 2d 6d
+ 6f 64 75 6c 65 2d 33 70 39 00
+
+TEXT:
+samsung,sensor-module-3p9 
+--- name ---
+HEX:
+ 66 6c 61 73 68 00
+
+TEXT:
+flash 
+--- product_name ---
+HEX:
+ 00 00 00 0b
+
+TEXT:
+   
+--- gpio_mclk ---
+HEX:
+ 00 00 01 a3 00 00 00 07 00 00 00 01
+
+TEXT:
+  £      
+--- gpio_reset ---
+HEX:
+ 00 00 02 f4 00 00 00 03 00 00 00 01
+
+TEXT:
+  Ù      
+--- id ---
+HEX:
+ 00 00 00 04
+
+TEXT:
+   
+--- linux,phandle ---
+HEX:
+ 00 00 03 63
+
+TEXT:
+  c
+--- mclk_ch ---
+HEX:
+ 00 00 00 03
+
+TEXT:
+   
+--- name ---
+HEX:
+ 66 69 6d 63 2d 69 73 5f 73 65 6e 73 6f 72 5f 33
+ 70 39 00
+
+TEXT:
+fimc-is_sensor_3p9 
+--- name ---
+HEX:
+ 6f 69 73 00
+
+TEXT:
+ois 
+--- product_name ---
+HEX:
+ 00 00 00 64
+
+TEXT:
+   d
+--- phandle ---
+HEX:
+ 00 00 03 63
+
+TEXT:
+  c
+--- pinctrl-0 ---
+HEX:
+
+TEXT:
+
+--- pinctrl-1 ---
+HEX:
+ 00 00 01 ab
+
+TEXT:
+  ´
+--- pinctrl-2 ---
+HEX:
+ 00 00 01 b0
+
+TEXT:
+  ∞
+--- pinctrl-3 ---
+HEX:
+
+TEXT:
+
+--- pinctrl-names ---
+HEX:
+ 70 69 6e 30 00 70 69 6e 31 00 70 69 6e 32 00 72
+ 65 6c 65 61 73 65 00
+
+TEXT:
+pin0 pin1 pin2 release 
+--- position ---
+HEX:
+ 00 00 00 04
+
+TEXT:
+   
+--- name ---
+HEX:
+ 70 72 65 70 72 6f 63 65 73 73 6f 72 00
+
+TEXT:
+preprocessor 
+--- product_name ---
+HEX:
+ 00 00 00 64
+
+TEXT:
+   d
+--- rom_cal_index ---
+HEX:
+ 00 00 00 00
+
+TEXT:
+    
+--- rom_dualcal_id ---
+HEX:
+ 00 00 00 00
+
+TEXT:
+    
+--- rom_dualcal_index ---
+HEX:
+ 00 00 00 00
+
+TEXT:
+    
+--- rom_id ---
+HEX:
+ 00 00 00 02
+
+TEXT:
+   
+--- rom_type ---
+HEX:
+ 00 00 00 02
+
+TEXT:
+   
+--- sensor_i2c_ch ---
+HEX:
+ 00 00 00 04
+
+TEXT:
+   
+--- status ---
+HEX:
+ 6f 6b 61 79 00
+
+TEXT:
+okay 
+
+========== fimc_is_sensor@17030000 ==========
+--- #address-cells ---
+HEX:
+ 00 00 00 01
+
+TEXT:
+   
+--- #size-cells ---
+HEX:
+ 00 00 00 01
+
+TEXT:
+   
+--- clock-names ---
+HEX:
+ 43 49 53 5f 43 4c 4b 30 00 43 49 53 5f 43 4c 4b
+ 31 00 43 49 53 5f 43 4c 4b 32 00 43 49 53 5f 43
+ 4c 4b 33 00 43 49 53 5f 43 4c 4b 34 00 4d 55 58
+ 5f 43 49 53 5f 43 4c 4b 30 00 4d 55 58 5f 43 49
+ 53 5f 43 4c 4b 31 00 4d 55 58 5f 43 49 53 5f 43
+ 4c 4b 32 00 4d 55 58 5f 43 49 53 5f 43 4c 4b 33
+ 00 4d 55 58 5f 43 49 53 5f 43 4c 4b 34 00 47 41
+ 54 45 5f 49 53 5f 49 53 50 50 52 45 5f 43 53 49
+ 53 30 00 47 41 54 45 5f 49 53 5f 49 53 50 50 52
+ 45 5f 43 53 49 53 31 00 47 41 54 45 5f 49 53 5f
+ 49 53 50 
+TEXT:
+CIS_CLK0 CIS_CLK1 CIS_CLK2 CIS_CLK3 CIS_CLK4 MUX_CIS_CLK0 MUX_CIS_CLK1 MUX_CIS_CLK2 MUX_CIS_CLK3 MUX_CIS_CLK4 GATE_IS_ISPPRE_CSIS0 GATE_IS_ISPPRE_CSIS1 GATE_IS_ISPPRE_CSIS2 GATE_IS_ISPPRE_CSIS3 GATE_IS_ISPPRE_CSIS4 
+--- clocks ---
+HEX:
+ 00 00 00 02 00 00 00 9d 00 00 00 02 00 00 00 9e
+ 00 00 00 02 00 00 00 9f 00 00 00 02 00 00 00 a0
+ 00 00 00 02 00 00 00 a1 00 00 00 02 00 00 00 97
+ 00 00 00 02 00 00 00 98 00 00 00 02 00 00 00 99
+ 00 00 00 02 00 00 00 9a 00 00 00 02 00 00 00 9b
+ 00 00 00 02 00 00 01 7d 00 00 00 02 00 00 01 7e
+ 00 00 00 02 00 00 01 7f 00 00 00 02 00 00 01 80
+ 00 00 00 02 00 00 01 89
+
+TEXT:
+      ù      û      ü      †      °      ó      ò      ô      ö      õ     }     ~          Ä     â
+--- compatible ---
+HEX:
+ 73 61 6d 73 75 6e 67 2c 65 78 79 6e 6f 73 35 2d
+ 66 69 6d 63 2d 69 73 2d 73 65 6e 73 6f 72 00
+
+TEXT:
+samsung,exynos5-fimc-is-sensor 
+--- csi_ch ---
+HEX:
+ 00 00 00 00
+
+TEXT:
+    
+--- dma_ch ---
+HEX:
+ 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+ 00 00 00 00 00 00 00 04 00 00 00 04 00 00 00 04
+
+TEXT:
+                             
+--- flite_ch ---
+HEX:
+ 00 00 00 64
+
+TEXT:
+   d
+--- id ---
+HEX:
+ 00 00 00 00
+
+TEXT:
+    
+--- interrupt-names ---
+HEX:
+ 63 73 69 00 6d 6f 64 65 30 5f 56 43 30 00 6d 6f
+ 64 65 30 5f 56 43 31 00 6d 6f 64 65 30 5f 56 43
+ 32 00 6d 6f 64 65 30 5f 56 43 33 00 6d 6f 64 65
+ 31 5f 56 43 30 00 6d 6f 64 65 31 5f 56 43 31 00
+ 6d 6f 64 65 31 5f 56 43 32 00 6d 6f 64 65 31 5f
+ 56 43 33 00
+
+TEXT:
+csi mode0_VC0 mode0_VC1 mode0_VC2 mode0_VC3 mode1_VC0 mode1_VC1 mode1_VC2 mode1_VC3 
+--- interrupts ---
+HEX:
+ 00 00 00 00 00 00 01 35 00 00 00 00 00 00 00 00
+ 00 00 01 3b 00 00 00 00 00 00 00 00 00 00 01 3b
+ 00 00 00 00 00 00 00 00 00 00 01 3b 00 00 00 00
+ 00 00 00 00 00 00 01 3b 00 00 00 00 00 00 00 00
+ 00 00 01 3b 00 00 00 00 00 00 00 00 00 00 01 46
+ 00 00 00 00 00 00 00 00 00 00 01 46 00 00 00 00
+ 00 00 00 00 00 00 01 46 00 00 00 00
+
+TEXT:
+      5          ;          ;          ;          ;          ;          F          F          F    
+--- iommus ---
+HEX:
+ 00 00 00 35
+
+TEXT:
+   5
+--- is_bns ---
+HEX:
+ 00 00 00 00
+
+TEXT:
+    
+--- linux,phandle ---
+HEX:
+ 00 00 00 f6
+
+TEXT:
+   ˆ
+--- name ---
+HEX:
+ 66 69 6d 63 5f 69 73 5f 73 65 6e 73 6f 72 00
+
+TEXT:
+fimc_is_sensor 
+--- phandle ---
+HEX:
+ 00 00 00 f6
+
+TEXT:
+   ˆ
+--- phy-names ---
+HEX:
+ 63 73 69 73 5f 64 70 68 79 00
+
+TEXT:
+csis_dphy 
+--- phys ---
+HEX:
+ 00 00 00 42 00 00 00 00
+
+TEXT:
+   B    
+--- reg ---
+HEX:
+ 00 00 00 00 17 03 00 00 00 00 10 00 00 00 00 00
+ 19 16 00 00 00 01 00 00
+
+TEXT:
+                  
+--- reg-names ---
+HEX:
+ 63 73 69 00 70 68 79 00
+
+TEXT:
+csi phy 
+--- scenario ---
+HEX:
+ 00 00 00 00
+
+TEXT:
+    
+--- linux,phandle ---
+HEX:
+ 00 00 01 d7
+
+TEXT:
+  ◊
+--- name ---
+HEX:
+ 73 65 6e 73 6f 72 30 2d 63 68 2d 6d 6f 64 65 30
+ 00
+
+TEXT:
+sensor0-ch-mode0 
+--- phandle ---
+HEX:
+ 00 00 01 d7
+
+TEXT:
+  ◊
+--- reg ---
+HEX:
+ 17 0a 00 00 00 00 01 00 17 0a 04 00 00 00 01 00
+ 17 0a 01 00 00 00 01 00 17 0a 04 00 00 00 01 00
+ 17 0a 02 00 00 00 01 00 17 0a 04 00 00 00 01 00
+ 17 0a 03 00 00 00 01 00 17 0a 04 00 00 00 01 00
+
+TEXT:
+
+     
+    
+    
+    
+    
+    
+    
+    
+--- linux,phandle ---
+HEX:
+ 00 00 01 d8
+
+TEXT:
+  ÿ
+--- name ---
+HEX:
+ 73 65 6e 73 6f 72 30 2d 63 68 2d 6d 6f 64 65 31
+ 00
+
+TEXT:
+sensor0-ch-mode1 
+--- phandle ---
+HEX:
+ 00 00 01 d8
+
+TEXT:
+  ÿ
+--- reg ---
+HEX:
+ 17 0a 00 00 00 00 01 00 17 0a 04 00 00 00 01 00
+ 17 10 01 00 00 00 01 00 17 10 04 00 00 00 01 00
+ 17 10 02 00 00 00 01 00 17 10 04 00 00 00 01 00
+ 17 10 03 00 00 00 01 00 17 10 04 00 00 00 01 00
+
+TEXT:
+
+     
+                            
+--- status ---
+HEX:
+ 6f 6b 61 79 00
+
+TEXT:
+okay 
+--- use_ssvc2_internal ---
+HEX:
+
+TEXT:
+
+--- use_ssvc3_internal ---
+HEX:
+
+TEXT:
+
+--- vc_ch ---
+HEX:
+ 00 00 00 00 00 00 00 01 00 00 00 02 00 00 00 03
+*
+
+TEXT:
+                          
+
+========== fimc_is_sensor@17040000 ==========
+--- #address-cells ---
+HEX:
+ 00 00 00 01
+
+TEXT:
+   
+--- #size-cells ---
+HEX:
+ 00 00 00 01
+
+TEXT:
+   
+--- clock-names ---
+HEX:
+ 43 49 53 5f 43 4c 4b 30 00 43 49 53 5f 43 4c 4b
+ 31 00 43 49 53 5f 43 4c 4b 32 00 43 49 53 5f 43
+ 4c 4b 33 00 43 49 53 5f 43 4c 4b 34 00 4d 55 58
+ 5f 43 49 53 5f 43 4c 4b 30 00 4d 55 58 5f 43 49
+ 53 5f 43 4c 4b 31 00 4d 55 58 5f 43 49 53 5f 43
+ 4c 4b 32 00 4d 55 58 5f 43 49 53 5f 43 4c 4b 33
+ 00 4d 55 58 5f 43 49 53 5f 43 4c 4b 34 00 47 41
+ 54 45 5f 49 53 5f 49 53 50 50 52 45 5f 43 53 49
+ 53 30 00 47 41 54 45 5f 49 53 5f 49 53 50 50 52
+ 45 5f 43 53 49 53 31 00 47 41 54 45 5f 49 53 5f
+ 49 53 50 
+TEXT:
+CIS_CLK0 CIS_CLK1 CIS_CLK2 CIS_CLK3 CIS_CLK4 MUX_CIS_CLK0 MUX_CIS_CLK1 MUX_CIS_CLK2 MUX_CIS_CLK3 MUX_CIS_CLK4 GATE_IS_ISPPRE_CSIS0 GATE_IS_ISPPRE_CSIS1 GATE_IS_ISPPRE_CSIS2 GATE_IS_ISPPRE_CSIS3 GATE_IS_ISPPRE_CSIS4 
+--- clocks ---
+HEX:
+ 00 00 00 02 00 00 00 9d 00 00 00 02 00 00 00 9e
+ 00 00 00 02 00 00 00 9f 00 00 00 02 00 00 00 a0
+ 00 00 00 02 00 00 00 a1 00 00 00 02 00 00 00 97
+ 00 00 00 02 00 00 00 98 00 00 00 02 00 00 00 99
+ 00 00 00 02 00 00 00 9a 00 00 00 02 00 00 00 9b
+ 00 00 00 02 00 00 01 7d 00 00 00 02 00 00 01 7e
+ 00 00 00 02 00 00 01 7f 00 00 00 02 00 00 01 80
+ 00 00 00 02 00 00 01 89
+
+TEXT:
+      ù      û      ü      †      °      ó      ò      ô      ö      õ     }     ~          Ä     â
+--- compatible ---
+HEX:
+ 73 61 6d 73 75 6e 67 2c 65 78 79 6e 6f 73 35 2d
+ 66 69 6d 63 2d 69 73 2d 73 65 6e 73 6f 72 00
+
+TEXT:
+samsung,exynos5-fimc-is-sensor 
+--- csi_ch ---
+HEX:
+ 00 00 00 01
+
+TEXT:
+   
+--- dma_ch ---
+HEX:
+ 00 00 00 01 00 00 00 01 00 00 00 01 00 00 00 01
+
+TEXT:
+            
+--- flite_ch ---
+HEX:
+ 00 00 00 64
+
+TEXT:
+   d
+--- id ---
+HEX:
+ 00 00 00 04
+
+TEXT:
+   
+--- interrupt-names ---
+HEX:
+ 63 73 69 00 6d 6f 64 65 30 5f 56 43 30 00 6d 6f
+ 64 65 30 5f 56 43 31 00 6d 6f 64 65 30 5f 56 43
+ 32 00 6d 6f 64 65 30 5f 56 43 33 00
+
+TEXT:
+csi mode0_VC0 mode0_VC1 mode0_VC2 mode0_VC3 
+--- interrupts ---
+HEX:
+ 00 00 00 00 00 00 01 36 00 00 00 00 00 00 00 00
+ 00 00 01 3c 00 00 00 00 00 00 00 00 00 00 01 3c
+ 00 00 00 00 00 00 00 00 00 00 01 3c 00 00 00 00
+ 00 00 00 00 00 00 01 3c 00 00 00 00
+
+TEXT:
+      6          <          <          <          <    
+--- iommus ---
+HEX:
+ 00 00 00 35
+
+TEXT:
+   5
+--- is_bns ---
+HEX:
+ 00 00 00 00
+
+TEXT:
+    
+--- linux,phandle ---
+HEX:
+ 00 00 00 fa
+
+TEXT:
+   ˙
+--- name ---
+HEX:
+ 66 69 6d 63 5f 69 73 5f 73 65 6e 73 6f 72 00
+
+TEXT:
+fimc_is_sensor 
+--- phandle ---
+HEX:
+ 00 00 00 fa
+
+TEXT:
+   ˙
+--- phy-names ---
+HEX:
+ 63 73 69 73 5f 64 70 68 79 00
+
+TEXT:
+csis_dphy 
+--- phys ---
+HEX:
+ 00 00 00 45 00 00 00 00
+
+TEXT:
+   E    
+--- reg ---
+HEX:
+ 00 00 00 00 17 04 00 00 00 00 10 00 00 00 00 00
+ 19 16 00 00 00 01 00 00
+
+TEXT:
+                  
+--- reg-names ---
+HEX:
+ 63 73 69 00 70 68 79 00
+
+TEXT:
+csi phy 
+--- scenario ---
+HEX:
+ 00 00 00 00
+
+TEXT:
+    
+--- linux,phandle ---
+HEX:
+ 00 00 01 de
+
+TEXT:
+  ﬁ
+--- name ---
+HEX:
+ 73 65 6e 73 6f 72 34 2d 63 68 2d 6d 6f 64 65 30
+ 00
+
+TEXT:
+sensor4-ch-mode0 
+--- phandle ---
+HEX:
+ 00 00 01 de
+
+TEXT:
+  ﬁ
+--- reg ---
+HEX:
+ 17 0b 00 00 00 00 01 00 17 0b 04 00 00 00 01 00
+ 17 0b 01 00 00 00 01 00 17 0b 04 00 00 00 01 00
+ 17 0b 02 00 00 00 01 00 17 0b 04 00 00 00 01 00
+ 17 0b 03 00 00 00 01 00 17 0b 04 00 00 00 01 00
+
+TEXT:
+                                 
+--- status ---
+HEX:
+ 6f 6b 61 79 00
+
+TEXT:
+okay 
+--- vc_ch ---
+HEX:
+ 00 00 00 00 00 00 00 01 00 00 00 02 00 00 00 03
+
+TEXT:
+             
+
+========== fimc_is_sensor@17050000 ==========
+--- #address-cells ---
+HEX:
+ 00 00 00 01
+
+TEXT:
+   
+--- #size-cells ---
+HEX:
+ 00 00 00 01
+
+TEXT:
+   
+--- clock-names ---
+HEX:
+ 43 49 53 5f 43 4c 4b 30 00 43 49 53 5f 43 4c 4b
+ 31 00 43 49 53 5f 43 4c 4b 32 00 43 49 53 5f 43
+ 4c 4b 33 00 43 49 53 5f 43 4c 4b 34 00 4d 55 58
+ 5f 43 49 53 5f 43 4c 4b 30 00 4d 55 58 5f 43 49
+ 53 5f 43 4c 4b 31 00 4d 55 58 5f 43 49 53 5f 43
+ 4c 4b 32 00 4d 55 58 5f 43 49 53 5f 43 4c 4b 33
+ 00 4d 55 58 5f 43 49 53 5f 43 4c 4b 34 00 47 41
+ 54 45 5f 49 53 5f 49 53 50 50 52 45 5f 43 53 49
+ 53 30 00 47 41 54 45 5f 49 53 5f 49 53 50 50 52
+ 45 5f 43 53 49 53 31 00 47 41 54 45 5f 49 53 5f
+ 49 53 50 
+TEXT:
+CIS_CLK0 CIS_CLK1 CIS_CLK2 CIS_CLK3 CIS_CLK4 MUX_CIS_CLK0 MUX_CIS_CLK1 MUX_CIS_CLK2 MUX_CIS_CLK3 MUX_CIS_CLK4 GATE_IS_ISPPRE_CSIS0 GATE_IS_ISPPRE_CSIS1 GATE_IS_ISPPRE_CSIS2 GATE_IS_ISPPRE_CSIS3 GATE_IS_ISPPRE_CSIS4 
+--- clocks ---
+HEX:
+ 00 00 00 02 00 00 00 9d 00 00 00 02 00 00 00 9e
+ 00 00 00 02 00 00 00 9f 00 00 00 02 00 00 00 a0
+ 00 00 00 02 00 00 00 a1 00 00 00 02 00 00 00 97
+ 00 00 00 02 00 00 00 98 00 00 00 02 00 00 00 99
+ 00 00 00 02 00 00 00 9a 00 00 00 02 00 00 00 9b
+ 00 00 00 02 00 00 01 7d 00 00 00 02 00 00 01 7e
+ 00 00 00 02 00 00 01 7f 00 00 00 02 00 00 01 80
+ 00 00 00 02 00 00 01 89
+
+TEXT:
+      ù      û      ü      †      °      ó      ò      ô      ö      õ     }     ~          Ä     â
+--- compatible ---
+HEX:
+ 73 61 6d 73 75 6e 67 2c 65 78 79 6e 6f 73 35 2d
+ 66 69 6d 63 2d 69 73 2d 73 65 6e 73 6f 72 00
+
+TEXT:
+samsung,exynos5-fimc-is-sensor 
+--- csi_ch ---
+HEX:
+ 00 00 00 02
+
+TEXT:
+   
+--- dma_ch ---
+HEX:
+ 00 00 00 02 00 00 00 02 00 00 00 02 00 00 00 02
+
+TEXT:
+            
+--- flite_ch ---
+HEX:
+ 00 00 00 64
+
+TEXT:
+   d
+--- id ---
+HEX:
+ 00 00 00 02
+
+TEXT:
+   
+--- interrupt-names ---
+HEX:
+ 63 73 69 00 6d 6f 64 65 30 5f 56 43 30 00 6d 6f
+ 64 65 30 5f 56 43 31 00 6d 6f 64 65 30 5f 56 43
+ 32 00 6d 6f 64 65 30 5f 56 43 33 00 6d 6f 64 65
+ 31 5f 56 43 30 00 6d 6f 64 65 31 5f 56 43 31 00
+ 6d 6f 64 65 31 5f 56 43 32 00 6d 6f 64 65 31 5f
+ 56 43 33 00
+
+TEXT:
+csi mode0_VC0 mode0_VC1 mode0_VC2 mode0_VC3 mode1_VC0 mode1_VC1 mode1_VC2 mode1_VC3 
+--- interrupts ---
+HEX:
+ 00 00 00 00 00 00 01 37 00 00 00 00 00 00 00 00
+ 00 00 01 3d 00 00 00 00 00 00 00 00 00 00 01 3d
+ 00 00 00 00 00 00 00 00 00 00 01 3d 00 00 00 00
+ 00 00 00 00 00 00 01 3d 00 00 00 00 00 00 00 00
+ 00 00 01 3d 00 00 00 00 00 00 00 00 00 00 01 48
+ 00 00 00 00 00 00 00 00 00 00 01 48 00 00 00 00
+ 00 00 00 00 00 00 01 48 00 00 00 00
+
+TEXT:
+      7          =          =          =          =          =          H          H          H    
+--- iommus ---
+HEX:
+ 00 00 00 35
+
+TEXT:
+   5
+--- is_bns ---
+HEX:
+ 00 00 00 00
+
+TEXT:
+    
+--- linux,phandle ---
+HEX:
+ 00 00 00 f8
+
+TEXT:
+   ¯
+--- name ---
+HEX:
+ 66 69 6d 63 5f 69 73 5f 73 65 6e 73 6f 72 00
+
+TEXT:
+fimc_is_sensor 
+--- phandle ---
+HEX:
+ 00 00 00 f8
+
+TEXT:
+   ¯
+--- phy-names ---
+HEX:
+ 63 73 69 73 5f 64 70 68 79 00
+
+TEXT:
+csis_dphy 
+--- phys ---
+HEX:
+ 00 00 00 43 00 00 00 00
+
+TEXT:
+   C    
+--- reg ---
+HEX:
+ 00 00 00 00 17 05 00 00 00 00 10 00 00 00 00 00
+ 19 16 00 00 00 01 00 00
+
+TEXT:
+                  
+--- reg-names ---
+HEX:
+ 63 73 69 00 70 68 79 00
+
+TEXT:
+csi phy 
+--- scenario ---
+HEX:
+ 00 00 00 00
+
+TEXT:
+    
+--- linux,phandle ---
+HEX:
+ 00 00 01 db
+
+TEXT:
+  €
+--- name ---
+HEX:
+ 73 65 6e 73 6f 72 32 2d 63 68 2d 6d 6f 64 65 30
+ 00
+
+TEXT:
+sensor2-ch-mode0 
+--- phandle ---
+HEX:
+ 00 00 01 db
+
+TEXT:
+  €
+--- reg ---
+HEX:
+ 17 0c 00 00 00 00 01 00 17 0c 04 00 00 00 01 00
+ 17 0c 01 00 00 00 01 00 17 0c 04 00 00 00 01 00
+ 17 0c 02 00 00 00 01 00 17 0c 04 00 00 00 01 00
+ 17 0c 03 00 00 00 01 00 17 0c 04 00 00 00 01 00
+
+TEXT:
+                                 
+--- linux,phandle ---
+HEX:
+ 00 00 01 dc
+
+TEXT:
+  ‹
+--- name ---
+HEX:
+ 73 65 6e 73 6f 72 32 2d 63 68 2d 6d 6f 64 65 31
+ 00
+
+TEXT:
+sensor2-ch-mode1 
+--- phandle ---
+HEX:
+ 00 00 01 dc
+
+TEXT:
+  ‹
+--- reg ---
+HEX:
+ 17 0c 00 00 00 00 01 00 17 0c 04 00 00 00 01 00
+ 17 12 01 00 00 00 01 00 17 12 04 00 00 00 01 00
+ 17 12 02 00 00 00 01 00 17 12 04 00 00 00 01 00
+ 17 12 03 00 00 00 01 00 17 12 04 00 00 00 01 00
+
+TEXT:
+                                 
+--- status ---
+HEX:
+ 6f 6b 61 79 00
+
+TEXT:
+okay 
+--- use_ssvc1_internal ---
+HEX:
+
+TEXT:
+
+--- vc_ch ---
+HEX:
+ 00 00 00 00 00 00 00 01 00 00 00 02 00 00 00 03
+
+TEXT:
+             
+
+========== fimc_is_sensor@17060000 ==========
+--- #address-cells ---
+HEX:
+ 00 00 00 01
+
+TEXT:
+   
+--- #size-cells ---
+HEX:
+ 00 00 00 01
+
+TEXT:
+   
+--- clock-names ---
+HEX:
+ 43 49 53 5f 43 4c 4b 30 00 43 49 53 5f 43 4c 4b
+ 31 00 43 49 53 5f 43 4c 4b 32 00 43 49 53 5f 43
+ 4c 4b 33 00 43 49 53 5f 43 4c 4b 34 00 4d 55 58
+ 5f 43 49 53 5f 43 4c 4b 30 00 4d 55 58 5f 43 49
+ 53 5f 43 4c 4b 31 00 4d 55 58 5f 43 49 53 5f 43
+ 4c 4b 32 00 4d 55 58 5f 43 49 53 5f 43 4c 4b 33
+ 00 4d 55 58 5f 43 49 53 5f 43 4c 4b 34 00 47 41
+ 54 45 5f 49 53 5f 49 53 50 50 52 45 5f 43 53 49
+ 53 30 00 47 41 54 45 5f 49 53 5f 49 53 50 50 52
+ 45 5f 43 53 49 53 31 00 47 41 54 45 5f 49 53 5f
+ 49 53 50 
+TEXT:
+CIS_CLK0 CIS_CLK1 CIS_CLK2 CIS_CLK3 CIS_CLK4 MUX_CIS_CLK0 MUX_CIS_CLK1 MUX_CIS_CLK2 MUX_CIS_CLK3 MUX_CIS_CLK4 GATE_IS_ISPPRE_CSIS0 GATE_IS_ISPPRE_CSIS1 GATE_IS_ISPPRE_CSIS2 GATE_IS_ISPPRE_CSIS3 GATE_IS_ISPPRE_CSIS4 
+--- clocks ---
+HEX:
+ 00 00 00 02 00 00 00 9d 00 00 00 02 00 00 00 9e
+ 00 00 00 02 00 00 00 9f 00 00 00 02 00 00 00 a0
+ 00 00 00 02 00 00 00 a1 00 00 00 02 00 00 00 97
+ 00 00 00 02 00 00 00 98 00 00 00 02 00 00 00 99
+ 00 00 00 02 00 00 00 9a 00 00 00 02 00 00 00 9b
+ 00 00 00 02 00 00 01 7d 00 00 00 02 00 00 01 7e
+ 00 00 00 02 00 00 01 7f 00 00 00 02 00 00 01 80
+ 00 00 00 02 00 00 01 89
+
+TEXT:
+      ù      û      ü      †      °      ó      ò      ô      ö      õ     }     ~          Ä     â
+--- compatible ---
+HEX:
+ 73 61 6d 73 75 6e 67 2c 65 78 79 6e 6f 73 35 2d
+ 66 69 6d 63 2d 69 73 2d 73 65 6e 73 6f 72 00
+
+TEXT:
+samsung,exynos5-fimc-is-sensor 
+--- csi_ch ---
+HEX:
+ 00 00 00 01
+
+TEXT:
+   
+--- dma_ch ---
+HEX:
+ 00 00 00 01 00 00 00 01 00 00 00 01 00 00 00 01
+
+TEXT:
+            
+--- flite_ch ---
+HEX:
+ 00 00 00 64
+
+TEXT:
+   d
+--- id ---
+HEX:
+ 00 00 00 05
+
+TEXT:
+   
+--- interrupt-names ---
+HEX:
+ 63 73 69 00 6d 6f 64 65 30 5f 56 43 30 00 6d 6f
+ 64 65 30 5f 56 43 31 00 6d 6f 64 65 30 5f 56 43
+ 32 00 6d 6f 64 65 30 5f 56 43 33 00
+
+TEXT:
+csi mode0_VC0 mode0_VC1 mode0_VC2 mode0_VC3 
+--- interrupts ---
+HEX:
+ 00 00 00 00 00 00 01 38 00 00 00 00 00 00 00 00
+ 00 00 01 49 00 00 00 00 00 00 00 00 00 00 01 49
+ 00 00 00 00 00 00 00 00 00 00 01 49 00 00 00 00
+ 00 00 00 00 00 00 01 49 00 00 00 00
+
+TEXT:
+      8          I          I          I          I    
+--- iommus ---
+HEX:
+ 00 00 00 35
+
+TEXT:
+   5
+--- is_bns ---
+HEX:
+ 00 00 00 00
+
+TEXT:
+    
+--- linux,phandle ---
+HEX:
+ 00 00 00 fb
+
+TEXT:
+   ˚
+--- name ---
+HEX:
+ 66 69 6d 63 5f 69 73 5f 73 65 6e 73 6f 72 00
+
+TEXT:
+fimc_is_sensor 
+--- phandle ---
+HEX:
+ 00 00 00 fb
+
+TEXT:
+   ˚
+--- phy-names ---
+HEX:
+ 63 73 69 73 5f 64 70 68 79 00
+
+TEXT:
+csis_dphy 
+--- phys ---
+HEX:
+ 00 00 00 46 00 00 00 00
+
+TEXT:
+   F    
+--- reg ---
+HEX:
+ 00 00 00 00 17 06 00 00 00 00 10 00 00 00 00 00
+ 19 16 00 00 00 01 00 00
+
+TEXT:
+                  
+--- reg-names ---
+HEX:
+ 63 73 69 00 70 68 79 00
+
+TEXT:
+csi phy 
+--- scenario ---
+HEX:
+ 00 00 00 00
+
+TEXT:
+    
+--- linux,phandle ---
+HEX:
+ 00 00 01 df
+
+TEXT:
+  ﬂ
+--- name ---
+HEX:
+ 73 65 6e 73 6f 72 35 2d 63 68 2d 6d 6f 64 65 30
+ 00
+
+TEXT:
+sensor5-ch-mode0 
+--- phandle ---
+HEX:
+ 00 00 01 df
+
+TEXT:
+  ﬂ
+--- reg ---
+HEX:
+ 17 13 00 00 00 00 01 00 17 13 04 00 00 00 01 00
+ 17 13 01 00 00 00 01 00 17 13 04 00 00 00 01 00
+ 17 13 02 00 00 00 01 00 17 13 04 00 00 00 01 00
+ 17 13 03 00 00 00 01 00 17 13 04 00 00 00 01 00
+
+TEXT:
+                                 
+--- status ---
+HEX:
+ 6f 6b 61 79 00
+
+TEXT:
+okay 
+--- vc_ch ---
+HEX:
+ 00 00 00 00 00 00 00 01 00 00 00 02 00 00 00 03
+
+TEXT:
+             
+
+========== fimc_is_sensor@17090000 ==========
+--- #address-cells ---
+HEX:
+ 00 00 00 01
+
+TEXT:
+   
+--- #interrupt-cells ---
+HEX:
+ 00 00 00 01
+
+TEXT:
+   
+--- #size-cells ---
+HEX:
+ 00 00 00 01
+
+TEXT:
+   
+--- clock-names ---
+HEX:
+ 43 49 53 5f 43 4c 4b 30 00 43 49 53 5f 43 4c 4b
+ 31 00 43 49 53 5f 43 4c 4b 32 00 43 49 53 5f 43
+ 4c 4b 33 00 43 49 53 5f 43 4c 4b 34 00 4d 55 58
+ 5f 43 49 53 5f 43 4c 4b 30 00 4d 55 58 5f 43 49
+ 53 5f 43 4c 4b 31 00 4d 55 58 5f 43 49 53 5f 43
+ 4c 4b 32 00 4d 55 58 5f 43 49 53 5f 43 4c 4b 33
+ 00 4d 55 58 5f 43 49 53 5f 43 4c 4b 34 00 47 41
+ 54 45 5f 49 53 5f 49 53 50 50 52 45 5f 43 53 49
+ 53 30 00 47 41 54 45 5f 49 53 5f 49 53 50 50 52
+ 45 5f 43 53 49 53 31 00 47 41 54 45 5f 49 53 5f
+ 49 53 50 
+TEXT:
+CIS_CLK0 CIS_CLK1 CIS_CLK2 CIS_CLK3 CIS_CLK4 MUX_CIS_CLK0 MUX_CIS_CLK1 MUX_CIS_CLK2 MUX_CIS_CLK3 MUX_CIS_CLK4 GATE_IS_ISPPRE_CSIS0 GATE_IS_ISPPRE_CSIS1 GATE_IS_ISPPRE_CSIS2 GATE_IS_ISPPRE_CSIS3 GATE_IS_ISPPRE_CSIS4 
+--- clocks ---
+HEX:
+ 00 00 00 02 00 00 00 9d 00 00 00 02 00 00 00 9e
+ 00 00 00 02 00 00 00 9f 00 00 00 02 00 00 00 a0
+ 00 00 00 02 00 00 00 a1 00 00 00 02 00 00 00 97
+ 00 00 00 02 00 00 00 98 00 00 00 02 00 00 00 99
+ 00 00 00 02 00 00 00 9a 00 00 00 02 00 00 00 9b
+ 00 00 00 02 00 00 01 7d 00 00 00 02 00 00 01 7e
+ 00 00 00 02 00 00 01 7f 00 00 00 02 00 00 01 80
+ 00 00 00 02 00 00 01 89
+
+TEXT:
+      ù      û      ü      †      °      ó      ò      ô      ö      õ     }     ~          Ä     â
+--- compatible ---
+HEX:
+ 73 61 6d 73 75 6e 67 2c 65 78 79 6e 6f 73 35 2d
+ 66 69 6d 63 2d 69 73 2d 73 65 6e 73 6f 72 00
+
+TEXT:
+samsung,exynos5-fimc-is-sensor 
+--- csi_ch ---
+HEX:
+ 00 00 00 04
+
+TEXT:
+   
+--- dma_ch ---
+HEX:
+ 00 00 00 03 00 00 00 03 00 00 00 03 00 00 00 03
+
+TEXT:
+            
+--- flite_ch ---
+HEX:
+ 00 00 00 64
+
+TEXT:
+   d
+--- id ---
+HEX:
+ 00 00 00 03
+
+TEXT:
+   
+--- interrupt-names ---
+HEX:
+ 63 73 69 00 6d 6f 64 65 30 5f 56 43 30 00 6d 6f
+ 64 65 30 5f 56 43 31 00 6d 6f 64 65 30 5f 56 43
+ 32 00 6d 6f 64 65 30 5f 56 43 33 00
+
+TEXT:
+csi mode0_VC0 mode0_VC1 mode0_VC2 mode0_VC3 
+--- interrupts ---
+HEX:
+ 00 00 00 00 00 00 01 4a 00 00 00 00 00 00 00 00
+ 00 00 01 3e 00 00 00 00 00 00 00 00 00 00 01 3e
+ 00 00 00 00 00 00 00 00 00 00 01 3e 00 00 00 00
+ 00 00 00 00 00 00 01 3e 00 00 00 00
+
+TEXT:
+      J          >          >          >          >    
+--- iommus ---
+HEX:
+ 00 00 00 35
+
+TEXT:
+   5
+--- is_bns ---
+HEX:
+ 00 00 00 00
+
+TEXT:
+    
+--- linux,phandle ---
+HEX:
+ 00 00 00 f9
+
+TEXT:
+   ˘
+--- name ---
+HEX:
+ 66 69 6d 63 5f 69 73 5f 73 65 6e 73 6f 72 00
+
+TEXT:
+fimc_is_sensor 
+--- phandle ---
+HEX:
+ 00 00 00 f9
+
+TEXT:
+   ˘
+--- phy-names ---
+HEX:
+ 63 73 69 73 5f 64 70 68 79 00
+
+TEXT:
+csis_dphy 
+--- phys ---
+HEX:
+ 00 00 00 44 00 00 00 00
+
+TEXT:
+   D    
+--- reg ---
+HEX:
+ 00 00 00 00 17 09 00 00 00 00 10 00 00 00 00 00
+ 19 16 00 00 00 01 00 00
+
+TEXT:
+    	              
+--- reg-names ---
+HEX:
+ 63 73 69 00 70 68 79 00
+
+TEXT:
+csi phy 
+--- scenario ---
+HEX:
+ 00 00 00 00
+
+TEXT:
+    
+--- linux,phandle ---
+HEX:
+ 00 00 01 dd
+
+TEXT:
+  ›
+--- name ---
+HEX:
+ 73 65 6e 73 6f 72 33 2d 63 68 2d 6d 6f 64 65 30
+ 00
+
+TEXT:
+sensor3-ch-mode0 
+--- phandle ---
+HEX:
+ 00 00 01 dd
+
+TEXT:
+  ›
+--- reg ---
+HEX:
+ 17 0d 00 00 00 00 01 00 17 0d 04 00 00 00 01 00
+ 17 0d 01 00 00 00 01 00 17 0d 04 00 00 00 01 00
+ 17 0d 02 00 00 00 01 00 17 0d 04 00 00 00 01 00
+ 17 0d 03 00 00 00 01 00 17 0d 04 00 00 00 01 00
+
+TEXT:
+                                 
+--- status ---
+HEX:
+ 6f 6b 61 79 00
+
+TEXT:
+okay 
+--- vc_ch ---
+HEX:
+ 00 00 00 00 00 00 00 01 00 00 00 02 00 00 00 03
+
+TEXT:
+             
+
+========== SENSOR FIRMWARE FILES ==========
+/vendor/firmware/setfile_3m3.bin
+/vendor/firmware/setfile_3p9.bin
+/vendor/firmware/setfile_2l4.bin
+/vendor/firmware/setfile_4ha.bin
+/vendor/firmware/setfile_3j1.bin
+/vendor/etc/init/android.hardware.sensors@2.0-service-multihal.rc
+/vendor/etc/permissions/android.hardware.sensor.accelerometer.xml
+/vendor/etc/permissions/android.hardware.sensor.gyroscope.xml
+/vendor/etc/permissions/android.hardware.sensor.barometer.xml
+/vendor/etc/permissions/android.hardware.sensor.light.xml
+/vendor/etc/permissions/android.hardware.sensor.stepdetector.xml
+/vendor/etc/permissions/android.hardware.sensor.compass.xml
+/vendor/etc/permissions/android.hardware.sensor.stepcounter.xml
+/vendor/etc/vintf/manifest/android.hardware.sensors@2.0-multihal.xml
+/vendor/etc/sensors/hals.conf
+/vendor/etc/sensor/lhd.conf
