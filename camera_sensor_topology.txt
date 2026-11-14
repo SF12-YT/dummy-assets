@@ -1,0 +1,181 @@
+===== CAMERA DEVICE TREE COMPATIBLES =====
+/sys/firmware/devicetree/base/fimc_is_sensor@17030000/compatible :: samsung,exynos5-fimc-is-sensor 
+/sys/firmware/devicetree/base/hsi2c@10860000/fimc-is-2l4@10/compatible :: samsung,exynos5-fimc-is-cis-2l4 
+/sys/firmware/devicetree/base/fimc_is@17190000/compatible :: samsung,exynos5-fimc-is 
+/sys/firmware/devicetree/base/fimc-is_sensor_3j1@10/compatible :: samsung,sensor-module-3j1 
+/sys/firmware/devicetree/base/hsi2c@108F0000/fimc-is-actuator@0C/compatible :: samsung,exynos5-fimc-is-actuator-ak737x 
+/sys/firmware/devicetree/base/hsi2c@108F0000/front_eeprom@51/compatible :: samsung,front-eeprom-i2c 
+/sys/firmware/devicetree/base/sensor-paf-pdp@17170000/compatible :: samsung,sensor-paf-pdp 
+/sys/firmware/devicetree/base/dphy_m0s4s4s4_csis1@17020500/compatible :: samsung,mipi-phy-m0s4s4s4-mod 
+/sys/firmware/devicetree/base/gdc@17530000/compatible :: samsung,exynos5-camerapp-gdc 
+/sys/firmware/devicetree/base/fimc_is_sensor@17040000/compatible :: samsung,exynos5-fimc-is-sensor 
+/sys/firmware/devicetree/base/dphy_m4s4_csis0@17020500/compatible :: samsung,mipi-phy-m4s4-top 
+/sys/firmware/devicetree/base/hsi2c@10870000/fimc-is-3p9@2D/compatible :: samsung,exynos5-fimc-is-cis-3p9 
+/sys/firmware/devicetree/base/hsi2c@10870000/rear2_eeprom@51/compatible :: samsung,rear2-eeprom-i2c 
+/sys/firmware/devicetree/base/fimc-is_sensor_3p9@2D/compatible :: samsung,sensor-module-3p9 
+/sys/firmware/devicetree/base/dphy_m0s4s4s4_csis3_1@17020500/compatible :: samsung,mipi-phy-m0s4s4s4-mod 
+/sys/firmware/devicetree/base/dphy_m0s4s4s4_csis2@17020500/compatible :: samsung,mipi-phy-m0s4s4s4-mod 
+/sys/firmware/devicetree/base/dphy_m4s0_dsim0@0x19161000/compatible :: samsung,mipi-phy-m4s0 
+/sys/firmware/devicetree/base/fimc_is_sensor@17050000/compatible :: samsung,exynos5-fimc-is-sensor 
+/sys/firmware/devicetree/base/fimc_is_sensor@17090000/compatible :: samsung,exynos5-fimc-is-sensor 
+/sys/firmware/devicetree/base/hsi2c@10880000/fimc-is-3j1@10/compatible :: samsung,exynos5-fimc-is-cis-3j1 
+/sys/firmware/devicetree/base/fimc-is-flash-gpio@0/compatible :: samsung,sensor-flash-s2mpb02 
+/sys/firmware/devicetree/base/dphy_m0s4s4s4_csis3@17020500/compatible :: samsung,mipi-phy-m0s4s4s4-mod 
+/sys/firmware/devicetree/base/hsi2c@10990000/mcu@51/compatible :: samsung,exynos5-fimc-is-ois-mcu 
+/sys/firmware/devicetree/base/fimc-is_sensor_2l4@20/compatible :: samsung,sensor-module-2l4 
+/sys/firmware/devicetree/base/dphy_m4s4_dsim0@0x19160000/compatible :: samsung,mipi-phy-m4s4-top 
+/sys/firmware/devicetree/base/fimc_is_sensor@17060000/compatible :: samsung,exynos5-fimc-is-sensor 
+/sys/firmware/devicetree/base/hsi2c@10890000/fimc-is-actuator@0C/compatible :: samsung,exynos5-fimc-is-actuator-ak737x 
+/sys/firmware/devicetree/base/hsi2c@10890000/rear_eeprom@50/compatible :: samsung,rear-eeprom-i2c 
+/sys/firmware/devicetree/base/fimc_is_sensor2@17050000/compatible :: samsung,exynos5-fimc-is-sensor 
+/sys/firmware/devicetree/base/reserved-memory/secure_camera/compatible :: exynos9820-ion 
+/sys/firmware/devicetree/base/reserved-memory/camera/compatible :: exynos9820-ion 
+/sys/firmware/devicetree/base/reserved-memory/camera_contig/compatible :: exynos9820-ion 
+/sys/firmware/devicetree/base/sensor-paf-pdp@17160000/compatible :: samsung,sensor-paf-pdp 
+===== CAMERA DEVICE TREE PROPERTIES =====
+--- /sys/firmware/devicetree/base/fimc_is_sensor@17030000 ---
+compatible: samsung,exynos5-fimc-is-sensor 
+status: okay 
+reg:                   
+--- /sys/firmware/devicetree/base/fimc_is_sensor@17030000/sensor0-ch-mode0 ---
+reg: 
+     
+    
+    
+    
+    
+    
+    
+    
+--- /sys/firmware/devicetree/base/fimc_is_sensor@17030000/sensor0-ch-mode1 ---
+reg: 
+     
+                            
+--- /sys/firmware/devicetree/base/hsi2c@10860000/fimc-is-2l4@10 ---
+compatible: samsung,exynos5-fimc-is-cis-2l4 
+reg:    
+--- /sys/firmware/devicetree/base/fimc_is@17190000 ---
+compatible: samsung,exynos5-fimc-is 
+status: ok 
+reg:                       *         C         s         D         c              
+--- /sys/firmware/devicetree/base/fimc_is@17190000/vender ---
+--- /sys/firmware/devicetree/base/fimc_is@17190000/vender/camera_info3 ---
+--- /sys/firmware/devicetree/base/fimc_is@17190000/vender/camera_info1 ---
+--- /sys/firmware/devicetree/base/fimc_is@17190000/vender/camera_info4 ---
+--- /sys/firmware/devicetree/base/fimc_is@17190000/vender/camera_info2 ---
+--- /sys/firmware/devicetree/base/fimc_is@17190000/vender/camera_info0 ---
+--- /sys/firmware/devicetree/base/fimc_is@17190000/fimc_is_dvfs ---
+--- /sys/firmware/devicetree/base/fimc_is@17190000/fimc_is_dvfs/table0 ---
+--- /sys/firmware/devicetree/base/fimc-is_sensor_3j1@10 ---
+compatible: samsung,sensor-module-3j1 
+status: okay 
+--- /sys/firmware/devicetree/base/fimc-is_sensor_3j1@10/af ---
+--- /sys/firmware/devicetree/base/fimc-is_sensor_3j1@10/ois ---
+--- /sys/firmware/devicetree/base/fimc-is_sensor_3j1@10/flash ---
+--- /sys/firmware/devicetree/base/hsi2c@108F0000/fimc-is-actuator@0C ---
+compatible: samsung,exynos5-fimc-is-actuator-ak737x 
+reg:    
+--- /sys/firmware/devicetree/base/hsi2c@108F0000/front_eeprom@51 ---
+compatible: samsung,front-eeprom-i2c 
+reg:    Q
+--- /sys/firmware/devicetree/base/sensor-paf-pdp@17170000 ---
+compatible: samsung,sensor-paf-pdp 
+reg:           
+--- /sys/firmware/devicetree/base/fimc_is_sensor@17040000 ---
+compatible: samsung,exynos5-fimc-is-sensor 
+status: okay 
+reg:                   
+--- /sys/firmware/devicetree/base/fimc_is_sensor@17040000/sensor4-ch-mode0 ---
+reg:                                  
+--- /sys/firmware/devicetree/base/hsi2c@10870000/fimc-is-3p9@2D ---
+compatible: samsung,exynos5-fimc-is-cis-3p9 
+status: okay 
+reg:    -
+--- /sys/firmware/devicetree/base/hsi2c@10870000/rear2_eeprom@51 ---
+compatible: samsung,rear2-eeprom-i2c 
+reg:    Q
+--- /sys/firmware/devicetree/base/fimc-is_sensor_3p9@2D ---
+compatible: samsung,sensor-module-3p9 
+status: okay 
+--- /sys/firmware/devicetree/base/fimc-is_sensor_3p9@2D/preprocessor ---
+--- /sys/firmware/devicetree/base/fimc-is_sensor_3p9@2D/af ---
+--- /sys/firmware/devicetree/base/fimc-is_sensor_3p9@2D/ois ---
+--- /sys/firmware/devicetree/base/fimc-is_sensor_3p9@2D/flash ---
+--- /sys/firmware/devicetree/base/fimc_is_sensor@17050000 ---
+compatible: samsung,exynos5-fimc-is-sensor 
+status: okay 
+reg:                   
+--- /sys/firmware/devicetree/base/fimc_is_sensor@17050000/sensor2-ch-mode1 ---
+reg:                                  
+--- /sys/firmware/devicetree/base/fimc_is_sensor@17050000/sensor2-ch-mode0 ---
+reg:                                  
+--- /sys/firmware/devicetree/base/fimc_is_sensor@17090000 ---
+compatible: samsung,exynos5-fimc-is-sensor 
+status: okay 
+reg:     	              
+--- /sys/firmware/devicetree/base/fimc_is_sensor@17090000/sensor3-ch-mode0 ---
+reg:                                  
+--- /sys/firmware/devicetree/base/hsi2c@10880000/fimc-is-3j1@10 ---
+compatible: samsung,exynos5-fimc-is-cis-3j1 
+reg:    
+--- /sys/firmware/devicetree/base/fimc-is-flash-gpio@0 ---
+compatible: samsung,sensor-flash-s2mpb02 
+status: okay 
+--- /sys/firmware/devicetree/base/fimc-is_sensor_2l4@20 ---
+compatible: samsung,sensor-module-2l4 
+status: okay 
+--- /sys/firmware/devicetree/base/fimc-is_sensor_2l4@20/aperture ---
+--- /sys/firmware/devicetree/base/fimc-is_sensor_2l4@20/mcu ---
+--- /sys/firmware/devicetree/base/fimc-is_sensor_2l4@20/af ---
+--- /sys/firmware/devicetree/base/fimc-is_sensor_2l4@20/ois ---
+--- /sys/firmware/devicetree/base/fimc-is_sensor_2l4@20/flash ---
+--- /sys/firmware/devicetree/base/fimc_is_sensor@17060000 ---
+compatible: samsung,exynos5-fimc-is-sensor 
+status: okay 
+reg:                   
+--- /sys/firmware/devicetree/base/fimc_is_sensor@17060000/sensor5-ch-mode0 ---
+reg:                                  
+--- /sys/firmware/devicetree/base/hsi2c@10890000/fimc-is-actuator@0C ---
+compatible: samsung,exynos5-fimc-is-actuator-ak737x 
+reg:    
+--- /sys/firmware/devicetree/base/hsi2c@10890000/rear_eeprom@50 ---
+compatible: samsung,rear-eeprom-i2c 
+reg:    P
+--- /sys/firmware/devicetree/base/fimc_is_sensor2@17050000 ---
+compatible: samsung,exynos5-fimc-is-sensor 
+status: okay 
+reg:                   
+--- /sys/firmware/devicetree/base/fimc_is_sensor2@17050000/sensor1-ch-mode0 ---
+reg:                                  
+--- /sys/firmware/devicetree/base/fimc_is_sensor2@17050000/sensor1-ch-mode1 ---
+reg:                                  
+--- /sys/firmware/devicetree/base/pinctrl@10830000/sensor-mclk1-out ---
+--- /sys/firmware/devicetree/base/pinctrl@10830000/sensor-mclk4-fn ---
+--- /sys/firmware/devicetree/base/pinctrl@10830000/sensor-mclk1-fn ---
+--- /sys/firmware/devicetree/base/pinctrl@10830000/sensor-mclk2-out ---
+--- /sys/firmware/devicetree/base/pinctrl@10830000/sensor-mclk3-out ---
+--- /sys/firmware/devicetree/base/pinctrl@10830000/sensor-mclk3-fn ---
+--- /sys/firmware/devicetree/base/pinctrl@10830000/sensor-mclk0-fn ---
+--- /sys/firmware/devicetree/base/pinctrl@10830000/sensor-mclk0-out ---
+--- /sys/firmware/devicetree/base/pinctrl@10830000/sensor-mclk4-out ---
+--- /sys/firmware/devicetree/base/pinctrl@10830000/sensor-mclk2-fn ---
+--- /sys/firmware/devicetree/base/reserved-memory/secure_camera ---
+compatible: exynos9820-ion 
+reg:     –      
+--- /sys/firmware/devicetree/base/reserved-memory/camera ---
+compatible: exynos9820-ion 
+reg:     ™   @  
+--- /sys/firmware/devicetree/base/reserved-memory/camera_contig ---
+compatible: exynos9820-ion 
+reg:     ˜    à  
+--- /sys/firmware/devicetree/base/sensor-paf-pdp@17160000 ---
+compatible: samsung,sensor-paf-pdp 
+reg:           
+===== I2C CAMERA DEVICES =====
+/sys/bus/i2c/devices/0-0010 | exynos5-fimc-is-cis | i2c:exynos5-fimc-is-cis | S5K2L4
+/sys/bus/i2c/devices/1-002d | exynos5-fimc-is-cis | i2c:exynos5-fimc-is-cis | S5K3P9
+/sys/bus/i2c/devices/1-0051 | rear2-eeprom-i2c | i2c:rear2-eeprom-i2c | fimc_is_eeprom_i2c
+/sys/bus/i2c/devices/2-0010 | exynos5-fimc-is-cis | i2c:exynos5-fimc-is-cis | S5K3J1
+/sys/bus/i2c/devices/3-0050 | rear-eeprom-i2c | i2c:rear-eeprom-i2c | fimc_is_eeprom_i2c
+/sys/bus/i2c/devices/7-0051 | front-eeprom-i2c | i2c:front-eeprom-i2c | fimc_is_eeprom_i2c
+/sys/bus/i2c/devices/9-0051 | exynos5-fimc-is-ois | i2c:exynos5-fimc-is-ois | MCU_STM32
