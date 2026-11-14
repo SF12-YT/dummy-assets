@@ -1,0 +1,37 @@
+===== SVC CAMERA TREE =====
+
+----- /sys/devices/svc/Camera/SVC_rear_module2 -----
+CVMBG0D98002E01
+
+----- /sys/devices/svc/Camera/SVC_rear_module -----
+OVMBI101B130201
+
+----- /sys/devices/svc/Camera/SVC_front_module -----
+CVMBP077A000A01
+
+===== CAMERA CLASS LINKS =====
+total 0
+drwxr-xr-x  2 root root 0 2026-11-13 10:39 .
+drwxr-xr-x 96 root root 0 2026-11-13 10:38 ..
+lrwxrwxrwx  1 root root 0 2026-11-13 12:33 flash -> ../../devices/virtual/camera/flash
+lrwxrwxrwx  1 root root 0 2026-11-13 10:39 front -> ../../devices/virtual/camera/front
+lrwxrwxrwx  1 root root 0 2026-11-13 10:40 ois -> ../../devices/virtual/camera/ois
+lrwxrwxrwx  1 root root 0 2026-11-13 10:39 rear -> ../../devices/virtual/camera/rear
+
+===== CAMERA PROPERTIES =====
+[init.svc.cameraserver]: [running]
+[init.svc.sec-camera-provider-4-0]: [running]
+[init.svc_debug_pid.cameraserver]: [5631]
+[init.svc_debug_pid.sec-camera-provider-4-0]: [5443]
+[persist.device_config.runtime_native_boot.pin_camera]: []
+[persist.vendor.camera.adjustfps]: [0]
+[persist.vendor.sys.camera.preview]: [0]
+[ro.boottime.cameraserver]: [11280793530]
+[ro.boottime.sec-camera-provider-4-0]: [10388748070]
+[ro.camera.notify_nfc]: [1]
+[ro.camerax.extensions.enabled]: [true]
+[ro.slmk.use_camera_boost]: [true]
+[service.camera.client]: []
+[service.camera.rec.running]: [0]
+[service.camera.running]: [0]
+[vendor.camera.unihal.enable]: [true]
