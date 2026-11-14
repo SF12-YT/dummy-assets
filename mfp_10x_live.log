@@ -1,0 +1,338 @@
+--------- beginning of main
+11-14 20:56:46.360  5443 21920 E jsqz_hal: [!!ERR!!] setBuf -> you need to create the device first!
+11-14 20:56:46.360  5443 21920 E jsqz_hal: [!!ERR!!] setImageInfo -> you need to create the device first!
+11-14 20:56:46.360  5443 21920 E jsqz_hal: [!!ERR!!] setJsqzConfig -> you need to create the device first!
+11-14 20:56:46.360  5443 21920 E jsqz_hal: [!!ERR!!] execute -> you need to create the device first!
+11-14 20:56:46.365  5487  5487 E SurfaceFlinger: Attempt to update InputPolicyFlags without permission ACCESS_SURFACE_FLINGER
+11-14 20:56:46.394  5564  5564 I GestureDetector: handleMessage TAP
+11-14 20:56:46.395  5564  5792 I GestureDetector: handleMessage TAP
+11-14 20:56:46.457  5443 21922 E jsqz_hal: [!!ERR!!] setBuf -> you need to create the device first!
+11-14 20:56:46.457  5443 21922 E jsqz_hal: [!!ERR!!] setImageInfo -> you need to create the device first!
+11-14 20:56:46.458  5443 21922 E jsqz_hal: [!!ERR!!] setJsqzConfig -> you need to create the device first!
+11-14 20:56:46.458  5443 21922 E jsqz_hal: [!!ERR!!] execute -> you need to create the device first!
+11-14 20:56:46.466  5487  5487 E SurfaceFlinger: Attempt to update InputPolicyFlags without permission ACCESS_SURFACE_FLINGER
+11-14 20:56:46.558  5443 21923 E jsqz_hal: [!!ERR!!] setBuf -> you need to create the device first!
+11-14 20:56:46.558  5443 21923 E jsqz_hal: [!!ERR!!] setImageInfo -> you need to create the device first!
+11-14 20:56:46.558  5443 21923 E jsqz_hal: [!!ERR!!] setJsqzConfig -> you need to create the device first!
+11-14 20:56:46.558  5443 21923 E jsqz_hal: [!!ERR!!] execute -> you need to create the device first!
+11-14 20:56:46.559  5146  5146 W keymaster_tee: [WRN]begin req PARAMS: A3 D4 
+11-14 20:56:46.560  5429  5830 D android.hardware.sensors@2.0-service.multihal: Als_common::readEvents, enabled : 1, data : -1.000000, 0.000000, 0.000000, 0.000000, 0.000000, 50000.000000, 64000.000000
+11-14 20:56:46.565  5145 16978 I keystore2: keystore2::security_level: In create_operation. Success to create IKeystoreOperation. 10283, None
+11-14 20:56:46.566  5487  5487 E SurfaceFlinger: Attempt to update InputPolicyFlags without permission ACCESS_SURFACE_FLINGER
+11-14 20:56:46.614 21913 21913 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 0 <<<<<<
+11-14 20:56:46.617  5487  5487 I SurfaceFlinger: SFWD update time=74850809887155
+11-14 20:56:46.632 21913 21913 I AndroidRuntime: Using default boot image
+11-14 20:56:46.632 21913 21913 I AndroidRuntime: Leaving lock profiling enabled
+11-14 20:56:46.634 21913 21913 D SecNativeFeatureCppIf: encoded
+11-14 20:56:46.635 21913 21913 D SecNativeFeatureCppIf: decoding and unzip finish
+11-14 20:56:46.635 21913 21913 D SecNativeFeatureCppIf: use unCompDataBuff. encoded
+11-14 20:56:46.635 21913 21913 D SecNativeFeatureCppIf: Free unCompDataBuff
+11-14 20:56:46.635 21913 21913 D AndroidRuntime: addProductProperty: pBrand1 is not null
+11-14 20:56:46.635 21913 21913 D AndroidRuntime: addProductProperty: not brand or 7
+11-14 20:56:46.642 21913 21913 W 20      : ART APEX data files are untrusted.
+11-14 20:56:46.647  5564  7627 D SemNscXgbMsL1: Probability - Cloud gaming: [0.011280269]
+11-14 20:56:46.647  5564  7627 D SemNscXgbMsL1: Probability - Real time: [0.029778238]
+11-14 20:56:46.647  5564  7627 D SemNscXgbMsL1: Probability - Non real time: [0.8843032]
+11-14 20:56:46.647  5564  7627 D SemNscXgbMsL1: 1 sample inference time: 0.483923 msecs
+11-14 20:56:46.648  5564  7627 D SemNscXgbL2Rt: L2 RT 1 sample inference time: 0.924654 msecs
+11-14 20:56:46.649  5564  7627 D SemNscXgbL2Nrt: L2 NRT 1 sample inference time: 0.682807 msecs
+11-14 20:56:46.659  5443 21924 E jsqz_hal: [!!ERR!!] setBuf -> you need to create the device first!
+11-14 20:56:46.659  5443 21924 E jsqz_hal: [!!ERR!!] setImageInfo -> you need to create the device first!
+11-14 20:56:46.659  5443 21924 E jsqz_hal: [!!ERR!!] setJsqzConfig -> you need to create the device first!
+11-14 20:56:46.659  5443 21924 E jsqz_hal: [!!ERR!!] execute -> you need to create the device first!
+11-14 20:56:46.667  5487  5487 E SurfaceFlinger: Attempt to update InputPolicyFlags without permission ACCESS_SURFACE_FLINGER
+11-14 20:56:46.760  5443 21926 E jsqz_hal: [!!ERR!!] setBuf -> you need to create the device first!
+11-14 20:56:46.760  5443 21926 E jsqz_hal: [!!ERR!!] setImageInfo -> you need to create the device first!
+11-14 20:56:46.760  5443 21926 E jsqz_hal: [!!ERR!!] setJsqzConfig -> you need to create the device first!
+11-14 20:56:46.760  5443 21926 E jsqz_hal: [!!ERR!!] execute -> you need to create the device first!
+11-14 20:56:46.767  5487  5487 E SurfaceFlinger: Attempt to update InputPolicyFlags without permission ACCESS_SURFACE_FLINGER
+11-14 20:56:46.807 21610 21888 I SRCB_QR : QRBarcodeDecoder.barcodeRecognize cost time 244.657471
+11-14 20:56:46.808 21610 21888 W SaivQRCodeNode: processBackgroundPreviewInternal fail - ERROR_ENGINE_FAIL
+11-14 20:56:46.816  5564  7895 I ChimeraAggressivePolicyHandler: executePolicy() - triggerSource: TRIGGER_SOURCE_LMKD
+11-14 20:56:46.816  5564  7895 I ChimeraAggressivePolicyHandler: memAvailable: 694856, memFreeTarget: 1126400, releaseTarget:431544, protectedLruCount: 19
+11-14 20:56:46.849  5564  7895 I NSLocationMonitor: getGPSUsingApps() called
+--------- beginning of system
+11-14 20:56:46.856  5564  7581 D UsbStatsMonitor: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4 0 0 0 0 17703855194138
+11-14 20:56:46.858  9246 13144 I NSLocationManager_FLP: getGPSUsingApps, NO_FREEZE={5013} / FREEZE={}
+11-14 20:56:46.860  5443 21927 E jsqz_hal: [!!ERR!!] setBuf -> you need to create the device first!
+11-14 20:56:46.860  5443 21927 E jsqz_hal: [!!ERR!!] setImageInfo -> you need to create the device first!
+11-14 20:56:46.860  5443 21927 E jsqz_hal: [!!ERR!!] setJsqzConfig -> you need to create the device first!
+11-14 20:56:46.860  5443 21927 E jsqz_hal: [!!ERR!!] execute -> you need to create the device first!
+11-14 20:56:46.866  5564  7895 D MARs:OngoingNotiPackageFilter: filter : android(0)
+11-14 20:56:46.868  5487  5487 E SurfaceFlinger: Attempt to update InputPolicyFlags without permission ACCESS_SURFACE_FLINGER
+11-14 20:56:46.870  5564  7895 I ChimeraAggressivePolicyHandler: Start doKill, protected policy: NORMAL
+11-14 20:56:46.870  5564  7895 I ChimeraAggressivePolicyHandler: kill complete: killed 0 apps, freed 0 KB
+11-14 20:56:46.870  5564  7895 I ChimeraAggressivePolicyHandler: Start doKill, protected policy: HEAVY
+11-14 20:56:46.871  5564  7895 I ChimeraAggressivePolicyHandler: kill complete: killed 0 apps, freed 0 KB
+11-14 20:56:46.871  5564  7895 I ChimeraAggressivePolicyHandler: Skipped reason: LR, pids: 15201 11111 21610 21343 
+11-14 20:56:46.871  5564  7895 I ChimeraAggressivePolicyHandler: Skipped reason: CA, pids: 5128 20749 
+11-14 20:56:46.871  5564  7895 I ChimeraAggressivePolicyHandler: Skipped reason: PE, pids: 3394 2242 7939 9667 8259 7941 8393 8074 8395 8397 11407 9687 9246 7906 2661 8999 26664 8757 8375 9724 5564 9663 
+11-14 20:56:46.871  5564  7895 I ChimeraAggressivePolicyHandler: Skipped reason: CA, pids: 19555 19590 15485 15149 
+11-14 20:56:46.871  5564  7895 I ChimeraAggressivePolicyHandler: Skipped reason: IN, pids: 21287 588 
+11-14 20:56:46.871  5564  7895 I ChimeraAggressivePolicyHandler: Skipped reason: AD, pids: 10017 20578 19941 21801 21514 3379 3381 9976 3000 17945 3388 3389 9886 
+11-14 20:56:46.871  5564  7895 I ChimeraAggressivePolicyHandler: Processing time(ms) 55
+11-14 20:56:46.928 21913 21913 D 20      : Time zone APEX ICU file found: /apex/com.android.tzdata/etc/icu/icu_tzdata.dat
+11-14 20:56:46.928 21913 21913 D 20      : I18n APEX ICU file found: /apex/com.android.i18n/etc/icu/icudt68l.dat
+11-14 20:56:46.960  5443 21928 E jsqz_hal: [!!ERR!!] setBuf -> you need to create the device first!
+11-14 20:56:46.960  5443 21928 E jsqz_hal: [!!ERR!!] setImageInfo -> you need to create the device first!
+11-14 20:56:46.960  5443 21928 E jsqz_hal: [!!ERR!!] setJsqzConfig -> you need to create the device first!
+11-14 20:56:46.960  5443 21928 E jsqz_hal: [!!ERR!!] execute -> you need to create the device first!
+11-14 20:56:46.968  5487  5487 E SurfaceFlinger: Attempt to update InputPolicyFlags without permission ACCESS_SURFACE_FLINGER
+11-14 20:56:47.006  5429  5830 D android.hardware.sensors@2.0-service.multihal: Als_common::readEvents, enabled : 1, data : 0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 50000.000000, 64000.000000
+11-14 20:56:47.025 21913 21913 E SemDvfsManager_JNI: SemDvfsManager: registerfunction enter
+11-14 20:56:47.025 21913 21913 E SemAffinityControl: SemAffinityControl: registerfunction enter
+11-14 20:56:47.027  5631 21689 I Camera3-Device: WatchDog...
+11-14 20:56:47.060 21913 21913 D ProcessState: Binder ioctl to enable oneway spam detection failed: Invalid argument
+11-14 20:56:47.061 21913 21913 D AndroidRuntime: Calling main entry com.android.commands.content.Content
+11-14 20:56:47.061  5443 21940 E jsqz_hal: [!!ERR!!] setBuf -> you need to create the device first!
+11-14 20:56:47.061  5443 21940 E jsqz_hal: [!!ERR!!] setImageInfo -> you need to create the device first!
+11-14 20:56:47.061  5443 21940 E jsqz_hal: [!!ERR!!] setJsqzConfig -> you need to create the device first!
+11-14 20:56:47.061  5443 21940 E jsqz_hal: [!!ERR!!] execute -> you need to create the device first!
+11-14 20:56:47.069  5487  5487 E SurfaceFlinger: Attempt to update InputPolicyFlags without permission ACCESS_SURFACE_FLINGER
+11-14 20:56:47.075  5564 10357 D CompatibilityChangeReporter: Compat change id reported: 135634846; UID 10285; state: DISABLED
+11-14 20:56:47.075  5564 10357 D CompatibilityChangeReporter: Compat change id reported: 177438394; UID 10285; state: DISABLED
+11-14 20:56:47.075  5564 10357 D CompatibilityChangeReporter: Compat change id reported: 135772972; UID 10285; state: DISABLED
+11-14 20:56:47.075  5564 10357 D CompatibilityChangeReporter: Compat change id reported: 135754954; UID 10285; state: ENABLED
+11-14 20:56:47.075  5564  5865 D CompatibilityChangeReporter: Compat change id reported: 143937733; UID 10285; state: ENABLED
+11-14 20:56:47.075  5564 10357 W ContentProviderHelper: wait for provider publish: waiters=0 callerApp=null cpr=ContentProviderRecord{725e3c9 u0 nmpksvqscy.ggx/jon.Io8.C.st0.TXC}
+11-14 20:56:47.080  5345  5345 D Zygote  : Forked child process 21943
+11-14 20:56:47.081  5564  5865 I ActivityManager: Start proc 21943:nmpksvqscy.ggx/u0a285 for content provider {nmpksvqscy.ggx/jon.Io8.C.st0.TXC}
+11-14 20:56:47.101 21943 21943 E nmpksvqscy.ggx: Not starting debugger since process cannot load the jdwp agent.
+11-14 20:56:47.129 21943 21943 E USNET   : USNET: appName: nmpksvqscy.ggx
+11-14 20:56:47.130 21943 21943 D ProcessState: Binder ioctl to enable oneway spam detection failed: Invalid argument
+11-14 20:56:47.133 21943 21943 D ActivityThread: setConscryptValidator
+11-14 20:56:47.134 21943 21943 D ActivityThread: setConscryptValidator - put
+11-14 20:56:47.137  5564  9765 D CompatibilityChangeReporter: Compat change id reported: 168419799; UID 10285; state: DISABLED
+11-14 20:56:47.138  5564  9765 I ActivityManager: DSS OFF for nmpksvqscy.ggx
+11-14 20:56:47.145  5564  9765 D ActivityManager: attachApplicationLocked() app=ProcessRecord{dafab93 21943:nmpksvqscy.ggx/u0a285} app.isolatedEntryPoint=null instr2=null
+11-14 20:56:47.147  5564  5792 D NetworkPolicy: onUidStateChanged() uid: 10285, isForeground(false, 6)
+11-14 20:56:47.149  7939  7939 D HidDeviceService: handleMessage(): msg.what=8
+11-14 20:56:47.151  5564  7627 D SemNscXgbMsL1: Probability - Cloud gaming: [0.036994785]
+11-14 20:56:47.151  5564  7627 D SemNscXgbMsL1: Probability - Real time: [0.037623428]
+11-14 20:56:47.151  5564  7627 D SemNscXgbMsL1: Probability - Non real time: [0.9231613]
+11-14 20:56:47.151  5564  7627 D SemNscXgbMsL1: 1 sample inference time: 0.482346 msecs
+11-14 20:56:47.152  5564  7627 D SemNscXgbL2Rt: L2 RT 1 sample inference time: 0.837384 msecs
+11-14 20:56:47.153  5564  7627 D SemNscXgbL2Nrt: L2 NRT 1 sample inference time: 0.659308 msecs
+11-14 20:56:47.153 21943 21943 D ActivityThread: handleBindApplication()++ app=nmpksvqscy.ggx
+11-14 20:56:47.154 21943 21943 D CompatibilityChangeReporter: Compat change id reported: 171979766; UID 10285; state: ENABLED
+11-14 20:56:47.161  5443 21958 E jsqz_hal: [!!ERR!!] setBuf -> you need to create the device first!
+11-14 20:56:47.161  5443 21958 E jsqz_hal: [!!ERR!!] setImageInfo -> you need to create the device first!
+11-14 20:56:47.161  5443 21958 E jsqz_hal: [!!ERR!!] setJsqzConfig -> you need to create the device first!
+11-14 20:56:47.161  5443 21958 E jsqz_hal: [!!ERR!!] execute -> you need to create the device first!
+11-14 20:56:47.169  5487  5487 E SurfaceFlinger: Attempt to update InputPolicyFlags without permission ACCESS_SURFACE_FLINGER
+11-14 20:56:47.180 21943 21943 V GraphicsEnvironment: ANGLE Developer option for 'nmpksvqscy.ggx' set to: 'default'
+11-14 20:56:47.181 21943 21943 V GraphicsEnvironment: App is not on the allowlist for updatable production driver.
+11-14 20:56:47.182 21943 21943 D LoadedApk: LoadedApk::makeApplication() appContext.mOpPackageName=nmpksvqscy.ggx appContext.mBasePackageName=nmpksvqscy.ggx
+11-14 20:56:47.182 21943 21943 D NetworkSecurityConfig: No Network Security Config specified, using platform default
+11-14 20:56:47.185  5443 21710 I ExynosCameraFrameManager: [CAM(0)][RUNNING FRAME WORKER]-(workerMain[983]): wait and pop fail, ret(-110)
+11-14 20:56:47.185 21943 21961 E nmpksvqscy.ggx: No package ID 7f found for ID 0x7f08008e.
+11-14 20:56:47.187 21943 21943 D NetworkSecurityConfig: No Network Security Config specified, using platform default
+11-14 20:56:47.187 21943 21961 W ResourcesOffloading: An exception occurred : 
+11-14 20:56:47.187 21943 21961 W ResourcesOffloading: android.content.res.Resources$NotFoundException: Resource ID #0x7f08008e
+11-14 20:56:47.187 21943 21961 W ResourcesOffloading: 	at android.content.res.ResourcesImpl.getValueForDensity(ResourcesImpl.java:249)
+11-14 20:56:47.187 21943 21961 W ResourcesOffloading: 	at android.content.res.Resources.offloadDrawable(Resources.java:2826)
+11-14 20:56:47.187 21943 21961 W ResourcesOffloading: 	at android.app.ResourcesOffloading$ResourcesOffloadingRunnable.run(ResourcesOffloading.java:86)
+11-14 20:56:47.187 21943 21961 W ResourcesOffloading: 	at java.lang.Thread.run(Thread.java:920)
+11-14 20:56:47.188 21943 21943 W nmpksvqscy.ggx: Unsupported class loader
+11-14 20:56:47.228 21943 21943 W nmpksvqscy.ggx: Unsupported class loader
+11-14 20:56:47.228 21943 21943 W nmpksvqscy.ggx: Unsupported class loader
+11-14 20:56:47.231  5564  9765 E system_server: Invalid class loader spec: =UnsupportedClassLoaderContext=
+11-14 20:56:47.231  5564  9765 E PackageDexUsage: Unsupported context?
+11-14 20:56:47.233  5034  5034 D io_stats: !@   8,0 r 10262780 301393700 w 4281827 122414652 d 0 0 f 0 0 iot 5220756 0 th 0 0 0 pt 0 inp 0 2 74851.425
+11-14 20:56:47.263  5443 21962 E jsqz_hal: [!!ERR!!] setBuf -> you need to create the device first!
+11-14 20:56:47.263  5443 21962 E jsqz_hal: [!!ERR!!] setImageInfo -> you need to create the device first!
+11-14 20:56:47.263  5443 21962 E jsqz_hal: [!!ERR!!] setJsqzConfig -> you need to create the device first!
+11-14 20:56:47.263  5443 21962 E jsqz_hal: [!!ERR!!] execute -> you need to create the device first!
+11-14 20:56:47.270  5487  5487 E SurfaceFlinger: Attempt to update InputPolicyFlags without permission ACCESS_SURFACE_FLINGER
+11-14 20:56:47.360  4919  4919 I hwservicemanager: Notifying vendor.samsung.hardware.snap@1.2::ISehSnap/default they have clients: 1
+11-14 20:56:47.360 21855 21855 I HidlLazyUtils: Process has 1 (of 1 available) client(s) in use after notification vendor.samsung.hardware.snap@1.2::ISehSnap/default has clients: 1
+11-14 20:56:47.360  5443 21963 E jsqz_hal: [!!ERR!!] setBuf -> you need to create the device first!
+11-14 20:56:47.360  5443 21963 E jsqz_hal: [!!ERR!!] setImageInfo -> you need to create the device first!
+11-14 20:56:47.360  5443 21963 E jsqz_hal: [!!ERR!!] setJsqzConfig -> you need to create the device first!
+11-14 20:56:47.360  5443 21963 E jsqz_hal: [!!ERR!!] execute -> you need to create the device first!
+11-14 20:56:47.370  5487  5487 E SurfaceFlinger: Attempt to update InputPolicyFlags without permission ACCESS_SURFACE_FLINGER
+11-14 20:56:47.428 21943 21943 D ConnectivityManager: StackLog: [android.net.ConnectivityManager.sendRequestForNetwork(ConnectivityManager.java:3925)] [android.net.ConnectivityManager.sendRequestForNetwork(ConnectivityManager.java:3967)] [android.net.ConnectivityManager.registerNetworkCallback(ConnectivityManager.java:4349)] [android.net.ConnectivityManager.registerNetworkCallback(ConnectivityManager.java:4319)] [n.f.<init>(r8-map-id-df6f98043e809a43aada3d86ac409e2da27f8942b2dfb619f47c12bca06f26c0:13)] [e4.c.a(r8-map-id-df6f98043e809a43aada3d86ac409e2da27f8942b2dfb619f47c12bca06f26c0:277)] [com.topjohnwu.magisk.core.App.attachBaseContext(r8-map-id-df6f98043e809a43aada3d86ac409e2da27f8942b2dfb619f47c12bca06f26c0:9)] [java.lang.reflect.Method.invoke(Native Method)] [q.b(r8-map-id-ca79418a3b05a52ee235bb878197c84b5b5205ce39f95b0b9d0863f1c4c0714b:36)] [iE.attachBaseContext(r8-map-id-ca79418a3b05a52ee235bb878197c84b5b5205ce39f95b0b9d0863f1c4c0714b:262)] [android.app.Application.attach(Application.java:350)] [android.app.Instrumentation.newApplication(Instrumentation.java:1178)] [android.app.LoadedApk.makeApplication(LoadedApk.java:1457)] [android.app.ActivityThread.handleBindApplication(ActivityThread.java:7540)] [android.app.ActivityThread.access$1700(ActivityThread.java:315)] [android.app.ActivityThread$H.handleMessage(ActivityThread.java:2286)]
+11-14 20:56:47.430  5564  7536 D ConnectivityService: NetworkReassignment : no changes
+11-14 20:56:47.439  4917  4917 I lmkd    : cached 1, sandbox(not0) 1
+11-14 20:56:47.443  4917  4917 I lmkd    : Reclaim 'com.samsung.storyservice' (20749), uid 5004, oom_score_adj 905, state 19 to free 39228kB rss, 32776kb swap
+11-14 20:56:47.443  4917  4917 I lmkd    : Reclaimed 72004kB at oom_score_adj 850
+11-14 20:56:47.446 21943 21943 D ActivityThread: handleBindApplication() --
+11-14 20:56:47.458  5429  5830 D android.hardware.sensors@2.0-service.multihal: Als_common::readEvents, enabled : 1, data : 0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 50000.000000, 64000.000000
+11-14 20:56:47.459  5345  5345 I Zygote  : Process 20749 exited due to signal 9 (Killed)
+11-14 20:56:47.461  5443 21973 E jsqz_hal: [!!ERR!!] setBuf -> you need to create the device first!
+11-14 20:56:47.461  5443 21973 E jsqz_hal: [!!ERR!!] setImageInfo -> you need to create the device first!
+11-14 20:56:47.461  5443 21973 E jsqz_hal: [!!ERR!!] setJsqzConfig -> you need to create the device first!
+11-14 20:56:47.462  5443 21973 E jsqz_hal: [!!ERR!!] execute -> you need to create the device first!
+11-14 20:56:47.465  5564  9765 I ActivityManager: Process com.samsung.storyservice (pid 20749) has died: cch+5 CEM (98,655)
+11-14 20:56:47.466  5564  5871 I libprocessgroup: Successfully killed process cgroup uid 5004 pid 20749 in 0ms
+11-14 20:56:47.470  5487  5487 E SurfaceFlinger: Attempt to update InputPolicyFlags without permission ACCESS_SURFACE_FLINGER
+11-14 20:56:47.496  5564  9765 I GenerationRegistry: mBackingStore.isClosed() : false
+11-14 20:56:47.520  7939  7939 D HidDeviceService: handleMessage(): msg.what=8
+11-14 20:56:47.523 21913 21913 D hw-ProcessState: Binder ioctl to enable oneway spam detection failed: Invalid argument
+11-14 20:56:47.524 21913 21913 D AndroidRuntime: Shutting down VM
+11-14 20:56:47.563  5443 21986 E jsqz_hal: [!!ERR!!] setBuf -> you need to create the device first!
+11-14 20:56:47.563  5443 21986 E jsqz_hal: [!!ERR!!] setImageInfo -> you need to create the device first!
+11-14 20:56:47.563  5443 21986 E jsqz_hal: [!!ERR!!] setJsqzConfig -> you need to create the device first!
+11-14 20:56:47.563  5443 21986 E jsqz_hal: [!!ERR!!] execute -> you need to create the device first!
+11-14 20:56:47.571  5487  5487 E SurfaceFlinger: Attempt to update InputPolicyFlags without permission ACCESS_SURFACE_FLINGER
+11-14 20:56:47.596  5434 21675 I HYPER-HAL: [RequestManager.cpp]releaseLocked(): Released ID : 47467915
+11-14 20:56:47.628 21974 21974 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 0 <<<<<<
+11-14 20:56:47.633 21974 21974 I AndroidRuntime: Using default boot image
+11-14 20:56:47.633 21974 21974 I AndroidRuntime: Leaving lock profiling enabled
+11-14 20:56:47.636 21974 21974 D SecNativeFeatureCppIf: encoded
+11-14 20:56:47.636 21974 21974 D SecNativeFeatureCppIf: decoding and unzip finish
+11-14 20:56:47.636 21974 21974 D SecNativeFeatureCppIf: use unCompDataBuff. encoded
+11-14 20:56:47.637 21974 21974 D SecNativeFeatureCppIf: Free unCompDataBuff
+11-14 20:56:47.637 21974 21974 D AndroidRuntime: addProductProperty: pBrand1 is not null
+11-14 20:56:47.637 21974 21974 D AndroidRuntime: addProductProperty: not brand or 7
+11-14 20:56:47.641 21974 21974 W nmpksvqscy.ggx:root:0: ART APEX data files are untrusted.
+11-14 20:56:47.654  5564  7627 D SemNscXgbMsL1: Probability - Cloud gaming: [0.021017225]
+11-14 20:56:47.654  5564  7627 D SemNscXgbMsL1: Probability - Real time: [0.031641282]
+11-14 20:56:47.654  5564  7627 D SemNscXgbMsL1: Probability - Non real time: [0.89365375]
+11-14 20:56:47.654  5564  7627 D SemNscXgbMsL1: 1 sample inference time: 0.238808 msecs
+11-14 20:56:47.655  5564  7627 D SemNscXgbL2Rt: L2 RT 1 sample inference time: 0.607308 msecs
+11-14 20:56:47.655  5564  7627 D SemNscXgbL2Nrt: L2 NRT 1 sample inference time: 0.422308 msecs
+11-14 20:56:47.661  5443 21999 E jsqz_hal: [!!ERR!!] setBuf -> you need to create the device first!
+11-14 20:56:47.661  5443 21999 E jsqz_hal: [!!ERR!!] setImageInfo -> you need to create the device first!
+11-14 20:56:47.661  5443 21999 E jsqz_hal: [!!ERR!!] setJsqzConfig -> you need to create the device first!
+11-14 20:56:47.661  5443 21999 E jsqz_hal: [!!ERR!!] execute -> you need to create the device first!
+11-14 20:56:47.672  5487  5487 E SurfaceFlinger: Attempt to update InputPolicyFlags without permission ACCESS_SURFACE_FLINGER
+11-14 20:56:47.762  5443 22009 E jsqz_hal: [!!ERR!!] setBuf -> you need to create the device first!
+11-14 20:56:47.762  5443 22009 E jsqz_hal: [!!ERR!!] setImageInfo -> you need to create the device first!
+11-14 20:56:47.762  5443 22009 E jsqz_hal: [!!ERR!!] setJsqzConfig -> you need to create the device first!
+11-14 20:56:47.762  5443 22009 E jsqz_hal: [!!ERR!!] execute -> you need to create the device first!
+11-14 20:56:47.763 21610 21888 I SRCB_QR : QRBarcodeDecoder.barcodeRecognize cost time 195.235107
+11-14 20:56:47.763 21610 21888 W SaivQRCodeNode: processBackgroundPreviewInternal fail - ERROR_ENGINE_FAIL
+11-14 20:56:47.772  5487  5487 E SurfaceFlinger: Attempt to update InputPolicyFlags without permission ACCESS_SURFACE_FLINGER
+11-14 20:56:47.776  4917  4917 I lmkd    : cached 1, sandbox(not0) 1
+11-14 20:56:47.782  4917  4917 I lmkd    : Reclaim 'com.brave.browser:privileged_process2' (19555), uid 10281, oom_score_adj 940, state 17 to free 77064kB rss, 52500kb swap
+11-14 20:56:47.782  4917  4917 I lmkd    : Reclaimed 129564kB at oom_score_adj 850
+11-14 20:56:47.783 21974 21974 D nmpksvqscy.ggx:root:0: Time zone APEX ICU file found: /apex/com.android.tzdata/etc/icu/icu_tzdata.dat
+11-14 20:56:47.783 21974 21974 D nmpksvqscy.ggx:root:0: I18n APEX ICU file found: /apex/com.android.i18n/etc/icu/icudt68l.dat
+11-14 20:56:47.839 21974 21974 E SemDvfsManager_JNI: SemDvfsManager: registerfunction enter
+11-14 20:56:47.839 21974 21974 E SemAffinityControl: SemAffinityControl: registerfunction enter
+11-14 20:56:47.851 21974 21974 D ProcessState: Binder ioctl to enable oneway spam detection failed: Invalid argument
+11-14 20:56:47.851 21974 21974 D AndroidRuntime: Calling main entry com.topjohnwu.superuser.internal.RootServerMain
+11-14 20:56:47.861  5429  5830 D android.hardware.sensors@2.0-service.multihal: Als_common::readEvents, enabled : 1, data : 0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 50000.000000, 64000.000000
+11-14 20:56:47.866  5443 22032 E jsqz_hal: [!!ERR!!] setBuf -> you need to create the device first!
+11-14 20:56:47.866  5443 22032 E jsqz_hal: [!!ERR!!] setImageInfo -> you need to create the device first!
+11-14 20:56:47.866  5443 22032 E jsqz_hal: [!!ERR!!] setJsqzConfig -> you need to create the device first!
+11-14 20:56:47.866  5443 22032 E jsqz_hal: [!!ERR!!] execute -> you need to create the device first!
+11-14 20:56:47.872  5487  5487 E SurfaceFlinger: Attempt to update InputPolicyFlags without permission ACCESS_SURFACE_FLINGER
+11-14 20:56:47.883  5345  5345 I Zygote  : Process 19555 exited due to signal 9 (Killed)
+11-14 20:56:47.883  5564  9807 I ActivityManager: Process com.brave.browser:privileged_process2 (pid 19555) has died: cch+40 CACC(98,663)
+11-14 20:56:47.886  5564  5871 I libprocessgroup: Successfully killed process cgroup uid 10281 pid 19555 in 0ms
+11-14 20:56:47.888  5564  9807 W ActivityManager: Scheduling restart of crashed service com.brave.browser/org.chromium.content.app.PrivilegedProcessService2 in 1000ms for connection
+11-14 20:56:47.902 11111 11237 W cr_ChildProcessConn: onServiceDisconnected (crash or killed by oom): pid=19555 bindings:W  S
+11-14 20:56:47.917 11111 11111 E chromium: [ERROR:content/browser/gpu/gpu_process_host.cc:1044] GPU process exited unexpectedly: exit_code=0
+11-14 20:56:47.918 11111 11111 W chromium: [WARNING:content/browser/gpu/gpu_process_host.cc:1503] The GPU process has crashed 2 time(s)
+11-14 20:56:47.965  5443 22040 E jsqz_hal: [!!ERR!!] setBuf -> you need to create the device first!
+11-14 20:56:47.965  5443 22040 E jsqz_hal: [!!ERR!!] setImageInfo -> you need to create the device first!
+11-14 20:56:47.965  5443 22040 E jsqz_hal: [!!ERR!!] setJsqzConfig -> you need to create the device first!
+11-14 20:56:47.965  5443 22040 E jsqz_hal: [!!ERR!!] execute -> you need to create the device first!
+11-14 20:56:47.973  5487  5487 E SurfaceFlinger: Attempt to update InputPolicyFlags without permission ACCESS_SURFACE_FLINGER
+11-14 20:56:48.070  5443 22048 E jsqz_hal: [!!ERR!!] setBuf -> you need to create the device first!
+11-14 20:56:48.070  5443 22048 E jsqz_hal: [!!ERR!!] setImageInfo -> you need to create the device first!
+11-14 20:56:48.070  5443 22048 E jsqz_hal: [!!ERR!!] setJsqzConfig -> you need to create the device first!
+11-14 20:56:48.070  5443 22048 E jsqz_hal: [!!ERR!!] execute -> you need to create the device first!
+11-14 20:56:48.074  5487  5487 E SurfaceFlinger: Attempt to update InputPolicyFlags without permission ACCESS_SURFACE_FLINGER
+11-14 20:56:48.157  5564  7627 D SemNscXgbMsL1: Probability - Cloud gaming: [0.03149193]
+11-14 20:56:48.157  5564  7627 D SemNscXgbMsL1: Probability - Real time: [0.06425517]
+11-14 20:56:48.158  5564  7627 D SemNscXgbMsL1: Probability - Non real time: [0.9094564]
+11-14 20:56:48.158  5564  7627 D SemNscXgbMsL1: 1 sample inference time: 0.669769 msecs
+11-14 20:56:48.159  5564  7627 D SemNscXgbL2Rt: L2 RT 1 sample inference time: 1.413116 msecs
+11-14 20:56:48.160  5564  7627 D SemNscXgbL2Nrt: L2 NRT 1 sample inference time: 1.128769 msecs
+11-14 20:56:48.182 21610 21655 I AeAfManager: onAfInfoChanged : afMode=CONTINUOUS_PICTURE(4) afState=PASSIVE_UNFOCUSED(6)
+11-14 20:56:48.194  5443 22059 E jsqz_hal: [!!ERR!!] setBuf -> you need to create the device first!
+11-14 20:56:48.194  5443 22059 E jsqz_hal: [!!ERR!!] setImageInfo -> you need to create the device first!
+11-14 20:56:48.194  5443 22059 E jsqz_hal: [!!ERR!!] setJsqzConfig -> you need to create the device first!
+11-14 20:56:48.195  5443 22059 E jsqz_hal: [!!ERR!!] execute -> you need to create the device first!
+11-14 20:56:48.207  5487  5487 E SurfaceFlinger: Attempt to update InputPolicyFlags without permission ACCESS_SURFACE_FLINGER
+11-14 20:56:48.239  5443  5544 I Unihal  : GlobalMonitor.cpp: PrintInfo: 303: S(4) FWK L(  5)    56/M(F)/R(0)/B(0/1),    57/M(F)/R(0)/B(0/1),    58/M(F)/R(0)/B(0/1),    59/M(F)/R(0)/B(0/1),    60/M(F)/R(0)/B(0/1), 
+11-14 20:56:48.239  5443  5544 I Unihal  : GlobalMonitor.cpp: PrintInfo: 310:      HAL L(  5)    56/M(F)/R(0)/B(0/1),    57/M(F)/R(0)/B(0/1),    58/M(F)/R(0)/B(0/1),    59/M(F)/R(0)/B(0/1),    60/M(F)/R(0)/B(0/1), 
+11-14 20:56:48.265  5443 22065 E jsqz_hal: [!!ERR!!] setBuf -> you need to create the device first!
+11-14 20:56:48.265  5443 22065 E jsqz_hal: [!!ERR!!] setImageInfo -> you need to create the device first!
+11-14 20:56:48.265  5443 22065 E jsqz_hal: [!!ERR!!] setJsqzConfig -> you need to create the device first!
+11-14 20:56:48.265  5443 22065 E jsqz_hal: [!!ERR!!] execute -> you need to create the device first!
+11-14 20:56:48.274  5487  5487 E SurfaceFlinger: Attempt to update InputPolicyFlags without permission ACCESS_SURFACE_FLINGER
+11-14 20:56:48.313  5429  5830 D android.hardware.sensors@2.0-service.multihal: Als_common::readEvents, enabled : 1, data : 0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 50000.000000, 64000.000000
+11-14 20:56:48.315 22066 22066 W idmap2  : failed to create idmap
+11-14 20:56:48.365  5443 22075 E jsqz_hal: [!!ERR!!] setBuf -> you need to create the device first!
+11-14 20:56:48.365  5443 22075 E jsqz_hal: [!!ERR!!] setImageInfo -> you need to create the device first!
+11-14 20:56:48.365  5443 22075 E jsqz_hal: [!!ERR!!] setJsqzConfig -> you need to create the device first!
+11-14 20:56:48.365  5443 22075 E jsqz_hal: [!!ERR!!] execute -> you need to create the device first!
+11-14 20:56:48.375  5487  5487 E SurfaceFlinger: Attempt to update InputPolicyFlags without permission ACCESS_SURFACE_FLINGER
+11-14 20:56:48.412  5564  6394 D InputReader: Btn_touch(10): value=1 when=74852.604315
+11-14 20:56:48.412  5564  6394 I InputReader: Touch event's action is 0x0 (id=4, t=0) [pCnt=1, s=0.1420 ] when=74852.604315
+11-14 20:56:48.413  5564  5564 D PowerManagerService: [api] userActivity : event: 0 flags: 0 (uid: 1000 pid: 5564) eventTime = 74852604 displayId = 0
+11-14 20:56:48.413  5564  5564 D InputDispatcher: Inject motion (0): action=0x0, time=74852604315000, f=0x0, d=0
+11-14 20:56:48.413  5564  6393 I InputDispatcher: Delivering touch to (7941): action: 0x0, f=0x800, d=0, '35136ec', t=1 +(0,-2136)
+11-14 20:56:48.414  7941  7941 I ViewRootImpl@8fc1304[NavigationBar0]: ViewPostIme pointer 0
+11-14 20:56:48.415  5564  5792 I GestureDetector: obtain mCurrentDownEvent. id: 309543797 caller: com.android.server.wm.SystemGesturesPointerEventListener.onPointerEvent:179 com.android.server.wm.PointerEventDispatcher.onInputEvent:71 android.view.InputEventReceiver.dispatchInputEvent:259 
+11-14 20:56:48.415  5564  5792 I GestureDetector: obtain mCurrentDownEvent. id: 309543797 caller: com.android.server.wm.SystemPerformancePointerEventListener.onPointerEvent:89 com.android.server.wm.PointerEventDispatcher.onInputEvent:71 android.view.InputEventReceiver.dispatchInputEvent:259 
+11-14 20:56:48.417  9724  9724 I SemDvfsHyPerManager: acquire hyper - CameraTABoost/9724@19, type = 1090523139
+11-14 20:56:48.417  5434  5480 I HYPER-HAL: [RequestManager.cpp]acquire(): Acquired ID : 47467915  [9724 / 19]    HINT :      list : [TABoost / 0] [TIMEOUT / 1500] 
+11-14 20:56:48.420  8582  8582 I QuickstepTransition: isWaitingForResponse : false
+11-14 20:56:48.420  8582  8582 W TouchInteractionService: 
+11-14 20:56:48.420  8582  8582 W SGestureDeviceStateImpl: calculateGestureRegion, mRegionType = 3
+11-14 20:56:48.422  8582  8582 W RecentsAnimationDeviceState: canStartSystemGesture, return true by !isHomeDisabled
+11-14 20:56:48.422  8582  8582 W TouchInteractionService: newConsumer, canStartSystemGesture = true
+11-14 20:56:48.422  8582  8582 W RecentsAnimationDeviceState: canStartSystemGesture, return true by !isHomeDisabled
+11-14 20:56:48.422 21974 21974 D SemCscFeature: Encoded
+11-14 20:56:48.425  5487  5487 E SurfaceFlinger: Attempt to update InputPolicyFlags without permission ACCESS_SURFACE_FLINGER
+11-14 20:56:48.428  5564  5564 D PowerManagerService: [api] userActivity : event: 0 flags: 0 (uid: 1000 pid: 5564) eventTime = 74852620 displayId = 0
+11-14 20:56:48.429  5564  5792 I GestureDetector: obtain mCurrentMotionEventRaw. action: 2 id: 631276821
+11-14 20:56:48.429  5564  5792 I GestureDetector: obtain mCurrentMotionEventRaw. action: 2 id: 631276821
+11-14 20:56:48.430  8582  8582 W TouchInteractionService: newConsumer, base = com.android.quickstep.inputconsumers.OtherActivityInputConsumer@798f555
+11-14 20:56:48.431  8582  8582 W RecentsAnimationDeviceState: canStartSystemGesture, return true by !isHomeDisabled
+11-14 20:56:48.431  8582  8582 W DeviceState: isSGestureActivated, canStartSystemGesture
+11-14 20:56:48.431  8582  8582 W SGestureInputConsumerFactory: newConsumer = com.android.quickstep.sgesture.inputconsumers.BackInputConsumer@b9e8b6a
+11-14 20:56:48.431  8582  8582 W TouchInteractionService: onInputEvent, inputConsumer = com.android.quickstep.sgesture.inputconsumers.BackInputConsumer@b9e8b6a
+11-14 20:56:48.431  8582  8582 W SGestureDelegateInputConsumer: delegateMotionEvent, action = 0
+11-14 20:56:48.432  8582  8582 W DeviceState: isNoEffectEventRegion - The event region is the same as the start
+11-14 20:56:48.432  8582  8582 W SGestureDelegateInputConsumer: delegateMotionEvent, action = 2
+11-14 20:56:48.431 19941 20518 E msys    : E[N dgw]operator()(261)=>DGW force_close_connection reason=request_timeout service=rpsignaling timeout_s=9 attempt=1
+11-14 20:56:48.436  5564  5564 D PowerManagerService: [api] userActivity : event: 0 flags: 0 (uid: 1000 pid: 5564) eventTime = 74852629 displayId = 0
+11-14 20:56:48.437  8582  8582 W DeviceState: isNoEffectEventRegion - The event region is the same as the start
+11-14 20:56:48.437  8582  8582 W SGestureDelegateInputConsumer: delegateMotionEvent, action = 2
+11-14 20:56:48.442  5487  5487 E SurfaceFlinger: Attempt to update InputPolicyFlags without permission ACCESS_SURFACE_FLINGER
+11-14 20:56:48.446 21974 21974 D SecIpmManagerFrameworkInitializer:  initial
+11-14 20:56:48.448  5564  5564 D PowerManagerService: [api] userActivity : event: 0 flags: 0 (uid: 1000 pid: 5564) eventTime = 74852637 displayId = 0
+11-14 20:56:48.452  8582  8582 W DeviceState: isNoEffectEventRegion - The event region is the same as the start
+11-14 20:56:48.452  8582  8582 W SGestureDelegateInputConsumer: delegateMotionEvent, action = 2
+11-14 20:56:48.453  5564  5564 D PowerManagerService: [api] userActivity : event: 0 flags: 0 (uid: 1000 pid: 5564) eventTime = 74852646 displayId = 0
+11-14 20:56:48.454  8582  8582 W DeviceState: isNoEffectEventRegion - The event region is the same as the start
+11-14 20:56:48.454  8582  8582 W SGestureDelegateInputConsumer: delegateMotionEvent, action = 2
+11-14 20:56:48.457 21974 21974 D LoadedApk: LoadedApk::makeApplication() appContext.mOpPackageName=android appContext.mBasePackageName=android
+11-14 20:56:48.460 21974 21974 I Typeface: Preloading /system/fonts/Roboto-Regular.ttf
+11-14 20:56:48.461  5564  5564 D PowerManagerService: [api] userActivity : event: 0 flags: 0 (uid: 1000 pid: 5564) eventTime = 74852654 displayId = 0
+11-14 20:56:48.463  8582  8582 W DeviceState: isNoEffectEventRegion - The event region is the same as the start
+11-14 20:56:48.463  8582  8582 W SGestureDelegateInputConsumer: delegateMotionEvent, action = 2
+11-14 20:56:48.467  5443 22086 E jsqz_hal: [!!ERR!!] setBuf -> you need to create the device first!
+11-14 20:56:48.467  5443 22086 E jsqz_hal: [!!ERR!!] setImageInfo -> you need to create the device first!
+11-14 20:56:48.467  5443 22086 E jsqz_hal: [!!ERR!!] setJsqzConfig -> you need to create the device first!
+11-14 20:56:48.467  5443 22086 E jsqz_hal: [!!ERR!!] execute -> you need to create the device first!
+11-14 20:56:48.470  5564  5564 D PowerManagerService: [api] userActivity : event: 0 flags: 0 (uid: 1000 pid: 5564) eventTime = 74852663 displayId = 0
+11-14 20:56:48.472  8582  8582 I SwipeDetector: setState:IDLE->DRAGGING
+11-14 20:56:48.472  8582  8582 W SGestureHintAnimationHelper: onDragStart
+11-14 20:56:48.474  7941  7972 V Navbar.Store: handleEvent [EventType] ON_START_GESTURE_HINT_VI [Module] OverviewProxyService  KEYS_GESTURE_HINT_ID=2
+11-14 20:56:48.474  7941  7972 V Navbar.Store: --[Band]GESTURE_PACK_START_HINT_VI
+11-14 20:56:48.474  7941  7972 V Navbar.Store: ----getValue(BOOL_GESTURE_HINT)=false
+11-14 20:56:48.474  8582  8582 W SGestureDelegateInputConsumer: hintAnimationStarted
+11-14 20:56:48.475  8582  8582 W SGestureVibrationEffect: vibrate, keyCode = 4, type = 50047
+11-14 20:56:48.475  8582  8582 I SwipeDetector: onDragStart recatch:false
+11-14 20:56:48.475  5487  5487 E SurfaceFlinger: Attempt to update InputPolicyFlags without permission ACCESS_SURFACE_FLINGER
+11-14 20:56:48.476  8582  8582 W DeviceState: isNoEffectEventRegion - The event region is the same as the start
+11-14 20:56:48.476  8582  8582 W SGestureDelegateInputConsumer: setActive, action = 2
+11-14 20:56:48.476  8582  8582 I OtherActivityInputConsumer: isSGestureActivated, sgestureActivated = true
+11-14 20:56:48.476  8582  8582 I OtherActivityInputConsumer: finishTouchTracking, action = 3
+11-14 20:56:48.476  5564  9807 D InputDispatcher: Cancel for '35136ec': gesture monitor stole pointer stream, m=1
+11-14 20:56:48.476  8582  8582 I OtherActivityInputConsumer: onConsumerAboutToBeSwitched
+11-14 20:56:48.476  8582  8582 I OtherActivityInputConsumer: onInteractionGestureFinished
+11-14 20:56:48.476  5564  9807 I InputDispatcher: Delivering touch to (7941): action: 0x3, f=0x800, d=0, '35136ec', t=1 +(0,-2136)
+11-14 20:56:48.476  5564  9807 I InputDispatcher: Monitor swipe-up (server) is stealing touch from [35136ec NavigationBar0 (server), ]
+11-14 20:56:48.476  8582  8582 I OtherActivityInputConsumer: removeListener
+11-14 20:56:48.478  5564  5564 D PowerManagerService: [api] userActivity : event: 0 flags: 0 (uid: 1000 pid: 5564) eventTime = 74852671 displayId = 0
+11-14 20:56:48.487  5564  5564 D PowerManagerService: [api] userActivity : event: 0 flags: 0 (uid: 1000 pid: 5564) eventTime = 74852679 displayId = 0
+11-14 20:56:48.495  5564  5564 D PowerManagerService: [api] userActivity : event: 0 flags: 0 (uid: 1000 pid: 5564) eventTime = 74852687 displayId = 0
+11-14 20:56:48.503  5564  5564 D PowerManagerService: [api] userActivity : event: 0 flags: 0 (uid: 1000 pid: 5564) eventTime = 74852696 displayId = 0
