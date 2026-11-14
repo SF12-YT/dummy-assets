@@ -1,0 +1,68 @@
+/vendor/etc/init/init.exynos9820.rc:530:    chown system radio /sys/class/camera/rear/supported_cameraIds
+/vendor/etc/floating_feature.xml:77:    <SEC_FLOATING_FEATURE_COMMON_CONFIG_SWLENS_DISTORTION_CORRECTION>beyond,S5K3P9</SEC_FLOATING_FEATURE_COMMON_CONFIG_SWLENS_DISTORTION_CORRECTION>
+/vendor/etc/media_profiles_V1_0.xml:28:<!ATTLIST EncoderProfile cameraId (0|1|2|3) #REQUIRED>
+/vendor/etc/media_profiles_V1_0.xml:82:    <CamcorderProfiles cameraId="0">
+/vendor/etc/media_profiles_V1_0.xml:332:    <CamcorderProfiles cameraId="1">
+/vendor/etc/media_profiles_V1_0.xml:552:    <CamcorderProfiles cameraId="2">
+/vendor/etc/media_profiles_V1_0.xml:802:    <CamcorderProfiles cameraId="3">
+Binary file /vendor/etc/VslMesDetector/MesDetectorNoise.tflite matches
+Binary file /vendor/etc/VslMesDetector/MesDetectorNoise.tflite matches
+Binary file /vendor/etc/VslMesDetector/MesDetectorNoise.tflite matches
+Binary file /vendor/etc/VslMesDetector/MesDetectorNoise.tflite matches
+Binary file /vendor/etc/VslMesDetector/MesDetectorNoise.tflite matches
+Binary file /vendor/etc/VslMesDetector/MesDetectorNoise.tflite matches
+Binary file /vendor/etc/VslMesDetector/MesDetectorNoise.tflite matches
+Binary file /vendor/etc/VslMesDetector/MesDetectorNoise.tflite matches
+Binary file /vendor/etc/VslMesDetector/MesDetectorNoise.tflite matches
+Binary file /vendor/etc/VslMesDetector/MesDetectorNoise.tflite matches
+Binary file /vendor/etc/VslMesDetector/MesDetectorNoise.tflite matches
+Binary file /vendor/etc/VslMesDetector/MesDetectorNoise.tflite matches
+Binary file /vendor/etc/VslMesDetector/MesDetectorNoise.tflite matches
+Binary file /vendor/etc/VslMesDetector/MesDetectorNoise.tflite matches
+Binary file /vendor/etc/VslMesDetector/MesDetectorNoise.tflite matches
+Binary file /vendor/etc/VslMesDetector/MesDetectorNoise.tflite matches
+Binary file /vendor/etc/VslMesDetector/MesDetectorNoise.tflite matches
+Binary file /vendor/etc/VslMesDetector/MesDetectorNoise.tflite matches
+Binary file /vendor/etc/VslMesDetector/MesDetectorNoise.tflite matches
+Binary file /vendor/etc/VslMesDetector/MesDetectorNoise.tflite matches
+Binary file /vendor/etc/VslMesDetector/MesDetectorNoise.tflite matches
+Binary file /vendor/etc/VslMesDetector/MesDetectorNoise.tflite matches
+Binary file /vendor/etc/VslMesDetector/MesDetectorNoise.tflite matches
+Binary file /vendor/etc/VslMesDetector/MesDetectorNoise.tflite matches
+Binary file /vendor/etc/VslMesDetector/MesDetectorNoise.tflite matches
+Binary file /vendor/etc/VslMesDetector/MesDetectorNoise.tflite matches
+Binary file /vendor/etc/VslMesDetector/MesDetectorNoise.tflite matches
+Binary file /vendor/etc/VslMesDetector/MesDetectorNoise.tflite matches
+Binary file /vendor/etc/VslMesDetector/MesDetectorNoise.tflite matches
+Binary file /vendor/etc/VslMesDetector/MesDetectorNoise.tflite matches
+Binary file /vendor/etc/VslMesDetector/MesDetectorNoise.tflite matches
+Binary file /vendor/etc/VslMesDetector/MesDetectorNoise.tflite matches
+Binary file /vendor/etc/VslMesDetector/MesDetectorNoise.tflite matches
+Binary file /vendor/etc/VslMesDetector/MesDetectorNoise.tflite matches
+Binary file /vendor/etc/VslMesDetector/MesDetectorNoise.tflite matches
+Binary file /vendor/etc/VslMesDetector/MesDetectorNoise.tflite matches
+Binary file /vendor/etc/saiv/aisolution_1.0/model_20210204_1792_1920_w_h.pb matches
+Binary file /vendor/etc/saiv/image_understanding/db/aic_detector/aic_detector_cnn.tflite matches
+Binary file /vendor/etc/saiv/image_understanding/db/aic_detector/aic_detector_cnn.tflite matches
+Binary file /vendor/etc/saiv/image_understanding/db/aic_classifier/aic_classifier_cnn.tflite matches
+Binary file /vendor/etc/saiv/image_understanding/db/aic_classifier/aic_classifier_cnn.tflite matches
+Binary file /vendor/etc/saiv/image_understanding/db/aic_classifier/aic_classifier_cnn.tflite matches
+Binary file /vendor/etc/saiv/image_understanding/db/aic_classifier/aic_classifier_cnn.tflite matches
+Binary file /vendor/etc/midas/SRIBMidas_aiBLURDETECT_Stage1_FP32_V130.caffemodel matches
+Binary file /vendor/etc/midas/SRIBMidas_aiDEBLUR_FP16_V0132.caffemodel matches
+Binary file /vendor/etc/midas/SRIBMidas_aiDEBLUR_FP16_V0132.caffemodel matches
+Binary file /vendor/etc/midas/SRIBMidas_aiDEBLUR_FP16_V0132.caffemodel matches
+Binary file /vendor/etc/midas/SRIBMidas_aiBLURDETECT_Stage2_FP32_V130.caffemodel matches
+Binary file /vendor/etc/midas/SRIBMidas_aiBLURDETECT_Stage2_FP32_V130.caffemodel matches
+Binary file /vendor/etc/midas/SRIBMidas_aiBLURDETECT_Stage2_FP32_V130.caffemodel matches
+Binary file /vendor/etc/midas/SRIBMidas_aiBLURDETECT_Stage2_FP32_V130.caffemodel matches
+Binary file /vendor/etc/singletake/aifilter/scene.polarr.db matches
+Binary file /vendor/etc/singletake/aifilter/scene.polarr.db matches
+Binary file /vendor/etc/singletake/aifilter/filter.polarr.db matches
+Binary file /vendor/etc/singletake/aifilter/filter.polarr.db matches
+Binary file /vendor/etc/singletake/aifilter/filter.polarr.db matches
+Binary file /vendor/etc/singletake/bestmoment/scoreV2.polarr.db matches
+Binary file /vendor/etc/singletake/bestmoment/scoreV2.polarr.db matches
+Binary file /vendor/etc/singletake/bestmoment/scoreV2.polarr.db matches
+Binary file /vendor/etc/singletake/bestmoment/scoreV2.polarr.db matches
+Binary file /vendor/etc/singletake/bestmoment/scoreV2.polarr.db matches
