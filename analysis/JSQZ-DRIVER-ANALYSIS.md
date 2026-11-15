@@ -240,6 +240,16 @@ A one-shot test source is prepared at [`analysis/jsqz_probe.c`](jsqz_probe.c). I
 
 **Important runtime caveat:** the target driver scheduler waits with `wait_for_completion()`, not a timed wait. If the hardware never raises its completion IRQ, the calling task may remain blocked. The harness therefore separates DMA-BUF preparation from the single hardware submission; do not use `--execute` until the dry run has succeeded and a potentially stalled first transaction is acceptable. It does not alter device-node permissions or SELinux policy.
 
+## Camera HAL access-control finding
+
+The target camera log showed `/dev/jsqz` open failing with error 13, while the device node was observed as `0600 root:root`. The matching Exynos 9820 JSQZ driver registers a misc device without assigning its mode; the matching kernel devtmpfs code defaults a zero mode to `0600` and root ownership. This makes ordinary non-root camera-service access fail at the discretionary-permission layer before any JSQZ ioctl can be submitted.
+
+The S10e Exynos 9820 common device tree provides a complete access configuration: `ueventd.rc` sets `/dev/jsqz` to `0660 cameraserver:camera`; `file_contexts` labels it `jsqz_device`; and `hal_camera_default.te` grants `rw_file_perms` to that character-device type. `common.mk` copies the ueventd file into the vendor image, and the common board configuration includes the vendor SELinux policy directory.
+
+This is strong evidence for a node-access configuration problem on the observed installation. It does not establish whether SELinux also denies access, because no relevant AVC record or live target `ls -Z` output is available. The user's camera log proves an open attempt failed, not that the camera HAL reached an ioctl; successful JPEG capture shows the broader capture pipeline can continue without the JSQZ open succeeding. The public reference camera HAL and JSQZ library are build-mismatched comparisons, not exact target-binary proof.
+
+See the separate [camera integration and access-control analysis](JSQZ-CAMERA-INTEGRATION.md) for source locations, the full reasoning, and the narrow remaining verification. No device permissions or SELinux settings were modified.
+
 ## Current-device camera observation
 
 Your 10× Pro capture log showed the camera HAL failing to open `/dev/jsqz` with **error 13 (Permission denied)** before the JPEG capture. The JPEG still completed successfully. The log does not show a successful JSQZ open or task submission for that capture.
