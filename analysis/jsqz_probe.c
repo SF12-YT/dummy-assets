@@ -5,7 +5,7 @@
  * and optionally submits exactly one JSQZ ioctl.
  *
  * Build on the S10e in Termux:
- *   clang -std=c11 -O2 -Wall -Wextra -o jsqz_probe jsqz_probe.c -ldl
+ *   clang -std=c11 -O2 -Wall -Wextra -o jsqz_probe jsqz_probe.c
  *
  * Safe preparation-only run:
  *   su -c './jsqz_probe'
@@ -21,7 +21,7 @@
  */
 
 #define _GNU_SOURCE
-#include <dlfcn.h>
+#include <limits.h>
 #include <errno.h>
 #include <fcntl.h>
 #include <inttypes.h>
@@ -42,6 +42,32 @@
 
 #define ION_HEAP_SYSTEM_MASK (1u << 0)
 #define ION_FLAG_CACHED 1u
+
+/* Legacy Exynos ION UAPI used by the target 4.14 kernel. */
+#define ION_IOC_MAGIC 'I'
+struct ion_allocation_data {
+    uint64_t len;
+    uint32_t heap_id_mask;
+    uint32_t flags;
+    uint32_t fd;
+    uint32_t unused;
+};
+#define ION_IOC_ALLOC _IOWR(ION_IOC_MAGIC, 0, struct ion_allocation_data)
+
+/* Standard DMA-BUF CPU cache synchronisation UAPI. */
+struct dma_buf_sync {
+    uint64_t flags;
+};
+#define DMA_BUF_SYNC_READ  (1u << 0)
+#define DMA_BUF_SYNC_WRITE (1u << 1)
+#define DMA_BUF_SYNC_START (0u << 2)
+#define DMA_BUF_SYNC_END   (1u << 2)
+#define DMA_BUF_IOCTL_SYNC _IOW('b', 0, struct dma_buf_sync)
+
+_Static_assert(sizeof(struct ion_allocation_data) == 24, "ION allocation ABI mismatch");
+_Static_assert(ION_IOC_ALLOC == 0xC0184900u, "ION allocation ioctl mismatch");
+_Static_assert(sizeof(struct dma_buf_sync) == 8, "DMA-BUF sync ABI mismatch");
+_Static_assert(DMA_BUF_IOCTL_SYNC == 0x40086200u, "DMA-BUF sync ioctl mismatch");
 #define ION_SYNC_WRITE (1u << 1)
 
 #define HWSQZ_BUFFER_DMABUF 1u
@@ -92,65 +118,36 @@ _Static_assert(offsetof(struct hwjsqz_task_64, num_of_buf) == 328, "task count o
 _Static_assert(sizeof(struct hwjsqz_task_64) == 336, "native JSQZ ioctl size mismatch");
 _Static_assert(HWJSQZ_IOC_PROCESS == 0xC1504D00u, "native JSQZ ioctl number mismatch");
 
-typedef int (*ion_open_fn)(void);
-typedef int (*ion_close_fn)(int);
-typedef int (*ion_alloc_fn)(int, size_t, unsigned int, unsigned int);
-typedef int (*ion_sync_fn)(int, int, int);
-
-struct ion_api {
-    void *handle;
-    ion_open_fn open;
-    ion_close_fn close;
-    ion_alloc_fn alloc;
-    ion_sync_fn sync_start;
-    ion_sync_fn sync_end;
-};
-
-static void close_ion_api(struct ion_api *api)
+static int allocate_ion_dmabuf(int ion_fd, size_t length)
 {
-    if (api->handle)
-        dlclose(api->handle);
-    memset(api, 0, sizeof(*api));
+    struct ion_allocation_data allocation = {
+        .len = length,
+        .heap_id_mask = ION_HEAP_SYSTEM_MASK,
+        .flags = ION_FLAG_CACHED,
+        .fd = 0,
+        .unused = 0,
+    };
+
+    if (ioctl(ion_fd, ION_IOC_ALLOC, &allocation) < 0) {
+        fprintf(stderr, "ION_IOC_ALLOC failed: %s (errno=%d)\\n",
+                strerror(errno), errno);
+        return -1;
+    }
+
+    if (allocation.fd > INT_MAX) {
+        fprintf(stderr, "ION returned an invalid DMA-BUF fd: %u\\n", allocation.fd);
+        close((int32_t)allocation.fd);
+        errno = EOVERFLOW;
+        return -1;
+    }
+
+    return (int)allocation.fd;
 }
 
-static int load_symbol(void *handle, const char *name, void *destination, size_t size)
+static int sync_dmabuf(int dma_fd, uint64_t flags)
 {
-    void *symbol;
-    const char *error;
-
-    dlerror();
-    symbol = dlsym(handle, name);
-    error = dlerror();
-    if (error || !symbol) {
-        fprintf(stderr, "Missing ION symbol %s: %s\n", name, error ? error : "not found");
-        return -1;
-    }
-    if (size != sizeof(symbol)) {
-        fprintf(stderr, "Unexpected function-pointer size for %s\n", name);
-        return -1;
-    }
-    memcpy(destination, &symbol, size);
-    return 0;
-}
-
-static int load_ion_api(struct ion_api *api)
-{
-    memset(api, 0, sizeof(*api));
-    api->handle = dlopen("/vendor/lib64/libion_exynos.so", RTLD_NOW | RTLD_LOCAL);
-    if (!api->handle) {
-        fprintf(stderr, "dlopen /vendor/lib64/libion_exynos.so failed: %s\n", dlerror());
-        return -1;
-    }
-
-    if (load_symbol(api->handle, "exynos_ion_open", &api->open, sizeof(api->open)) ||
-        load_symbol(api->handle, "exynos_ion_close", &api->close, sizeof(api->close)) ||
-        load_symbol(api->handle, "exynos_ion_alloc", &api->alloc, sizeof(api->alloc)) ||
-        load_symbol(api->handle, "exynos_ion_sync_start", &api->sync_start, sizeof(api->sync_start)) ||
-        load_symbol(api->handle, "exynos_ion_sync_end", &api->sync_end, sizeof(api->sync_end))) {
-        close_ion_api(api);
-        return -1;
-    }
-    return 0;
+    struct dma_buf_sync sync = { .flags = flags };
+    return ioctl(dma_fd, DMA_BUF_IOCTL_SYNC, &sync);
 }
 
 static uint32_t next_noise(uint32_t *state)
@@ -221,7 +218,6 @@ int main(int argc, char **argv)
     const char *pattern = "grey";
     const char *output_path = NULL;
     int pattern_seen = 0;
-    struct ion_api ion;
     int ion_fd = -1;
     int dma_fd = -1;
     int jsqz_fd = -1;
@@ -253,21 +249,17 @@ int main(int argc, char **argv)
     printf("Native task size=%zu, ioctl=0x%08lx\n",
            sizeof(task), (unsigned long)HWJSQZ_IOC_PROCESS);
 
-    if (load_ion_api(&ion) != 0)
-        goto cleanup;
-
-    ion_fd = ion.open();
+    ion_fd = open("/dev/ion", O_RDWR | O_CLOEXEC);
     if (ion_fd < 0) {
-        fprintf(stderr, "exynos_ion_open failed: %s\n", strerror(errno));
+        fprintf(stderr, "open /dev/ion failed: %s (errno=%d)\\n",
+                strerror(errno), errno);
         goto cleanup;
     }
 
-    /* System heap (mask 1), CPU-cached; use the vendor sync API around writes. */
-    dma_fd = ion.alloc(ion_fd, FRAME_BYTES, ION_HEAP_SYSTEM_MASK, ION_FLAG_CACHED);
-    if (dma_fd < 0) {
-        fprintf(stderr, "exynos_ion_alloc failed: %s\n", strerror(errno));
+    /* ION_IOC_ALLOC returns a DMA-BUF fd directly on this 4.14 ION ABI. */
+    dma_fd = allocate_ion_dmabuf(ion_fd, FRAME_BYTES);
+    if (dma_fd < 0)
         goto cleanup;
-    }
 
     mapping = mmap(NULL, FRAME_BYTES, PROT_READ | PROT_WRITE, MAP_SHARED, dma_fd, 0);
     if (mapping == MAP_FAILED) {
@@ -275,16 +267,18 @@ int main(int argc, char **argv)
         goto cleanup;
     }
 
-    if (ion.sync_start(ion_fd, dma_fd, ION_SYNC_WRITE) < 0) {
-        fprintf(stderr, "ION sync START/WRITE failed: %s\n", strerror(errno));
+    if (sync_dmabuf(dma_fd, DMA_BUF_SYNC_START | DMA_BUF_SYNC_WRITE) < 0) {
+        fprintf(stderr, "DMA-BUF sync START/WRITE failed: %s (errno=%d)\\n",
+                strerror(errno), errno);
         goto cleanup;
     }
     if (fill_nv21(mapping, pattern) != 0) {
-        (void)ion.sync_end(ion_fd, dma_fd, ION_SYNC_WRITE);
+        (void)sync_dmabuf(dma_fd, DMA_BUF_SYNC_END | DMA_BUF_SYNC_WRITE);
         goto cleanup;
     }
-    if (ion.sync_end(ion_fd, dma_fd, ION_SYNC_WRITE) < 0) {
-        fprintf(stderr, "ION sync END/WRITE failed: %s\n", strerror(errno));
+    if (sync_dmabuf(dma_fd, DMA_BUF_SYNC_END | DMA_BUF_SYNC_WRITE) < 0) {
+        fprintf(stderr, "DMA-BUF sync END/WRITE failed: %s (errno=%d)\\n",
+                strerror(errno), errno);
         goto cleanup;
     }
 
@@ -339,8 +333,7 @@ cleanup:
         munmap(mapping, FRAME_BYTES);
     if (dma_fd >= 0)
         close(dma_fd);
-    if (ion_fd >= 0 && ion.close)
-        (void)ion.close(ion_fd);
-    close_ion_api(&ion);
+    if (ion_fd >= 0)
+        close(ion_fd);
     return result;
 }
