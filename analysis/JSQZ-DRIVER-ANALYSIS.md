@@ -292,7 +292,7 @@ The successful `--check-device` run proves `open(O_RDWR)` and close succeed. It 
 
 ## Runtime pattern tests — 15 November 2026
 
-The device-side probe has now completed thirteen single-frame NV21 submissions through the native 64-bit ioctl, covering twelve distinct input patterns plus one repeatability run. All used 128×64, stride 0 (effective stride 128), one ION system-heap DMA-BUF of 12,288 bytes, NORMAL/LIVE mode, and returned success.
+The device-side probe has now completed fourteen single-frame NV21 submissions through the native 64-bit ioctl, covering thirteen distinct input patterns plus one repeatability run. All used 128×64, stride 0 (effective stride 128), one ION system-heap DMA-BUF of 12,288 bytes, NORMAL/LIVE mode, and returned success.
 
 | Pattern | Luma input | Returned table |
 |---|---|---|
@@ -309,6 +309,7 @@ The device-side probe has now completed thirteen single-frame NV21 submissions t
 | luma-checker-4 | Y=64/192 in alternating 4×4 tiles; neutral chroma | Table J |
 | grey-repeat | Y=128 throughout, repeated baseline | Table A again; exact 32/32-word match to the first grey run |
 | chroma-checker-fine | Y=128; V/U ±64 in 2×2 chroma-sample tiles | Table K; exactly identical to Table F |
+| luma-checker-4-low | Y=112/144 in alternating 4×4 tiles; neutral chroma | Table L |
 
 Grey, checker, black, gradient and noise used neutral chroma (VU=128). The `chroma` test used V=192/U=64 throughout. Table A is non-default-looking; Table B closely matches the matching public driver's built-in `init_q_table`.
 
@@ -362,6 +363,22 @@ The `chroma-checker` input pattern held all luma samples at 128 and alternated N
 
 
 
+
+
+**Table L — lower-contrast 4×4 luma checker**
+
+```
+03030301 03030304 04030303 03030403
+03030303 03040403 04050305 04050505
+06050404 05050607 05060607 07060906
+08080808 09080608 0c0c090a 150f0f0c
+03030301 03040303 05080403 08080504
+08080808 08080808 08080808 08080808
+08080808 08080808 08080808 09080808
+0c0c0809 150f0f0c
+```
+
+Table L was returned by one successful hardware submission with Y alternating between 112 and 144 in 4×4 tiles (mean 128) and neutral chroma. Compared with grey Table A, six Y-bank bytes change at linear offsets 4, 11, 13, 22, 24 and 42; all 64 C-bank bytes remain identical. Compared with the higher-contrast Table J (Y=64/192, same tile geometry), these six changes remain and five additional Y offsets (38, 51, 53, 58 and 60) are absent at the lower contrast. This demonstrates a graded, stimulus-specific luma response at both tested amplitudes; it does not identify a threshold below ±16.
 
 **Table K — finer spatial chroma checker, ±64**
 
@@ -482,7 +499,7 @@ The complete target-kernel fallback table is:
 
 This is an exact 32/32 match to the public driver's `init_q_table`; the target build does **not** have a two-word-different fallback table. The extraction and comparison are recorded in [`jsqz-default-table.txt`](jsqz-default-table.txt).
 
-### Interpretation of the thirteen completed submissions
+### Interpretation of the fourteen completed submissions
 
 The stride is valid for NV21 (128 is divisible by 64), and the frame dimensions and buffer size pass the target driver's guards. Therefore the early alignment fallback is not expected for any of these tests.
 
@@ -490,13 +507,14 @@ The stride is valid for NV21 (128 is divisible by 64), and the frame dimensions 
 
 - The `luma-checker-4` test returned Table J. Relative to grey Table A, 11 of 64 luma bytes change across 11 luma words, while all 64 chroma bytes remain identical. The input alternates Y=64/192 in 4×4 tiles, so each 8×8 region contains within-block variation. This confirms that the luma table responds to this spatial detail independently of the chroma table. It also explains why the earlier checker made of flat 8×8 tiles matched grey: the latter did not vary within those blocks.
 - The finer `chroma-checker-fine` run used the same ±64 V/U values as Table F but reduced the tile size from 4×4 to 2×2 chroma samples. It returned Table K, exactly identical to Table F across all 32 words (128/128 bytes). Thus, for these two tested tile sizes and this input amplitude/configuration, halving the chroma checker tile size produced no measurable change in the returned quantisation table. This is a narrow result, not proof that JSQZ is generally insensitive to spatial frequency.
+- The lower-contrast `luma-checker-4-low` input (Y=112/144, ±16) retains a measurable response relative to grey: six Y-bank bytes change, at linear offsets 4, 11, 13, 22, 24 and 42. All C-bank bytes remain unchanged. The higher-contrast Table J input (Y=64/192, ±64) changed eleven Y bytes; its six changes at the same offsets remain, while five additional offsets (38, 51, 53, 58 and 60) change only at the higher tested contrast. Thus the luma response persists at ±16 for this pattern and is weaker than at ±64. No threshold below ±16 has been measured.
 - The repeatability run submitted the original grey pattern again. All 32 returned words matched Table A exactly (128/128 bytes); there was no output variation between the two identical grey submissions. This confirms deterministic output for this input under the same device/configuration conditions, though it does not establish repeatability for every possible pattern.
 - Gradient returned Table C: only word 0 differs from Table A (`03030401` versus `03030301`); the remaining 31 words are identical. This is a small but direct response to a change in luma spatial content, while chroma remains unchanged.
 - Deterministic noise returned Table D. Compared with Table A, all 16 luma words differ while all 16 chroma words are identical. The higher-frequency luma coefficients increase substantially (word 15: `150f0f0c` → `1c151510`). This is strong evidence that the hardware adapts luma quantisation to spatial detail. Chroma was held neutral (VU=128) for this test.
 - The non-neutral chroma test returned Table E, exactly identical to Table A across all 32 words. It used constant Y=128 with V=192 and U=64. Thus this particular chroma offset did not measurably affect either matrix. This is not proof that the chroma path is ignored or that chroma adaptation is impossible; spatially constant chroma may not exercise whatever image statistics the hardware uses.
 - The spatial chroma-checker test returned Table F with Y held constant at 128. Compared with Table A, all 16 luma words are identical and four chroma words (17, 28, 30 and 31) differ. This demonstrates an independent chroma-table response to spatial chroma variation for this input pattern.
 - Black returned Table B. Although it matches the fallback in 30 of 32 words, word 15 is `0a080807` instead of `08080807`, and word 31 is `0a080808` instead of `08080808`. In little-endian byte order, these are exactly the final byte of the 64-byte luma matrix and the final byte of the 64-byte chroma matrix; both change from `0x08` to `0x0a`, while the other 126 bytes match. Therefore it also did **not** return the exact fallback copy.
-- Given the target driver's two known fallback paths (invalid alignment and the post-completion bit-28 branch), and the validated input dimensions/stride, all thirteen submissions most likely reached the output-register read path. Their returned tables are not equal to the recovered fallback table. The empty `dmesg` search is consistent with this, although absence of a log line alone is not proof.
+- Given the target driver's two known fallback paths (invalid alignment and the post-completion bit-28 branch), and the validated input dimensions/stride, all fourteen submissions most likely reached the output-register read path. Their returned tables are not equal to the recovered fallback table. The empty `dmesg` search is consistent with this, although absence of a log line alone is not proof.
 - Black differs from grey/checker in 17 of 32 words. That is useful evidence that the returned Q table is responding to the input pattern, not merely returning one constant fallback table. It does not by itself prove every DMA byte was consumed as intended, but it is substantially stronger evidence of functional JSQZ execution than the earlier fallback hypothesis.
 - Grey and checker remain identical. The checker consists of uniform 8×8 blocks aligned to the JPEG 8×8 transform grid, so each block has no within-block luma variation. That makes it a weak contrast test against uniform grey. The prepared `luma-checker-4` pattern is the next controlled follow-up because it varies within each 8×8 luma region.
 
@@ -534,7 +552,7 @@ The exact 8×8 coefficient scan layout (zigzag versus raster) is **not establish
 
 ## Byte-level comparison of the captured pattern outputs
 
-The captured 32-word outputs were unpacked as little-endian bytes (64-byte Y bank followed by 64-byte C bank). The byte counts below include the original runs, the ±32/±16/±8 chroma tests, the 4×4 luma checker, the repeated grey baseline and the finer chroma checker:
+The captured 32-word outputs were unpacked as little-endian bytes (64-byte Y bank followed by 64-byte C bank). The byte counts below include all completed tests through the lower-contrast luma checker:
 
 | Input compared with grey Table A | Y bytes changed | C bytes changed | Observation |
 |---|---:|---:|---|
@@ -545,7 +563,8 @@ The captured 32-word outputs were unpacked as little-endian bytes (64-byte Y ban
 | Spatial chroma checker, ±32 (Table G) | 0/64 | 1/64 | Only C offset 4 changes, 0x03 → 0x04 |
 | Spatial chroma checker, ±16 (Table H) | 0/64 | 1/64 | Identical to Table G; C offset 4 remains changed |
 | Spatial chroma checker, ±8 (Table I) | 0/64 | 1/64 | Identical to Tables G and H; C offset 4 remains changed |
-| Luma checker, 4×4 tiles (Table J) | 11/64 | 0/64 | Y offsets 4, 11, 13, 22, 24, 38, 42, 51, 53, 58 and 60 change |
+| Luma checker, 4×4 tiles, ±64 (Table J) | 11/64 | 0/64 | Y offsets 4, 11, 13, 22, 24, 38, 42, 51, 53, 58 and 60 change |
+| Luma checker, 4×4 tiles, ±16 (Table L) | 6/64 | 0/64 | Y offsets 4, 11, 13, 22, 24 and 42 change; subset of Table J |
 | Black (Table B) | 29/64 | 15/64 | 44 of 128 output bytes differ from grey |
 
 For the spatial chroma checker specifically, the changed C-bank bytes are offset 4 (0x03 → 0x04), 51 (0x08 → 0x0b), 58 (0x0c → 0x0d), and 60 (0x0c → 0x0d). This confirms that the four changed packed words each contain exactly one changed byte.
@@ -571,11 +590,11 @@ The `chroma-checker-fine` run has completed successfully. It holds Y=128 and the
 
 The phone has now completed thirteen successful submissions: eleven base patterns, one repeatability submission, and this additional chroma-frequency variant. Together, the results demonstrate repeatability for the grey baseline, independent luma/chroma table responses, and no detected table change in this particular one-octave chroma scale comparison.
 
-## Lower-contrast within-block luma experiment — prepared, not run
+## Lower-contrast within-block luma experiment — runtime result
 
 The `luma-checker-4` pattern (Table J) used Y=64/192 (±64 around 128) in alternating 4×4 tiles and changed 11 Y-bank bytes while leaving all C-bank bytes unchanged. To isolate luma contrast while preserving spatial geometry, a new `luma-checker-4-low` pattern has been added. It uses Y=112/144 (±16 around 128) in the same 4×4 tiles, with neutral NV21 chroma. Comparing this result with Table J will vary only the luma amplitude. If its table still differs from grey, the response persists at ±16 for this pattern; if it matches grey, the output transition is bracketed between the tested ±16 and ±64 amplitudes. This remains a stimulus-specific quantised observation, not a universal threshold.
 
-The new pattern is included in the accepted-pattern list/help output. GCC and Clang compilation and help-output checks passed in [Actions run #43680566785](https://github.com/SF12-YT/dummy-assets/actions/runs/43680566785). Device execution has not yet been performed.
+The `luma-checker-4-low` test completed successfully on the phone. Relative to grey, it changes six Y-bank bytes and zero C-bank bytes; all six changed offsets are also changed by the higher-contrast Table J stimulus.
 
 ## Investigation status and practical completion criteria
 
@@ -583,12 +602,12 @@ The new pattern is included in the accepted-pattern list/help output. GCC and Cl
 
 - Target kernel, UAPI, native/compat ABI, DMA-BUF path, register map and fallback behaviour: approximately 95% understood.
 - Hardware execution and proof of input-dependent Y/C table output on this device: approximately 90–95% established.
-- Black-box mapping of output sensitivity to image content, spatial frequency, contrast and repeatability: approximately 85% characterised. The grey baseline repeated with an exact 32/32-word match, and the ±64 chroma checker returned an exact 32/32-word match at two tile sizes.
+- Black-box mapping of output sensitivity to image content, spatial frequency, contrast and repeatability: approximately 90% characterised. The grey baseline repeated with an exact 32/32-word match, and the ±64 chroma checker returned an exact 32/32-word match at two tile sizes.
 - Exact internal silicon algorithm (the estimator, thresholds, coefficient-to-position mapping and RTL): approximately 20–25% understood. The Linux driver and finite I/O experiments do not expose the RTL.
 
-A sensible stopping point for the **practical black-box investigation** is one final controlled one-shot experiment, followed by a consolidated result and limitations report:
+A sensible stopping point for the **bounded practical black-box investigation** has now been reached: the planned contrast comparison is complete, and the next work is to consolidate the results and limitations rather than keep adding arbitrary stimuli.
 
-1. Run `luma-checker-4-low`, which uses Y=112/144 in the same 4×4 geometry as Table J (Y=64/192). This isolates luma amplitude while preserving spatial frequency.
-2. Then consolidate the practical findings and documented limitations. Add further experiments only if this comparison reveals a specific unresolved behaviour.
+1. Consolidate the practical findings, byte-level comparisons, driver analysis and limitations into a final report.
+2. Add further hardware experiments only when a concrete unresolved question justifies them.
 
 After those tests, the driver/API investigation and the principal observable Y/C response behaviours should be adequately documented for this kernel/device combination. Exhaustively testing every image, resolution, format, mode, input value and hardware corner case is not a finite task. Reconstructing the exact proprietary silicon algorithm would require Samsung documentation, RTL or equivalent design-level evidence; black-box probes alone cannot promise that result.
