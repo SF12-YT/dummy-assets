@@ -165,50 +165,65 @@ jobs:
             git push origin HEAD:main
           fi
 
-      - name: Extract exact fallback Q-table from target kernel ELF
+      - name: Extract exact fallback Q-table from target kernel image
         if: always()
         shell: bash
         run: |
           set -euo pipefail
           mkdir -p out analysis
-          report="out/jsqz-default-table.txt"
-          if [ ! -s out/vmlinux.elf ]; then
-            echo "Recovered vmlinux.elf unavailable; exact fallback table extraction skipped." | tee "$report"
-          else
-            python3 - <<'PY'
-          import re
+          python3 - <<'PY'
           import struct
-          import subprocess
+          from pathlib import Path
 
-          elf = "out/vmlinux.elf"
-          # jsqz_task_schedule's bit-28 fallback block loads the 32-word
-          # init_q_table from the global address computed by:
-          #   adrp x19, 0xffffff80092f4000
-          #   add  x19, x19, #0xb08
-          #   ldp  ..., [x19, #0x1d0]
-          # Therefore the table starts at 0xffffff80092f4cd8.
-          address = 0xffffff80092f4cd8
-          size = 32 * 4
-          result = subprocess.run(
-              ["aarch64-linux-gnu-objdump", "-s",
-               f"--start-address=0x{address:x}",
-               f"--stop-address=0x{address + size:x}", elf],
-              check=True, text=True, capture_output=True
+          kernel_path = Path("out/kernel.bin")
+          if not kernel_path.is_file():
+              raise SystemExit("out/kernel.bin is missing; cannot scan the original kernel payload.")
+
+          payload = kernel_path.read_bytes()
+          known_prefix = (
+              0x01010101, 0x01010101, 0x01010101, 0x03020201,
+              0x02020202, 0x03030402, 0x04050302, 0x04050505,
+              0x06050404, 0x05050607, 0x04040607, 0x07060906,
+              0x08080808, 0x09060508, 0x0a08090a
           )
-          chunks = []
-          for line in result.stdout.splitlines():
-              match = re.match(r"^\s*[0-9a-fA-F]+\s+((?:[0-9a-fA-F]{8}\s+)+)", line)
-              if match:
-                  chunks.append(bytes.fromhex("".join(match.group(1).split())))
-          data = b"".join(chunks)
-          if len(data) != size:
+          known_suffix = (
+              0x02010101, 0x02040202, 0x05080402, 0x08080504,
+              0x08080808, 0x08080808, 0x08080808, 0x08080808,
+              0x08080808, 0x08080808, 0x08080808, 0x08080808,
+              0x08080808, 0x08080808, 0x08080808
+          )
+          prefix_bytes = struct.pack("<15I", *known_prefix)
+          suffix_bytes = struct.pack("<15I", *known_suffix)
+
+          candidates = []
+          cursor = 0
+          while True:
+              offset = payload.find(prefix_bytes, cursor)
+              if offset < 0:
+                  break
+              cursor = offset + 1
+              suffix_start = offset + 16 * 4
+              if payload[suffix_start:suffix_start + len(suffix_bytes)] == suffix_bytes:
+                  if offset + 128 <= len(payload):
+                      candidates.append(offset)
+
+          if not candidates:
               raise SystemExit(
-                  f"Expected {size} bytes at 0x{address:x}, extracted {len(data)}. "
-                  "Inspect the recovered ELF's section layout before trusting the address."
+                  "Could not locate the table signature in kernel.bin. "
+                  "The target table may differ from the known 30-word signature."
               )
 
-          words = struct.unpack("<32I", data)
-          expected_black = (
+          tables = [(offset, payload[offset:offset + 128]) for offset in candidates]
+          distinct_tables = {raw for _, raw in tables}
+          if len(distinct_tables) != 1:
+              offsets = ", ".join(f"0x{o:x}" for o, _ in tables)
+              raise SystemExit(
+                  f"Found multiple different table candidates at {offsets}; refusing to guess."
+              )
+
+          offset, raw = tables[0]
+          words = struct.unpack("<32I", raw)
+          observed_black = (
               0x01010101, 0x01010101, 0x01010101, 0x03020201,
               0x02020202, 0x03030402, 0x04050302, 0x04050505,
               0x06050404, 0x05050607, 0x04040607, 0x07060906,
@@ -220,30 +235,35 @@ jobs:
           )
           mismatches = [
               (i, actual, observed)
-              for i, (actual, observed) in enumerate(zip(words, expected_black))
+              for i, (actual, observed) in enumerate(zip(words, observed_black))
               if actual != observed
           ]
 
-          with open("out/jsqz-default-table.txt", "w") as f:
-              f.write("Target boot-image JSQZ fallback init_q_table extraction\n")
-              f.write(f"Virtual address: 0x{address:016x}\n")
-              f.write(f"Bytes: {len(data)}\n")
-              f.write("Words (little-endian u32):\n")
-              for i, word in enumerate(words):
-                  f.write(f"{i:02d}: 0x{word:08x}\n")
-              f.write("\nRaw bytes (hex):\n")
-              f.write(data.hex() + "\n")
-              f.write("\nComparison with the observed black run:\n")
-              f.write(f"Exact word matches: {32 - len(mismatches)}/32\n")
-              for i, actual, observed in mismatches:
-                  f.write(
-                      f"word {i}: target default 0x{actual:08x}, "
-                      f"black output 0x{observed:08x}\n"
-                  )
-          print(open("out/jsqz-default-table.txt").read())
+          lines = [
+              "Exact JSQZ fallback-table bytes recovered from the original target kernel payload",
+              f"kernel.bin file offset: 0x{offset:x}",
+              f"Number of matching locations: {len(candidates)}",
+              f"Candidate offsets: {', '.join(f'0x{o:x}' for o in candidates)}",
+              "Words (little-endian u32):"
+          ]
+          lines.extend(f"{i:02d}: 0x{word:08x}" for i, word in enumerate(words))
+          lines.extend([
+              "",
+              "Raw bytes (hex):",
+              raw.hex(),
+              "",
+              "Comparison with the observed black run:",
+              f"Exact word matches: {32 - len(mismatches)}/32"
+          ])
+          lines.extend(
+              f"word {i}: target default 0x{actual:08x}, black output 0x{observed:08x}"
+              for i, actual, observed in mismatches
+          )
+          report = "\n".join(lines) + "\n"
+          Path("out/jsqz-default-table.txt").write_text(report)
+          Path("analysis/jsqz-default-table.txt").write_text(report)
+          print(report)
           PY
-          fi
-          cp "$report" analysis/jsqz-default-table.txt
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add analysis/jsqz-default-table.txt
@@ -403,11 +423,13 @@ jobs:
           selected = []
           for line in nm.stdout.splitlines():
               fields = line.split()
-              if len(fields) < 2:
+              if len(fields) < 3 or fields[-2] not in {"T", "t", "W", "w"}:
                   continue
               name = fields[-1]
               if any(needle in name.lower() for needle in needles):
                   selected.append((line, name))
+              if len(selected) >= 300:
+                  break
 
           with open("out/ion-dmabuf-kernel-symbols.txt", "w") as report:
               report.write(f"Matched symbol-table entries: {len(selected)}\n")
