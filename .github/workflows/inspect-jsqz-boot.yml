@@ -438,15 +438,15 @@ jobs:
           selected = selected[:20]
 
           with open("out/ion-dmabuf-kernel-symbols.txt", "w") as report:
-              report.write(f"Matched bounded function symbols: {len(selected)}\\n")
+              report.write(f"Matched bounded function symbols: {len(selected)}\n")
               for address, size, kind, name in selected:
-                  report.write(f"{address} {size:08x} {kind} {name}\\n")
+                  report.write(f"{address} {size:08x} {kind} {name}\n")
 
           with open("out/ion-dmabuf-kernel-disassembly.txt", "w") as report:
-              report.write("Selected ION / DMA-BUF mapping functions from the target boot image\\n")
-              report.write("Only named text symbols with nonzero sizes <= 0x8000 are included.\\n")
+              report.write("Selected ION / DMA-BUF mapping functions from the target boot image\n")
+              report.write("Only named text symbols with nonzero sizes <= 0x8000 are included.\n")
               for address, size, kind, name in selected:
-                  report.write(f"\\n===== {name} @ {address}, size 0x{size:x} =====\\n")
+                  report.write(f"\n===== {name} @ {address}, size 0x{size:x} =====\n")
                   dis = subprocess.run(
                       ["aarch64-linux-gnu-objdump", "-d", "-C",
                        f"--start-address=0x{address}",
