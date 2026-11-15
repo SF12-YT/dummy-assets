@@ -144,6 +144,8 @@ The reference camera HAL's dynamic symbol table does contain undefined imports f
 
 No permissions, ownership, or SELinux policy have been changed on the user's device. A blanket `chmod 666`, running the camera service as root, or setting SELinux permissive is not an appropriate diagnostic fix. A ROM-level integration should use the narrowly scoped ueventd rule and SELinux type/allow rule shown above.
 
+A ready-to-run, read-only collector is available at [`jsqz_camera_access_audit.sh`](jsqz_camera_access_audit.sh). It gathers the live node mode/SELinux label, active ueventd rule locations, camera process UID/GID/groups and SELinux domains, plus matching AVC/kernel log lines. It does not open the JSQZ device or submit an ioctl, and it does not change permissions or policy. It is only needed if the live-device ambiguity is worth checking later.
+
 ## 7. Next useful verification
 
 The remaining device-side uncertainty is narrow: inspect the active node's SELinux label and the live camera service domain, then check whether an AVC record exists for the failed open. That distinguishes a missing DAC rule from an additional SELinux denial. It does not require another JSQZ ioctl or another synthetic frame.
