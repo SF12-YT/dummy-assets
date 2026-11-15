@@ -409,43 +409,48 @@ jobs:
             echo "No recovered ELF." > out/ion-dmabuf-kernel-symbols.txt
           else
             python3 - <<'PY'
-          import re
           import subprocess
 
           elf = "out/vmlinux.elf"
+          wanted = (
+              "dma_buf_get", "dma_buf_attach", "dma_buf_map_attachment",
+              "dma_buf_unmap_attachment", "dma_buf_detach", "dma_buf_put",
+              "ion_iovmm_map", "ion_iovmm_unmap",
+              "exynos_iovmm_map_userptr", "exynos_iovmm_unmap_userptr"
+          )
           nm = subprocess.run(
               ["aarch64-linux-gnu-nm", "-n", "-S", "--defined-only", elf],
               check=True, text=True, capture_output=True
           )
-          needles = (
-              "ion", "dma_buf", "dmabuf", "heap"
-          )
           selected = []
           for line in nm.stdout.splitlines():
               fields = line.split()
-              if len(fields) < 3 or fields[-2] not in {"T", "t", "W", "w"}:
+              if len(fields) < 4:
                   continue
-              name = fields[-1]
-              if any(needle in name.lower() for needle in needles):
-                  selected.append((line, name))
-              if len(selected) >= 300:
-                  break
+              address, size, kind, name = fields[-4:]
+              if kind not in {"T", "t", "W", "w"}:
+                  continue
+              size_value = int(size, 16)
+              if size_value == 0 or size_value > 0x8000:
+                  continue
+              if any(term in name.lower() for term in wanted):
+                  selected.append((address, size_value, kind, name))
+          selected = selected[:20]
 
           with open("out/ion-dmabuf-kernel-symbols.txt", "w") as report:
-              report.write(f"Matched symbol-table entries: {len(selected)}\n")
-              for raw, name in selected:
-                  report.write(raw + "\n")
+              report.write(f"Matched bounded function symbols: {len(selected)}\\n")
+              for address, size, kind, name in selected:
+                  report.write(f"{address} {size:08x} {kind} {name}\\n")
 
           with open("out/ion-dmabuf-kernel-disassembly.txt", "w") as report:
-              report.write("ION / DMA-BUF / heap symbols recovered from the uploaded target boot image\n")
-              report.write(f"Matched symbol-table entries: {len(selected)}\n")
-              if not selected:
-                  report.write("No matching names were present in the recovered ELF symbol table.\n")
-              for raw, name in selected:
-                  report.write(f"\n===== {name} ({raw}) =====\n")
+              report.write("Selected ION / DMA-BUF mapping functions from the target boot image\\n")
+              report.write("Only named text symbols with nonzero sizes <= 0x8000 are included.\\n")
+              for address, size, kind, name in selected:
+                  report.write(f"\\n===== {name} @ {address}, size 0x{size:x} =====\\n")
                   dis = subprocess.run(
                       ["aarch64-linux-gnu-objdump", "-d", "-C",
-                       f"--disassemble={name}", elf],
+                       f"--start-address=0x{address}",
+                       f"--stop-address=0x{int(address, 16) + size:x}", elf],
                       text=True, capture_output=True
                   )
                   report.write(dis.stdout or dis.stderr)
@@ -456,7 +461,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add analysis/ion-dmabuf-kernel-*.txt
           if ! git diff --cached --quiet; then
-            git commit -m "Add target ION and DMA-BUF kernel analysis"
+            git commit -m "Add bounded target ION and DMA-BUF function analysis"
             git fetch origin main
             git rebase origin/main
             git push origin HEAD:main
