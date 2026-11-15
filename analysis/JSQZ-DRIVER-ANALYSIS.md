@@ -165,7 +165,7 @@ format = (width & 0x1fff)
 
 Thus width occupies bits 0–12, height bits 16–27, colour-space selection bit 30, processing mode bit 29 and function bit 28.
 
-The bus-config register also carries the stride enable/value (bit 16 and low 13 bits) and a timeout-related flag (bit 24). The normal launch path clears the timeout flag before starting.
+The bus-config register carries the stride enable/value (bit 16 and low 13 bits). There are two distinct control/status bits here: the launch helper clears bit 24 when timeout control is disabled, while the post-completion scheduler checks bit 28 as the JSQZ timeout/bug indication. Do not conflate bit 24 with the bit-28 fallback decision.
 
 ## Alignment fallback — a successful ioctl does not prove hardware ran
 
@@ -288,3 +288,53 @@ The target-kernel disassembly independently confirms the native ioctl command co
 The current `--execute grey` path therefore has a well-defined purpose: one 128×64 NV21 source frame, one DMA-BUF, NORMAL/LIVE configuration, one ioctl, then return the 32 output Q-table words. No image output buffer is required for this API path. The output is the quantisation table, not a compressed image stream.
 
 The successful `--check-device` run proves `open(O_RDWR)` and close succeed. It does not exercise the ioctl, runtime power-up, DMA attachment, IOVMM mapping, hardware start, IRQ, or output-register read.
+
+
+## Runtime pattern tests — 15 November 2026
+
+The device-side probe has now submitted three single-frame NV21 tests through the native 64-bit ioctl. All used 128×64, stride 0 (effective stride 128), one ION system-heap DMA-BUF of 12,288 bytes, NORMAL/LIVE mode, and returned success.
+
+| Pattern | Luma input | Returned table |
+|---|---|---|
+| grey | Y=128 throughout | Table A |
+| checker | alternating 8×8 blocks of Y=16 and Y=235 | Table A, exactly identical to grey |
+| black | Y=16 throughout | Table B |
+
+All three used neutral chroma (VU=128). Table A is non-default-looking; Table B closely matches the matching public driver's built-in `init_q_table`.
+
+### What the target binary actually does with the status bit
+
+The target boot-image disassembly resolves the fallback decision:
+
+- In `jsqz_task_schedule`, after `wait_for_completion()`, it reads bus-config register `base + 0x108`.
+- At `ffffff8008b0a1dc`, `tbnz w0, #28` branches to the fallback-copy block at `ffffff8008b0a358`.
+- That block copies the driver's global 32-word `init_q_table` into the task result.
+- When bit 28 is clear, the scheduler instead reads the 16 luma words from `base + 0x010` and the 16 chroma words from `base + 0x050`.
+- Separately, the launch path clears bit 24 at `ffffff8008b0a0f4`; that is timeout-control configuration, not the post-run bit-28 status test.
+
+The 128-byte black result is:
+
+```
+01010101 01010101 01010101 03020201
+02020202 03030402 04050302 04050505
+06050404 05050607 04040607 07060906
+08080808 09060508 0a08090a 0a080807
+02010101 02040202 05080402 08080504
+08080808 08080808 08080808 08080808
+08080808 08080808 08080808 08080808
+08080808 08080808 08080808 0a080808
+```
+
+It matches the reference `init_q_table` in 30 of 32 words. Only word 15 (`0a080807` versus reference `08080807`) and word 31 (`0a080808` versus reference `08080808`) differ. This is strong evidence that the black run took the bit-28 fallback path and returned the target build's default table, which appears to differ slightly from the public reference revision. The target binary's table bytes have not yet been extracted independently, so this remains a high-confidence inference rather than a byte-for-byte proof.
+
+### Interpretation of the three runs
+
+The stride is valid for NV21 (128 is divisible by 64), and the frame dimensions and buffer size pass the target driver's guards. Therefore the early alignment fallback is not expected for any of these tests.
+
+- Grey and checker returned exactly the same Table A, and Table A is substantially different from the reference default. These runs therefore appear to have used the output-register branch rather than the known fallback value.
+- Black returned Table B, which is almost the reference default. The most likely explanation is that the post-completion bit-28 condition selected the fallback table on that run.
+- The identical grey/checker outputs are still unexplained. They establish that changing the luma pattern from uniform grey to a high-contrast checker did not change the returned table; they do not establish that the hardware consumed both source frames correctly. A stale or fixed output-register result, an input-path issue, or an algorithm that produces the same result for these two inputs remain possible.
+
+### One useful confirmation without another hardware submission
+
+The timeout branch emits the `dev_info` message `jsqz device time out!!`. Checking the kernel log after the black run can confirm whether the bit-28 fallback executed. This is preferable to submitting more test frames until the branch is identified.
