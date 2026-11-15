@@ -151,3 +151,67 @@ A ready-to-run, read-only collector is available at [`jsqz_camera_access_audit.s
 The remaining device-side uncertainty is narrow: inspect the active node's SELinux label and the live camera service domain, then check whether an AVC record exists for the failed open. That distinguishes a missing DAC rule from an additional SELinux denial. It does not require another JSQZ ioctl or another synthetic frame.
 
 Until that is checked, the most accurate conclusion is: **the camera HAL's JSQZ open is being blocked at the device-node access layer; the recorded root:root 0600 mode is already sufficient to explain the failure.**
+
+
+## 8. Live permission test and HAL lifecycle follow-up — 15 November 2026
+
+After the read-only audit, the device node was changed temporarily from `0600 root:root` to:
+
+```
+crw-rw---- 1 cameraserver camera u:object_r:jsqz_device:s0 /dev/jsqz
+```
+
+The numeric owner/group were UID 1047 and GID 1006. The active camera-provider process ran as UID 1047, supplementary groups included 1006, and its SELinux domain was `u:r:hal_camera_default:s0`. The loaded policy explicitly allowed that domain to open/read/write/ioctl the `jsqz_device:chr_file`. No matching AVC record was found in the available log buffers.
+
+The user then took a photo and recorded a video; normal camera operation continued. A subsequent read-only audit still showed mode `0660`, owner `1047`, group `1006`, and the expected SELinux label.
+
+During camera use, the user captured:
+
+```
+11-15 21:05:05.712  5446 16507 I jsqz_hal: jsqz instance is created
+11-15 21:05:07.069  5446  6045 I jsqz_hal: jsqz instance is destroyed
+11-15 21:07:54.984  5446  6045 I jsqz_hal: jsqz instance is created
+11-15 21:08:42.006  5446  6045 I jsqz_hal: jsqz instance is destroyed
+```
+
+This is evidence that the JSQZ wrapper lifecycle is now being entered. The old open-failure message was not present in this capture. However, the create/destroy messages alone do **not** prove that `open("/dev/jsqz", O_RDWR)` succeeded or that ioctl `0xC1344D00` was submitted. The exact installed target HAL build (`2954034e91ab9505aef839b7d9feded0`) has not been disassembled here; the public comparison library has a different Build ID.
+
+A stored earlier camera log (`mfp_10x_live.log`, 14 November) contained repeated errors from JSQZ wrapper calls stating that the device had to be created first. The 15 November lifecycle messages are a material change in the observed log output, but they still do not reveal the final ioctl result.
+
+## 9. Persistent permission correction: safest candidate
+
+The temporary correction was tested on the running device, and the camera continued to operate. The persistent candidate is therefore to apply the exact same narrow change once per boot, without replacing vendor files or changing SELinux policy:
+
+```sh
+chown 1047:1006 /dev/jsqz
+chmod 0660 /dev/jsqz
+```
+
+The best Magisk hook candidate is a module-local `post-fs-data.sh`, not `service.sh`:
+
+- Magisk documents `post-fs-data.sh` as post-fs-data mode and `service.sh` as late_start service mode.
+- Magisk documents post-fs-data scripts as running before Zygote, with a blocking stage limited to 10 seconds.
+- Android 12 AOSP init triggers `post-fs-data` before `zygote-start`; the standard `class_start hal` is in the later `on boot` action. Thus this hook should correct the node before standard HAL services start.
+- ueventd is started during early-init and completes coldboot before the later init stages, so the already-registered `/dev/jsqz` node should exist by post-fs-data.
+
+References:
+- [Magisk module structure and script stages](https://magisk.readthedocs.io/en/latest/developers/guides.html)
+- [Magisk boot process](https://topjohnwu.github.io/Magisk/details.html)
+- [Android 12 AOSP init sequence](https://android.googlesource.com/platform/system/core/+/refs/heads/android12-dev/rootdir/init.rc)
+
+A minimal module would contain only `module.prop`, an empty `skip_mount` marker, and a guarded `post-fs-data.sh`. The script should verify that `/dev/jsqz` is a character device, apply owner/group and mode, verify the result, and exit promptly. It should not contain a `system/` overlay, `overlay.d` init replacement, `sepolicy.rule`, `chcon`, service restart, or any driver/HAL modification because none is currently justified.
+
+This is a **well-supported candidate, not yet installed or reboot-tested**. A device-specific init action could theoretically start the camera provider earlier than the standard class sequence, and a Magisk script is not a substitute for the proper ROM-level ueventd rule. No persistent changes have been made. The user has no PC available for stock-firmware recovery, so the module must remain optional until its exact contents and rollback plan are reviewed.
+
+## 10. Remaining verification
+
+The current best status is:
+
+1. **DAC failure identified and manually corrected:** confirmed.
+2. **SELinux policy and label:** consistent with access; no AVC observed.
+3. **Camera still works with the corrected node:** confirmed by the user.
+4. **JSQZ instance lifecycle during camera use:** confirmed by logcat.
+5. **Successful JSQZ open and ioctl from the installed HAL:** not yet directly confirmed.
+6. **Reboot-persistent permission change:** candidate designed from boot ordering, but not installed or tested.
+
+The least intrusive next verification of a successful open is to inspect the camera-provider process's open file descriptors while the JSQZ instance is active and look for `/dev/jsqz`. If the file descriptor is opened and retained during that lifetime, this proves the node open succeeded. A missing descriptor is inconclusive because the HAL may open/close it quickly. Direct ioctl confirmation would require tracing the provider's ioctl syscall or a target HAL instrumentation point; attaching a tracer can perturb the camera service and is not the first choice on this no-PC recovery situation.
