@@ -40,6 +40,10 @@ The UAPI defines both DMA-BUF and USERPTR descriptor types. In the matching driv
 
 The target disassembly confirms that `jsqz_process` sends type 1 through `dma_buf_get(fd)`, while type 2 takes the error path before `jsqz_buffer_map()`. A lower-level helper, `jsqz_dma_addr_map()`, does contain a generic `exynos_iovmm_map_userptr()` branch, but the normal JSQZ USERPTR descriptor path fails earlier and does not reach it. That helper's presence must not be mistaken for working USERPTR support.
 
+### Unexercised operating modes
+
+The public UAPI also defines `JSQZ_MODE_HIGH_QUALITY` and `JSQZ_FUNCTION_TRANSCODE`. The header describes LIVE as using a camera preview and TRANSCODE as using the original image. The driver packs the mode and function selectors into bits 29 and 28 of the input-format register word. All fourteen submissions used NORMAL + LIVE; the other combinations have not been characterised. Their existence is established, but their output differences are unknown. See the [public UAPI header](https://github.com/LineageOS/android_kernel_samsung_exynos9820/blob/a412cfaf86b980ce35cae96a35f678c8ea551575/include/uapi/linux/hwjsqz.h).
+
 ### Register and completion path
 
 The recovered register banks are:
@@ -118,6 +122,16 @@ The Linux driver orchestrates the IP but does not contain its internal estimator
 
 The available reference HAL's byte-unpacking method writes bytes low-to-high from each 32-bit word, but that does not reveal the 8×8 coefficient scan order. Its Build ID differs from the installed target HAL. Separately, the supplied 10× Pro capture log showed the camera HAL failing to open `/dev/jsqz` with permission error 13; the JPEG capture still completed. That log does not show JSQZ contributing to that particular photo.
 
+## Public patent search — a lead, not an attribution
+
+A Samsung patent with a potentially related concept is [US20200145662A1, “Method and apparatus for encoding image by using quantization table adaptive to image”](https://patents.google.com/patent/US20200145662A1/en) (priority date 1 November 2018). It describes generating an image-adaptive quantisation table from multiple image patches and transform-coefficient groups using a machine-learning model. One embodiment uses fully connected layers; another describes a convolutional neural network. The model inputs can include transform coefficients or location-wise statistics derived from them.
+
+This has a conceptual overlap with JSQZ's raw-image-to-Q-table contract, but **the patent does not mention Exynos 9820 or JSQZ**, and no source, binary string, register description or HAL call currently links it to this hardware. It could describe a separate Samsung implementation or research direction. It is not evidence that the JSQZ engine contains a neural network.
+
+[US20140146881A1](https://patents.google.com/patent/US20140146881A1/en), a Samsung/KAIST quantisation-table estimation patent, appears less relevant because its described process estimates tables for already-compressed video blocks using candidate-table tests, edge-preserving filtering and energy costs. That is materially different from JSQZ receiving raw NV21 and returning a table for later JPEG encoding.
+
+The remaining public-research target is a disclosure explicitly traceable to the Exynos JSQZ IP, or an implementation artifact that connects an algorithm to this block. Until then, the estimator itself remains unknown.
+ 
 ## Final status
 
 The planned bounded sequence is complete. The driver/API path, fallback table, output-register branch, and principal observable responses to the tested luma/chroma patterns are documented. No further phone-side submission is justified merely to extend the count.
