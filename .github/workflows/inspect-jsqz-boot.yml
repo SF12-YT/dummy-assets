@@ -223,10 +223,27 @@ jobs:
           else
             echo "Reference library differs from the user's previously inspected Build-ID 2954034e91ab9505aef839b7d9feded0; use as a comparison only." | tee out/reference-hal-version-match.txt
           fi
+          camera_url="https://raw.githubusercontent.com/AndroidBlobs/vendor_samsung_beyond0/ff25fa6c37517537715ec9e710210f2d0820bfc2/proprietary/vendor/lib/libexynoscamera3.so"
+          curl -fL --retry 3 "$camera_url" -o out/reference-camera-libexynoscamera3.so
+          camera_blob_hash="$(git hash-object out/reference-camera-libexynoscamera3.so)"
+          echo "Git blob SHA-1: $camera_blob_hash" | tee out/reference-camera-hal-archive-check.txt
+          test "$camera_blob_hash" = "f66a4d4bb1e1ac5c78654d1f957868af8a2972d9"
+          file out/reference-camera-libexynoscamera3.so | tee out/reference-camera-hal-file.txt
+          sha256sum out/reference-camera-libexynoscamera3.so | tee out/reference-camera-hal-sha256.txt
+          readelf -h -d -n -Ws out/reference-camera-libexynoscamera3.so > out/reference-camera-hal-elf-report.txt
+          readelf -n out/reference-camera-libexynoscamera3.so | grep -i 'Build ID' | tee out/reference-camera-hal-build-id.txt || true
+          nm -D -C --undefined-only out/reference-camera-libexynoscamera3.so | grep -Ei 'jsqz|sqz|jpeg' > out/reference-camera-hal-undefined-jsqz.txt || true
+          strings -a -t x out/reference-camera-libexynoscamera3.so | grep -Ei 'jsqz|sqz|quant|quality|jpeg squeezer|setImageInfo|setJsqzConfig|c_run_jsqz|/dev/jsqz' > out/reference-camera-hal-strings.txt || true
+          if grep -qi '1b7a6dfaf4dcbf7034b467a6fcec2fc1' out/reference-camera-hal-build-id.txt; then
+            echo "EXACT BUILD-ID MATCH with the user's previously inspected libexynoscamera3.so" | tee out/reference-camera-hal-version-match.txt
+          else
+            echo "Reference camera HAL differs from the user's previously inspected Build-ID 1b7a6dfaf4dcbf7034b467a6fcec2fc1; use as a comparison only." | tee out/reference-camera-hal-version-match.txt
+          fi
+          cp out/reference-camera-hal-*.txt analysis/
           cp out/reference-hal-*.txt analysis/
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add analysis/reference-hal-*.txt
+          git add analysis/reference-hal-*.txt analysis/reference-camera-hal-*.txt
           if ! git diff --cached --quiet; then
             git commit -m "Analyse S10e JSQZ HAL reference binary"
             git push origin HEAD:main
