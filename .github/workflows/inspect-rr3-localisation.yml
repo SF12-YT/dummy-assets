@@ -4,7 +4,7 @@ on:
     branches:
       - tmp/rr3-localisation-inspect-20261115
 permissions:
-  contents: read
+  contents: write
 jobs:
   inspect:
     runs-on: ubuntu-latest
@@ -49,36 +49,72 @@ jobs:
                   b in (9, 10, 11, 12, 13) or b >= 32 for b in sample
               )
 
-          def load(name, game_text=False):
+          def decoded_file(name, game_text=False):
               raw = Path(name).read_bytes()
-              plain = raw if is_plain(raw, game_text) else transform(raw)
-              print(f"{name}: {len(raw)} bytes, {'already plain' if plain is raw else 'RC4-decoded'}")
-              return plain.decode("utf-8-sig", errors="replace").splitlines()
+              return raw if is_plain(raw, game_text) else transform(raw)
 
-          keys = load("gametext.txt", True)
-          values = load("text_en.txt")
-          print(f"key lines: {len(keys)}; English lines: {len(values)}")
-          if len(keys) != len(values):
-              print("WARNING: line counts differ; checking indices carefully")
-          targets = [
-              "GAMETEXT_SERIES_TITLE_V8_SUPERCARS_2018",
-              "GAMETEXT_SERIES_TITLE_V8_CHAMPIONSHIP_2018",
-          ]
-          found = set()
-          for i, key in enumerate(keys):
-              if key in targets or ("SERIES_TITLE" in key and "V8" in key):
-                  found.add(key)
-                  print(f"ENTRY index={i} key={key!r} english={values[i] if i < len(values) else '<NO MATCHING LINE>'!r}")
-          print("TARGETS:")
-          for key in targets:
-              if key not in found:
-                  print(f"  {key}: NOT PRESENT")
-          print("Nearby championship/supercars labels:")
-          count = 0
-          for i, key in enumerate(keys):
-              if any(word in key.upper() for word in ("SUPERCAR", "V8_CHAMP", "V8_SERIES")):
-                  print(f"  {i}: {key!r} => {values[i] if i < len(values) else '<NO MATCHING LINE>'!r}")
-                  count += 1
-                  if count >= 30:
-                      break
+          key_bytes = decoded_file("gametext.txt", True)
+          key_lines = key_bytes.decode("utf-8-sig", errors="strict").splitlines()
+          value_raw = Path("text_en.txt").read_bytes()
+          plain = value_raw if is_plain(value_raw) else transform(value_raw)
+          values = plain.decode("utf-8-sig", errors="strict").splitlines()
+          print(f"Decoded key/value counts: {len(key_lines)} / {len(values)}")
+          target = "GAMETEXT_SERIES_TITLE_V8_SUPERCARS_2018"
+          index = key_lines.index(target)
+          print(f"Existing title at {index}: {values[index]!r}")
+          print("New requested key present:", "GAMETEXT_SERIES_TITLE_V8_CHAMPIONSHIP_2018" in key_lines)
           PY
+      - name: Change the existing English title and re-encode the file
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          KEY = bytes([0xB1, 0x75, 0xA5, 0x23, 0xF3, 0xC2, 0xB6, 0x15])
+          DROP = 211
+
+          def transform(raw):
+              s = list(range(256))
+              j = 0
+              for k in range(256):
+                  j = (j + s[k] + KEY[k & 7]) & 255
+                  s[k], s[j] = s[j], s[k]
+              i = j = 0
+              for _ in range(DROP):
+                  i = (i + 1) & 255
+                  j = (j + s[i]) & 255
+                  s[i], s[j] = s[j], s[i]
+              out = bytearray(len(raw))
+              for n, byte in enumerate(raw):
+                  i = (i + 1) & 255
+                  j = (j + s[i]) & 255
+                  s[i], s[j] = s[j], s[i]
+                  out[n] = byte ^ s[(s[i] + s[j]) & 255]
+              return bytes(out)
+
+          key_raw = Path("gametext.txt").read_bytes()
+          key_plain = key_raw if key_raw.startswith(b"GAMETEXT_") else transform(key_raw)
+          keys = key_plain.decode("utf-8-sig", errors="strict").splitlines()
+          index = keys.index("GAMETEXT_SERIES_TITLE_V8_SUPERCARS_2018")
+
+          raw = Path("text_en.txt").read_bytes()
+          plain = raw if raw.startswith(b"\\xef\\xbb\\xbf") else transform(raw)
+          separator = b"\\r\\n" if b"\\r\\n" in plain else b"\\n"
+          lines = plain.split(separator)
+          old = lines[index].decode("utf-8", errors="strict")
+          if old != "2018 Season":
+              raise SystemExit(f"Refusing to overwrite unexpected translation at {index}: {old!r}")
+          lines[index] = "V8 Championship 2018".encode("utf-8")
+          updated_plain = separator.join(lines)
+          encoded = transform(updated_plain)
+          if transform(encoded) != updated_plain:
+              raise SystemExit("Round-trip verification failed")
+          Path("text_en.txt").write_bytes(encoded)
+          print(f"Updated index {index}: {old!r} -> 'V8 Championship 2018'")
+          print(f"Ciphertext size: {len(raw)} -> {len(encoded)} bytes")
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add text_en.txt
+          git commit -m "Set V8 2018 series title to V8 Championship 2018"
+          git push origin HEAD:refs/heads/tmp/rr3-localisation-inspect-20261115
