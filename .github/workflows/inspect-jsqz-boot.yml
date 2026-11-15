@@ -234,6 +234,42 @@ jobs:
           readelf -n out/reference-camera-libexynoscamera3.so | grep -i 'Build ID' | tee out/reference-camera-hal-build-id.txt || true
           nm -D -C --undefined-only out/reference-camera-libexynoscamera3.so | grep -Ei 'jsqz|sqz|jpeg' > out/reference-camera-hal-undefined-jsqz.txt || true
           strings -a -t x out/reference-camera-libexynoscamera3.so | grep -Ei 'jsqz|sqz|quant|quality|jpeg squeezer|setImageInfo|setJsqzConfig|c_run_jsqz|/dev/jsqz' > out/reference-camera-hal-strings.txt || true
+          arm-linux-gnueabi-objdump -d -C out/reference-camera-libexynoscamera3.so > out/reference-camera-hal-disassembly.tmp
+          python3 - <<'PY'
+          import re
+          import subprocess
+
+          src = "out/reference-camera-libexynoscamera3.so"
+          dis = subprocess.run(
+              ["arm-linux-gnueabi-objdump", "-d", "-C", src],
+              check=True, text=True, capture_output=True
+          ).stdout.splitlines()
+          names = [
+              "ExynosJsqz::create", "ExynosJsqz::setInBuf",
+              "ExynosJsqz::setImageInfo", "ExynosJsqz::setJsqzConfig",
+              "ExynosJsqz::run", "ExynosJsqz::getResultQT",
+              "ExynosJsqz::destroy"
+          ]
+          call_re = re.compile(r"\\bblx?\\b")
+          label_re = re.compile(r"^([0-9a-f]+) <(.+)>:$")
+          current = "(unknown section)"
+          hits = []
+          for i, line in enumerate(dis):
+              label = label_re.match(line.strip())
+              if label:
+                  current = f"{label.group(2)} @ 0x{label.group(1)}"
+              if call_re.search(line) and any(name in line for name in names):
+                  hits.append((i, current, line.strip()))
+          with open("out/reference-camera-hal-jsqz-xrefs.txt", "w") as f:
+              f.write(f"Direct call-site references found: {len(hits)}\\n")
+              f.write("Reference binary only; its Build ID differs from the target device library.\\n")
+              for i, function, line in hits:
+                  f.write(f"\\n===== caller: {function} =====\\n")
+                  for context in dis[max(0, i-14):min(len(dis), i+5)]:
+                      f.write(context + "\\n")
+          PY
+          rm -f out/reference-camera-hal-disassembly.tmp
+          cp out/reference-camera-hal-jsqz-xrefs.txt analysis/
           if grep -qi '1b7a6dfaf4dcbf7034b467a6fcec2fc1' out/reference-camera-hal-build-id.txt; then
             echo "EXACT BUILD-ID MATCH with the user's previously inspected libexynoscamera3.so" | tee out/reference-camera-hal-version-match.txt
           else
