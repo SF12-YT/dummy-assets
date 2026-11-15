@@ -79,6 +79,7 @@ All byte counts below compare the returned 128-byte table with the grey baseline
 
 | Input | Y bytes changed | C bytes changed | Result |
 |---|---:|---:|---|
+| Grey baseline (Table A) | 0/64 | 0/64 | Reference table for all comparisons |
 | Grey repeat | 0/64 | 0/64 | Exact 128/128-byte repeat |
 | 8×8 luma checker | 0/64 | 0/64 | Identical to grey; each 8×8 tile is internally flat |
 | Black (Y=16) | 29/64 | 15/64 | Strong change in both banks |
