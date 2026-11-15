@@ -471,3 +471,11 @@ python3 jsqz_qtable_diff.py jsqz-qtable.bin jsqz-chroma-checker-low-qtable.bin
 
 This experiment is **implemented but not yet run on the phone**. Its output must be collected before drawing any conclusion about the lower contrast level. The CI workflow compiles the C probe with GCC and Clang and includes a synthetic test of the table-diff utility.
 
+## Q-table byte ordering — HAL reference confirmation
+
+The available public Beyond0 reference HAL contains two overloads of `ExynosJsqz::getResultQT`. The `unsigned int *` overload copies 32 consecutive words into the caller's output at four-byte intervals. The `unsigned char *` overload at reference-library offset `0x221a` iterates over the same 128 bytes and explicitly writes the four bytes of each 32-bit word in low-to-high order to consecutive output positions. It does not apply a zigzag/raster reordering in that method.
+
+**Build caveat:** this library's Build ID is `59c8d485e3e238436e067348882030c1`, not the installed target HAL's `2954034e91ab9505aef839b7d9feded0`. This is corroboration of the exposed HAL contract, not exact disassembly of the installed library. The native probe saves the 32 returned words directly on the target's little-endian ARM64 system; the diff utility therefore unpacks with explicit little-endian `<32I` and compares the 64-byte Y and C banks independently.
+
+The exact 8×8 coefficient scan layout (zigzag versus raster) is **not established** by this HAL copy routine or the kernel register reads. Accordingly, `jsqz_qtable_diff.py` reports linear byte offsets within each 64-byte table and deliberately does not label them as 8×8 row/column coordinates.
+
