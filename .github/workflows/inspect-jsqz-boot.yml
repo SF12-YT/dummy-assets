@@ -250,7 +250,7 @@ jobs:
               "ExynosJsqz::run", "ExynosJsqz::getResultQT",
               "ExynosJsqz::destroy"
           ]
-          call_re = re.compile(r"\\bblx?\\b")
+          call_re = re.compile(r"\bblx?\b")
           label_re = re.compile(r"^([0-9a-f]+) <(.+)>:$")
           current = "(unknown section)"
           hits = []
