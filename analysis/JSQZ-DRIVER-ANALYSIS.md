@@ -494,3 +494,16 @@ For the spatial chroma checker specifically, the changed C-bank bytes are offset
 
 The byte counts make the separation between the observed Y and C responses explicit: the deterministic-noise input changed only the Y bank, while the spatial chroma checker changed only the C bank. The HAL byte-order caveat above still applies to interpreting these as matrix coordinates: the offsets are linear output-byte positions, not asserted 8×8 row/column positions.
 
+## Subsequent luma-frequency experiment — prepared, not yet run
+
+The earlier `checker` test alternated Y=16 and Y=235 in 8×8 luma tiles. Because each tile aligned to an 8×8 block, every such block was internally constant; its output therefore matched the grey table and it was not a useful within-block frequency stimulus.
+
+A new `luma-checker-4` option is now implemented to address that limitation:
+
+- Y alternates between 64 and 192 in 4×4 luma tiles, giving a mean of exactly 128.
+- Every 8×8 region contains four alternating 4×4 quadrants, so the pattern has within-block spatial variation.
+- NV21 chroma remains neutral VU=128 throughout.
+- Frame dimensions, buffer size, mode and function remain identical to the other probes.
+
+This is intended as a controlled luma-frequency stimulus after the lower-contrast chroma test. It is implemented and included in the compiler/help checks, but no hardware result exists yet. It should be run only as a separate single submission, not together with the pending chroma test.
+
