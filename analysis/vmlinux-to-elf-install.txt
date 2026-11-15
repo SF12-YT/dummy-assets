@@ -15,16 +15,16 @@ Collecting minilzo>=1.2 (from vmlinux-to-elf==1.4.0)
 Collecting peewee>=3.17 (from vmlinux-to-elf==1.4.0)
   Downloading peewee-4.5.3-py3-none-any.whl.metadata (10 kB)
 Downloading vmlinux_to_elf-1.4.0-py3-none-any.whl (6.9 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.9/6.9 MB 57.0 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.9/6.9 MB 20.2 MB/s eta 0:00:00
 Downloading peewee-4.5.3-py3-none-any.whl (194 kB)
 Downloading zstandard-0.25.0-cp314-cp314-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (5.6 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.6/5.6 MB 145.0 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.6/5.6 MB 65.1 MB/s eta 0:00:00
 Downloading lz4-4.4.5-cp314-cp314-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (1.4 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.4/1.4 MB 151.9 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.4/1.4 MB 68.8 MB/s eta 0:00:00
 Building wheels for collected packages: minilzo
   Building wheel for minilzo (pyproject.toml): started
   Building wheel for minilzo (pyproject.toml): finished with status 'done'
-  Created wheel for minilzo: filename=minilzo-1.2-cp314-cp314-linux_x86_64.whl size=47947 sha256=a3e488a850887bb0eb8c4bdfd9984ec67fdbc5dfd21da21c8001f7672be1e9bb
+  Created wheel for minilzo: filename=minilzo-1.2-cp314-cp314-linux_x86_64.whl size=47949 sha256=76ea01a2515b07961b7c148c51044d7f56f0ca4226dcbf71e96bf60b2b6dc3d9
   Stored in directory: /home/runner/.cache/pip/wheels/9d/c2/50/5ee3af27cdf5153b87793cbc6dee422910abc4dc427034172a
 Successfully built minilzo
 Installing collected packages: zstandard, peewee, minilzo, lz4, vmlinux-to-elf
