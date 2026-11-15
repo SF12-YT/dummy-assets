@@ -317,6 +317,21 @@ The full returned word tables are preserved below. Each line contains four 32-bi
 08080808 09080808 0c0c0809 150f0f0c
 ```
 
+**Table C — gradient**
+
+```
+03030401 03030303 03030303 03030303
+03030303 03030403 04050303 04050505
+06050404 05050607 05040607 07060906
+08080808 09080608 0c0c090a 150f0f0c
+03030301 03040303 05080403 08080504
+08080808 08080808 08080808 08080808
+08080808 08080808 08080808 08080808
+08080808 09080808 0c0c0809 150f0f0c
+```
+
+Table C differs from Table A (grey/checker) in exactly one 32-bit word: word 0 changes from `03030301` to `03030401`. The other 31 words are identical, including all 16 chroma words. This is a small but direct input-dependent change in the returned luma table.
+
 **Table B — black**
 
 ```
@@ -366,6 +381,7 @@ This is an exact 32/32 match to the public driver's `init_q_table`; the target b
 The stride is valid for NV21 (128 is divisible by 64), and the frame dimensions and buffer size pass the target driver's guards. Therefore the early alignment fallback is not expected for any of these tests.
 
 - Grey and checker returned exactly the same Table A, which is substantially different from the exact fallback table. They did not return the fallback copy.
+- Gradient returned Table C: only word 0 differs from Table A (`03030401` versus `03030301`); the remaining 31 words are identical. This is a small but direct response to a change in luma spatial content, while chroma remains unchanged.
 - Black returned Table B. Although it matches the fallback in 30 of 32 words, word 15 is `0a080807` instead of `08080807`, and word 31 is `0a080808` instead of `08080808`. In little-endian byte order, these are exactly the final byte of the 64-byte luma matrix and the final byte of the 64-byte chroma matrix; both change from `0x08` to `0x0a`, while the other 126 bytes match. Therefore it also did **not** return the exact fallback copy.
 - Given the target driver's two known fallback paths (invalid alignment and the post-completion bit-28 branch), and the validated input dimensions/stride, all three runs most likely reached the output-register read path. The empty `dmesg` search is consistent with this, although absence of a log line alone is not proof.
 - Black differs from grey/checker in 17 of 32 words. That is useful evidence that the returned Q table is responding to the input pattern, not merely returning one constant fallback table. It does not by itself prove every DMA byte was consumed as intended, but it is substantially stronger evidence of functional JSQZ execution than the earlier fallback hypothesis.
