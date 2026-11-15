@@ -598,6 +598,18 @@ The `luma-checker-4` pattern (Table J) used Y=64/192 (±64 around 128) in altern
 
 The `luma-checker-4-low` test completed successfully on the phone. Relative to grey, it changes six Y-bank bytes and zero C-bank bytes; all six changed offsets are also changed by the higher-contrast Table J stimulus.
 
+## Additional algorithm leads — public Samsung patent comparison
+
+The public UAPI defines two processing modes, `JSQZ_MODE_NORMAL` and `JSQZ_MODE_HIGH_QUALITY`, and two functions, `JSQZ_FUNCTION_LIVE` (preview input) and `JSQZ_FUNCTION_TRANSCODE` (original-image input). The driver packs these into the hardware format word at bits 29 and 28 respectively. The fourteen recorded submissions exercised **NORMAL + LIVE only**. HIGH_QUALITY and TRANSCODE remain statically understood as API options but have no captured output comparison in this investigation. The UAPI definitions are in the [public Exynos 9820 kernel header](https://github.com/LineageOS/android_kernel_samsung_exynos9820/blob/a412cfaf86b980ce35cae96a35f678c8ea551575/include/uapi/linux/hwjsqz.h).
+
+A potentially relevant but unlinked Samsung disclosure surfaced during the external patent search: [US20200145662A1, “Method and apparatus for encoding image by using quantization table adaptive to image”](https://patents.google.com/patent/US20200145662A1/en), with a stated priority date of 1 November 2018. It describes deriving an image-adaptive quantisation table with a machine-learning model from multiple image patches and corresponding transform-coefficient groups. Described model inputs can include transform coefficients or statistics grouped by coefficient location; disclosed model options include fully connected layers and a convolutional neural network. This is conceptually compatible with a system that analyses raw image content and produces a frame-level Q table.
+
+**There is no evidence in the patent that it describes the Exynos 9820 JSQZ block.** The text does not identify Exynos, JSQZ, the register map, the kernel interface or this particular camera pipeline. It may be a separate software or processor-based Samsung approach. It is therefore a research lead only—not a basis for claiming that JSQZ uses neural networks.
+
+A second Samsung/KAIST publication, [US20140146881A1, “Method and apparatus for estimating a quantization table for a video image”](https://patents.google.com/patent/US20140146881A1/en), is a weaker match: its described method estimates a table for an already-compressed image block using candidate tables, edge-preserving filtering and energy-cost comparisons. That operating context differs from JSQZ's observed input contract, which supplies raw YUV image data and returns a table for later JPEG encoding. I have not treated it as an explanation of the JSQZ silicon.
+
+The practical next reverse-engineering route is therefore not “assume the patent is the algorithm”, but to search for a patent or design disclosure explicitly matching the JSQZ/Exynos IP, or obtain an implementation artifact that connects a published algorithm to the actual hardware. The HIGH_QUALITY/TRANSCODE modes are also open behavioural dimensions, but they are outside the completed NORMAL/LIVE test matrix and do not justify another device submission without a focused question.
+ 
 ## Investigation status and practical completion criteria
 
 **Estimated overall progress for a bounded, practical investigation of the target phone's JSQZ driver and observable Q-table behaviour: approximately 80–85%.** This is a project estimate, not a measurable scientific percentage.
