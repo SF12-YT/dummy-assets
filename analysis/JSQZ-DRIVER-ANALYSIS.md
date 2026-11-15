@@ -464,16 +464,9 @@ The matching controls are the same 128×64 NV21 frame, Y=128, 4×4 chroma-sample
 - ±32: VU pairs (160,96) and (96,160), Table G.
 - ±16: VU pairs (144,112) and (112,144), Table H; output exactly matches Table G.
 
-The next contrast point, `chroma-checker-micro`, is prepared at ±8 using VU pairs (136,120) and (120,136). It preserves all other variables. The updated source passed GCC, Clang and table-diff validation in [Actions run #43674219316](https://github.com/SF12-YT/dummy-assets/actions/runs/43674219316). If the ±8 table still equals Table H, the response persists at ±8; if it matches grey, the observed output transition is bracketed between ±8 and ±16 for this particular stimulus. That still would not be a universal threshold for other patterns, resolutions or operating modes.
+The next contrast point, `chroma-checker-micro`, is prepared at ±8 using VU pairs (136,120) and (120,136). It preserves all other variables. It is implemented in `jsqz_probe.c`; its device-side run has **not** been submitted. If the ±8 table still equals Table H, the response persists at ±8; if it matches grey, the observed output transition is bracketed between ±8 and ±16 for this particular stimulus. That still would not be a universal threshold for other patterns, resolutions or operating modes.
 
-The [`jsqz_qtable_diff.py`](jsqz_qtable_diff.py) utility compares saved 128-byte dumps at packed-word and individual-byte levels. With the original grey dump and a candidate output in the same directory:
-
-```sh
-python3 jsqz_qtable_diff.py jsqz-qtable.bin jsqz-chroma-checker-tiny-qtable.bin
-```
-
-Both ±32 and ±16 tests were performed on the phone and returned success. The ±8 test is implemented but not yet submitted.
-
+The `jsqz_qtable_diff.py` utility compares saved 128-byte dumps at packed-word and individual-byte levels. Both ±32 and ±16 tests were performed on the phone and returned success. The ±8 test is implemented but not yet submitted.
 ## Q-table byte ordering — HAL reference confirmation
 
 The available public Beyond0 reference HAL contains two overloads of `ExynosJsqz::getResultQT`. The `unsigned int *` overload copies 32 consecutive words into the caller's output at four-byte intervals. The `unsigned char *` overload at reference-library offset `0x221a` iterates over the same 128 bytes and explicitly writes the four bytes of each 32-bit word in low-to-high order to consecutive output positions. It does not apply a zigzag/raster reordering in that method.
@@ -492,6 +485,7 @@ The captured 32-word outputs were unpacked as little-endian bytes (64-byte Y ban
 | Deterministic noise (Table D) | 50/64 | 0/64 | All 50 changed Y bytes increase; 14 remain unchanged |
 | Spatial chroma checker, ±64 (Table F) | 0/64 | 4/64 | C offsets 4, 51, 58 and 60 change; each increases |
 | Spatial chroma checker, ±32 (Table G) | 0/64 | 1/64 | Only C offset 4 changes, 0x03 → 0x04 |
+| Spatial chroma checker, ±16 (Table H) | 0/64 | 1/64 | Identical to Table G; C offset 4 remains changed |
 | Spatial chroma checker, ±16 (Table H) | 0/64 | 1/64 | Identical to Table G; C offset 4 remains changed |
 | Black (Table B) | 29/64 | 15/64 | 44 of 128 output bytes differ from grey |
 
