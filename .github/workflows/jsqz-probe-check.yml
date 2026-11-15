@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - "analysis/jsqz_probe.c"
+      - "analysis/jsqz_qtable_diff.py"
       - ".github/workflows/jsqz-probe-check.yml"
   pull_request:
     paths:
@@ -28,7 +29,7 @@ jobs:
             -o /tmp/jsqz_probe_gcc analysis/jsqz_probe.c
           /tmp/jsqz_probe_gcc --help | tee /tmp/jsqz_probe_gcc_help.txt
           grep -q -- "--check-device" /tmp/jsqz_probe_gcc_help.txt
-          grep -q -- "chroma-checker" /tmp/jsqz_probe_gcc_help.txt
+          grep -q -- "chroma-checker-low" /tmp/jsqz_probe_gcc_help.txt
 
       - name: Compile with Clang
         run: |
@@ -36,4 +37,22 @@ jobs:
             -o /tmp/jsqz_probe_clang analysis/jsqz_probe.c
           /tmp/jsqz_probe_clang --help | tee /tmp/jsqz_probe_clang_help.txt
           grep -q -- "--check-device" /tmp/jsqz_probe_clang_help.txt
-          grep -q -- "chroma-checker" /tmp/jsqz_probe_clang_help.txt
+          grep -q -- "chroma-checker-low" /tmp/jsqz_probe_clang_help.txt
+
+      - name: Check Q-table comparison utility
+        run: |
+          set -euo pipefail
+          python3 -m py_compile analysis/jsqz_qtable_diff.py
+          python3 - <<'PY'
+          from pathlib import Path
+          baseline = bytes(128)
+          candidate = bytearray(baseline)
+          candidate[0] = 1
+          candidate[64 + 3] = 2
+          Path("/tmp/jsqz-baseline.bin").write_bytes(baseline)
+          Path("/tmp/jsqz-candidate.bin").write_bytes(candidate)
+          PY
+          python3 analysis/jsqz_qtable_diff.py /tmp/jsqz-baseline.bin /tmp/jsqz-candidate.bin | tee /tmp/jsqz-diff-test.txt
+          grep -q "Changed 32-bit words: Y 1/16, C 1/16" /tmp/jsqz-diff-test.txt
+          grep -q "Y\[00\]: 0x00 -> 0x01" /tmp/jsqz-diff-test.txt
+          grep -q "C\[03\]: 0x00 -> 0x02" /tmp/jsqz-diff-test.txt
