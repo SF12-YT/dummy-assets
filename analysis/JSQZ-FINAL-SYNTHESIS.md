@@ -40,6 +40,14 @@ The UAPI defines both DMA-BUF and USERPTR descriptor types. In the matching driv
 
 The target disassembly confirms that `jsqz_process` sends type 1 through `dma_buf_get(fd)`, while type 2 takes the error path before `jsqz_buffer_map()`. A lower-level helper, `jsqz_dma_addr_map()`, does contain a generic `exynos_iovmm_map_userptr()` branch, but the normal JSQZ USERPTR descriptor path fails earlier and does not reach it. That helper's presence must not be mistaken for working USERPTR support.
 
+### YUV422 appears broken in the target driver
+
+Although the UAPI declares YUV422, the target disassembly appears to calculate the V-plane address incorrectly in both one-buffer and two-buffer cases. At `ffffff8008b0a120` and `ffffff8008b0a528`, the code executes `lsr w2, w2, w3` with `w2 = width + 1` and `w3 = height`. This comes from the source expression `((width + 1) >> 1 * height)`, where C precedence makes the shift count `height), rather than computing `((width + 1) / 2) * height`.
+
+For 128×64, the AArch64 W-register variable shift count is 64 modulo 32 = 0, so the calculated V-plane offset is only 129 bytes. A planar YUV422 U plane should occupy 64 × 64 = 4,096 bytes before V starts. The resulting address would overlap the U and V planes. See Arm's [LSRV instruction reference](https://documentation-service.arm.com/static/6245c734b059dc5ff9a8bdab) for the modulo-32 shift semantics.
+
+This is a static analysis result only: no YUV422 test was run. The fourteen NV21 tests use `cs=0`, where U and V intentionally point to the same interleaved chroma base, so they are unaffected. YUV422 should remain marked unvalidated and should not be used for further experiments until this driver defect is addressed.
+
 ### Unexercised operating modes
 
 The public UAPI also defines `JSQZ_MODE_HIGH_QUALITY` and `JSQZ_FUNCTION_TRANSCODE`. The header describes LIVE as using a camera preview and TRANSCODE as using the original image. The driver packs the mode and function selectors into bits 29 and 28 of the input-format register word. All fourteen submissions used NORMAL + LIVE; the other combinations have not been characterised. Their existence is established, but their output differences are unknown. See the [public UAPI header](https://github.com/LineageOS/android_kernel_samsung_exynos9820/blob/a412cfaf86b980ce35cae96a35f678c8ea551575/include/uapi/linux/hwjsqz.h).
