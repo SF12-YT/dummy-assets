@@ -302,6 +302,36 @@ The device-side probe has now submitted three single-frame NV21 tests through th
 
 All three used neutral chroma (VU=128). Table A is non-default-looking; Table B closely matches the matching public driver's built-in `init_q_table`.
 
+The full returned word tables are preserved below. Each line contains four 32-bit words; the first 16 words are luma and the last 16 are chroma.
+
+**Table A — grey and checker (identical, 32/32 words)**
+
+```
+03030301 03030303 03030303 03030303
+03030303 03030403 04050303 04050505
+06050404 05050607 05040607 07060906
+08080808 09080608 0c0c090a 150f0f0c
+03030301 03040303 05080403 08080504
+08080808 08080808 08080808 08080808
+08080808 08080808 08080808 08080808
+08080808 09080808 0c0c0809 150f0f0c
+```
+
+**Table B — black**
+
+```
+01010101 01010101 01010101 03020201
+02020202 03030402 04050302 04050505
+06050404 05050607 04040607 07060906
+08080808 09060508 0a08090a 0a080807
+02010101 02040202 05080402 08080504
+08080808 08080808 08080808 08080808
+08080808 08080808 08080808 08080808
+08080808 08080808 08080808 0a080808
+```
+
+Table B differs from Table A in 17 of the 32 words. Table B differs from the exact fallback table in only two words.
+
 ### What the target binary actually does with the status bit
 
 The target boot-image disassembly resolves the fallback decision:
