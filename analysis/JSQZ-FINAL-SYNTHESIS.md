@@ -146,6 +146,8 @@ A separate follow-up found a likely explanation for the target camera HAL's `/de
 
 Detailed evidence, source links, build caveats and remaining verification are in [JSQZ camera integration analysis](JSQZ-CAMERA-INTEGRATION.md).
 
+The public reference JSQZ HAL also shows an `openNode()` path using `/dev/jsqz` with `O_RDWR`, followed by a failure check, and an `execute()` path that builds compat ioctl `0xC1344D00`. The earlier camera-HAL scanner's zero direct-call hits are inconclusive: it did not detect GOT/PLT-loaded or vtable-mediated indirect calls. See [the detailed camera integration analysis](JSQZ-CAMERA-INTEGRATION.md) for the evidence and limitations.
+
 ## Final status
 
 The planned bounded sequence is complete. The driver/API path, fallback table, output-register branch, and principal observable responses to the tested luma/chroma patterns are documented. No further phone-side submission is justified merely to extend the count.
