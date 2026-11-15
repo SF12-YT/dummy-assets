@@ -140,6 +140,12 @@ This has a conceptual overlap with JSQZ's raw-image-to-Q-table contract, but **t
 
 The remaining public-research target is a disclosure explicitly traceable to the Exynos JSQZ IP, or an implementation artifact that connects an algorithm to this block. Until then, the estimator itself remains unknown.
  
+## Camera HAL integration and access control
+
+A separate follow-up found a likely explanation for the target camera HAL's `/dev/jsqz` open failure. The target node was observed as `0600 root:root`; the JSQZ misc-device driver leaves its mode unset, and devtmpfs defaults an unset device-node mode to `0600`. The Exynos 9820 common device tree contains the corresponding access configuration: ueventd sets `/dev/jsqz` to `0660 cameraserver:camera`, SELinux labels it `jsqz_device`, and `hal_camera_default` is granted read/write access. This supports a device-node access-control failure as the reason the camera path cannot open JSQZ; it does not yet exclude an additional SELinux denial. No device permissions or policy were changed.
+
+Detailed evidence, source links, build caveats and remaining verification are in [JSQZ camera integration analysis](JSQZ-CAMERA-INTEGRATION.md).
+
 ## Final status
 
 The planned bounded sequence is complete. The driver/API path, fallback table, output-register branch, and principal observable responses to the tested luma/chroma patterns are documented. No further phone-side submission is justified merely to extend the count.
