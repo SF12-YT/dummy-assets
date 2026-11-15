@@ -1,0 +1,32 @@
+Collecting vmlinux-to-elf==1.4.0
+  Downloading vmlinux_to_elf-1.4.0-py3-none-any.whl.metadata (14 kB)
+Collecting lz4 (from vmlinux-to-elf==1.4.0)
+  Downloading lz4-4.4.5-cp314-cp314-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (3.8 kB)
+Collecting zstandard>=0.25.0 (from vmlinux-to-elf==1.4.0)
+  Downloading zstandard-0.25.0-cp314-cp314-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (3.3 kB)
+Collecting minilzo>=1.2 (from vmlinux-to-elf==1.4.0)
+  Downloading minilzo-1.2.tar.gz (76 kB)
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Collecting peewee>=3.17 (from vmlinux-to-elf==1.4.0)
+  Downloading peewee-4.5.3-py3-none-any.whl.metadata (10 kB)
+Downloading vmlinux_to_elf-1.4.0-py3-none-any.whl (6.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.9/6.9 MB 45.2 MB/s eta 0:00:00
+Downloading peewee-4.5.3-py3-none-any.whl (194 kB)
+Downloading zstandard-0.25.0-cp314-cp314-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (5.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.6/5.6 MB 44.7 MB/s eta 0:00:00
+Downloading lz4-4.4.5-cp314-cp314-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (1.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.4/1.4 MB 61.6 MB/s eta 0:00:00
+Building wheels for collected packages: minilzo
+  Building wheel for minilzo (pyproject.toml): started
+  Building wheel for minilzo (pyproject.toml): finished with status 'done'
+  Created wheel for minilzo: filename=minilzo-1.2-cp314-cp314-linux_x86_64.whl size=47952 sha256=fb6c026a1b9b3ce519ae8df191a6caa06afc116b163242e663580a7801d1f652
+  Stored in directory: /home/runner/.cache/pip/wheels/9d/c2/50/5ee3af27cdf5153b87793cbc6dee422910abc4dc427034172a
+Successfully built minilzo
+Installing collected packages: zstandard, peewee, minilzo, lz4, vmlinux-to-elf
+
+Successfully installed lz4-4.4.5 minilzo-1.2 peewee-4.5.3 vmlinux-to-elf-1.4.0 zstandard-0.25.0

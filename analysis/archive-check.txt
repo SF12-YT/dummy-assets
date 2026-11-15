@@ -1,0 +1,2 @@
+Decompressed size: 57671680 bytes
+Expected partition size: 57671680 bytes

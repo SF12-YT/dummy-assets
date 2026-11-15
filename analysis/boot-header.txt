@@ -1,0 +1,8 @@
+Android boot image magic: ANDROID!
+Header version: 1
+Page size: 2048
+Kernel size: 44849160
+Kernel offset: 2048
+Ramdisk size: 0
+Ramdisk offset: 44853248
+Kernel payload extracted to kernel.bin.

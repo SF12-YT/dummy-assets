@@ -1,0 +1,63 @@
+1274b08 jsqz_sysmmu_fault_handler
+1274b28 jsqz_print_all_regs
+1274c30 jsqz_clk_devm_get_prepare
+1274c50 jsqz_probe
+1274c60 jsqz_deregister_device
+1274c78 jsqz_irq_handler
+1274c90 jsqz_task_signal_completion
+1274cb0 jsqz_clock_gating
+1274cc8 jsqz_process
+1274d58 jsqz_validate_format
+1274d70 jsqz_buffer_setup
+1274d88 jsqz_buffer_get_and_attach
+1274da8 jsqz_buffer_map
+1274db8 jsqz_task_setup
+1274dc8 jsqz_compat_ioctl32
+1274de0 jsqz_ioctl
+1274df0 enable_jsqz
+1274e00 jsqz_run_sqz
+1274e10 jsqz_set_source_n_config
+1274e30 jsqz_task_schedule
+1274e48 disable_jsqz
+1274e98 samsung,exynos-jsqz
+12750a0 jsqz_map_dma_attachment
+166f925 	tjsqz
+166f930 tjsqz
+166f941 	tjsqz
+166f94c tjsqz_r
+166f95a tjsqz_
+166f962 tjsqz
+166f96b tjsqz_
+166f978 tjsqz_r
+166f985 	tjsqz
+166f98d ve	tjsqz
+166f998 e	tjsqz
+166f9a4 tjsqz
+166f9ae l32	tjsqz_
+166f9bc Tjsqz_t
+166f9cb tjsqz_t
+166f9dd Tjsqz_
+166f9ef Tjsqz_
+166fa02 Tjsqz
+166fa11 Tjsqz
+16b2185 tjsqz
+174d8f0 GATE_JSQZ
+1755310 VCLK_IP_AS_P_JSQZ
+1755328 VCLK_IP_QE_JSQZ
+1755350 VCLK_IP_JSQZ
+17621b8 GOUT_BLK_G2D_UID_AS_P_JSQZ_IPCLKPORT_PCLKM
+17621e8 GOUT_BLK_G2D_UID_AS_P_JSQZ_IPCLKPORT_PCLKS
+1762218 GOUT_BLK_G2D_UID_QE_JSQZ_IPCLKPORT_ACLK
+1762240 GOUT_BLK_G2D_UID_QE_JSQZ_IPCLKPORT_PCLK
+1762298 GOUT_BLK_G2D_UID_JSQZ_IPCLKPORT_I_CLK
+17718b0 DBG_NFO_QCH_CON_QE_JSQZ_QCH
+1771a30 DBG_NFO_QCH_CON_JSQZ_QCH
+18696c0 jsqz,int_qos_minlock
+1869758 HWJSQZ probe completed successfully.
+1869780 %s: deregistering jsqz device
+18697a0 HWJSQZ probe is failed.
+18697e9 3HWJSQZ: NULL jsqz device!
+1869a70 %s: Failed to process hwjsqz_task task
+1869b61 3jsqz is null
+1869bf0 %s: jsqz device time out!!
+1869c48 exynos-jsqz

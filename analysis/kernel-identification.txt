@@ -1,0 +1,1 @@
+out/kernel.bin: Linux kernel ARM64 boot executable Image, little-endian, 4K pages
