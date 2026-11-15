@@ -93,13 +93,13 @@ jobs:
               return bytes(out)
 
           key_raw = Path("gametext.txt").read_bytes()
-          key_plain = key_raw if key_raw.startswith(b"GAMETEXT_") else transform(key_raw)
+          key_plain = transform(key_raw)
           keys = key_plain.decode("utf-8-sig", errors="strict").splitlines()
           index = keys.index("GAMETEXT_SERIES_TITLE_V8_SUPERCARS_2018")
 
           raw = Path("text_en.txt").read_bytes()
-          plain = raw if raw.startswith(b"\\xef\\xbb\\xbf") else transform(raw)
-          separator = b"\\r\\n" if b"\\r\\n" in plain else b"\\n"
+          plain = transform(raw)
+          separator = b"\r\n" if b"\r\n" in plain else b"\n"
           lines = plain.split(separator)
           old = lines[index].decode("utf-8", errors="strict")
           if old != "2018 Season":
