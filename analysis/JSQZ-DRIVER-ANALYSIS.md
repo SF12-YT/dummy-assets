@@ -469,7 +469,7 @@ The new [`jsqz_qtable_diff.py`](jsqz_qtable_diff.py) utility compares two saved 
 python3 jsqz_qtable_diff.py jsqz-qtable.bin jsqz-chroma-checker-low-qtable.bin
 ```
 
-This experiment is **implemented but not yet run on the phone**. Its output must be collected before drawing any conclusion about the lower contrast level. The CI workflow compiles the C probe with GCC and Clang and includes a synthetic test of the table-diff utility.
+This experiment is **implemented but not yet run on the phone**. Its output must be collected before drawing any conclusion about the lower contrast level. The CI workflow compiles the C probe with GCC and Clang and includes a synthetic test of the table-diff utility; the successful [Actions run #43672106816](https://github.com/SF12-YT/dummy-assets/actions/runs/43672106816) covers the updated diff script.
 
 ## Q-table byte ordering — HAL reference confirmation
 
@@ -505,5 +505,5 @@ A new `luma-checker-4` option is now implemented to address that limitation:
 - NV21 chroma remains neutral VU=128 throughout.
 - Frame dimensions, buffer size, mode and function remain identical to the other probes.
 
-This is intended as a controlled luma-frequency stimulus after the lower-contrast chroma test. It is implemented and included in the compiler/help checks, but no hardware result exists yet. It should be run only as a separate single submission, not together with the pending chroma test.
+This is intended as a controlled luma-frequency stimulus after the lower-contrast chroma test. It is implemented and included in the compiler/help checks, but no hardware result exists yet. GCC, Clang and the table-diff self-test passed in [Actions run #43672304592](https://github.com/SF12-YT/dummy-assets/actions/runs/43672304592). It should be run only as a separate single submission, not together with the pending chroma test.
 
