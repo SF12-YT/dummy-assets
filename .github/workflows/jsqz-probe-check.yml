@@ -33,6 +33,7 @@ jobs:
           grep -q -- "chroma-checker-low" /tmp/jsqz_probe_gcc_help.txt
           grep -q -- "chroma-checker-tiny" /tmp/jsqz_probe_gcc_help.txt
           grep -q -- "chroma-checker-micro" /tmp/jsqz_probe_gcc_help.txt
+          grep -q -- "chroma-checker-micro" /tmp/jsqz_probe_gcc_help.txt
           grep -q -- "luma-checker-4" /tmp/jsqz_probe_gcc_help.txt
 
       - name: Compile with Clang
@@ -43,6 +44,7 @@ jobs:
           grep -q -- "--check-device" /tmp/jsqz_probe_clang_help.txt
           grep -q -- "chroma-checker-low" /tmp/jsqz_probe_clang_help.txt
           grep -q -- "chroma-checker-tiny" /tmp/jsqz_probe_clang_help.txt
+          grep -q -- "chroma-checker-micro" /tmp/jsqz_probe_clang_help.txt
           grep -q -- "chroma-checker-micro" /tmp/jsqz_probe_clang_help.txt
           grep -q -- "luma-checker-4" /tmp/jsqz_probe_clang_help.txt
 
