@@ -444,32 +444,45 @@ The stride is valid for NV21 (128 is divisible by 64), and the frame dimensions 
 
 No further hardware submission is needed to settle the fallback-table question: the exact target table has now been recovered and the black output is demonstrably not that table.
 
-## Next controlled experiment — lower chroma contrast
+## Controlled chroma contrast experiment — runtime result
 
-The spatial chroma-checker run (Table F) changed four chroma words while all luma words remained identical to the grey baseline. Its alternating samples were VU=(192,64) and (64,192), i.e. each component was displaced by ±64 from neutral 128.
+The spatial chroma checker at ±64 (Table F) changed four bytes in the chroma table while leaving the luma table identical to grey. The follow-up `chroma-checker-low` preserved the same spatial pattern, tile size, luma plane and execution parameters, but halved the chroma displacement to ±32.
 
-The next probe pattern, `chroma-checker-low`, preserves every other condition:
+The returned Table G was:
 
-- Luma remains Y=128 throughout.
-- The chroma tile geometry remains 4×4 chroma samples (8×8 luma-equivalent blocks), with the same checker phase and orientation.
-- The two alternating NV21 VU pairs become (160,96) and (96,160), reducing the component displacement to ±32.
-- The frame remains 128×64 NV21, stride 0, NORMAL/LIVE, in one 12,288-byte ION DMA-BUF.
-
-This is a contrast-amplitude test, not a frequency test. Comparing its result with Table A (neutral chroma) and Table F (±64 chroma checker) can distinguish a weaker response from no visible coefficient change at this amplitude. An unchanged result would indicate only that this quantised output did not change at ±32 under this pattern; it would not prove that the hardware ignores all lower-amplitude chroma variation.
-
-The source pattern is implemented in [`jsqz_probe.c`](jsqz_probe.c). After building the updated source on the phone, submit exactly one test:
-
-```sh
-su -c './jsqz_probe --execute chroma-checker-low jsqz-chroma-checker-low-qtable.bin'
+```
+03030301 03030303 03030303 03030303
+03030303 03030403 04050303 04050505
+06050404 05050607 05040607 07060906
+08080808 09080608 0c0c090a 150f0f0c
+03030301 03040304 05080403 08080504
+08080808 08080808 08080808 08080808
+08080808 08080808 08080808 09080808
+0c0c0809 150f0f0c
 ```
 
-The new [`jsqz_qtable_diff.py`](jsqz_qtable_diff.py) utility compares two saved 128-byte dumps, reporting changed Y/C words and individual coefficient bytes. For example, with the original grey dump and the new output in the same directory:
+Compared with grey Table A:
+
+- All 16 luma words are identical (0/64 luma bytes changed).
+- Only chroma word 17 changes: `03040303` → `03040304`.
+- In the linear little-endian C-bank byte stream, this is offset 4 changing from `0x03` to `0x04`.
+- Thus exactly 1/64 chroma bytes changes at ±32, compared with 4/64 at ±64 in Table F.
+
+This is direct evidence that the hardware's returned chroma table remains sensitive to this spatial pattern at the lower ±32 amplitude. The response is not a uniform scaling of four changes down to smaller byte magnitudes: three of the four changed bytes seen at ±64 return to their grey values, while one byte remains changed. That is consistent with a discrete/quantised output response, though the internal decision logic is not known.
+
+The matching controls are the same 128×64 NV21 frame, Y=128, 4×4 chroma-sample checker tiles (equivalent to 8×8 luma blocks), NORMAL/LIVE mode and 12,288-byte ION DMA-BUF. Only the chroma sample levels differ:
+- ±64: VU pairs (192,64) and (64,192), Table F.
+- ±32: VU pairs (160,96) and (96,160), Table G.
+
+The source and output dump for the new run are in the repo's probe and local device output respectively; the runtime words above were supplied from the successful single ioctl. The test was performed on the phone and returned success. It is no longer pending.
+
+The new [`jsqz_qtable_diff.py`](jsqz_qtable_diff.py) utility compares saved 128-byte dumps at both packed-word and individual-byte levels. With both files in the same directory:
 
 ```sh
 python3 jsqz_qtable_diff.py jsqz-qtable.bin jsqz-chroma-checker-low-qtable.bin
 ```
 
-This experiment is **implemented but not yet run on the phone**. Its output must be collected before drawing any conclusion about the lower contrast level. The CI workflow compiles the C probe with GCC and Clang and includes a synthetic test of the table-diff utility; the successful [Actions run #43672106816](https://github.com/SF12-YT/dummy-assets/actions/runs/43672106816) covers the updated diff script.
+The next discriminating amplitude step is ±16 using `chroma-checker-tiny`, implemented as VU pairs (144,112) and (112,144). If it still changes the same byte, the response persists at this smaller amplitude; if it matches grey, the observed transition is bracketed between ±16 and ±32 for this specific pattern and device configuration. Neither outcome would establish a universal threshold for other spatial frequencies or image content.
 
 ## Q-table byte ordering — HAL reference confirmation
 
@@ -481,13 +494,14 @@ The exact 8×8 coefficient scan layout (zigzag versus raster) is **not establish
 
 ## Byte-level comparison of the captured pattern outputs
 
-The seven captured 32-word outputs were unpacked as little-endian bytes (64-byte Y bank followed by 64-byte C bank). These are re-analyses of the already recorded runs, not new hardware submissions:
+The captured 32-word outputs were unpacked as little-endian bytes (64-byte Y bank followed by 64-byte C bank). These are re-analyses of the already recorded runs, not new hardware submissions:
 
 | Input compared with grey Table A | Y bytes changed | C bytes changed | Observation |
 |---|---:|---:|---|
 | Gradient (Table C) | 1/64 | 0/64 | Y table byte offset 1 changes 0x03 → 0x04 |
 | Deterministic noise (Table D) | 50/64 | 0/64 | All 50 changed Y bytes increase; 14 remain unchanged |
-| Spatial chroma checker (Table F) | 0/64 | 4/64 | C offsets 4, 51, 58 and 60 change; each increases |
+| Spatial chroma checker, ±64 (Table F) | 0/64 | 4/64 | C offsets 4, 51, 58 and 60 change; each increases |
+| Spatial chroma checker, ±32 (Table G) | 0/64 | 1/64 | Only C offset 4 changes, 0x03 → 0x04 |
 | Black (Table B) | 29/64 | 15/64 | 44 of 128 output bytes differ from grey |
 
 For the spatial chroma checker specifically, the changed C-bank bytes are offset 4 (0x03 → 0x04), 51 (0x08 → 0x0b), 58 (0x0c → 0x0d), and 60 (0x0c → 0x0d). This confirms that the four changed packed words each contain exactly one changed byte.
