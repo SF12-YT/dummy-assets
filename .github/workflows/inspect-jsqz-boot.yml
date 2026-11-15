@@ -1,0 +1,108 @@
+name: Inspect S10e boot image for JSQZ
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "boot.img.gz"
+      - ".github/workflows/inspect-jsqz-boot.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out private repository
+        uses: actions/checkout@v4
+        with:
+          lfs: false
+
+      - name: Verify and unpack boot partition image
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f boot.img.gz
+          echo "Uploaded archive SHA-256:"
+          sha256sum boot.img.gz
+          echo "Expected: 873cf46e08c0c141d7049d1c45aa900d05533ff0fc8377c3a4a9bc9cb06f6509"
+          echo
+          gzip -t boot.img.gz
+          mkdir -p out
+          gzip -dc boot.img.gz > out/boot.img
+          echo "Decompressed size: $(stat -c %s out/boot.img) bytes" | tee out/archive-check.txt
+          echo "Expected partition size: 57671680 bytes" | tee -a out/archive-check.txt
+          file out/boot.img | tee out/file-identification.txt
+          xxd -l 256 out/boot.img > out/boot-header-hexdump.txt
+
+      - name: Parse Android boot header and extract kernel payload
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import os, struct
+          image_path = "out/boot.img"
+          out_dir = "out"
+          data = open(image_path, "rb").read()
+          report = []
+          def u32(off):
+              return struct.unpack_from("<I", data, off)[0]
+          if data[:8] != b"ANDROID!":
+              report.append("No ANDROID! magic at offset 0.")
+              report.append("This may be a Samsung-wrapped or otherwise non-standard boot image.")
+              report.append("Kernel extraction was not attempted; inspect file-identification and hexdump.")
+          else:
+              version = u32(40)
+              report += ["Android boot image magic: ANDROID!", f"Header version: {version}"]
+              if version <= 2:
+                  kernel_size = u32(8)
+                  ramdisk_size = u32(16)
+                  page_size = u32(36)
+                  if page_size < 512 or page_size > 65536 or page_size & (page_size - 1):
+                      raise SystemExit(f"Implausible legacy page size: {page_size}")
+                  kernel_offset = page_size
+                  ramdisk_offset = ((kernel_offset + kernel_size + page_size - 1) // page_size) * page_size
+                  report += [f"Page size: {page_size}", f"Kernel size: {kernel_size}", f"Kernel offset: {kernel_offset}", f"Ramdisk size: {ramdisk_size}", f"Ramdisk offset: {ramdisk_offset}"]
+              elif version in (3, 4):
+                  kernel_size = u32(8)
+                  ramdisk_size = u32(12)
+                  page_size = 4096
+                  kernel_offset = page_size
+                  ramdisk_offset = ((kernel_offset + kernel_size + page_size - 1) // page_size) * page_size
+                  report += [f"Page size: {page_size}", f"Kernel size: {kernel_size}", f"Kernel offset: {kernel_offset}", f"Ramdisk size: {ramdisk_size}", f"Ramdisk offset: {ramdisk_offset}"]
+              else:
+                  raise SystemExit(f"Unsupported Android boot header version: {version}")
+              end = kernel_offset + kernel_size
+              if kernel_size == 0 or end > len(data):
+                  raise SystemExit(f"Kernel range is invalid: {kernel_offset}..{end}, image size {len(data)}")
+              with open(os.path.join(out_dir, "kernel.bin"), "wb") as f:
+                  f.write(data[kernel_offset:end])
+              report.append("Kernel payload extracted to kernel.bin.")
+          open(os.path.join(out_dir, "boot-header.txt"), "w").write("\n".join(report) + "\n")
+          print("\n".join(report))
+          PY
+
+      - name: Identify kernel format and search JSQZ references
+        if: always()
+        shell: bash
+        run: |
+          set +e
+          if [ -f out/kernel.bin ]; then
+            file out/kernel.bin | tee out/kernel-identification.txt
+            sha256sum out/kernel.bin | tee out/kernel-sha256.txt
+            strings -a -n 6 out/kernel.bin | grep -Ei 'jsqz|exynos-jsqz|jpeg.?sqz|sqz_ioctl|jsqz_ioctl|jsqz_process|jsqz_open|jsqz_probe|18b30000' | sort -u > out/jsqz-strings.txt
+            echo "Matching strings: $(wc -l < out/jsqz-strings.txt)" | tee out/jsqz-search-summary.txt
+          else
+            echo "No kernel.bin was extracted; see boot-header.txt and hexdump." > out/jsqz-search-summary.txt
+          fi
+          ls -lh out
+
+      - name: Upload analysis outputs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: s10e-jsqz-boot-analysis
+          path: out/
+          if-no-files-found: error
+          retention-days: 7
