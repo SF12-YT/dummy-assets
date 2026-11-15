@@ -250,3 +250,23 @@ The internal quantisation algorithm inside the JSQZ silicon is not present in th
 - [String offsets](jsqz-string-offsets.txt)
 
 No additional device-side changes were made during this analysis.
+
+
+## Exact validation of the current 128×64 probe against the target kernel
+
+A second pass over the recovered target-kernel machine code confirms the concrete values used by `analysis/jsqz_probe.c`:
+
+- The driver uses `stride` when it is non-zero; otherwise it substitutes `width`. The probe's stride of zero therefore gives an effective row stride of 128 bytes.
+- For colour-space value 0 (NV21), the accepted alignment test is satisfied when the effective stride is divisible by 64. Since 128 is divisible by 64, this input passes the check and does not take the early default-table path.
+- The dimension guard rejects widths of 31 or less and heights of 7 or less. A 128×64 frame passes.
+- With one NV21 input buffer, the driver computes the required size as `width × height + even_width × ceil(height / 2)`. At 128×64 this is `8192 + 4096 = 12288` bytes, exactly the allocation and descriptor length in the probe.
+- The native descriptor is 24 bytes; its FD, 64-bit length and type byte are laid out at offsets 0, 8 and 16 respectively. The probe's descriptor matches that layout and uses type 1. The target `jsqz_process` path calls `dma_buf_get`, attaches the buffer, maps the attachment, then maps it into the JSQZ IOVMM.
+- The kernel requires the supplied buffer length to be at least the computed image size. The probe supplies exactly that size.
+
+This is stronger than merely matching a public driver header: the checks above were read from the disassembly of the kernel extracted from the user's uploaded Cruel Kernel boot image. It establishes that the probe's metadata and DMA-BUF descriptor satisfy the visible software-side validation checks. It still cannot prove that the silicon is powered, that its clocks/IRQ function correctly under this kernel, or that it will return a non-fallback table.
+
+### New non-submitting device-open check
+
+The probe now accepts `--check-device`. It performs the same ION allocation, mapping and frame fill as the dry run, then opens and closes `/dev/jsqz` without issuing an ioctl. This isolates node access from hardware execution. `--execute` and `--check-device` are mutually exclusive.
+
+A new GitHub Actions workflow, `.github/workflows/jsqz-probe-check.yml`, compiles the probe with both GCC and Clang using `-Wall -Wextra -Werror`, then checks that the help output advertises the device-open preflight. This workflow does not attempt to access device hardware.
