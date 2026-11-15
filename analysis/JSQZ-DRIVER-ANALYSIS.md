@@ -482,7 +482,7 @@ The new [`jsqz_qtable_diff.py`](jsqz_qtable_diff.py) utility compares saved 128-
 python3 jsqz_qtable_diff.py jsqz-qtable.bin jsqz-chroma-checker-low-qtable.bin
 ```
 
-The next discriminating amplitude step is ±16 using `chroma-checker-tiny`, implemented as VU pairs (144,112) and (112,144). If it still changes the same byte, the response persists at this smaller amplitude; if it matches grey, the observed transition is bracketed between ±16 and ±32 for this specific pattern and device configuration. Neither outcome would establish a universal threshold for other spatial frequencies or image content.
+The next discriminating amplitude step is ±16 using `chroma-checker-tiny`, implemented as VU pairs (144,112) and (112,144). This option is implemented in [`jsqz_probe.c`](jsqz_probe.c), and GCC, Clang and the table-diff test passed with it enabled in [Actions run #43673596266](https://github.com/SF12-YT/dummy-assets/actions/runs/43673596266). It has **not yet been submitted to the phone**. If it still changes the same byte, the response persists at this smaller amplitude; if it matches grey, the observed transition is bracketed between ±16 and ±32 for this specific pattern and device configuration. Neither outcome would establish a universal threshold for other spatial frequencies or image content.
 
 ## Q-table byte ordering — HAL reference confirmation
 
@@ -494,7 +494,7 @@ The exact 8×8 coefficient scan layout (zigzag versus raster) is **not establish
 
 ## Byte-level comparison of the captured pattern outputs
 
-The captured 32-word outputs were unpacked as little-endian bytes (64-byte Y bank followed by 64-byte C bank). These are re-analyses of the already recorded runs, not new hardware submissions:
+The captured 32-word outputs were unpacked as little-endian bytes (64-byte Y bank followed by 64-byte C bank). The byte counts below include the original runs and the subsequently completed ±32 chroma test:
 
 | Input compared with grey Table A | Y bytes changed | C bytes changed | Observation |
 |---|---:|---:|---|
