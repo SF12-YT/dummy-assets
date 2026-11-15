@@ -220,6 +220,7 @@ int main(int argc, char **argv)
     int execute = 0;
     const char *pattern = "grey";
     const char *output_path = NULL;
+    int pattern_seen = 0;
     struct ion_api ion;
     int ion_fd = -1;
     int dma_fd = -1;
@@ -235,8 +236,9 @@ int main(int argc, char **argv)
             printf("Usage: %s [--execute] [grey|black|white|gradient|checker|noise] [output.bin]\n", argv[0]);
             printf("Without --execute, prepares and frees one DMA-BUF but does not open /dev/jsqz.\n");
             return EXIT_SUCCESS;
-        } else if (!pattern || !strcmp(pattern, "grey")) {
+        } else if (!pattern_seen) {
             pattern = argv[i];
+            pattern_seen = 1;
         } else if (!output_path) {
             output_path = argv[i];
         } else {
