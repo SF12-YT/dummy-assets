@@ -190,7 +190,7 @@ static int fill_nv21(uint8_t *frame, const char *pattern)
 
     /*
      * NV21 chroma is interleaved VU.
-     * Keep every pattern neutral except the two chroma-only tests.
+     * Keep every pattern neutral except the chroma-only tests.
      * "chroma" is a constant V=192/U=64 offset (already tested).
      * "chroma-checker" alternates VU=(192,64) and (64,192) across 8x8
      * luma blocks (±64 around neutral), with luma fixed at 128.
