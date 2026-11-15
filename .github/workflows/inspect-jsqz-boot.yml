@@ -309,11 +309,12 @@ jobs:
               check=True, text=True, capture_output=True
           )
           needles = (
-              "ion_ioctl", "ion_alloc", "__ion_alloc",
-              "dma_buf_ioctl", "ion_dma_buf_begin_cpu_access",
-              "ion_dma_buf_end_cpu_access",
-              "ion_exynos_dma_buf_begin_cpu_access",
-              "ion_exynos_dma_buf_end_cpu_access"
+              "ion", "dma_buf_get", "dma_buf_put", "dma_buf_fd",
+              "dma_buf_attach", "dma_buf_detach",
+              "dma_buf_map_attachment", "dma_buf_unmap_attachment",
+              "dma_buf_begin_cpu_access", "dma_buf_end_cpu_access",
+              "dma_buf_ioctl", "ion_ioctl", "ion_alloc",
+              "ion_heap", "ion_iovmm"
           )
           selected = []
           for line in nm.stdout.splitlines():
