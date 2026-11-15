@@ -214,6 +214,7 @@ static int save_qtable(const char *path, const uint32_t words[32])
 int main(int argc, char **argv)
 {
     int execute = 0;
+    int check_device = 0;
     const char *pattern = "grey";
     const char *output_path = NULL;
     int pattern_seen = 0;
@@ -227,9 +228,11 @@ int main(int argc, char **argv)
     for (int i = 1; i < argc; ++i) {
         if (!strcmp(argv[i], "--execute")) {
             execute = 1;
+        } else if (!strcmp(argv[i], "--check-device")) {
+            check_device = 1;
         } else if (!strcmp(argv[i], "--help")) {
-            printf("Usage: %s [--execute] [grey|black|white|gradient|checker|noise] [output.bin]\n", argv[0]);
-            printf("Without --execute, prepares and frees one DMA-BUF but does not open /dev/jsqz.\n");
+            printf("Usage: %s [--check-device | --execute] [grey|black|white|gradient|checker|noise] [output.bin]\n", argv[0]);
+            printf("Default: prepares and frees a DMA-BUF without opening /dev/jsqz.\n");
             return EXIT_SUCCESS;
         } else if (!pattern_seen) {
             pattern = argv[i];
@@ -240,6 +243,11 @@ int main(int argc, char **argv)
             fprintf(stderr, "Too many arguments\n");
             return EXIT_FAILURE;
         }
+    }
+
+    if (execute && check_device) {
+        fprintf(stderr, "--execute and --check-device are mutually exclusive\\n");
+        return EXIT_FAILURE;
     }
 
     printf("Target frame: NV21 %ux%u, stride=0, length=%zu bytes\n",
@@ -282,6 +290,20 @@ int main(int argc, char **argv)
     }
 
     printf("ION DMA-BUF allocated, mapped and populated successfully (fd=%d).\n", dma_fd);
+
+    if (check_device) {
+        jsqz_fd = open("/dev/jsqz", O_RDWR | O_CLOEXEC);
+        if (jsqz_fd < 0) {
+            fprintf(stderr, "open /dev/jsqz failed: %s (errno=%d)\\n",
+                    strerror(errno), errno);
+            goto cleanup;
+        }
+        puts("JSQZ device open succeeded; closing without submitting an ioctl.");
+        close(jsqz_fd);
+        jsqz_fd = -1;
+        result = EXIT_SUCCESS;
+        goto cleanup;
+    }
 
     if (!execute) {
         puts("DRY RUN: /dev/jsqz was not opened and no hardware ioctl was submitted.");
