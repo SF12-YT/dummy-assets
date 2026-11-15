@@ -48,7 +48,7 @@ The recovered register banks are:
 - Luma output matrix: `0x010–0x04C`
 - Chroma output matrix: `0x050–0x08C`
 - Software reset: `0x090`
-- Interrupt enable/clear-status: `0x094/`0x098`
+- Interrupt enable: `0x094`; interrupt clear/status: `0x098`
 - Hardware start: `0x09C`
 - Hardware done: `0x100`
 - Bus configuration/status: `0x108`
