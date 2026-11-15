@@ -165,6 +165,95 @@ jobs:
             git push origin HEAD:main
           fi
 
+      - name: Extract exact fallback Q-table from target kernel ELF
+        if: always()
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p out analysis
+          report="out/jsqz-default-table.txt"
+          if [ ! -s out/vmlinux.elf ]; then
+            echo "Recovered vmlinux.elf unavailable; exact fallback table extraction skipped." | tee "$report"
+          else
+            python3 - <<'PY'
+          import re
+          import struct
+          import subprocess
+
+          elf = "out/vmlinux.elf"
+          # jsqz_task_schedule's bit-28 fallback block loads the 32-word
+          # init_q_table from the global address computed by:
+          #   adrp x19, 0xffffff80092f4000
+          #   add  x19, x19, #0xb08
+          #   ldp  ..., [x19, #0x1d0]
+          # Therefore the table starts at 0xffffff80092f4cd8.
+          address = 0xffffff80092f4cd8
+          size = 32 * 4
+          result = subprocess.run(
+              ["aarch64-linux-gnu-objdump", "-s",
+               f"--start-address=0x{address:x}",
+               f"--stop-address=0x{address + size:x}", elf],
+              check=True, text=True, capture_output=True
+          )
+          chunks = []
+          for line in result.stdout.splitlines():
+              match = re.match(r"^\\s*[0-9a-fA-F]+\\s+((?:[0-9a-fA-F]{8}\\s+)+)", line)
+              if match:
+                  chunks.append(bytes.fromhex("".join(match.group(1).split())))
+          data = b"".join(chunks)
+          if len(data) != size:
+              raise SystemExit(
+                  f"Expected {size} bytes at 0x{address:x}, extracted {len(data)}. "
+                  "Inspect the recovered ELF's section layout before trusting the address."
+              )
+
+          words = struct.unpack("<32I", data)
+          expected_black = (
+              0x01010101, 0x01010101, 0x01010101, 0x03020201,
+              0x02020202, 0x03030402, 0x04050302, 0x04050505,
+              0x06050404, 0x05050607, 0x04040607, 0x07060906,
+              0x08080808, 0x09060508, 0x0a08090a, 0x0a080807,
+              0x02010101, 0x02040202, 0x05080402, 0x08080504,
+              0x08080808, 0x08080808, 0x08080808, 0x08080808,
+              0x08080808, 0x08080808, 0x08080808, 0x08080808,
+              0x08080808, 0x08080808, 0x08080808, 0x0a080808
+          )
+          mismatches = [
+              (i, actual, observed)
+              for i, (actual, observed) in enumerate(zip(words, expected_black))
+              if actual != observed
+          ]
+
+          with open("out/jsqz-default-table.txt", "w") as f:
+              f.write("Target boot-image JSQZ fallback init_q_table extraction\\n")
+              f.write(f"Virtual address: 0x{address:016x}\\n")
+              f.write(f"Bytes: {len(data)}\\n")
+              f.write("Words (little-endian u32):\\n")
+              for i, word in enumerate(words):
+                  f.write(f"{i:02d}: 0x{word:08x}\\n")
+              f.write("\\nRaw bytes (hex):\\n")
+              f.write(data.hex() + "\\n")
+              f.write("\\nComparison with the observed black run:\\n")
+              f.write(f"Exact word matches: {32 - len(mismatches)}/32\\n")
+              for i, actual, observed in mismatches:
+                  f.write(
+                      f"word {i}: target default 0x{actual:08x}, "
+                      f"black output 0x{observed:08x}\\n"
+                  )
+          print(open("out/jsqz-default-table.txt").read())
+          PY
+          fi
+          cp "$report" analysis/jsqz-default-table.txt
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add analysis/jsqz-default-table.txt
+          if ! git diff --cached --quiet; then
+            git commit -m "Extract exact JSQZ fallback table from target kernel"
+            git fetch origin main
+            git rebase origin/main
+            git push origin HEAD:main
+          fi
+
       - name: Analyse matching public S10e JSQZ HAL
         if: always()
         shell: bash
