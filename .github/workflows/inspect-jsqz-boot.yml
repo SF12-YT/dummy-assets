@@ -160,6 +160,8 @@ jobs:
           git add analysis/*.txt
           if ! git diff --cached --quiet; then
             git commit -m "Add recovered S10e JSQZ kernel analysis"
+            git fetch origin main
+            git rebase origin/main
             git push origin HEAD:main
           fi
 
@@ -282,6 +284,8 @@ jobs:
           git add analysis/reference-hal-*.txt analysis/reference-camera-hal-*.txt
           if ! git diff --cached --quiet; then
             git commit -m "Analyse S10e JSQZ HAL reference binary"
+            git fetch origin main
+            git rebase origin/main
             git push origin HEAD:main
           fi
 
