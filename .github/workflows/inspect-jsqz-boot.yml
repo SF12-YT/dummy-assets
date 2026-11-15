@@ -9,7 +9,7 @@ on:
       - "jsqz-analysis-trigger.txt"
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   inspect:
@@ -97,11 +97,16 @@ jobs:
           fi
           ls -lh out
 
-      - name: Upload analysis outputs
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: s10e-jsqz-boot-analysis
-          path: out/
-          if-no-files-found: error
-          retention-days: 7
+      - name: Publish analysis outputs as a private GitHub release
+        if: always() && hashFiles('out/**') != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          tag="jsqz-boot-analysis"
+          if gh release view "$tag" >/dev/null 2>&1; then
+            gh release upload "$tag" out/* --clobber
+          else
+            gh release create "$tag" out/* --title "S10e JSQZ boot analysis" --notes "Automatically extracted from the private S10e boot partition image. Includes the kernel payload and JSQZ string scan."
+          fi
