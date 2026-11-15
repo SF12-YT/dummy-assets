@@ -104,7 +104,28 @@ A public Beyond0 reference camera HAL imports the `ExynosJsqz` API methods, incl
 
 The corresponding public `libhwjsqz.so` reference is 32-bit ARM. Its disassembly exposes an `openNode()` path using read/write access and an `execute()` path submitting the 32-bit compat request `0xC1344D00`. The same library includes the `/dev/jsqz` string and an explicit diagnostic for device-node open failure. This supports the expected userspace interface but does not replace analysis of the installed binary.
 
-## 4. Interpretation and limits
+## 4. What the reference JSQZ HAL does at the node boundary
+
+The public 32-bit ARM `libhwjsqz.so` reference has an `ExynosSqzBase::openNode()` method. Its disassembly:
+
+- loads the `/dev/jsqz` path from a PC-relative literal;
+- sets the second argument to `2` (`O_RDWR`) and the mode argument to zero;
+- calls through a PLT/thunk target consistent with its imported libc `open()`;
+- stores the returned descriptor and explicitly compares it with `-1` before taking the failure path.
+
+The library's strings include the diagnostic `JSQZ device node (%s) opening failed with error %d: %s`, matching the kind of failure shown in the user's camera capture log. Its `ExynosSqzBase::execute()` code constructs ioctl request `0xC1344D00`, the 32-bit compat ioctl confirmed by the target kernel and the library's 308-byte ABI.
+
+This makes the intended transaction sequence concrete in the reference implementation: open the node read/write, then submit the compat ioctl. The user's recorded EACCES occurs at the first step, so no JSQZ task would be submitted by that failed open attempt.
+
+The reference HAL's Build ID is still different from the installed target library. These method-level findings corroborate the API shape and failure point, but they are not exact disassembly of the installed target build.
+
+## 5. Why the previous zero-call-site scan is inconclusive
+
+The earlier reference-camera-HAL scan looked only for direct `bl`/`blx` instruction lines that literally contained a demangled `ExynosJsqz::...` name. It reported zero matches. That is not a reliable proof that no call exists: ARM32 position-independent code can load an external function address through the GOT/PLT and branch indirectly via a register; virtual dispatch can also use vtable-loaded function pointers. Those call instructions do not contain the target C++ symbol name as text.
+
+The reference camera HAL's dynamic symbol table does contain undefined imports for the JSQZ methods, and the strings include Jpeg Squeezer log messages and Q-table forwarding diagnostics. That establishes a link-time dependency and integration code, not the reachability of every path in a particular capture. A stronger call graph would require a relocation-aware PLT/GOT scan and analysis of the actual installed camera HAL binary.
+
+## 6. Interpretation and limits
 
 **What is now strongly supported:**
 
@@ -123,7 +144,7 @@ The corresponding public `libhwjsqz.so` reference is 32-bit ARM. Its disassembly
 
 No permissions, ownership, or SELinux policy have been changed on the user's device. A blanket `chmod 666`, running the camera service as root, or setting SELinux permissive is not an appropriate diagnostic fix. A ROM-level integration should use the narrowly scoped ueventd rule and SELinux type/allow rule shown above.
 
-## 5. Next useful verification
+## 7. Next useful verification
 
 The remaining device-side uncertainty is narrow: inspect the active node's SELinux label and the live camera service domain, then check whether an AVC record exists for the failed open. That distinguishes a missing DAC rule from an additional SELinux denial. It does not require another JSQZ ioctl or another synthetic frame.
 
