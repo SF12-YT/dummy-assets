@@ -289,6 +289,72 @@ jobs:
             git push origin HEAD:main
           fi
 
+      - name: Disassemble target ION and DMA-BUF ioctl handlers
+        if: always()
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p out analysis
+          if [ ! -s out/vmlinux.elf ]; then
+            echo "Recovered vmlinux.elf unavailable; target ION/DMA-BUF disassembly was not possible." > out/ion-dmabuf-kernel-disassembly.txt
+            echo "No recovered ELF." > out/ion-dmabuf-kernel-symbols.txt
+          else
+            python3 - <<'PY'
+          import re
+          import subprocess
+
+          elf = "out/vmlinux.elf"
+          nm = subprocess.run(
+              ["aarch64-linux-gnu-nm", "-n", "-S", "--defined-only", elf],
+              check=True, text=True, capture_output=True
+          )
+          needles = (
+              "ion_ioctl", "ion_alloc", "__ion_alloc",
+              "dma_buf_ioctl", "ion_dma_buf_begin_cpu_access",
+              "ion_dma_buf_end_cpu_access",
+              "ion_exynos_dma_buf_begin_cpu_access",
+              "ion_exynos_dma_buf_end_cpu_access"
+          )
+          selected = []
+          for line in nm.stdout.splitlines():
+              fields = line.split(maxsplit=3)
+              if len(fields) != 4 or fields[2] not in {"T", "t", "W", "w"}:
+                  continue
+              name = fields[3]
+              if any(needle in name for needle in needles):
+                  selected.append((fields[0], fields[1], fields[2], name))
+
+          with open("out/ion-dmabuf-kernel-symbols.txt", "w") as report:
+              report.write(f"Matched function symbols: {len(selected)}\\n")
+              for address, size, kind, name in selected:
+                  report.write(f"{address} {size} {kind} {name}\\n")
+
+          with open("out/ion-dmabuf-kernel-disassembly.txt", "w") as report:
+              report.write("ION and DMA-BUF functions recovered from the uploaded target boot image\\n")
+              report.write(f"Matched function symbols: {len(selected)}\\n")
+              if not selected:
+                  report.write("No matching named functions were recovered from vmlinux.elf.\\n")
+              for address, size, kind, name in selected:
+                  report.write(f"\\n===== {name} @ 0x{address} size 0x{size} =====\\n")
+                  dis = subprocess.run(
+                      ["aarch64-linux-gnu-objdump", "-d", "-C",
+                       f"--disassemble={name}", elf],
+                      text=True, capture_output=True
+                  )
+                  report.write(dis.stdout or dis.stderr)
+          PY
+          fi
+          cp out/ion-dmabuf-kernel-*.txt analysis/
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add analysis/ion-dmabuf-kernel-*.txt
+          if ! git diff --cached --quiet; then
+            git commit -m "Add target ION and DMA-BUF kernel analysis"
+            git fetch origin main
+            git rebase origin/main
+            git push origin HEAD:main
+          fi
+
       - name: Publish analysis outputs as a private GitHub release
         if: always() && hashFiles('out/**') != ''
         env:
