@@ -68,7 +68,6 @@ _Static_assert(sizeof(struct ion_allocation_data) == 24, "ION allocation ABI mis
 _Static_assert(ION_IOC_ALLOC == 0xC0184900u, "ION allocation ioctl mismatch");
 _Static_assert(sizeof(struct dma_buf_sync) == 8, "DMA-BUF sync ABI mismatch");
 _Static_assert(DMA_BUF_IOCTL_SYNC == 0x40086200u, "DMA-BUF sync ioctl mismatch");
-#define ION_SYNC_WRITE (1u << 1)
 
 #define HWSQZ_BUFFER_DMABUF 1u
 #define JSQZ_MODE_NORMAL 0u
@@ -129,13 +128,13 @@ static int allocate_ion_dmabuf(int ion_fd, size_t length)
     };
 
     if (ioctl(ion_fd, ION_IOC_ALLOC, &allocation) < 0) {
-        fprintf(stderr, "ION_IOC_ALLOC failed: %s (errno=%d)\\n",
+        fprintf(stderr, "ION_IOC_ALLOC failed: %s (errno=%d)\n",
                 strerror(errno), errno);
         return -1;
     }
 
     if (allocation.fd > INT_MAX) {
-        fprintf(stderr, "ION returned an invalid DMA-BUF fd: %u\\n", allocation.fd);
+        fprintf(stderr, "ION returned an invalid DMA-BUF fd: %u\n", allocation.fd);
         close((int32_t)allocation.fd);
         errno = EOVERFLOW;
         return -1;
@@ -251,7 +250,7 @@ int main(int argc, char **argv)
 
     ion_fd = open("/dev/ion", O_RDWR | O_CLOEXEC);
     if (ion_fd < 0) {
-        fprintf(stderr, "open /dev/ion failed: %s (errno=%d)\\n",
+        fprintf(stderr, "open /dev/ion failed: %s (errno=%d)\n",
                 strerror(errno), errno);
         goto cleanup;
     }
@@ -268,7 +267,7 @@ int main(int argc, char **argv)
     }
 
     if (sync_dmabuf(dma_fd, DMA_BUF_SYNC_START | DMA_BUF_SYNC_WRITE) < 0) {
-        fprintf(stderr, "DMA-BUF sync START/WRITE failed: %s (errno=%d)\\n",
+        fprintf(stderr, "DMA-BUF sync START/WRITE failed: %s (errno=%d)\n",
                 strerror(errno), errno);
         goto cleanup;
     }
@@ -277,7 +276,7 @@ int main(int argc, char **argv)
         goto cleanup;
     }
     if (sync_dmabuf(dma_fd, DMA_BUF_SYNC_END | DMA_BUF_SYNC_WRITE) < 0) {
-        fprintf(stderr, "DMA-BUF sync END/WRITE failed: %s (errno=%d)\\n",
+        fprintf(stderr, "DMA-BUF sync END/WRITE failed: %s (errno=%d)\n",
                 strerror(errno), errno);
         goto cleanup;
     }
