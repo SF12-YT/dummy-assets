@@ -9,6 +9,7 @@ on:
   pull_request:
     paths:
       - "analysis/jsqz_probe.c"
+      - "analysis/jsqz_qtable_diff.py"
       - ".github/workflows/jsqz-probe-check.yml"
   workflow_dispatch:
 
