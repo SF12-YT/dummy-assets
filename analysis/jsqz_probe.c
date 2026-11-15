@@ -14,7 +14,7 @@
  * One hardware submission:
  *   su -c './jsqz_probe --execute grey'
  *
- * Other supported patterns: black, white, gradient, checker, noise.
+ * Other supported patterns: black, white, gradient, checker, noise, chroma.
  *
  * The driver waits for hardware completion with wait_for_completion(), not a
  * bounded wait. Do not run --execute until the device is expected to be
@@ -162,7 +162,8 @@ static int fill_nv21(uint8_t *frame, const char *pattern)
 
     if (strcmp(pattern, "grey") && strcmp(pattern, "black") &&
         strcmp(pattern, "white") && strcmp(pattern, "gradient") &&
-        strcmp(pattern, "checker") && strcmp(pattern, "noise")) {
+        strcmp(pattern, "checker") && strcmp(pattern, "noise") &&
+        strcmp(pattern, "chroma")) {
         fprintf(stderr, "Unknown pattern '%s'\n", pattern);
         return -1;
     }
@@ -186,8 +187,19 @@ static int fill_nv21(uint8_t *frame, const char *pattern)
         }
     }
 
-    /* NV21 chroma is interleaved VU; neutral chroma is 128,128. */
+    /*
+     * NV21 chroma is interleaved VU.
+     * Keep every existing pattern neutral (V=128, U=128).
+     * The chroma pattern holds luma at 128 but supplies a fixed,
+     * deliberately non-neutral VU pair to test chroma-table response.
+     */
     memset(frame + Y_BYTES, 128, UV_BYTES);
+    if (!strcmp(pattern, "chroma")) {
+        for (size_t i = 0; i < UV_BYTES; i += 2u) {
+            frame[Y_BYTES + i] = 192;     /* V */
+            frame[Y_BYTES + i + 1u] = 64; /* U */
+        }
+    }
     return 0;
 }
 
@@ -232,7 +244,7 @@ int main(int argc, char **argv)
         } else if (!strcmp(argv[i], "--check-device")) {
             check_device = 1;
         } else if (!strcmp(argv[i], "--help")) {
-            printf("Usage: %s [--check-device | --execute] [grey|black|white|gradient|checker|noise] [output.bin]\n", argv[0]);
+            printf("Usage: %s [--check-device | --execute] [grey|black|white|gradient|checker|noise|chroma] [output.bin]\n", argv[0]);
             printf("Default: prepares and frees a DMA-BUF without opening /dev/jsqz.\n");
             return EXIT_SUCCESS;
         } else if (!pattern_seen) {
