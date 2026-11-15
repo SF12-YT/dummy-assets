@@ -270,3 +270,21 @@ This is stronger than merely matching a public driver header: the checks above w
 The probe now accepts `--check-device`. It performs the same ION allocation, mapping and frame fill as the dry run, then opens and closes `/dev/jsqz` without issuing an ioctl. This isolates node access from hardware execution. `--execute` and `--check-device` are mutually exclusive.
 
 A new GitHub Actions workflow, `.github/workflows/jsqz-probe-check.yml`, compiles the probe with both GCC and Clang using `-Wall -Wextra -Werror`, then checks that the help output advertises the device-open preflight. This workflow does not attempt to access device hardware.
+
+
+## Task submission semantics confirmed from the UAPI and driver
+
+The public Samsung UAPI header at the matching Exynos 9820 source revision confirms the probe's enum values rather than relying on guessed numeric constants:
+
+- `JSQZ_MODE_NORMAL = 0`
+- `JSQZ_FUNCTION_LIVE = 0`
+- `JSQZ_INPUT_CS_FORMAT_NV21 = 0`
+- `HWSQZ_BUFFER_DMABUF = 1`
+
+The UAPI describes `info_out` as the image information supplied to the hardware, `buf_out` as the source buffer(s), and `buf_q[32]` as the output quantisation table. The kernel's native ioctl copies exactly 336 bytes from userspace, calls `jsqz_process`, and copies the task back to userspace on success. The probe reads the 32 returned words and can save them as a 128-byte binary file.
+
+The target-kernel disassembly independently confirms the native ioctl command comparison against `0xC1504D00`, the 336-byte copy-in/copy-out, and the worker's output-table read after completion. It also confirms the worker calls `wait_for_completion()`; the scheduler does not use a bounded wait. The source reference sets the hardware timeout parameter to zero, which clears the timeout-enable bit in the bus configuration register. Consequently, a first hardware request can remain blocked if the completion interrupt never arrives.
+
+The current `--execute grey` path therefore has a well-defined purpose: one 128×64 NV21 source frame, one DMA-BUF, NORMAL/LIVE configuration, one ioctl, then return the 32 output Q-table words. No image output buffer is required for this API path. The output is the quantisation table, not a compressed image stream.
+
+The successful `--check-device` run proves `open(O_RDWR)` and close succeed. It does not exercise the ioctl, runtime power-up, DMA attachment, IOVMM mapping, hardware start, IRQ, or output-register read.
