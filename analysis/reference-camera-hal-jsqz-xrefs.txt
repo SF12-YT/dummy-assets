@@ -1,1 +1,4 @@
-Direct call-site references found: 0\nReference binary only; its Build ID differs from the target device library.\n
+Direct call-site references found by the narrow literal-symbol scan: 0
+Reference binary only; its Build ID differs from the target device library.
+
+Scope limitation: this scanner only matched direct BL/BLX instruction lines whose rendered text contained a demangled ExynosJsqz symbol. It does not detect calls made through GOT/PLT-loaded registers or vtable-mediated indirect dispatch. The zero count is not evidence that the JSQZ methods are unused or unreachable. The camera HAL's dynamic symbol table does import these JSQZ methods.
