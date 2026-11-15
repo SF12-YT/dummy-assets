@@ -124,7 +124,7 @@ The workqueue is ordered, so driver tasks are serialized. The device is runtime-
 
 ### DMA and input layout
 
-The API accepts NV21 or YUV422 image information, dimensions, optional stride, and one or two input buffers. The driver calculates the required image-buffer size and accepts either a DMA-BUF file descriptor or a userspace pointer. It attaches the DMA-BUF when applicable and maps the memory into the JSQZ device address space through Exynos IOVMM/System MMU.
+The API accepts NV21 or YUV422 image information, dimensions, optional stride, and one or two input buffers. The UAPI declares both DMA-BUF file descriptors and userspace pointers, but there is an important implementation limitation in this driver lineage: the helper that tries to resolve a USERPTR to a DMA-BUF has its VMA lookup code compiled out (`#if 0`) and returns `NULL`. The actual target kernel disassembly follows the USERPTR descriptor path into the `-EINVAL` error branch, while the DMA-BUF descriptor path calls `dma_buf_get`, attaches the buffer, and maps it. **For this target, use `HWSQZ_BUFFER_DMABUF` (type 1); do not use USERPTR (type 2).** The DMA-BUF is attached and mapped into the JSQZ device address space through Exynos IOVMM/System MMU.
 
 The hardware reads the input (`DMA_TO_DEVICE` from the CPU driver's perspective). There is no output pixel buffer prepared by this operation. The result returned to userspace is the quantisation data.
 
