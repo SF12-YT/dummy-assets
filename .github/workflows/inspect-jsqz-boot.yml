@@ -197,7 +197,7 @@ jobs:
           )
           chunks = []
           for line in result.stdout.splitlines():
-              match = re.match(r"^\\s*[0-9a-fA-F]+\\s+((?:[0-9a-fA-F]{8}\\s+)+)", line)
+              match = re.match(r"^\s*[0-9a-fA-F]+\s+((?:[0-9a-fA-F]{8}\s+)+)", line)
               if match:
                   chunks.append(bytes.fromhex("".join(match.group(1).split())))
           data = b"".join(chunks)
@@ -225,20 +225,20 @@ jobs:
           ]
 
           with open("out/jsqz-default-table.txt", "w") as f:
-              f.write("Target boot-image JSQZ fallback init_q_table extraction\\n")
-              f.write(f"Virtual address: 0x{address:016x}\\n")
-              f.write(f"Bytes: {len(data)}\\n")
-              f.write("Words (little-endian u32):\\n")
+              f.write("Target boot-image JSQZ fallback init_q_table extraction\n")
+              f.write(f"Virtual address: 0x{address:016x}\n")
+              f.write(f"Bytes: {len(data)}\n")
+              f.write("Words (little-endian u32):\n")
               for i, word in enumerate(words):
-                  f.write(f"{i:02d}: 0x{word:08x}\\n")
-              f.write("\\nRaw bytes (hex):\\n")
-              f.write(data.hex() + "\\n")
-              f.write("\\nComparison with the observed black run:\\n")
-              f.write(f"Exact word matches: {32 - len(mismatches)}/32\\n")
+                  f.write(f"{i:02d}: 0x{word:08x}\n")
+              f.write("\nRaw bytes (hex):\n")
+              f.write(data.hex() + "\n")
+              f.write("\nComparison with the observed black run:\n")
+              f.write(f"Exact word matches: {32 - len(mismatches)}/32\n")
               for i, actual, observed in mismatches:
                   f.write(
                       f"word {i}: target default 0x{actual:08x}, "
-                      f"black output 0x{observed:08x}\\n"
+                      f"black output 0x{observed:08x}\n"
                   )
           print(open("out/jsqz-default-table.txt").read())
           PY
