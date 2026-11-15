@@ -31,7 +31,7 @@ def describe_matrix(name: str, before: bytes, after: bytes) -> None:
         for i, (old, new) in enumerate(zip(before, after))
         if old != new
     ]
-    print(f"{name}: {len(changed)}/{MATRIX_BYTES} coefficient bytes changed")
+    print(f"{name}: {len(changed)}/{MATRIX_BYTES} table bytes changed")
     for index, old, new in changed:
         print(f"  {name}[{index:02d}]: 0x{old:02x} -> 0x{new:02x}")
 
@@ -60,6 +60,7 @@ def main() -> int:
 
     print(f"Baseline:  {args.baseline}")
     print(f"Candidate: {args.candidate}")
+    print("Byte offsets are linear register-output order; no 8x8 scan order is assumed.")
     print(
         "Changed 32-bit words: "
         f"Y {len(changed_y)}/{WORDS_PER_MATRIX}, "
