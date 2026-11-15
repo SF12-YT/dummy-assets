@@ -575,7 +575,7 @@ The phone has now completed thirteen successful submissions: eleven base pattern
 
 The `luma-checker-4` pattern (Table J) used Y=64/192 (±64 around 128) in alternating 4×4 tiles and changed 11 Y-bank bytes while leaving all C-bank bytes unchanged. To isolate luma contrast while preserving spatial geometry, a new `luma-checker-4-low` pattern has been added. It uses Y=112/144 (±16 around 128) in the same 4×4 tiles, with neutral NV21 chroma. Comparing this result with Table J will vary only the luma amplitude. If its table still differs from grey, the response persists at ±16 for this pattern; if it matches grey, the output transition is bracketed between the tested ±16 and ±64 amplitudes. This remains a stimulus-specific quantised observation, not a universal threshold.
 
-The new pattern is included in the accepted-pattern list/help output and GCC/Clang CI checks. The CI run for this source update is pending; device execution has not yet been performed.
+The new pattern is included in the accepted-pattern list/help output. GCC and Clang compilation and help-output checks passed in [Actions run #43680566785](https://github.com/SF12-YT/dummy-assets/actions/runs/43680566785). Device execution has not yet been performed.
 
 ## Investigation status and practical completion criteria
 
