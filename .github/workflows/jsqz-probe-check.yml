@@ -1,0 +1,37 @@
+name: JSQZ probe compile check
+
+on:
+  push:
+    paths:
+      - "analysis/jsqz_probe.c"
+      - ".github/workflows/jsqz-probe-check.yml"
+  pull_request:
+    paths:
+      - "analysis/jsqz_probe.c"
+      - ".github/workflows/jsqz-probe-check.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Compile with GCC
+        run: |
+          gcc -std=c11 -O2 -Wall -Wextra -Werror \
+            -o /tmp/jsqz_probe_gcc analysis/jsqz_probe.c
+          /tmp/jsqz_probe_gcc --help | tee /tmp/jsqz_probe_gcc_help.txt
+          grep -q -- "--check-device" /tmp/jsqz_probe_gcc_help.txt
+
+      - name: Compile with Clang
+        run: |
+          clang -std=c11 -O2 -Wall -Wextra -Werror \
+            -o /tmp/jsqz_probe_clang analysis/jsqz_probe.c
+          /tmp/jsqz_probe_clang --help | tee /tmp/jsqz_probe_clang_help.txt
+          grep -q -- "--check-device" /tmp/jsqz_probe_clang_help.txt
