@@ -443,3 +443,31 @@ The stride is valid for NV21 (128 is divisible by 64), and the frame dimensions 
 - Grey and checker remain identical. The checker consists of uniform 8×8 blocks aligned to the JPEG 8×8 transform grid, so each block has no within-block luma variation. That makes it a weak contrast test against uniform grey. A gradient or deterministic-noise input would be a better follow-up to test sensitivity to spatial variation.
 
 No further hardware submission is needed to settle the fallback-table question: the exact target table has now been recovered and the black output is demonstrably not that table.
+
+## Next controlled experiment — lower chroma contrast
+
+The spatial chroma-checker run (Table F) changed four chroma words while all luma words remained identical to the grey baseline. Its alternating samples were VU=(192,64) and (64,192), i.e. each component was displaced by ±64 from neutral 128.
+
+The next probe pattern, `chroma-checker-low`, preserves every other condition:
+
+- Luma remains Y=128 throughout.
+- The chroma tile geometry remains 4×4 chroma samples (8×8 luma-equivalent blocks), with the same checker phase and orientation.
+- The two alternating NV21 VU pairs become (160,96) and (96,160), reducing the component displacement to ±32.
+- The frame remains 128×64 NV21, stride 0, NORMAL/LIVE, in one 12,288-byte ION DMA-BUF.
+
+This is a contrast-amplitude test, not a frequency test. Comparing its result with Table A (neutral chroma) and Table F (±64 chroma checker) can distinguish a weaker response from no visible coefficient change at this amplitude. An unchanged result would indicate only that this quantised output did not change at ±32 under this pattern; it would not prove that the hardware ignores all lower-amplitude chroma variation.
+
+The source pattern is implemented in [`jsqz_probe.c`](jsqz_probe.c). After building the updated source on the phone, submit exactly one test:
+
+```sh
+su -c './jsqz_probe --execute chroma-checker-low jsqz-chroma-checker-low-qtable.bin'
+```
+
+The new [`jsqz_qtable_diff.py`](jsqz_qtable_diff.py) utility compares two saved 128-byte dumps, reporting changed Y/C words and individual coefficient bytes. For example, with the original grey dump and the new output in the same directory:
+
+```sh
+python3 jsqz_qtable_diff.py jsqz-qtable.bin jsqz-chroma-checker-low-qtable.bin
+```
+
+This experiment is **implemented but not yet run on the phone**. Its output must be collected before drawing any conclusion about the lower contrast level. The CI workflow compiles the C probe with GCC and Clang and includes a synthetic test of the table-diff utility.
+
