@@ -203,6 +203,20 @@ The scheduler waits on the task completion object, then checks bit 28 of bus con
 
 The UAPI structure contains `buf_init_q[32]`, and the register header defines initial-Q-table registers at `0x10C–0x188`. However, the reference core contains no call to its `jsqz_set_input_qtbl` or `jsqz_get_init_qtbl` helper, and the active task scheduling sequence writes no initial-Q-table values before starting the IP. The active path appears to use the hardware's internal defaults plus the image-derived output tables; a userspace-provided initial table is not demonstrated as consumed by this driver path.
 
+## HAL buffer contract and test preparation
+
+A separate public Beyond0 S10e vendor binary was recovered for comparison and its Thumb-2 methods were disassembled. Its Build ID is `59c8d485e3e238436e067348882030c1`, which **does not match** the installed device HAL Build ID `2954034e91ab9505aef839b7d9feded0`. Treat these HAL method-level details as a reference implementation, not byte-for-byte proof of the exact installed binary. The kernel-side ABI and driver findings above are from the target boot image.
+
+In that reference HAL, `ExynosSqzBase::setBuf(..., int *fds, unsigned int *lengths, int count)` populates 12-byte descriptors with the DMA-BUF FD, byte length, and type 1. The character-pointer overload sets type 2 (USERPTR). Its execute method checks one or two descriptors and submits the 32-bit ioctl `0xC1344D00`.
+
+The target kernel's recovered USERPTR branch is decisive: descriptor type 1 calls `dma_buf_get(fd)`, then attaches and maps the DMA-BUF; descriptor type 2 takes an error path and returns `-EINVAL`. The matching public driver source explains why: the userspace VMA-to-DMA-BUF resolver is wrapped in `#if 0` and returns NULL. Therefore, a standalone test must supply a real DMA-BUF FD, not a normal pointer from `malloc` or `mmap`.
+
+Samsung's Exynos ION userspace API provides the necessary route: `exynos_ion_open()`, `exynos_ion_alloc()`, `exynos_ion_sync_start()`, and `exynos_ion_sync_end()`. The reference allocator uses the system heap mask `1 << 0` for ordinary DMA-BUF allocation. A 128×64 NV21 test frame needs 12,288 bytes: 8,192 bytes of Y followed by 4,096 bytes of interleaved VU. This size and width satisfy the JSQZ driver's minimum-size and NV21 alignment checks.
+
+A one-shot test source has been prepared at [`analysis/jsqz_probe.c`](jsqz_probe.c). It dynamically loads `/vendor/lib64/libion_exynos.so`, allocates and maps a cached system-heap DMA-BUF, brackets CPU writes with the Exynos DMA-BUF sync calls, and fills one deterministic NV21 pattern. By default it performs preparation only and does not open `/dev/jsqz`; the `--execute` flag is required to submit exactly one native 64-bit task (`0xC1504D00`). It supports grey, black, white, gradient, checker and deterministic noise inputs. The 64-bit task layout is compile-time checked against the target kernel's 336-byte native ABI.
+
+**Important runtime caveat:** the target driver scheduler waits with `wait_for_completion()`, not a timed wait. If the hardware never raises its completion IRQ, the calling task may remain blocked. The harness therefore separates DMA-BUF preparation from the single hardware submission; do not use `--execute` until the dry run has succeeded and a potentially stalled first transaction is acceptable. It does not alter device-node permissions or SELinux policy.
+
 ## Current-device camera observation
 
 Your 10× Pro capture log showed the camera HAL failing to open `/dev/jsqz` with **error 13 (Permission denied)** before the JPEG capture. The JPEG still completed successfully. The log does not show a successful JSQZ open or task submission for that capture.
