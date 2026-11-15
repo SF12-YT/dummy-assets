@@ -246,7 +246,7 @@ int main(int argc, char **argv)
     }
 
     if (execute && check_device) {
-        fprintf(stderr, "--execute and --check-device are mutually exclusive\\n");
+        fprintf(stderr, "--execute and --check-device are mutually exclusive\n");
         return EXIT_FAILURE;
     }
 
@@ -294,7 +294,7 @@ int main(int argc, char **argv)
     if (check_device) {
         jsqz_fd = open("/dev/jsqz", O_RDWR | O_CLOEXEC);
         if (jsqz_fd < 0) {
-            fprintf(stderr, "open /dev/jsqz failed: %s (errno=%d)\\n",
+            fprintf(stderr, "open /dev/jsqz failed: %s (errno=%d)\n",
                     strerror(errno), errno);
             goto cleanup;
         }
