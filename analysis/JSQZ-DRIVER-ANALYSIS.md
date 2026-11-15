@@ -219,7 +219,7 @@ The matching Exynos 9820 4.14 ION UAPI provides a simpler route that avoids load
 
 The same kernel UAPI defines `DMA_BUF_IOCTL_SYNC` with an 8-byte flags structure. The DMA-BUF ioctl handler translates START/WRITE and END/WRITE into the buffer's begin/end CPU-access callbacks, which is the correct cache-coherency bracket around CPU writes to a cached allocation. These definitions are from the public Exynos 9820 source reference; the precise ION ABI should still be confirmed by a successful runtime allocation on the Cruel Kernel target.
 
-A one-shot test source is prepared at [`analysis/jsqz_probe.c`](jsqz_probe.c). It now opens `/dev/ion` and uses `ION_IOC_ALLOC` directly, then maps a cached system-heap DMA-BUF and brackets CPU writes with `DMA_BUF_IOCTL_SYNC`. This removes the previous `dlopen("/vendor/lib64/libion_exynos.so")` failure caused by Termux's isolated Android linker namespace. The 128×64 NV21 frame is 12,288 bytes: 8,192 bytes of Y followed by 4,096 bytes of interleaved VU; its width meets the driver's NV21 alignment check. By default, the probe performs allocation, mapping and pattern population only, and does not open `/dev/jsqz`. The `--execute` flag is still required to submit exactly one native 64-bit task (`0xC1504D00`). It supports grey, black, white, gradient, checker and deterministic noise inputs. Compile-time assertions check the native 336-byte JSQZ task ABI plus the ION and DMA-BUF ioctl numbers. GCC validation with `-Wall -Wextra -Werror` passed in [Actions run #14](https://github.com/SF12-YT/dummy-assets/actions/runs/43664643364).
+A one-shot test source is prepared at [`analysis/jsqz_probe.c`](jsqz_probe.c). It now opens `/dev/ion` and uses `ION_IOC_ALLOC` directly, then maps a cached system-heap DMA-BUF and brackets CPU writes with `DMA_BUF_IOCTL_SYNC`. This removes the previous `dlopen("/vendor/lib64/libion_exynos.so")` failure caused by Termux's isolated Android linker namespace. The 128×64 NV21 frame is 12,288 bytes: 8,192 bytes of Y followed by 4,096 bytes of interleaved VU; its width meets the driver's NV21 alignment check. By default, the probe performs allocation, mapping and pattern population only, and does not open `/dev/jsqz`. The `--execute` flag is still required to submit exactly one native 64-bit task (`0xC1504D00`). It supports grey, black, white, gradient, checker, deterministic noise, constant non-neutral chroma, and spatial chroma-checker inputs. Compile-time assertions check the native 336-byte JSQZ task ABI plus the ION and DMA-BUF ioctl numbers. GCC validation with `-Wall -Wextra -Werror` passed in [Actions run #14](https://github.com/SF12-YT/dummy-assets/actions/runs/43664643364).
 
 **Important runtime caveat:** the target driver scheduler waits with `wait_for_completion()`, not a timed wait. If the hardware never raises its completion IRQ, the calling task may remain blocked. The harness therefore separates DMA-BUF preparation from the single hardware submission; do not use `--execute` until the dry run has succeeded and a potentially stalled first transaction is acceptable. It does not alter device-node permissions or SELinux policy.
 
@@ -292,16 +292,18 @@ The successful `--check-device` run proves `open(O_RDWR)` and close succeed. It 
 
 ## Runtime pattern tests — 15 November 2026
 
-The device-side probe has now submitted five single-frame NV21 tests through the native 64-bit ioctl. All used 128×64, stride 0 (effective stride 128), one ION system-heap DMA-BUF of 12,288 bytes, NORMAL/LIVE mode, and returned success.
+The device-side probe has now submitted six single-frame NV21 tests through the native 64-bit ioctl. All used 128×64, stride 0 (effective stride 128), one ION system-heap DMA-BUF of 12,288 bytes, NORMAL/LIVE mode, and returned success.
 
 | Pattern | Luma input | Returned table |
 |---|---|---|
 | grey | Y=128 throughout | Table A |
 | checker | alternating 8×8 blocks of Y=16 and Y=235 | Table A, exactly identical to grey |
 | black | Y=16 throughout | Table B |
-| chroma | Y=128; V=192, U=64 throughout | Table A, exactly identical to grey |
+| gradient | horizontal Y gradient | Table C |
+| noise | deterministic high-frequency Y noise | Table D |
+| chroma | Y=128; V=192, U=64 throughout | Table E, exactly identical to grey |
 
-All three used neutral chroma (VU=128). Table A is non-default-looking; Table B closely matches the matching public driver's built-in `init_q_table`.
+Grey, checker, black, gradient and noise used neutral chroma (VU=128). The `chroma` test used V=192/U=64 throughout. Table A is non-default-looking; Table B closely matches the matching public driver's built-in `init_q_table`.
 
 The full returned word tables are preserved below. Each line contains four 32-bit words; the first 16 words are luma and the last 16 are chroma.
 
@@ -331,7 +333,7 @@ The full returned word tables are preserved below. Each line contains four 32-bi
 08080808 09080808 0c0c0809 150f0f0c
 ```
 
-Compared with Table A (grey/checker), Table D changes all 16 luma words and none of the 16 chroma words. The luma table becomes more aggressive across the frequency coefficients; for example word 15 changes from `150f0f0c` to `1c151510`. This is strong evidence that JSQZ adapts its luma quantisation output to spatial detail. Chroma remains unchanged, consistent with the original probe patterns using neutral chroma (VU=128). I have now added a `chroma` probe pattern: constant luma 128 with a non-neutral constant NV21 VU pair (V=192, U=64). This isolates chroma-table response without adding luma spatial detail. It is a source change only; it still needs to be rebuilt and run on the device.
+Compared with Table A (grey/checker), Table D changes all 16 luma words and none of the 16 chroma words. The luma table becomes more aggressive across the frequency coefficients; for example word 15 changes from `150f0f0c` to `1c151510`. This is strong evidence that JSQZ adapts its luma quantisation output to spatial detail. The constant-chroma test is recorded separately as Table E below.
 
 **Table E — non-neutral constant chroma**
 
@@ -347,6 +349,17 @@ Compared with Table A (grey/checker), Table D changes all 16 luma words and none
 ```
 
 Table E is exactly identical to Table A (grey): all 32 words match. This test held luma constant at 128 and changed the NV21 chroma planes to V=192 and U=64. No change was observed in either the luma or chroma quantisation matrix. This does not establish that chroma adaptation is absent; it establishes only that this particular constant chroma offset did not alter the returned table.
+
+A new `chroma-checker` input pattern has now been added to the probe. It holds all luma samples at 128 and alternates NV21 VU pairs (V=192/U=64 versus V=64/U=192) in 4×4 chroma-sample tiles. Because NV21 is 4:2:0, each chroma tile corresponds to an 8×8 luma region. This tests spatial chroma variation rather than a uniform colour offset. The source is committed and passes both GCC and Clang compilation with `-Wall -Wextra -Werror` in [Actions run #43671074671](https://github.com/SF12-YT/dummy-assets/actions/runs/43671074671).
+
+To run this one additional hardware experiment on the phone after pulling the latest source and rebuilding:
+
+```bash
+git pull origin main
+clang -std=c11 -O2 -Wall -Wextra -o jsqz_probe analysis/jsqz_probe.c
+su -c './jsqz_probe --execute chroma-checker jsqz-chroma-checker-qtable.bin'
+```
+
 
 **Table C — gradient**
 
@@ -407,16 +420,16 @@ The complete target-kernel fallback table is:
 
 This is an exact 32/32 match to the public driver's `init_q_table`; the target build does **not** have a two-word-different fallback table. The extraction and comparison are recorded in [`jsqz-default-table.txt`](jsqz-default-table.txt).
 
-### Interpretation of the three runs
+### Interpretation of the six completed submissions
 
 The stride is valid for NV21 (128 is divisible by 64), and the frame dimensions and buffer size pass the target driver's guards. Therefore the early alignment fallback is not expected for any of these tests.
 
 - Grey and checker returned exactly the same Table A, which is substantially different from the exact fallback table. They did not return the fallback copy.
 - Gradient returned Table C: only word 0 differs from Table A (`03030401` versus `03030301`); the remaining 31 words are identical. This is a small but direct response to a change in luma spatial content, while chroma remains unchanged.
-- Deterministic noise returned Table D. Compared with Table A, all 16 luma words differ while all 16 chroma words are identical. The higher-frequency luma coefficients increase substantially (word 15: `150f0f0c` → `1c151510`). This is strong evidence that the hardware adapts luma quantisation to spatial detail. Chroma was held neutral (VU=128) in all patterns, so unchanged chroma is expected and does not yet test chroma adaptation.
+- Deterministic noise returned Table D. Compared with Table A, all 16 luma words differ while all 16 chroma words are identical. The higher-frequency luma coefficients increase substantially (word 15: `150f0f0c` → `1c151510`). This is strong evidence that the hardware adapts luma quantisation to spatial detail. Chroma was held neutral (VU=128) for this test.
 - The non-neutral chroma test returned Table E, exactly identical to Table A across all 32 words. It used constant Y=128 with V=192 and U=64. Thus this particular chroma offset did not measurably affect either matrix. This is not proof that the chroma path is ignored or that chroma adaptation is impossible; spatially constant chroma may not exercise whatever image statistics the hardware uses.
 - Black returned Table B. Although it matches the fallback in 30 of 32 words, word 15 is `0a080807` instead of `08080807`, and word 31 is `0a080808` instead of `08080808`. In little-endian byte order, these are exactly the final byte of the 64-byte luma matrix and the final byte of the 64-byte chroma matrix; both change from `0x08` to `0x0a`, while the other 126 bytes match. Therefore it also did **not** return the exact fallback copy.
-- Given the target driver's two known fallback paths (invalid alignment and the post-completion bit-28 branch), and the validated input dimensions/stride, all three runs most likely reached the output-register read path. The empty `dmesg` search is consistent with this, although absence of a log line alone is not proof.
+- Given the target driver's two known fallback paths (invalid alignment and the post-completion bit-28 branch), and the validated input dimensions/stride, all six submissions most likely reached the output-register read path. Their returned tables are not equal to the recovered fallback table. The empty `dmesg` search is consistent with this, although absence of a log line alone is not proof.
 - Black differs from grey/checker in 17 of 32 words. That is useful evidence that the returned Q table is responding to the input pattern, not merely returning one constant fallback table. It does not by itself prove every DMA byte was consumed as intended, but it is substantially stronger evidence of functional JSQZ execution than the earlier fallback hypothesis.
 - Grey and checker remain identical. The checker consists of uniform 8×8 blocks aligned to the JPEG 8×8 transform grid, so each block has no within-block luma variation. That makes it a weak contrast test against uniform grey. A gradient or deterministic-noise input would be a better follow-up to test sensitivity to spatial variation.
 
