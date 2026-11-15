@@ -14,7 +14,7 @@
  * One hardware submission:
  *   su -c './jsqz_probe --execute grey'
  *
- * Other supported patterns: black, white, gradient, checker, noise, chroma, chroma-checker.
+ * Other supported patterns: black, white, gradient, checker, noise, chroma, chroma-checker, chroma-checker-low.
  *
  * The driver waits for hardware completion with wait_for_completion(), not a
  * bounded wait. Do not run --execute until the device is expected to be
@@ -163,7 +163,8 @@ static int fill_nv21(uint8_t *frame, const char *pattern)
     if (strcmp(pattern, "grey") && strcmp(pattern, "black") &&
         strcmp(pattern, "white") && strcmp(pattern, "gradient") &&
         strcmp(pattern, "checker") && strcmp(pattern, "noise") &&
-        strcmp(pattern, "chroma") && strcmp(pattern, "chroma-checker")) {
+        strcmp(pattern, "chroma") && strcmp(pattern, "chroma-checker") &&
+        strcmp(pattern, "chroma-checker-low")) {
         fprintf(stderr, "Unknown pattern '%s'\n", pattern);
         return -1;
     }
@@ -191,9 +192,11 @@ static int fill_nv21(uint8_t *frame, const char *pattern)
      * NV21 chroma is interleaved VU.
      * Keep every pattern neutral except the two chroma-only tests.
      * "chroma" is a constant V=192/U=64 offset (already tested).
-     * "chroma-checker" alternates the VU pair across 8x8 luma blocks,
-     * while leaving every luma sample at 128. Chroma is 4:2:0, so each
-     * 8x8 luma block corresponds to a 4x4 block of chroma samples.
+     * "chroma-checker" alternates VU=(192,64) and (64,192) across 8x8
+     * luma blocks (±64 around neutral), with luma fixed at 128.
+     * "chroma-checker-low" uses the same geometry at half amplitude:
+     * VU=(160,96) and (96,160) (±32 around neutral). Chroma is 4:2:0,
+     * so each 8x8 luma block corresponds to a 4x4 chroma-sample tile.
      */
     memset(frame + Y_BYTES, 128, UV_BYTES);
     if (!strcmp(pattern, "chroma")) {
@@ -201,13 +204,20 @@ static int fill_nv21(uint8_t *frame, const char *pattern)
             frame[Y_BYTES + i] = 192;     /* V */
             frame[Y_BYTES + i + 1u] = 64; /* U */
         }
-    } else if (!strcmp(pattern, "chroma-checker")) {
+    } else if (!strcmp(pattern, "chroma-checker") ||
+               !strcmp(pattern, "chroma-checker-low")) {
+        const int low_contrast = !strcmp(pattern, "chroma-checker-low");
+        const uint8_t v_a = low_contrast ? 160u : 192u;
+        const uint8_t u_a = low_contrast ? 96u : 64u;
+        const uint8_t v_b = low_contrast ? 96u : 64u;
+        const uint8_t u_b = low_contrast ? 160u : 192u;
+
         for (uint32_t cy = 0; cy < HEIGHT / 2u; ++cy) {
             for (uint32_t cx = 0; cx < WIDTH / 2u; ++cx) {
                 const int high_vu = (((cx / 4u) + (cy / 4u)) & 1u) != 0;
                 const size_t offset = Y_BYTES + (size_t)cy * WIDTH + (size_t)cx * 2u;
-                frame[offset] = high_vu ? 64 : 192;       /* V */
-                frame[offset + 1u] = high_vu ? 192 : 64; /* U */
+                frame[offset] = high_vu ? v_b : v_a;       /* V */
+                frame[offset + 1u] = high_vu ? u_b : u_a; /* U */
             }
         }
     }
@@ -255,7 +265,7 @@ int main(int argc, char **argv)
         } else if (!strcmp(argv[i], "--check-device")) {
             check_device = 1;
         } else if (!strcmp(argv[i], "--help")) {
-            printf("Usage: %s [--check-device | --execute] [grey|black|white|gradient|checker|noise|chroma|chroma-checker] [output.bin]\n", argv[0]);
+            printf("Usage: %s [--check-device | --execute] [grey|black|white|gradient|checker|noise|chroma|chroma-checker|chroma-checker-low] [output.bin]\n", argv[0]);
             printf("Default: prepares and frees a DMA-BUF without opening /dev/jsqz.\n");
             return EXIT_SUCCESS;
         } else if (!pattern_seen) {
