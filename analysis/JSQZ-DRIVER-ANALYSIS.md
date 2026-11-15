@@ -457,7 +457,7 @@ The stride is valid for NV21 (128 is divisible by 64), and the frame dimensions 
 - The non-neutral chroma test returned Table E, exactly identical to Table A across all 32 words. It used constant Y=128 with V=192 and U=64. Thus this particular chroma offset did not measurably affect either matrix. This is not proof that the chroma path is ignored or that chroma adaptation is impossible; spatially constant chroma may not exercise whatever image statistics the hardware uses.
 - The spatial chroma-checker test returned Table F with Y held constant at 128. Compared with Table A, all 16 luma words are identical and four chroma words (17, 28, 30 and 31) differ. This demonstrates an independent chroma-table response to spatial chroma variation for this input pattern.
 - Black returned Table B. Although it matches the fallback in 30 of 32 words, word 15 is `0a080807` instead of `08080807`, and word 31 is `0a080808` instead of `08080808`. In little-endian byte order, these are exactly the final byte of the 64-byte luma matrix and the final byte of the 64-byte chroma matrix; both change from `0x08` to `0x0a`, while the other 126 bytes match. Therefore it also did **not** return the exact fallback copy.
-- Given the target driver's two known fallback paths (invalid alignment and the post-completion bit-28 branch), and the validated input dimensions/stride, all nine submissions most likely reached the output-register read path. Their returned tables are not equal to the recovered fallback table. The empty `dmesg` search is consistent with this, although absence of a log line alone is not proof.
+- Given the target driver's two known fallback paths (invalid alignment and the post-completion bit-28 branch), and the validated input dimensions/stride, all ten submissions most likely reached the output-register read path. Their returned tables are not equal to the recovered fallback table. The empty `dmesg` search is consistent with this, although absence of a log line alone is not proof.
 - Black differs from grey/checker in 17 of 32 words. That is useful evidence that the returned Q table is responding to the input pattern, not merely returning one constant fallback table. It does not by itself prove every DMA byte was consumed as intended, but it is substantially stronger evidence of functional JSQZ execution than the earlier fallback hypothesis.
 - Grey and checker remain identical. The checker consists of uniform 8×8 blocks aligned to the JPEG 8×8 transform grid, so each block has no within-block luma variation. That makes it a weak contrast test against uniform grey. The prepared `luma-checker-4` pattern is the next controlled follow-up because it varies within each 8×8 luma region.
 
@@ -472,18 +472,19 @@ The next run, `chroma-checker-tiny`, halved the displacement again to ±16. Its 
 - All 16 luma words are unchanged.
 - Only chroma word 17 changes: `03040303` → `03040304`.
 - The same single C-bank byte at linear offset 4 remains changed (0x03 → 0x04).
-- Exactly 1/64 chroma bytes changes at both ±32 and ±16, compared with 4/64 at ±64.
+- Exactly 1/64 chroma bytes changes at ±32, ±16 and ±8, compared with 4/64 at ±64.
 
-This shows that, for this exact spatial pattern and device configuration, the one-byte chroma-table response persists at least down to ±8 component amplitude. The output has reached the same quantised table at ±8, ±16 and ±32; there is no evidence of a further change between those two levels. The three additional changed bytes at ±64 are absent at both lower amplitudes. It would be incorrect to claim the response threshold is below ±8: the response is still present at ±16.
+This shows that, for this exact spatial pattern and device configuration, the one-byte chroma-table response persists at least down to ±8 component amplitude. The output has reached the same quantised table at ±8, ±16 and ±32; there is no evidence of a further change between those two levels. The three additional changed bytes at ±64 are absent at all three lower amplitudes. The response threshold, if defined for this quantised output and stimulus, lies below ±8; it has not been located.
 
 The matching controls are the same 128×64 NV21 frame, Y=128, 4×4 chroma-sample checker tiles (equivalent to 8×8 luma blocks), NORMAL/LIVE mode and 12,288-byte ION DMA-BUF. Only the chroma sample levels differ:
 - ±64: VU pairs (192,64) and (64,192), Table F.
 - ±32: VU pairs (160,96) and (96,160), Table G.
 - ±16: VU pairs (144,112) and (112,144), Table H; output exactly matches Table G.
+- ±8: VU pairs (136,120) and (120,136), Table I; output exactly matches Tables G and H.
 
 The ±8 `chroma-checker-micro` device-side run has now completed successfully. Its complete output is Table I below. It exactly matches Tables G and H, confirming that the same single-byte chroma response persists at ±8. This does not establish a universal threshold for other patterns, resolutions or operating modes.
 
-The `jsqz_qtable_diff.py` utility compares saved 128-byte dumps at packed-word and individual-byte levels. Both ±32 and ±16 tests were performed on the phone and returned success. The ±8 test was performed on the phone and returned success.
+The `jsqz_qtable_diff.py` utility compares saved 128-byte dumps at packed-word and individual-byte levels. The ±32, ±16 and ±8 tests were performed on the phone and returned success.
 ## Q-table byte ordering — HAL reference confirmation
 
 The available public Beyond0 reference HAL contains two overloads of `ExynosJsqz::getResultQT`. The `unsigned int *` overload copies 32 consecutive words into the caller's output at four-byte intervals. The `unsigned char *` overload at reference-library offset `0x221a` iterates over the same 128 bytes and explicitly writes the four bytes of each 32-bit word in low-to-high order to consecutive output positions. It does not apply a zigzag/raster reordering in that method.
