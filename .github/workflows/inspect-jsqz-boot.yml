@@ -309,34 +309,29 @@ jobs:
               check=True, text=True, capture_output=True
           )
           needles = (
-              "ion", "dma_buf_get", "dma_buf_put", "dma_buf_fd",
-              "dma_buf_attach", "dma_buf_detach",
-              "dma_buf_map_attachment", "dma_buf_unmap_attachment",
-              "dma_buf_begin_cpu_access", "dma_buf_end_cpu_access",
-              "dma_buf_ioctl", "ion_ioctl", "ion_alloc",
-              "ion_heap", "ion_iovmm"
+              "ion", "dma_buf", "dmabuf", "heap"
           )
           selected = []
           for line in nm.stdout.splitlines():
-              fields = line.split(maxsplit=3)
-              if len(fields) != 4 or fields[2] not in {"T", "t", "W", "w"}:
+              fields = line.split()
+              if len(fields) < 2:
                   continue
-              name = fields[3]
-              if any(needle in name for needle in needles):
-                  selected.append((fields[0], fields[1], fields[2], name))
+              name = fields[-1]
+              if any(needle in name.lower() for needle in needles):
+                  selected.append((line, name))
 
           with open("out/ion-dmabuf-kernel-symbols.txt", "w") as report:
-              report.write(f"Matched function symbols: {len(selected)}\\n")
-              for address, size, kind, name in selected:
-                  report.write(f"{address} {size} {kind} {name}\\n")
+              report.write(f"Matched symbol-table entries: {len(selected)}\n")
+              for raw, name in selected:
+                  report.write(raw + "\n")
 
           with open("out/ion-dmabuf-kernel-disassembly.txt", "w") as report:
-              report.write("ION and DMA-BUF functions recovered from the uploaded target boot image\\n")
-              report.write(f"Matched function symbols: {len(selected)}\\n")
+              report.write("ION / DMA-BUF / heap symbols recovered from the uploaded target boot image\n")
+              report.write(f"Matched symbol-table entries: {len(selected)}\n")
               if not selected:
-                  report.write("No matching named functions were recovered from vmlinux.elf.\\n")
-              for address, size, kind, name in selected:
-                  report.write(f"\\n===== {name} @ 0x{address} size 0x{size} =====\\n")
+                  report.write("No matching names were present in the recovered ELF symbol table.\n")
+              for raw, name in selected:
+                  report.write(f"\n===== {name} ({raw}) =====\n")
                   dis = subprocess.run(
                       ["aarch64-linux-gnu-objdump", "-d", "-C",
                        f"--disassemble={name}", elf],
