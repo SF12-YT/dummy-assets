@@ -312,29 +312,33 @@ The target boot-image disassembly resolves the fallback decision:
 - When bit 28 is clear, the scheduler instead reads the 16 luma words from `base + 0x010` and the 16 chroma words from `base + 0x050`.
 - Separately, the launch path clears bit 24 at `ffffff8008b0a0f4`; that is timeout-control configuration, not the post-run bit-28 status test.
 
-The 128-byte black result is:
+### Exact fallback table recovered from the target boot image
+
+The first attempt to dump the inferred virtual address from `vmlinux.elf` returned no bytes because the reconstructed ELF did not expose that data address as a dumpable section. The fallback table was then recovered directly from the original extracted `kernel.bin` by searching for its known 30-word prefix/suffix signature. Exactly one location matched: file offset `0x1274cd8`.
+
+The complete target-kernel fallback table is:
 
 ```
 01010101 01010101 01010101 03020201
 02020202 03030402 04050302 04050505
 06050404 05050607 04040607 07060906
-08080808 09060508 0a08090a 0a080807
+08080808 09060508 0a08090a 08080807
 02010101 02040202 05080402 08080504
 08080808 08080808 08080808 08080808
 08080808 08080808 08080808 08080808
-08080808 08080808 08080808 0a080808
+08080808 08080808 08080808 08080808
 ```
 
-It matches the reference `init_q_table` in 30 of 32 words. Only word 15 (`0a080807` versus reference `08080807`) and word 31 (`0a080808` versus reference `08080808`) differ. This is strong evidence that the black run took the bit-28 fallback path and returned the target build's default table, which appears to differ slightly from the public reference revision. The target binary's table bytes have not yet been extracted independently, so this remains a high-confidence inference rather than a byte-for-byte proof.
+This is an exact 32/32 match to the public driver's `init_q_table`; the target build does **not** have a two-word-different fallback table. The extraction and comparison are recorded in [`jsqz-default-table.txt`](jsqz-default-table.txt).
 
 ### Interpretation of the three runs
 
 The stride is valid for NV21 (128 is divisible by 64), and the frame dimensions and buffer size pass the target driver's guards. Therefore the early alignment fallback is not expected for any of these tests.
 
-- Grey and checker returned exactly the same Table A, and Table A is substantially different from the reference default. These runs therefore appear to have used the output-register branch rather than the known fallback value.
-- Black returned Table B, which is almost the reference default. The most likely explanation is that the post-completion bit-28 condition selected the fallback table on that run.
-- The identical grey/checker outputs are not yet evidence of stale registers. The probe's checker consists of uniform 8×8 blocks, aligned to the 8×8 JPEG transform grid; each block has no within-block luma variation, just like the grey frame. If JSQZ's table estimator is based mainly on block-frequency/detail statistics, both frames can plausibly produce the same table even when both are read correctly. This is not proven without the silicon algorithm. A gradient or deterministic noise frame would be a stronger content-sensitivity test, but should wait until the black fallback branch is checked in the kernel log.
+- Grey and checker returned exactly the same Table A, which is substantially different from the exact fallback table. They did not return the fallback copy.
+- Black returned Table B. Although it matches the fallback in 30 of 32 words, word 15 is `0a080807` instead of `08080807`, and word 31 is `0a080808` instead of `08080808`. Therefore it also did **not** return the exact fallback copy.
+- Given the target driver's two known fallback paths (invalid alignment and the post-completion bit-28 branch), and the validated input dimensions/stride, all three runs most likely reached the output-register read path. The empty `dmesg` search is consistent with this, although absence of a log line alone is not proof.
+- Black differs from grey/checker in 17 of 32 words. That is useful evidence that the returned Q table is responding to the input pattern, not merely returning one constant fallback table. It does not by itself prove every DMA byte was consumed as intended, but it is substantially stronger evidence of functional JSQZ execution than the earlier fallback hypothesis.
+- Grey and checker remain identical. The checker consists of uniform 8×8 blocks aligned to the JPEG 8×8 transform grid, so each block has no within-block luma variation. That makes it a weak contrast test against uniform grey. A gradient or deterministic-noise input would be a better follow-up to test sensitivity to spatial variation.
 
-### One useful confirmation without another hardware submission
-
-The timeout branch emits the `dev_info` message `jsqz device time out!!`. Checking the kernel log after the black run can confirm whether the bit-28 fallback executed. This is preferable to submitting more test frames until the branch is identified.
+No further hardware submission is needed to settle the fallback-table question: the exact target table has now been recovered and the black output is demonstrably not that table.
