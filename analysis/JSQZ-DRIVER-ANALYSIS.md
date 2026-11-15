@@ -565,30 +565,30 @@ The `luma-checker-4` test has now completed successfully. Its controlled input w
 
 The returned Table J differs from grey Table A in 11 of the 64 luma bytes, spread across 11 of the 16 luma words. All 16 chroma words (64 bytes) are unchanged. This shows that within-block luma variation affects the luma quantisation matrix independently of the chroma matrix for this stimulus. The result complements the deterministic-noise test, which changed 50 luma bytes, and shows a measurable response to this lower-complexity periodic pattern.
 
-## Next controlled chroma spatial-frequency experiment — prepared, not run
+## Controlled chroma spatial-frequency experiment — runtime result
 
-The grey repeatability submission returned all 32 Q-table words exactly equal to the original grey Table A. With this baseline deterministic under identical inputs, the next useful control is to change chroma spatial frequency while holding chroma amplitude fixed.
+The `chroma-checker-fine` run has completed successfully. It holds Y=128 and the same ±64 V/U checker levels as Table F, but changes the tile size from 4×4 to 2×2 chroma samples (4×4 instead of 8×8 luma-equivalent regions). The returned Table K is identical to Table F across all 32 words (128/128 bytes): no luma or chroma output byte changed as a result of this tile-size change. Therefore the quantised output is unchanged across these two tested spatial scales for this stimulus. This does not establish general spatial-frequency invariance; it is one matched comparison.
 
-A new `chroma-checker-fine` pattern has been added to `analysis/jsqz_probe.c`:
+The phone has now completed thirteen successful submissions: eleven base patterns, one repeatability submission, and this additional chroma-frequency variant. Together, the results demonstrate repeatability for the grey baseline, independent luma/chroma table responses, and no detected table change in this particular one-octave chroma scale comparison.
 
-- Luma remains constant at Y=128 and neutral chroma is replaced by alternating NV21 VU pairs (192,64) and (64,192), the same ±64 component amplitude as Table F.
-- The checker tile is reduced from 4×4 chroma samples (8×8 luma-equivalent regions, used for Table F) to 2×2 chroma samples (4×4 luma-equivalent regions).
-- Frame size, NV21 format, DMA-BUF size, NORMAL/LIVE mode and ioctl path remain unchanged.
+## Lower-contrast within-block luma experiment — prepared, not run
 
-Comparing this output with Table F will isolate whether the observed chroma-table response changes when the same contrast is delivered at a finer spatial scale. The new pattern was added to the probe's accepted-pattern list and help output, and GCC/Clang CI checks passed in [Actions run #43680273034](https://github.com/SF12-YT/dummy-assets/actions/runs/43680273034). The phone returned Table K, exactly matching Table F despite the smaller tiles. This closes the planned first spatial-frequency comparison for the tested 8×8 versus 4×4 luma-equivalent regions.
+The `luma-checker-4` pattern (Table J) used Y=64/192 (±64 around 128) in alternating 4×4 tiles and changed 11 Y-bank bytes while leaving all C-bank bytes unchanged. To isolate luma contrast while preserving spatial geometry, a new `luma-checker-4-low` pattern has been added. It uses Y=112/144 (±16 around 128) in the same 4×4 tiles, with neutral NV21 chroma. Comparing this result with Table J will vary only the luma amplitude. If its table still differs from grey, the response persists at ±16 for this pattern; if it matches grey, the output transition is bracketed between the tested ±16 and ±64 amplitudes. This remains a stimulus-specific quantised observation, not a universal threshold.
+
+The new pattern is included in the accepted-pattern list/help output and GCC/Clang CI checks. The CI run for this source update is pending; device execution has not yet been performed.
 
 ## Investigation status and practical completion criteria
 
-**Estimated overall progress for a bounded, practical investigation of the target phone's JSQZ driver and observable Q-table behaviour: approximately 75–80%.** This is a project estimate, not a measurable scientific percentage.
+**Estimated overall progress for a bounded, practical investigation of the target phone's JSQZ driver and observable Q-table behaviour: approximately 80–85%.** This is a project estimate, not a measurable scientific percentage.
 
 - Target kernel, UAPI, native/compat ABI, DMA-BUF path, register map and fallback behaviour: approximately 95% understood.
 - Hardware execution and proof of input-dependent Y/C table output on this device: approximately 90–95% established.
-- Black-box mapping of output sensitivity to image content, spatial frequency, contrast and repeatability: approximately 80% characterised. The grey baseline repeated with an exact 32/32-word match; one chroma checker scale comparison also returned an exact 32/32-word match.
+- Black-box mapping of output sensitivity to image content, spatial frequency, contrast and repeatability: approximately 85% characterised. The grey baseline repeated with an exact 32/32-word match, and the ±64 chroma checker returned an exact 32/32-word match at two tile sizes.
 - Exact internal silicon algorithm (the estimator, thresholds, coefficient-to-position mapping and RTL): approximately 20–25% understood. The Linux driver and finite I/O experiments do not expose the RTL.
 
-A sensible stopping point for the **practical black-box investigation** is about one or two further one-shot experiments, followed by a consolidated result and limitations report:
+A sensible stopping point for the **practical black-box investigation** is one final controlled one-shot experiment, followed by a consolidated result and limitations report:
 
-1. Make one controlled luma-amplitude comparison using the same 4×4 tile geometry but a smaller Y displacement; this will test whether the luma-table response seen in Table J persists at lower contrast.
-2. Then consolidate the practical findings and documented limitations. Further experiments should be added only if this comparison reveals a specific unresolved behaviour.
+1. Run `luma-checker-4-low`, which uses Y=112/144 in the same 4×4 geometry as Table J (Y=64/192). This isolates luma amplitude while preserving spatial frequency.
+2. Then consolidate the practical findings and documented limitations. Add further experiments only if this comparison reveals a specific unresolved behaviour.
 
 After those tests, the driver/API investigation and the principal observable Y/C response behaviours should be adequately documented for this kernel/device combination. Exhaustively testing every image, resolution, format, mode, input value and hardware corner case is not a finite task. Reconstructing the exact proprietary silicon algorithm would require Samsung documentation, RTL or equivalent design-level evidence; black-box probes alone cannot promise that result.
