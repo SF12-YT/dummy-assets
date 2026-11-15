@@ -14,7 +14,7 @@
  * One hardware submission:
  *   su -c './jsqz_probe --execute grey'
  *
- * Other supported patterns: black, white, gradient, checker, luma-checker-4, noise, chroma, chroma-checker, chroma-checker-low, chroma-checker-tiny.
+ * Other supported patterns: black, white, gradient, checker, luma-checker-4, noise, chroma, chroma-checker, chroma-checker-low, chroma-checker-tiny, chroma-checker-micro.
  *
  * The driver waits for hardware completion with wait_for_completion(), not a
  * bounded wait. Do not run --execute until the device is expected to be
@@ -165,7 +165,8 @@ static int fill_nv21(uint8_t *frame, const char *pattern)
         strcmp(pattern, "checker") && strcmp(pattern, "luma-checker-4") &&
         strcmp(pattern, "noise") &&
         strcmp(pattern, "chroma") && strcmp(pattern, "chroma-checker") &&
-        strcmp(pattern, "chroma-checker-low") && strcmp(pattern, "chroma-checker-tiny")) {
+        strcmp(pattern, "chroma-checker-low") && strcmp(pattern, "chroma-checker-tiny") &&
+        strcmp(pattern, "chroma-checker-micro")) {
         fprintf(stderr, "Unknown pattern '%s'\n", pattern);
         return -1;
     }
@@ -201,7 +202,8 @@ static int fill_nv21(uint8_t *frame, const char *pattern)
      * luma blocks (±64 around neutral), with luma fixed at 128.
      * "chroma-checker-low" uses VU=(160,96)/(96,160), ±32.
      * "chroma-checker-tiny" uses VU=(144,112)/(112,144), ±16.
-     * Both retain the same geometry. Chroma is 4:2:0,
+     * "chroma-checker-micro" uses VU=(136,120)/(120,136), ±8.
+     * All three checker patterns retain the same geometry. Chroma is 4:2:0,
      * so each 8x8 luma block corresponds to a 4x4 chroma-sample tile.
      */
     memset(frame + Y_BYTES, 128, UV_BYTES);
@@ -212,8 +214,10 @@ static int fill_nv21(uint8_t *frame, const char *pattern)
         }
     } else if (!strcmp(pattern, "chroma-checker") ||
                !strcmp(pattern, "chroma-checker-low") ||
-               !strcmp(pattern, "chroma-checker-tiny")) {
+               !strcmp(pattern, "chroma-checker-tiny") ||
+               !strcmp(pattern, "chroma-checker-micro")) {
         const unsigned int contrast =
+            !strcmp(pattern, "chroma-checker-micro") ? 8u :
             !strcmp(pattern, "chroma-checker-tiny") ? 16u :
             !strcmp(pattern, "chroma-checker-low") ? 32u : 64u;
         const uint8_t v_a = (uint8_t)(128u + contrast);
@@ -274,7 +278,7 @@ int main(int argc, char **argv)
         } else if (!strcmp(argv[i], "--check-device")) {
             check_device = 1;
         } else if (!strcmp(argv[i], "--help")) {
-            printf("Usage: %s [--check-device | --execute] [grey|black|white|gradient|checker|luma-checker-4|noise|chroma|chroma-checker|chroma-checker-low|chroma-checker-tiny] [output.bin]\n", argv[0]);
+            printf("Usage: %s [--check-device | --execute] [grey|black|white|gradient|checker|luma-checker-4|noise|chroma|chroma-checker|chroma-checker-low|chroma-checker-tiny|chroma-checker-micro] [output.bin]\n", argv[0]);
             printf("Default: prepares and frees a DMA-BUF without opening /dev/jsqz.\n");
             return EXIT_SUCCESS;
         } else if (!pattern_seen) {
