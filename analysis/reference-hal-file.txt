@@ -1,0 +1,1 @@
+out/reference-libhwjsqz.so: ELF 32-bit LSB shared object, ARM, EABI5 version 1 (SYSV), dynamically linked, for Android 29, BuildID[md5/uuid]=59c8d485e3e238436e067348882030c1, stripped

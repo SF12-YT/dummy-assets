@@ -1,0 +1,68 @@
+00002015 T ExynosJsqz::ExynosJsqz()
+00002015 T ExynosJsqz::ExynosJsqz()
+0000202d T ExynosJsqz::~ExynosJsqz()
+0000202d T ExynosJsqz::~ExynosJsqz()
+00002055 T ExynosJsqz::destroy()
+00002059 T ExynosJsqz::~ExynosJsqz()
+00002085 T ExynosJsqz::create()
+00002089 T ExynosJsqz::setInBuf(int, unsigned int)
+00002095 T ExynosJsqz::setInBuf(int*, unsigned int*, int)
+000020b1 T ExynosJsqz::setInBuf(char*, unsigned int)
+000020bd T ExynosJsqz::setImageInfo(int, int, int, hwJSQZ_input_cs_format)
+00002145 T ExynosJsqz::setJsqzConfig(hwJSQZ_processing_function, hwJSQZ_processing_mode)
+00002179 T ExynosJsqz::getResultQT(unsigned int*)
+0000221b T ExynosJsqz::getResultQT(unsigned char*)
+0000224d T ExynosJsqz::run()
+00002251 T c_run_jsqz
+00002445 T ExynosMsqz::ExynosMsqz()
+00002445 T ExynosMsqz::ExynosMsqz()
+00002471 T ExynosMsqz::~ExynosMsqz()
+00002471 T ExynosMsqz::~ExynosMsqz()
+000024a9 T ExynosMsqz::destroy()
+000024c9 T ExynosMsqz::~ExynosMsqz()
+00002505 T ExynosMsqz::create()
+00002509 T ExynosMsqz::setVideoInfo(int, int, int, int, int, bool)
+0000258d T ExynosMsqz::setDcTuneValue(int, int, int)
+000025cd T ExynosMsqz::setAlphaTuneValue(int, int)
+00002605 T ExynosMsqz::setDqpTuneValue(int, int)
+0000263d T ExynosMsqz::setInBuf(int, unsigned int)
+00002649 T ExynosMsqz::setInBuf(unsigned char*, unsigned int)
+000026e1 T ExynosMsqz::setOutBuf(int, unsigned int)
+00002771 T ExynosMsqz::setOutBuf(signed char*, unsigned int)
+00002809 T ExynosMsqz::getFrameDqp()
+00002811 T ExynosMsqz::run(int, int, float, int)
+00002ce9 T ExynosMsqz::transformDQP_8B_OPT7(unsigned int, int, int, signed char const*, signed char, signed char*)
+00002df5 T ExynosMsqz::submeanDQP(signed char const*, int, int, signed char*)
+000030e9 T ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)
+00003621 T ExynosSqzBase::ExynosSqzBase()
+00003621 T ExynosSqzBase::ExynosSqzBase()
+00003679 T ExynosSqzBase::~ExynosSqzBase()
+00003679 T ExynosSqzBase::~ExynosSqzBase()
+00003689 T ExynosSqzBase::~ExynosSqzBase()
+0000368d T ExynosSqzBase::create()
+000036c5 T ExynosSqzBase::openJsqz()
+000036c9 T ExynosSqzBase::destroy()
+00003745 T ExynosSqzBase::getJsqzConfig()
+00003771 T ExynosSqzBase::resetBuf(hwSQZ_buffer*)
+0000377d T ExynosSqzBase::setBuf(hwSQZ_buffer*, int, unsigned int)
+0000380d T ExynosSqzBase::setBuf(hwSQZ_buffer*, int*, unsigned int*, int)
+000038cd T ExynosSqzBase::setBuf(hwSQZ_buffer*, char*, unsigned int)
+0000395d T ExynosSqzBase::execute()
+00003a45 T ExynosSqzBase::execute_msqz()
+00003b01 T instantiateJsqzHal
+00003be9 T destroyJsqzHal
+00003bf5 T ExynosSqzBase::openNode()
+00003c59 T ExynosSqzBase::closeNode()
+00003ca5 T ExynosSqzBase::getBufType(hwSQZ_buffer*)
+00003d28 T __aeabi_memcpy
+00003d28 T __aeabi_memcpy4
+00003d28 T __aeabi_memcpy8
+00003d2c T __aeabi_memset
+00003d2c T __aeabi_memset4
+00003d2c T __aeabi_memset8
+00003d3c T __aeabi_memclr
+00003d3c T __aeabi_memclr4
+00003d3c T __aeabi_memclr8
+00006008 D vtable for ExynosJsqz
+00006018 D vtable for ExynosMsqz
+00006028 D vtable for ExynosSqzBase

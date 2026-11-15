@@ -1,0 +1,181 @@
+ELF Header:
+  Magic:   7f 45 4c 46 01 01 01 00 00 00 00 00 00 00 00 00 
+  Class:                             ELF32
+  Data:                              2's complement, little endian
+  Version:                           1 (current)
+  OS/ABI:                            UNIX - System V
+  ABI Version:                       0
+  Type:                              DYN (Shared object file)
+  Machine:                           ARM
+  Version:                           0x1
+  Entry point address:               0x2000
+  Start of program headers:          52 (bytes into file)
+  Start of section headers:          27052 (bytes into file)
+  Flags:                             0x5000200, Version5 EABI, soft-float ABI
+  Size of this header:               52 (bytes)
+  Size of program headers:           32 (bytes)
+  Number of program headers:         9
+  Size of section headers:           40 (bytes)
+  Number of section headers:         25
+  Section header string table index: 23
+
+Dynamic section at offset 0x6038 contains 32 entries:
+  Tag        Type                         Name/Value
+ 0x00000001 (NEEDED)                     Shared library: [libcutils.so]
+ 0x00000001 (NEEDED)                     Shared library: [libion_exynos.so]
+ 0x00000001 (NEEDED)                     Shared library: [liblog.so]
+ 0x00000001 (NEEDED)                     Shared library: [libutils.so]
+ 0x00000001 (NEEDED)                     Shared library: [libc++.so]
+ 0x00000001 (NEEDED)                     Shared library: [libc.so]
+ 0x00000001 (NEEDED)                     Shared library: [libm.so]
+ 0x00000001 (NEEDED)                     Shared library: [libdl.so]
+ 0x0000000e (SONAME)                     Library soname: [libhwjsqz.so]
+ 0x0000001e (FLAGS)                      BIND_NOW
+ 0x6ffffffb (FLAGS_1)                    Flags: NOW
+ 0x6000000f (Operating System specific: 6000000f)        0x1568
+ 0x60000010 (Operating System specific: 60000010)        0x32
+ 0x00000013 (RELENT)                     8 (bytes)
+ 0x6fffe000 (Operating System specific: 6fffe000)        0x159c
+ 0x6fffe001 (Operating System specific: 6fffe001)        0xc
+ 0x6fffe003 (Operating System specific: 6fffe003)        0x4
+ 0x00000017 (JMPREL)                     0x15a8
+ 0x00000002 (PLTRELSZ)                   320 (bytes)
+ 0x00000003 (PLTGOT)                     0x6148
+ 0x00000014 (PLTREL)                     REL
+ 0x00000006 (SYMTAB)                     0x304
+ 0x0000000b (SYMENT)                     16 (bytes)
+ 0x00000005 (STRTAB)                     0xc08
+ 0x0000000a (STRSZ)                      2398 (bytes)
+ 0x6ffffef5 (GNU_HASH)                   0xa24
+ 0x0000001a (FINI_ARRAY)                 0x6000
+ 0x0000001c (FINI_ARRAYSZ)               8 (bytes)
+ 0x6ffffff0 (VERSYM)                     0x8f4
+ 0x6ffffffe (VERNEED)                    0x9b4
+ 0x6fffffff (VERNEEDNUM)                 3
+ 0x00000000 (NULL)                       0x0
+
+Symbol table '.dynsym' contains 95 entries:
+   Num:    Value  Size Type    Bind   Vis      Ndx Name
+     0: 00000000     0 NOTYPE  LOCAL  DEFAULT  UND 
+     1: 00000000     0 FUNC    GLOBAL DEFAULT  UND __cxa_finalize@LIBC (2)
+     2: 00000000     0 FUNC    GLOBAL DEFAULT  UND _ZdlPv
+     3: 00000000     0 FUNC    GLOBAL DEFAULT  UND _Znwj
+     4: 00000000     0 FUNC    GLOBAL DEFAULT  UND __android_log_print@LIBLOG (3)
+     5: 00000000     0 FUNC    GLOBAL DEFAULT  UND __fwrite_chk@LIBC_N (4)
+     6: 00000000     0 FUNC    GLOBAL DEFAULT  UND __stack_chk_fail@LIBC (2)
+     7: 00000000     0 OBJECT  GLOBAL DEFAULT  UND __stack_chk_guard@LIBC (2)
+     8: 00000000     0 FUNC    GLOBAL DEFAULT  UND atan2@LIBC (5)
+     9: 00000000     0 FUNC    GLOBAL DEFAULT  UND close@LIBC (2)
+    10: 00000000     0 FUNC    GLOBAL DEFAULT  UND exynos_ion_alloc
+    11: 00000000     0 FUNC    GLOBAL DEFAULT  UND exynos_ion_close
+    12: 00000000     0 FUNC    GLOBAL DEFAULT  UND exynos_ion_open
+    13: 00000000     0 FUNC    GLOBAL DEFAULT  UND free@LIBC (2)
+    14: 00000000     0 FUNC    GLOBAL DEFAULT  UND fwrite@LIBC (2)
+    15: 00000000     0 FUNC    GLOBAL DEFAULT  UND malloc@LIBC (2)
+    16: 00000000     0 FUNC    GLOBAL DEFAULT  UND mmap@LIBC (2)
+    17: 00000000     0 FUNC    GLOBAL DEFAULT  UND munmap@LIBC (2)
+    18: 00000000     0 FUNC    GLOBAL DEFAULT  UND _ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE7compareEPKc
+    19: 00000000     0 FUNC    GLOBAL DEFAULT  UND _ZNKSt3__121__basic_string_commonILb1EE20__throw_length_errorEv
+    20: 00000000     0 FUNC    GLOBAL DEFAULT  UND __errno@LIBC (2)
+    21: 00000000     0 FUNC    GLOBAL DEFAULT  UND ioctl@LIBC (2)
+    22: 00000000     0 FUNC    GLOBAL DEFAULT  UND strerror@LIBC (2)
+    23: 00000000     0 FUNC    GLOBAL DEFAULT  UND strlen@LIBC (2)
+    24: 00000000     0 FUNC    GLOBAL DEFAULT  UND open@LIBC (2)
+    25: 00000000     0 FUNC    GLOBAL DEFAULT  UND memcpy@LIBC (2)
+    26: 00000000     0 FUNC    GLOBAL DEFAULT  UND memset@LIBC (2)
+    27: 00003d28     4 FUNC    GLOBAL DEFAULT   13 __aeabi_memcpy
+    28: 00003d3c    12 FUNC    GLOBAL DEFAULT   13 __aeabi_memclr8
+    29: 00002145    52 FUNC    GLOBAL DEFAULT   13 _ZN10ExynosJsqz13setJsqzConfigE26hwJSQZ_processing_function22hwJSQZ_processing_mode
+    30: 00002089    12 FUNC    GLOBAL DEFAULT   13 _ZN10ExynosJsqz8setInBufEij
+    31: 0000395d   232 FUNC    GLOBAL DEFAULT   13 _ZN13ExynosSqzBase7executeEv
+    32: 00002509   132 FUNC    GLOBAL DEFAULT   13 _ZN10ExynosMsqz12setVideoInfoEiiiiib
+    33: 00002059    44 FUNC    GLOBAL DEFAULT   13 _ZN10ExynosJsqzD0Ev
+    34: 000025cd    56 FUNC    GLOBAL DEFAULT   13 _ZN10ExynosMsqz17setAlphaTuneValueEii
+    35: 0000202d    40 FUNC    GLOBAL DEFAULT   13 _ZN10ExynosJsqzD1Ev
+    36: 000024c9    60 FUNC    GLOBAL DEFAULT   13 _ZN10ExynosMsqzD0Ev
+    37: 00002015    24 FUNC    GLOBAL DEFAULT   13 _ZN10ExynosJsqzC1Ev
+    38: 0000202d    40 FUNC    GLOBAL DEFAULT   13 _ZN10ExynosJsqzD2Ev
+    39: 00002809     6 FUNC    GLOBAL DEFAULT   13 _ZN10ExynosMsqz11getFrameDqpEv
+    40: 00002471    56 FUNC    GLOBAL DEFAULT   13 _ZN10ExynosMsqzD1Ev
+    41: 00003c59    76 FUNC    GLOBAL DEFAULT   13 _ZN13ExynosSqzBase9closeNodeEv
+    42: 00003689     4 FUNC    GLOBAL DEFAULT   13 _ZN13ExynosSqzBaseD0Ev
+    43: 00002015    24 FUNC    GLOBAL DEFAULT   13 _ZN10ExynosJsqzC2Ev
+    44: 0000380d   192 FUNC    GLOBAL DEFAULT   13 _ZN13ExynosSqzBase6setBufEP12hwSQZ_bufferPiPji
+    45: 00002445    44 FUNC    GLOBAL DEFAULT   13 _ZN10ExynosMsqzC1Ev
+    46: 00002471    56 FUNC    GLOBAL DEFAULT   13 _ZN10ExynosMsqzD2Ev
+    47: 00003679    16 FUNC    GLOBAL DEFAULT   13 _ZN13ExynosSqzBaseD1Ev
+    48: 00003d2c    16 FUNC    GLOBAL DEFAULT   13 __aeabi_memset
+    49: 00003d2c    16 FUNC    GLOBAL DEFAULT   13 __aeabi_memset4
+    50: 00002055     4 FUNC    GLOBAL DEFAULT   13 _ZN10ExynosJsqz7destroyEv
+    51: 000036c9   124 FUNC    GLOBAL DEFAULT   13 _ZN13ExynosSqzBase7destroyEv
+    52: 00003679    16 FUNC    GLOBAL DEFAULT   13 _ZN13ExynosSqzBaseD2Ev
+    53: 000026e1   144 FUNC    GLOBAL DEFAULT   13 _ZN10ExynosMsqz9setOutBufEij
+    54: 00002445    44 FUNC    GLOBAL DEFAULT   13 _ZN10ExynosMsqzC2Ev
+    55: 00003621    88 FUNC    GLOBAL DEFAULT   13 _ZN13ExynosSqzBaseC1Ev
+    56: 0000377d   144 FUNC    GLOBAL DEFAULT   13 _ZN13ExynosSqzBase6setBufEP12hwSQZ_bufferij
+    57: 00003621    88 FUNC    GLOBAL DEFAULT   13 _ZN13ExynosSqzBaseC2Ev
+    58: 0000258d    64 FUNC    GLOBAL DEFAULT   13 _ZN10ExynosMsqz14setDcTuneValueEiii
+    59: 00002605    56 FUNC    GLOBAL DEFAULT   13 _ZN10ExynosMsqz15setDqpTuneValueEii
+    60: 00002649   152 FUNC    GLOBAL DEFAULT   13 _ZN10ExynosMsqz8setInBufEPhj
+    61: 00003745    44 FUNC    GLOBAL DEFAULT   13 _ZN13ExynosSqzBase13getJsqzConfigEv
+    62: 0000224d     4 FUNC    GLOBAL DEFAULT   13 _ZN10ExynosJsqz3runEv
+    63: 000024a9    32 FUNC    GLOBAL DEFAULT   13 _ZN10ExynosMsqz7destroyEv
+    64: 00002771   152 FUNC    GLOBAL DEFAULT   13 _ZN10ExynosMsqz9setOutBufEPaj
+    65: 0000221b    50 FUNC    GLOBAL DEFAULT   13 _ZN10ExynosJsqz11getResultQTEPh
+    66: 00003a45   188 FUNC    GLOBAL DEFAULT   13 _ZN13ExynosSqzBase12execute_msqzEv
+    67: 00003b01   232 FUNC    GLOBAL DEFAULT   13 instantiateJsqzHal
+    68: 00003d2c    16 FUNC    GLOBAL DEFAULT   13 __aeabi_memset8
+    69: 0000368d    56 FUNC    GLOBAL DEFAULT   13 _ZN13ExynosSqzBase6createEv
+    70: 000038cd   144 FUNC    GLOBAL DEFAULT   13 _ZN13ExynosSqzBase6setBufEP12hwSQZ_bufferPcj
+    71: 00006018    16 OBJECT  GLOBAL DEFAULT   17 _ZTV10ExynosMsqz
+    72: 00003ca5     4 FUNC    GLOBAL DEFAULT   13 _ZN13ExynosSqzBase10getBufTypeEP12hwSQZ_buffer
+    73: 00003771    12 FUNC    GLOBAL DEFAULT   13 _ZN13ExynosSqzBase8resetBufEP12hwSQZ_buffer
+    74: 00003d28     4 FUNC    GLOBAL DEFAULT   13 __aeabi_memcpy4
+    75: 00002179   162 FUNC    GLOBAL DEFAULT   13 _ZN10ExynosJsqz11getResultQTEPj
+    76: 00006028    16 OBJECT  GLOBAL DEFAULT   17 _ZTV13ExynosSqzBase
+    77: 000020b1    12 FUNC    GLOBAL DEFAULT   13 _ZN10ExynosJsqz8setInBufEPcj
+    78: 00002df5   754 FUNC    GLOBAL DEFAULT   13 _ZN10ExynosMsqz10submeanDQPEPKaiiPa
+    79: 000030e9  1336 FUNC    GLOBAL DEFAULT   13 _ZN10ExynosMsqz8run_testEiifiP7__sFILES1_S1_S1_
+    80: 000036c5     4 FUNC    GLOBAL DEFAULT   13 _ZN13ExynosSqzBase8openJsqzEv
+    81: 000020bd   136 FUNC    GLOBAL DEFAULT   13 _ZN10ExynosJsqz12setImageInfoEiii22hwJSQZ_input_cs_format
+    82: 00006008    16 OBJECT  GLOBAL DEFAULT   17 _ZTV10ExynosJsqz
+    83: 00003be9    10 FUNC    GLOBAL DEFAULT   13 destroyJsqzHal
+    84: 00002ce9   268 FUNC    GLOBAL DEFAULT   13 _ZN10ExynosMsqz20transformDQP_8B_OPT7EjiiPKaaPa
+    85: 0000263d    12 FUNC    GLOBAL DEFAULT   13 _ZN10ExynosMsqz8setInBufEij
+    86: 00003bf5   100 FUNC    GLOBAL DEFAULT   13 _ZN13ExynosSqzBase8openNodeEv
+    87: 00003d3c    12 FUNC    GLOBAL DEFAULT   13 __aeabi_memclr4
+    88: 00002085     4 FUNC    GLOBAL DEFAULT   13 _ZN10ExynosJsqz6createEv
+    89: 00002505     4 FUNC    GLOBAL DEFAULT   13 _ZN10ExynosMsqz6createEv
+    90: 00003d3c    12 FUNC    GLOBAL DEFAULT   13 __aeabi_memclr
+    91: 00003d28     4 FUNC    GLOBAL DEFAULT   13 __aeabi_memcpy8
+    92: 00002251   500 FUNC    GLOBAL DEFAULT   13 c_run_jsqz
+    93: 00002095    28 FUNC    GLOBAL DEFAULT   13 _ZN10ExynosJsqz8setInBufEPiPji
+    94: 00002811  1240 FUNC    GLOBAL DEFAULT   13 _ZN10ExynosMsqz3runEiifi
+
+Displaying notes found in: .note.android.ident
+  Owner                Data size 	Description
+  Android              0x00000004	NT_VERSION (version)	   description data: 1d 00 00 00 
+
+Displaying notes found in: .note.gnu.build-id
+  Owner                Data size 	Description
+  GNU                  0x00000010	NT_GNU_BUILD_ID (unique build ID bitstring)	    Build ID: 59c8d485e3e238436e067348882030c1
+Attribute Section: aeabi
+File Attributes
+  Tag_CPU_name: "cortex-a53"
+  Tag_CPU_arch: v8
+  Tag_CPU_arch_profile: Application
+  Tag_ARM_ISA_use: Yes
+  Tag_THUMB_ISA_use: Thumb-2
+  Tag_Advanced_SIMD_arch: NEON for ARMv8
+  Tag_ABI_PCS_GOT_use: GOT-indirect
+  Tag_ABI_PCS_wchar_t: 4
+  Tag_ABI_FP_denormal: Needed
+  Tag_ABI_FP_exceptions: Needed
+  Tag_ABI_FP_number_model: IEEE 754
+  Tag_ABI_align_needed: 8-byte
+  Tag_ABI_enum_size: int
+  Tag_CPU_unaligned_access: v6
+  Tag_FP_HP_extension: Allowed
+  Tag_ABI_FP_16bit_format: IEEE 754
+  Tag_MPextension_use: Allowed
+  Tag_Virtualization_use: TrustZone and Virtualization Extensions
