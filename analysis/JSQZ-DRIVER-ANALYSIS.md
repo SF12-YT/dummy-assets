@@ -440,7 +440,7 @@ The stride is valid for NV21 (128 is divisible by 64), and the frame dimensions 
 - The non-neutral chroma test returned Table E, exactly identical to Table A across all 32 words. It used constant Y=128 with V=192 and U=64. Thus this particular chroma offset did not measurably affect either matrix. This is not proof that the chroma path is ignored or that chroma adaptation is impossible; spatially constant chroma may not exercise whatever image statistics the hardware uses.
 - The spatial chroma-checker test returned Table F with Y held constant at 128. Compared with Table A, all 16 luma words are identical and four chroma words (17, 28, 30 and 31) differ. This demonstrates an independent chroma-table response to spatial chroma variation for this input pattern.
 - Black returned Table B. Although it matches the fallback in 30 of 32 words, word 15 is `0a080807` instead of `08080807`, and word 31 is `0a080808` instead of `08080808`. In little-endian byte order, these are exactly the final byte of the 64-byte luma matrix and the final byte of the 64-byte chroma matrix; both change from `0x08` to `0x0a`, while the other 126 bytes match. Therefore it also did **not** return the exact fallback copy.
-- Given the target driver's two known fallback paths (invalid alignment and the post-completion bit-28 branch), and the validated input dimensions/stride, all seven submissions most likely reached the output-register read path. Their returned tables are not equal to the recovered fallback table. The empty `dmesg` search is consistent with this, although absence of a log line alone is not proof.
+- Given the target driver's two known fallback paths (invalid alignment and the post-completion bit-28 branch), and the validated input dimensions/stride, all nine submissions most likely reached the output-register read path. Their returned tables are not equal to the recovered fallback table. The empty `dmesg` search is consistent with this, although absence of a log line alone is not proof.
 - Black differs from grey/checker in 17 of 32 words. That is useful evidence that the returned Q table is responding to the input pattern, not merely returning one constant fallback table. It does not by itself prove every DMA byte was consumed as intended, but it is substantially stronger evidence of functional JSQZ execution than the earlier fallback hypothesis.
 - Grey and checker remain identical. The checker consists of uniform 8×8 blocks aligned to the JPEG 8×8 transform grid, so each block has no within-block luma variation. That makes it a weak contrast test against uniform grey. A gradient or deterministic-noise input would be a better follow-up to test sensitivity to spatial variation.
 
@@ -510,5 +510,22 @@ A new `luma-checker-4` option is now implemented to address that limitation:
 - NV21 chroma remains neutral VU=128 throughout.
 - Frame dimensions, buffer size, mode and function remain identical to the other probes.
 
-This is intended as a controlled luma-frequency stimulus after the lower-contrast chroma test. It is implemented and included in the compiler/help checks, but no hardware result exists yet. GCC, Clang and the table-diff self-test passed in [Actions run #43672304592](https://github.com/SF12-YT/dummy-assets/actions/runs/43672304592). It should be run only as a separate single submission, not together with the pending chroma test.
+This is intended as a controlled luma-frequency stimulus after the chroma contrast-amplitude ladder is complete. It is implemented and included in the compiler/help checks, but no hardware result exists yet. GCC, Clang and the table-diff self-test passed in [Actions run #43672304592](https://github.com/SF12-YT/dummy-assets/actions/runs/43672304592). It should be run only as a separate single submission, not together with the pending chroma test.
+## Investigation status and practical completion criteria
 
+**Estimated overall progress for a bounded, practical investigation of the target phone's JSQZ driver and observable Q-table behaviour: approximately 75–80%.** This is a project estimate, not a measurable scientific percentage.
+
+- Target kernel, UAPI, native/compat ABI, DMA-BUF path, register map and fallback behaviour: approximately 95% understood.
+- Hardware execution and proof of input-dependent Y/C table output on this device: approximately 90–95% established.
+- Black-box mapping of output sensitivity to image content, spatial frequency, contrast and repeatability: approximately 60% characterised.
+- Exact internal silicon algorithm (the estimator, thresholds, coefficient-to-position mapping and RTL): approximately 20–25% understood. The Linux driver and finite I/O experiments do not expose the RTL.
+
+A sensible stopping point for the **practical black-box investigation** is about four to six further one-shot experiments, followed by a consolidated result and limitations report:
+
+1. Finish the chroma-amplitude ladder with the prepared ±8 spatial checker.
+2. Run the prepared 4×4 luma checker to test within-8×8-block luma detail.
+3. Repeat one existing input (grey or chroma-checker-low) to confirm output determinism across identical submissions.
+4. Run one additional spatial-frequency variant (for example, smaller chroma tiles) to check whether the observed chroma response is tied to the current tile scale.
+5. If the luma checker changes the table, make one controlled luma-amplitude comparison to distinguish contrast sensitivity from frequency sensitivity.
+
+After those tests, the driver/API investigation and the principal observable Y/C response behaviours should be adequately documented for this kernel/device combination. Exhaustively testing every image, resolution, format, mode, input value and hardware corner case is not a finite task. Reconstructing the exact proprietary silicon algorithm would require Samsung documentation, RTL or equivalent design-level evidence; black-box probes alone cannot promise that result.
