@@ -493,7 +493,7 @@ The next run, `chroma-checker-tiny`, halved the displacement again to ±16. Its 
 - The same single C-bank byte at linear offset 4 remains changed (0x03 → 0x04).
 - Exactly 1/64 chroma bytes changes at ±32, ±16 and ±8, compared with 4/64 at ±64.
 
-This shows that, for this exact spatial pattern and device configuration, the one-byte chroma-table response persists at least down to ±8 component amplitude. The output has reached the same quantised table at ±8, ±16 and ±32; there is no evidence of a further change between those two levels. The three additional changed bytes at ±64 are absent at all three lower amplitudes. The response threshold, if defined for this quantised output and stimulus, lies below ±8; it has not been located.
+This shows that, for this exact spatial pattern and device configuration, the one-byte chroma-table response persists at least down to ±8 component amplitude. The output has reached the same quantised table at ±8, ±16 and ±32; there is no evidence of a further change among those three levels. The three additional changed bytes at ±64 are absent at all three lower amplitudes. The response is still measurable at the smallest tested amplitude, ±8. No test below ±8 has been run, so the lower transition point has not been located.
 
 The matching controls are the same 128×64 NV21 frame, Y=128, 4×4 chroma-sample checker tiles (equivalent to 8×8 luma blocks), NORMAL/LIVE mode and 12,288-byte ION DMA-BUF. Only the chroma sample levels differ:
 - ±64: VU pairs (192,64) and (64,192), Table F.
@@ -549,7 +549,7 @@ The returned Table J differs from grey Table A in 11 of the 64 luma bytes, sprea
 
 - Target kernel, UAPI, native/compat ABI, DMA-BUF path, register map and fallback behaviour: approximately 95% understood.
 - Hardware execution and proof of input-dependent Y/C table output on this device: approximately 90–95% established.
-- Black-box mapping of output sensitivity to image content, spatial frequency, contrast and repeatability: approximately 60% characterised.
+- Black-box mapping of output sensitivity to image content, spatial frequency and contrast: approximately 70% characterised; repeatability remains to be checked.
 - Exact internal silicon algorithm (the estimator, thresholds, coefficient-to-position mapping and RTL): approximately 20–25% understood. The Linux driver and finite I/O experiments do not expose the RTL.
 
 A sensible stopping point for the **practical black-box investigation** is about three to five further one-shot experiments, followed by a consolidated result and limitations report:
