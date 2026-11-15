@@ -6,6 +6,7 @@ on:
     paths:
       - "boot.img.gz"
       - ".github/workflows/inspect-jsqz-boot.yml"
+      - "jsqz-analysis-trigger.txt"
 
 permissions:
   contents: read
@@ -25,15 +26,13 @@ jobs:
         run: |
           set -euo pipefail
           test -f boot.img.gz
-          echo "Uploaded archive SHA-256:"
-          sha256sum boot.img.gz
-          echo "Expected: 873cf46e08c0c141d7049d1c45aa900d05533ff0fc8377c3a4a9bc9cb06f6509"
-          echo
+          echo "873cf46e08c0c141d7049d1c45aa900d05533ff0fc8377c3a4a9bc9cb06f6509  boot.img.gz" | sha256sum -c -
           gzip -t boot.img.gz
           mkdir -p out
           gzip -dc boot.img.gz > out/boot.img
           echo "Decompressed size: $(stat -c %s out/boot.img) bytes" | tee out/archive-check.txt
           echo "Expected partition size: 57671680 bytes" | tee -a out/archive-check.txt
+          test "$(stat -c %s out/boot.img)" -eq 57671680
           file out/boot.img | tee out/file-identification.txt
           xxd -l 256 out/boot.img > out/boot-header-hexdump.txt
 
