@@ -1,0 +1,1 @@
+Reference camera HAL differs from the user's previously inspected Build-ID 1b7a6dfaf4dcbf7034b467a6fcec2fc1; use as a comparison only.

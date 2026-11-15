@@ -1,0 +1,40 @@
+  1da06 libhwjsqz.so
+  25f31 _ZN7android16ExynosCameraNode10setQualityEPKh
+  25f5f _ZN7android16ExynosCameraNode10setQualityEi
+  2706f _ZN17ExynosJpegEncoder10setQualityEPKh
+  27109 _ZN21CHWJpegV4L2Compressor10SetQualityEjj
+  2719e _ZN26ExynosJpegEncoderForCamera19setThumbnailQualityEi
+  27366 _ZN7android23ExynosCameraNodeJpegHAL10setQualityEPKh
+  2739b _ZN7android23ExynosCameraNodeJpegHAL10setQualityEi
+  2812a _ZTv0_n80_N7android23ExynosCameraNodeJpegHAL10setQualityEi
+  28165 _ZTv0_n84_N7android23ExynosCameraNodeJpegHAL10setQualityEPKh
+  4add3 _ZN10ExynosJsqz11getResultQTEPh
+  4adf3 _ZN10ExynosJsqz12setImageInfoEiii22hwJSQZ_input_cs_format
+  4ae2d _ZN10ExynosJsqz13setJsqzConfigE26hwJSQZ_processing_function22hwJSQZ_processing_mode
+  4ae81 _ZN10ExynosJsqz3runEv
+  4ae97 _ZN10ExynosJsqz6createEv
+  4aeb0 _ZN10ExynosJsqz7destroyEv
+  4aeca _ZN10ExynosJsqz8setInBufEPiPji
+  4aee9 _ZN10ExynosJsqzC1Ev
+  5824f _ZN7android8hardware6camera6common4V1_06helper16CameraParameters16KEY_JPEG_QUALITYE
+  59a21 _ZN7android8hardware6camera6common4V1_06helper16CameraParameters26KEY_JPEG_THUMBNAIL_QUALITYE
+  67518 [CAM(%d)][%s]-(%s[%d]):pipeId-%d thumbnailRect[%d %d] thumbnailQuality %d pictureRect[%d %d ]
+  7355b [CAM(%d)][%s]-(%s[%d]):ExynosJpegEncoderForCamera setQuality fail, ret(%d)
+  76250 [CAM(%d)][%s]-(%s[%d]):m_jpegEnc.setQuality() fail
+  784bb [CAM(%d)][%s]-(%s[%d]):m_jpegEnc.setThumbnailQuality(%d) fail
+  7861a [CAM(%d)][%s]-(%s[%d]):Failed to set jpeg quality %d into %s, ret %d
+  7ed9a [CAM(%d)][%s]-(%s[%d]):[SAMSUNG_HW_JQ]:m_node[nodeType]->setQuality(qtable[]) fail
+  7f3b8 [CAM(%d)][%s]-(%s[%d]):ANDROID_JPEG_THUMBNAIL_QUALITY(%d)
+  83a49 [CAM(%d)][%s]-(%s[%d]):ANDROID_JPEG_QUALITY(%d)
+  83f9a [CAM(%d)][%s]-(%s[%d]):Failed to setThumbnailQuality. quality %d
+  87551 [CAM(%d)][%s]-(%s[%d]):Quality (%d)
+  87575 [CAM(%d)][%s]-(%s[%d]):ExynosJpegEncoderForCamera setThumbnailQuality fail, ret(%d)
+  8bb2d [CAM(%d)][%s]-(%s[%d]):Failed to setQuality %d into %s, ret %d
+  92355 [CAM(%d)][%s]-(%s[%d]):setQuality(qtable[])
+  9835c setQuality
+  9d183 [CAM(%d)][%s]-(%s[%d]):[SAMSUNG_HW_JQ]:m_jpegEnc.setQuality(qtable[]) fail
+  a654e [CAM(%d)][%s]-(%s[%d]):Failed to setJpegQuality. quality %d
+  a6f3d [CAM(%d)][%s]-(%s[%d]):[SAMSUNG_HW_JQ]:Jpeg Squeezer buffer queue is not filled(%d)
+  a9777 [CAM(%d)][%s]-(%s[%d]):[SAMSUNG_HW_JQ]:Jpeg Squeezer instance is NULL
+  ac88e jpeg-thumbnail-quality
+  ac8a5 jpeg-quality
