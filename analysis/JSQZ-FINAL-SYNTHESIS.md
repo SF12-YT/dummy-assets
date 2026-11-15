@@ -144,7 +144,7 @@ The remaining public-research target is a disclosure explicitly traceable to the
 
 A separate follow-up found a likely explanation for the target camera HAL's `/dev/jsqz` open failure. The target node was observed as `0600 root:root`; the JSQZ misc-device driver leaves its mode unset, and devtmpfs defaults an unset device-node mode to `0600`. The Exynos 9820 common device tree contains the corresponding access configuration: ueventd sets `/dev/jsqz` to `0660 cameraserver:camera`, SELinux labels it `jsqz_device`, and `hal_camera_default` is granted read/write access. This supports a device-node access-control failure as the reason the camera path cannot open JSQZ; it does not yet exclude an additional SELinux denial. No device permissions or policy were changed.
 
-Detailed evidence, source links, build caveats and remaining verification are in [JSQZ camera integration analysis](JSQZ-CAMERA-INTEGRATION.md).
+Detailed evidence, source links, build caveats and remaining verification are in [JSQZ camera integration analysis](JSQZ-CAMERA-INTEGRATION.md). A [read-only access audit script](jsqz_camera_access_audit.sh) is also included for one focused follow-up, if needed.
 
 The public reference JSQZ HAL also shows an `openNode()` path using `/dev/jsqz` with `O_RDWR`, followed by a failure check, and an `execute()` path that builds compat ioctl `0xC1344D00`. The earlier camera-HAL scanner's zero direct-call hits are inconclusive: it did not detect GOT/PLT-loaded or vtable-mediated indirect calls. See [the detailed camera integration analysis](JSQZ-CAMERA-INTEGRATION.md) for the evidence and limitations.
 
