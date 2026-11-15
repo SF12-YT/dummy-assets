@@ -35,6 +35,7 @@ jobs:
           grep -q -- "chroma-checker-micro" /tmp/jsqz_probe_gcc_help.txt
           grep -q -- "chroma-checker-fine" /tmp/jsqz_probe_gcc_help.txt
           grep -q -- "luma-checker-4" /tmp/jsqz_probe_gcc_help.txt
+          grep -q -- "luma-checker-4-low" /tmp/jsqz_probe_gcc_help.txt
 
       - name: Compile with Clang
         run: |
@@ -47,6 +48,7 @@ jobs:
           grep -q -- "chroma-checker-micro" /tmp/jsqz_probe_clang_help.txt
           grep -q -- "chroma-checker-fine" /tmp/jsqz_probe_clang_help.txt
           grep -q -- "luma-checker-4" /tmp/jsqz_probe_clang_help.txt
+          grep -q -- "luma-checker-4-low" /tmp/jsqz_probe_clang_help.txt
 
       - name: Check Q-table comparison utility
         run: |
