@@ -1,0 +1,23 @@
+name: Validate JSQZ probe source
+
+on:
+  push:
+    paths:
+      - "analysis/jsqz_probe.c"
+      - ".github/workflows/validate-jsqz-probe.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  syntax:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Compile-check C source and ABI assertions
+        run: |
+          set -euo pipefail
+          gcc -std=c11 -O2 -Wall -Wextra -Werror -fsyntax-only analysis/jsqz_probe.c
+          echo "C syntax and native 64-bit JSQZ ABI static assertions passed."
