@@ -330,7 +330,7 @@ The full returned word tables are preserved below. Each line contains four 32-bi
 08080808 09080808 0c0c0809 150f0f0c
 ```
 
-Compared with Table A (grey/checker), Table D changes all 16 luma words and none of the 16 chroma words. The luma table becomes more aggressive across the frequency coefficients; for example word 15 changes from `150f0f0c` to `1c151510`. This is strong evidence that JSQZ adapts its luma quantisation output to spatial detail. Chroma remains unchanged, consistent with all probe patterns using neutral chroma (VU=128).
+Compared with Table A (grey/checker), Table D changes all 16 luma words and none of the 16 chroma words. The luma table becomes more aggressive across the frequency coefficients; for example word 15 changes from `150f0f0c` to `1c151510`. This is strong evidence that JSQZ adapts its luma quantisation output to spatial detail. Chroma remains unchanged, consistent with the original probe patterns using neutral chroma (VU=128). I have now added a `chroma` probe pattern: constant luma 128 with a non-neutral constant NV21 VU pair (V=192, U=64). This isolates chroma-table response without adding luma spatial detail. It is a source change only; it still needs to be rebuilt and run on the device.
 
 **Table C — gradient**
 
