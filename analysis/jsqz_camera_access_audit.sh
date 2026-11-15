@@ -100,8 +100,10 @@ fi
 
 section "Relevant SELinux AVC records from logcat"
 if command -v logcat >/dev/null 2>&1; then
-    logcat -b all -d 2>/dev/null | grep -i -E 'avc: *denied.*(jsqz|camera|chr_file)|avc: *denied.*tclass=chr_file.*(jsqz|camera)' | tail -n 80
-    if [ "$?" -ne 0 ]; then
+    avc_log=$(logcat -b all -d 2>/dev/null | grep -i -E 'avc: *denied.*(jsqz|camera|chr_file)|avc: *denied.*tclass=chr_file.*(jsqz|camera)' | tail -n 80)
+    if [ -n "$avc_log" ]; then
+        echo "$avc_log"
+    else
         echo "No matching logcat AVC line found in the available buffers."
     fi
 else
@@ -110,8 +112,10 @@ fi
 
 section "Relevant kernel audit / JSQZ messages"
 if command -v dmesg >/dev/null 2>&1; then
-    dmesg 2>/dev/null | grep -i -E 'avc: *denied.*(jsqz|camera)|jsqz' | tail -n 80
-    if [ "$?" -ne 0 ]; then
+    kernel_log=$(dmesg 2>/dev/null | grep -i -E 'avc: *denied.*(jsqz|camera)|jsqz' | tail -n 80)
+    if [ -n "$kernel_log" ]; then
+        echo "$kernel_log"
+    else
         echo "No matching dmesg line found or access was denied."
     fi
 else
