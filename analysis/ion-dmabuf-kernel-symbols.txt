@@ -1,1 +1,1 @@
-Matched function symbols: 0\n
+Matched bounded function symbols: 0\n
