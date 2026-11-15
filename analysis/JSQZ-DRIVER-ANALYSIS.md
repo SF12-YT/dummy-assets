@@ -430,7 +430,7 @@ The complete target-kernel fallback table is:
 
 This is an exact 32/32 match to the public driver's `init_q_table`; the target build does **not** have a two-word-different fallback table. The extraction and comparison are recorded in [`jsqz-default-table.txt`](jsqz-default-table.txt).
 
-### Interpretation of the seven completed submissions
+### Interpretation of the nine completed submissions
 
 The stride is valid for NV21 (128 is divisible by 64), and the frame dimensions and buffer size pass the target driver's guards. Therefore the early alignment fallback is not expected for any of these tests.
 
@@ -442,7 +442,7 @@ The stride is valid for NV21 (128 is divisible by 64), and the frame dimensions 
 - Black returned Table B. Although it matches the fallback in 30 of 32 words, word 15 is `0a080807` instead of `08080807`, and word 31 is `0a080808` instead of `08080808`. In little-endian byte order, these are exactly the final byte of the 64-byte luma matrix and the final byte of the 64-byte chroma matrix; both change from `0x08` to `0x0a`, while the other 126 bytes match. Therefore it also did **not** return the exact fallback copy.
 - Given the target driver's two known fallback paths (invalid alignment and the post-completion bit-28 branch), and the validated input dimensions/stride, all nine submissions most likely reached the output-register read path. Their returned tables are not equal to the recovered fallback table. The empty `dmesg` search is consistent with this, although absence of a log line alone is not proof.
 - Black differs from grey/checker in 17 of 32 words. That is useful evidence that the returned Q table is responding to the input pattern, not merely returning one constant fallback table. It does not by itself prove every DMA byte was consumed as intended, but it is substantially stronger evidence of functional JSQZ execution than the earlier fallback hypothesis.
-- Grey and checker remain identical. The checker consists of uniform 8×8 blocks aligned to the JPEG 8×8 transform grid, so each block has no within-block luma variation. That makes it a weak contrast test against uniform grey. A gradient or deterministic-noise input would be a better follow-up to test sensitivity to spatial variation.
+- Grey and checker remain identical. The checker consists of uniform 8×8 blocks aligned to the JPEG 8×8 transform grid, so each block has no within-block luma variation. That makes it a weak contrast test against uniform grey. The prepared `luma-checker-4` pattern is the next controlled follow-up because it varies within each 8×8 luma region.
 
 No further hardware submission is needed to settle the fallback-table question: the exact target table has now been recovered and the black output is demonstrably not that table.
 
