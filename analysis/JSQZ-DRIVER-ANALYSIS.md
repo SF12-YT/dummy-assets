@@ -128,6 +128,21 @@ The API declares NV21 or YUV422 image information, dimensions, optional stride, 
 
 The hardware reads the input (`DMA_TO_DEVICE` from the CPU driver's perspective). There is no output pixel buffer prepared by this operation. The result returned to userspace is the quantisation data.
 
+
+### YUV422 chroma-plane offset defect in the target binary
+
+The UAPI declares YUV422 support, but the target's address calculation for the V plane appears incorrect. The matching source expression is:
+
+```c
+v_addr = u_addr + ((width + 1) >> 1 * height);
+```
+
+Because multiplication has higher C precedence than shift, this parses as shifting `width + 1` right by `height`, not as `((width + 1) >> 1) * height`. The target boot-image disassembly confirms the resulting code: both the one-buffer path at `ffffff8008b0a120` and the two-buffer path at `ffffff8008b0a528` execute `lsr w2, w2, w3` where `w2 = width + 1` and `w3 = height`.
+
+For the 128×64 case, AArch64's 32-bit variable shift uses the shift amount modulo 32 (the low five bits); 64 therefore becomes a shift by zero. The computed V offset is consequently 129 bytes from U. A planar YUV422 layout needs a U-plane size of `(128 / 2) × 64 = 4096` bytes before V begins. This would cause the two chroma planes to overlap heavily. The relevant [Arm LSRV instruction reference](https://documentation-service.arm.com/static/6245c734b059dc5ff9a8bdab) specifies the modulo-register-width shift behaviour.
+
+This is a **static target-binary finding**, not a runtime-observed YUV422 result. All fourteen experiments used NV21 (`cs = 0`), for which the driver intentionally sets U and V to the same base address of the interleaved VU plane; those results are unaffected. Do not treat YUV422 as validated by the NV21 tests, and do not use this path for further experiments without first correcting or otherwise accounting for the offset bug.
+
 ## Register map
 
 The device-tree resource in the target device is at physical base **`0x18B30000`**. The driver maps that region and uses the following offsets:
