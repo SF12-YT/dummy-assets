@@ -292,13 +292,14 @@ The successful `--check-device` run proves `open(O_RDWR)` and close succeed. It 
 
 ## Runtime pattern tests — 15 November 2026
 
-The device-side probe has now submitted three single-frame NV21 tests through the native 64-bit ioctl. All used 128×64, stride 0 (effective stride 128), one ION system-heap DMA-BUF of 12,288 bytes, NORMAL/LIVE mode, and returned success.
+The device-side probe has now submitted five single-frame NV21 tests through the native 64-bit ioctl. All used 128×64, stride 0 (effective stride 128), one ION system-heap DMA-BUF of 12,288 bytes, NORMAL/LIVE mode, and returned success.
 
 | Pattern | Luma input | Returned table |
 |---|---|---|
 | grey | Y=128 throughout | Table A |
 | checker | alternating 8×8 blocks of Y=16 and Y=235 | Table A, exactly identical to grey |
 | black | Y=16 throughout | Table B |
+| chroma | Y=128; V=192, U=64 throughout | Table A, exactly identical to grey |
 
 All three used neutral chroma (VU=128). Table A is non-default-looking; Table B closely matches the matching public driver's built-in `init_q_table`.
 
@@ -331,6 +332,21 @@ The full returned word tables are preserved below. Each line contains four 32-bi
 ```
 
 Compared with Table A (grey/checker), Table D changes all 16 luma words and none of the 16 chroma words. The luma table becomes more aggressive across the frequency coefficients; for example word 15 changes from `150f0f0c` to `1c151510`. This is strong evidence that JSQZ adapts its luma quantisation output to spatial detail. Chroma remains unchanged, consistent with the original probe patterns using neutral chroma (VU=128). I have now added a `chroma` probe pattern: constant luma 128 with a non-neutral constant NV21 VU pair (V=192, U=64). This isolates chroma-table response without adding luma spatial detail. It is a source change only; it still needs to be rebuilt and run on the device.
+
+**Table E — non-neutral constant chroma**
+
+```
+03030301 03030303 03030303 03030303
+03030303 03030403 04050303 04050505
+06050404 05050607 05040607 07060906
+08080808 09080608 0c0c090a 150f0f0c
+03030301 03040303 05080403 08080504
+08080808 08080808 08080808 08080808
+08080808 08080808 08080808 08080808
+08080808 09080808 0c0c0809 150f0f0c
+```
+
+Table E is exactly identical to Table A (grey): all 32 words match. This test held luma constant at 128 and changed the NV21 chroma planes to V=192 and U=64. No change was observed in either the luma or chroma quantisation matrix. This does not establish that chroma adaptation is absent; it establishes only that this particular constant chroma offset did not alter the returned table.
 
 **Table C — gradient**
 
@@ -398,6 +414,7 @@ The stride is valid for NV21 (128 is divisible by 64), and the frame dimensions 
 - Grey and checker returned exactly the same Table A, which is substantially different from the exact fallback table. They did not return the fallback copy.
 - Gradient returned Table C: only word 0 differs from Table A (`03030401` versus `03030301`); the remaining 31 words are identical. This is a small but direct response to a change in luma spatial content, while chroma remains unchanged.
 - Deterministic noise returned Table D. Compared with Table A, all 16 luma words differ while all 16 chroma words are identical. The higher-frequency luma coefficients increase substantially (word 15: `150f0f0c` → `1c151510`). This is strong evidence that the hardware adapts luma quantisation to spatial detail. Chroma was held neutral (VU=128) in all patterns, so unchanged chroma is expected and does not yet test chroma adaptation.
+- The non-neutral chroma test returned Table E, exactly identical to Table A across all 32 words. It used constant Y=128 with V=192 and U=64. Thus this particular chroma offset did not measurably affect either matrix. This is not proof that the chroma path is ignored or that chroma adaptation is impossible; spatially constant chroma may not exercise whatever image statistics the hardware uses.
 - Black returned Table B. Although it matches the fallback in 30 of 32 words, word 15 is `0a080807` instead of `08080807`, and word 31 is `0a080808` instead of `08080808`. In little-endian byte order, these are exactly the final byte of the 64-byte luma matrix and the final byte of the 64-byte chroma matrix; both change from `0x08` to `0x0a`, while the other 126 bytes match. Therefore it also did **not** return the exact fallback copy.
 - Given the target driver's two known fallback paths (invalid alignment and the post-completion bit-28 branch), and the validated input dimensions/stride, all three runs most likely reached the output-register read path. The empty `dmesg` search is consistent with this, although absence of a log line alone is not proof.
 - Black differs from grey/checker in 17 of 32 words. That is useful evidence that the returned Q table is responding to the input pattern, not merely returning one constant fallback table. It does not by itself prove every DMA byte was consumed as intended, but it is substantially stronger evidence of functional JSQZ execution than the earlier fallback hypothesis.
