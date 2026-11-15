@@ -129,25 +129,25 @@ jobs:
           symbols = []
           for line in nm.stdout.splitlines():
               fields = line.split()
-              if len(fields) >= 4 and fields[-2] in {"T", "t", "W", "w"}:
+              if len(fields) >= 3 and fields[-2] in {"T", "t", "W", "w"}:
                   name = fields[-1]
                   if re.search(r"jsqz|sqz", name, re.IGNORECASE):
                       symbols.append(name)
           symbols = list(dict.fromkeys(symbols))
           with open("out/jsqz-driver-disassembly.txt", "w") as report:
-              report.write("Recovered JSQZ/SQZ kernel function disassembly\n")
-              report.write(f"Matching function symbols: {len(symbols)}\n\n")
+              report.write("Recovered JSQZ/SQZ kernel function disassembly\\n")
+              report.write(f"Matching function symbols: {len(symbols)}\\n\\n")
               for name in symbols:
-                  report.write(f"===== {name} =====\n")
+                  report.write(f"===== {name} =====\\n")
                   result = subprocess.run(
                       ["aarch64-linux-gnu-objdump", "-d", "-C", f"--disassemble={name}", elf],
                       text=True, capture_output=True
                   )
                   report.write(result.stdout or result.stderr)
-                  report.write("\n")
+                  report.write("\\n")
           if not symbols:
               with open("out/jsqz-driver-disassembly.txt", "a") as report:
-                  report.write("No matching function symbols were recovered. Check the kallsyms and nm reports.\n")
+                  report.write("No matching function symbols were recovered. Check the kallsyms and nm reports.\\n")
           PY
             else
               echo "The kernel-to-ELF conversion failed; see vmlinux-to-elf.log and install log." > out/kallsyms-analysis.txt
