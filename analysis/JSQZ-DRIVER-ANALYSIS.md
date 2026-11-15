@@ -464,7 +464,7 @@ The matching controls are the same 128×64 NV21 frame, Y=128, 4×4 chroma-sample
 - ±32: VU pairs (160,96) and (96,160), Table G.
 - ±16: VU pairs (144,112) and (112,144), Table H; output exactly matches Table G.
 
-The next contrast point, `chroma-checker-micro`, is prepared at ±8 using VU pairs (136,120) and (120,136). It preserves all other variables. Its source and CI coverage include the compile and help checks for the newly added pattern. If the ±8 table still equals Table H, the response persists at ±8; if it matches grey, the observed output transition is bracketed between ±8 and ±16 for this particular stimulus. That still would not be a universal threshold for other patterns, resolutions or operating modes.
+The next contrast point, `chroma-checker-micro`, is prepared at ±8 using VU pairs (136,120) and (120,136). It preserves all other variables. The updated source passed GCC, Clang and table-diff validation in [Actions run #43674219316](https://github.com/SF12-YT/dummy-assets/actions/runs/43674219316). If the ±8 table still equals Table H, the response persists at ±8; if it matches grey, the observed output transition is bracketed between ±8 and ±16 for this particular stimulus. That still would not be a universal threshold for other patterns, resolutions or operating modes.
 
 The [`jsqz_qtable_diff.py`](jsqz_qtable_diff.py) utility compares saved 128-byte dumps at packed-word and individual-byte levels. With the original grey dump and a candidate output in the same directory:
 
