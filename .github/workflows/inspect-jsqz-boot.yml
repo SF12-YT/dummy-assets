@@ -163,6 +163,68 @@ jobs:
             git push origin HEAD:main
           fi
 
+      - name: Analyse matching public S10e JSQZ HAL
+        if: always()
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p out analysis
+          sudo apt-get update -qq
+          sudo apt-get install -y binutils-arm-linux-gnueabi
+          url="https://raw.githubusercontent.com/AndroidBlobs/vendor_samsung_beyond0/ff25fa6c37517537715ec9e710210f2d0820bfc2/proprietary/vendor/lib/libhwjsqz.so"
+          curl -fL --retry 3 "$url" -o out/reference-libhwjsqz.so
+          blob_hash="$(git hash-object out/reference-libhwjsqz.so)"
+          echo "Git blob SHA-1: $blob_hash" | tee out/reference-hal-archive-check.txt
+          test "$blob_hash" = "d1378187a1e0478397794b3e25afb35700920a7f"
+          file out/reference-libhwjsqz.so | tee out/reference-hal-file.txt
+          sha256sum out/reference-libhwjsqz.so | tee out/reference-hal-sha256.txt
+          readelf -h -A -d -n -Ws out/reference-libhwjsqz.so > out/reference-hal-elf-report.txt
+          nm -D -n --defined-only -C out/reference-libhwjsqz.so > out/reference-hal-dynamic-symbols.txt
+          strings -a -t x out/reference-libhwjsqz.so | grep -Ei 'jsqz|sqz|quant|quality|/dev/jsqz|invalid image|permission denied|mmap|ion' > out/reference-hal-strings.txt || true
+          python3 - <<'PY'
+          import re
+          import subprocess
+
+          so = "out/reference-libhwjsqz.so"
+          result = subprocess.run(
+              ["nm", "-D", "-n", "--defined-only", so],
+              check=True, text=True, capture_output=True
+          )
+          selected = []
+          for line in result.stdout.splitlines():
+              fields = line.split(maxsplit=2)
+              if len(fields) != 3:
+                  continue
+              address, kind, symbol = fields
+              if kind.upper() not in {"T", "W"}:
+                  continue
+              if re.search(r"jsqz|sqz|resultqt|imageinfo|buf|config|execute|create", symbol, re.I):
+                  selected.append((address, symbol))
+          with open("out/reference-hal-disassembly.txt", "w") as report:
+              report.write(f"32-bit S10e HAL functions selected: {len(selected)}\\n")
+              for address, symbol in selected:
+                  report.write(f"\\n===== {address} {symbol} =====\\n")
+                  dis = subprocess.run(
+                      ["arm-linux-gnueabi-objdump", "-d", "-C", f"--disassemble={symbol}", so],
+                      text=True, capture_output=True
+                  )
+                  report.write(dis.stdout or dis.stderr)
+          PY
+          readelf -n out/reference-libhwjsqz.so | grep -i 'Build ID' | tee out/reference-hal-build-id.txt || true
+          if grep -qi '2954034e91ab9505aef839b7d9feded0' out/reference-hal-build-id.txt; then
+            echo "EXACT BUILD-ID MATCH with the user's previously inspected /vendor/lib/libhwjsqz.so" | tee out/reference-hal-version-match.txt
+          else
+            echo "Reference library differs from the user's previously inspected Build-ID 2954034e91ab9505aef839b7d9feded0; use as a comparison only." | tee out/reference-hal-version-match.txt
+          fi
+          cp out/reference-hal-*.txt analysis/
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add analysis/reference-hal-*.txt
+          if ! git diff --cached --quiet; then
+            git commit -m "Analyse S10e JSQZ HAL reference binary"
+            git push origin HEAD:main
+          fi
+
       - name: Publish analysis outputs as a private GitHub release
         if: always() && hashFiles('out/**') != ''
         env:
