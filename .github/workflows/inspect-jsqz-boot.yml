@@ -97,6 +97,72 @@ jobs:
           fi
           ls -lh out
 
+      - name: Recover kernel symbols and disassemble JSQZ driver
+        if: always()
+        shell: bash
+        run: |
+          set -uo pipefail
+          mkdir -p out analysis
+          if [ ! -s out/kernel.bin ]; then
+            echo "No extracted kernel payload." > out/kallsyms-analysis.txt
+          else
+            sudo apt-get update -qq
+            sudo apt-get install -y binutils-aarch64-linux-gnu
+            python3 -m venv /tmp/vmlinux-to-elf-venv
+            /tmp/vmlinux-to-elf-venv/bin/pip install --disable-pip-version-check "vmlinux-to-elf==1.4.0" > out/vmlinux-to-elf-install.txt 2>&1
+            /tmp/vmlinux-to-elf-venv/bin/vmlinux-to-elf out/kernel.bin out/vmlinux.elf > out/vmlinux-to-elf.log 2>&1
+            tool_rc=$?
+            echo "vmlinux-to-elf exit code: ${tool_rc}" >> out/vmlinux-to-elf.log
+            if [ "${tool_rc}" -eq 0 ] && [ -s out/vmlinux.elf ]; then
+              file out/vmlinux.elf > out/recovered-elf-identification.txt
+              aarch64-linux-gnu-nm -n -S --defined-only out/vmlinux.elf | grep -Ei 'jsqz|sqz' > out/jsqz-symbols.txt || true
+              aarch64-linux-gnu-nm -n -S --defined-only out/vmlinux.elf | grep -Ei 'jsqz|sqz' | wc -l > out/jsqz-symbol-count.txt || true
+              python3 - <<'PY'
+          import re
+          import subprocess
+
+          elf = "out/vmlinux.elf"
+          nm = subprocess.run(
+              ["aarch64-linux-gnu-nm", "-n", "-S", "--defined-only", elf],
+              check=True, text=True, capture_output=True
+          )
+          symbols = []
+          for line in nm.stdout.splitlines():
+              fields = line.split()
+              if len(fields) >= 4 and fields[-2] in {"T", "t", "W", "w"}:
+                  name = fields[-1]
+                  if re.search(r"jsqz|sqz", name, re.IGNORECASE):
+                      symbols.append(name)
+          symbols = list(dict.fromkeys(symbols))
+          with open("out/jsqz-driver-disassembly.txt", "w") as report:
+              report.write("Recovered JSQZ/SQZ kernel function disassembly\n")
+              report.write(f"Matching function symbols: {len(symbols)}\n\n")
+              for name in symbols:
+                  report.write(f"===== {name} =====\n")
+                  result = subprocess.run(
+                      ["aarch64-linux-gnu-objdump", "-d", "-C", f"--disassemble={name}", elf],
+                      text=True, capture_output=True
+                  )
+                  report.write(result.stdout or result.stderr)
+                  report.write("\n")
+          if not symbols:
+              with open("out/jsqz-driver-disassembly.txt", "a") as report:
+                  report.write("No matching function symbols were recovered. Check the kallsyms and nm reports.\n")
+          PY
+            else
+              echo "The kernel-to-ELF conversion failed; see vmlinux-to-elf.log and install log." > out/kallsyms-analysis.txt
+            fi
+          fi
+          strings -a -t x -n 5 out/kernel.bin 2>/dev/null | grep -Ei 'jsqz|exynos-jsqz|jpeg.?sqz|sqz_ioctl|jsqz_ioctl|jsqz_process|jsqz_open|jsqz_probe|18b30000' > out/jsqz-string-offsets.txt || true
+          cp out/*.txt analysis/ 2>/dev/null || true
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add analysis/*.txt
+          if ! git diff --cached --quiet; then
+            git commit -m "Add recovered S10e JSQZ kernel analysis"
+            git push origin HEAD:main
+          fi
+
       - name: Publish analysis outputs as a private GitHub release
         if: always() && hashFiles('out/**') != ''
         env:
@@ -106,7 +172,7 @@ jobs:
           set -euo pipefail
           tag="jsqz-boot-analysis"
           if gh release view "$tag" >/dev/null 2>&1; then
-            gh release upload "$tag" out/* --clobber
+            gh release upload "$tag" out/*.txt --clobber
           else
-            gh release create "$tag" out/* --title "S10e JSQZ boot analysis" --notes "Automatically extracted from the private S10e boot partition image. Includes the kernel payload and JSQZ string scan."
+            gh release create "$tag" out/*.txt --title "S10e JSQZ boot analysis" --notes "Automatically extracted from the private S10e boot partition image. Includes the kernel payload and JSQZ string scan."
           fi
