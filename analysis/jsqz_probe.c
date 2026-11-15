@@ -1,0 +1,344 @@
+/*
+ * Exynos 9820 JSQZ one-shot probe
+ *
+ * Uses an Exynos ION DMA-BUF (not USERPTR), fills a small valid NV21 frame,
+ * and optionally submits exactly one JSQZ ioctl.
+ *
+ * Build on the S10e in Termux:
+ *   clang -std=c11 -O2 -Wall -Wextra -o jsqz_probe jsqz_probe.c -ldl
+ *
+ * Safe preparation-only run:
+ *   su -c './jsqz_probe'
+ *
+ * One hardware submission:
+ *   su -c './jsqz_probe --execute grey'
+ *
+ * Other supported patterns: black, white, gradient, checker, noise.
+ *
+ * The driver waits for hardware completion with wait_for_completion(), not a
+ * bounded wait. Do not run --execute until the device is expected to be
+ * functional and the user is prepared to reboot if the hardware never IRQs.
+ */
+
+#define _GNU_SOURCE
+#include <dlfcn.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <inttypes.h>
+#include <stddef.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <sys/ioctl.h>
+#include <sys/mman.h>
+#include <unistd.h>
+
+#define WIDTH 128u
+#define HEIGHT 64u
+#define Y_BYTES ((size_t)WIDTH * HEIGHT)
+#define UV_BYTES (Y_BYTES / 2u)
+#define FRAME_BYTES (Y_BYTES + UV_BYTES)
+
+#define ION_HEAP_SYSTEM_MASK (1u << 0)
+#define ION_FLAG_CACHED 1u
+#define ION_SYNC_WRITE (1u << 1)
+
+#define HWSQZ_BUFFER_DMABUF 1u
+#define JSQZ_MODE_NORMAL 0u
+#define JSQZ_FUNCTION_LIVE 0u
+#define JSQZ_INPUT_CS_NV21 0u
+
+struct hwjsqz_img_info {
+    uint32_t width;
+    uint32_t height;
+    uint32_t stride;
+    uint32_t cs;
+};
+
+struct hwsqz_buffer_64 {
+    union {
+        int32_t fd;
+        unsigned long userptr;
+    } handle;
+    size_t len;
+    uint8_t type;
+    uint8_t reserved[7];
+};
+
+struct hwjsqz_config {
+    uint32_t mode;
+    uint32_t function;
+};
+
+struct hwjsqz_task_64 {
+    struct hwjsqz_img_info info_out;
+    struct hwsqz_buffer_64 buf_out[2];
+    struct hwjsqz_config config;
+    uint32_t buf_q[32];
+    uint32_t buf_init_q[32];
+    int32_t num_of_buf;
+};
+
+#define HWJSQZ_IOC_PROCESS _IOWR('M', 0, struct hwjsqz_task_64)
+
+_Static_assert(sizeof(struct hwjsqz_img_info) == 16, "image info ABI mismatch");
+_Static_assert(sizeof(struct hwsqz_buffer_64) == 24, "DMA-BUF descriptor ABI mismatch");
+_Static_assert(offsetof(struct hwjsqz_task_64, buf_out) == 16, "task buf offset mismatch");
+_Static_assert(offsetof(struct hwjsqz_task_64, config) == 64, "task config offset mismatch");
+_Static_assert(offsetof(struct hwjsqz_task_64, buf_q) == 72, "task QT offset mismatch");
+_Static_assert(offsetof(struct hwjsqz_task_64, buf_init_q) == 200, "task init QT offset mismatch");
+_Static_assert(offsetof(struct hwjsqz_task_64, num_of_buf) == 328, "task count offset mismatch");
+_Static_assert(sizeof(struct hwjsqz_task_64) == 336, "native JSQZ ioctl size mismatch");
+_Static_assert(HWJSQZ_IOC_PROCESS == 0xC1504D00u, "native JSQZ ioctl number mismatch");
+
+typedef int (*ion_open_fn)(void);
+typedef int (*ion_close_fn)(int);
+typedef int (*ion_alloc_fn)(int, size_t, unsigned int, unsigned int);
+typedef int (*ion_sync_fn)(int, int, int);
+
+struct ion_api {
+    void *handle;
+    ion_open_fn open;
+    ion_close_fn close;
+    ion_alloc_fn alloc;
+    ion_sync_fn sync_start;
+    ion_sync_fn sync_end;
+};
+
+static void close_ion_api(struct ion_api *api)
+{
+    if (api->handle)
+        dlclose(api->handle);
+    memset(api, 0, sizeof(*api));
+}
+
+static int load_symbol(void *handle, const char *name, void *destination, size_t size)
+{
+    void *symbol;
+    const char *error;
+
+    dlerror();
+    symbol = dlsym(handle, name);
+    error = dlerror();
+    if (error || !symbol) {
+        fprintf(stderr, "Missing ION symbol %s: %s\n", name, error ? error : "not found");
+        return -1;
+    }
+    if (size != sizeof(symbol)) {
+        fprintf(stderr, "Unexpected function-pointer size for %s\n", name);
+        return -1;
+    }
+    memcpy(destination, &symbol, size);
+    return 0;
+}
+
+static int load_ion_api(struct ion_api *api)
+{
+    memset(api, 0, sizeof(*api));
+    api->handle = dlopen("/vendor/lib64/libion_exynos.so", RTLD_NOW | RTLD_LOCAL);
+    if (!api->handle) {
+        fprintf(stderr, "dlopen /vendor/lib64/libion_exynos.so failed: %s\n", dlerror());
+        return -1;
+    }
+
+    if (load_symbol(api->handle, "exynos_ion_open", &api->open, sizeof(api->open)) ||
+        load_symbol(api->handle, "exynos_ion_close", &api->close, sizeof(api->close)) ||
+        load_symbol(api->handle, "exynos_ion_alloc", &api->alloc, sizeof(api->alloc)) ||
+        load_symbol(api->handle, "exynos_ion_sync_start", &api->sync_start, sizeof(api->sync_start)) ||
+        load_symbol(api->handle, "exynos_ion_sync_end", &api->sync_end, sizeof(api->sync_end))) {
+        close_ion_api(api);
+        return -1;
+    }
+    return 0;
+}
+
+static uint32_t next_noise(uint32_t *state)
+{
+    *state = (*state * 1664525u) + 1013904223u;
+    return *state;
+}
+
+static int fill_nv21(uint8_t *frame, const char *pattern)
+{
+    uint32_t seed = 0x9820cafeu;
+
+    if (strcmp(pattern, "grey") && strcmp(pattern, "black") &&
+        strcmp(pattern, "white") && strcmp(pattern, "gradient") &&
+        strcmp(pattern, "checker") && strcmp(pattern, "noise")) {
+        fprintf(stderr, "Unknown pattern '%s'\n", pattern);
+        return -1;
+    }
+
+    for (uint32_t y = 0; y < HEIGHT; ++y) {
+        for (uint32_t x = 0; x < WIDTH; ++x) {
+            uint8_t value = 128;
+
+            if (!strcmp(pattern, "black"))
+                value = 16;
+            else if (!strcmp(pattern, "white"))
+                value = 235;
+            else if (!strcmp(pattern, "gradient"))
+                value = (uint8_t)(16u + (219u * x) / (WIDTH - 1u));
+            else if (!strcmp(pattern, "checker"))
+                value = (((x / 8u) + (y / 8u)) & 1u) ? 235 : 16;
+            else if (!strcmp(pattern, "noise"))
+                value = (uint8_t)(16u + (next_noise(&seed) % 220u));
+
+            frame[(size_t)y * WIDTH + x] = value;
+        }
+    }
+
+    /* NV21 chroma is interleaved VU; neutral chroma is 128,128. */
+    memset(frame + Y_BYTES, 128, UV_BYTES);
+    return 0;
+}
+
+static int save_qtable(const char *path, const uint32_t words[32])
+{
+    FILE *file;
+    size_t written;
+
+    if (!path)
+        return 0;
+    file = fopen(path, "wb");
+    if (!file) {
+        fprintf(stderr, "Cannot create %s: %s\n", path, strerror(errno));
+        return -1;
+    }
+    written = fwrite(words, sizeof(uint32_t), 32, file);
+    if (fclose(file) != 0 || written != 32) {
+        fprintf(stderr, "Failed writing quantisation table to %s\n", path);
+        return -1;
+    }
+    printf("Saved 128-byte table: %s\n", path);
+    return 0;
+}
+
+int main(int argc, char **argv)
+{
+    int execute = 0;
+    const char *pattern = "grey";
+    const char *output_path = NULL;
+    struct ion_api ion;
+    int ion_fd = -1;
+    int dma_fd = -1;
+    int jsqz_fd = -1;
+    uint8_t *mapping = MAP_FAILED;
+    struct hwjsqz_task_64 task;
+    int result = EXIT_FAILURE;
+
+    for (int i = 1; i < argc; ++i) {
+        if (!strcmp(argv[i], "--execute")) {
+            execute = 1;
+        } else if (!strcmp(argv[i], "--help")) {
+            printf("Usage: %s [--execute] [grey|black|white|gradient|checker|noise] [output.bin]\n", argv[0]);
+            printf("Without --execute, prepares and frees one DMA-BUF but does not open /dev/jsqz.\n");
+            return EXIT_SUCCESS;
+        } else if (!pattern || !strcmp(pattern, "grey")) {
+            pattern = argv[i];
+        } else if (!output_path) {
+            output_path = argv[i];
+        } else {
+            fprintf(stderr, "Too many arguments\n");
+            return EXIT_FAILURE;
+        }
+    }
+
+    printf("Target frame: NV21 %ux%u, stride=0, length=%zu bytes\n",
+           WIDTH, HEIGHT, FRAME_BYTES);
+    printf("Pattern: %s; mode=NORMAL; function=LIVE\n", pattern);
+    printf("Native task size=%zu, ioctl=0x%08lx\n",
+           sizeof(task), (unsigned long)HWJSQZ_IOC_PROCESS);
+
+    if (load_ion_api(&ion) != 0)
+        goto cleanup;
+
+    ion_fd = ion.open();
+    if (ion_fd < 0) {
+        fprintf(stderr, "exynos_ion_open failed: %s\n", strerror(errno));
+        goto cleanup;
+    }
+
+    /* System heap (mask 1), CPU-cached; use the vendor sync API around writes. */
+    dma_fd = ion.alloc(ion_fd, FRAME_BYTES, ION_HEAP_SYSTEM_MASK, ION_FLAG_CACHED);
+    if (dma_fd < 0) {
+        fprintf(stderr, "exynos_ion_alloc failed: %s\n", strerror(errno));
+        goto cleanup;
+    }
+
+    mapping = mmap(NULL, FRAME_BYTES, PROT_READ | PROT_WRITE, MAP_SHARED, dma_fd, 0);
+    if (mapping == MAP_FAILED) {
+        fprintf(stderr, "mmap of ION DMA-BUF failed: %s\n", strerror(errno));
+        goto cleanup;
+    }
+
+    if (ion.sync_start(ion_fd, dma_fd, ION_SYNC_WRITE) < 0) {
+        fprintf(stderr, "ION sync START/WRITE failed: %s\n", strerror(errno));
+        goto cleanup;
+    }
+    if (fill_nv21(mapping, pattern) != 0) {
+        (void)ion.sync_end(ion_fd, dma_fd, ION_SYNC_WRITE);
+        goto cleanup;
+    }
+    if (ion.sync_end(ion_fd, dma_fd, ION_SYNC_WRITE) < 0) {
+        fprintf(stderr, "ION sync END/WRITE failed: %s\n", strerror(errno));
+        goto cleanup;
+    }
+
+    printf("ION DMA-BUF allocated, mapped and populated successfully (fd=%d).\n", dma_fd);
+
+    if (!execute) {
+        puts("DRY RUN: /dev/jsqz was not opened and no hardware ioctl was submitted.");
+        result = EXIT_SUCCESS;
+        goto cleanup;
+    }
+
+    memset(&task, 0, sizeof(task));
+    task.info_out.width = WIDTH;
+    task.info_out.height = HEIGHT;
+    task.info_out.stride = 0;
+    task.info_out.cs = JSQZ_INPUT_CS_NV21;
+    task.buf_out[0].handle.fd = dma_fd;
+    task.buf_out[0].len = FRAME_BYTES;
+    task.buf_out[0].type = HWSQZ_BUFFER_DMABUF;
+    task.config.mode = JSQZ_MODE_NORMAL;
+    task.config.function = JSQZ_FUNCTION_LIVE;
+    task.num_of_buf = 1;
+
+    jsqz_fd = open("/dev/jsqz", O_RDWR | O_CLOEXEC);
+    if (jsqz_fd < 0) {
+        fprintf(stderr, "open /dev/jsqz failed: %s (errno=%d)\n",
+                strerror(errno), errno);
+        goto cleanup;
+    }
+
+    puts("Submitting exactly one JSQZ ioctl...");
+    if (ioctl(jsqz_fd, HWJSQZ_IOC_PROCESS, &task) < 0) {
+        fprintf(stderr, "JSQZ ioctl failed: %s (errno=%d)\n",
+                strerror(errno), errno);
+        goto cleanup;
+    }
+
+    puts("JSQZ ioctl returned success.");
+    puts("Result words (first 16: luma, next 16: chroma):");
+    for (unsigned int i = 0; i < 32; ++i)
+        printf("%02u: %08" PRIx32 "%s", i, task.buf_q[i], (i % 4u == 3u) ? "\n" : "  ");
+
+    if (save_qtable(output_path, task.buf_q) != 0)
+        goto cleanup;
+
+    result = EXIT_SUCCESS;
+
+cleanup:
+    if (jsqz_fd >= 0)
+        close(jsqz_fd);
+    if (mapping != MAP_FAILED)
+        munmap(mapping, FRAME_BYTES);
+    if (dma_fd >= 0)
+        close(dma_fd);
+    if (ion_fd >= 0 && ion.close)
+        (void)ion.close(ion_fd);
+    close_ion_api(&ion);
+    return result;
+}
