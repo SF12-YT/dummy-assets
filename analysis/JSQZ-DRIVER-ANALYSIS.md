@@ -333,7 +333,7 @@ The stride is valid for NV21 (128 is divisible by 64), and the frame dimensions 
 
 - Grey and checker returned exactly the same Table A, and Table A is substantially different from the reference default. These runs therefore appear to have used the output-register branch rather than the known fallback value.
 - Black returned Table B, which is almost the reference default. The most likely explanation is that the post-completion bit-28 condition selected the fallback table on that run.
-- The identical grey/checker outputs are still unexplained. They establish that changing the luma pattern from uniform grey to a high-contrast checker did not change the returned table; they do not establish that the hardware consumed both source frames correctly. A stale or fixed output-register result, an input-path issue, or an algorithm that produces the same result for these two inputs remain possible.
+- The identical grey/checker outputs are not yet evidence of stale registers. The probe's checker consists of uniform 8×8 blocks, aligned to the 8×8 JPEG transform grid; each block has no within-block luma variation, just like the grey frame. If JSQZ's table estimator is based mainly on block-frequency/detail statistics, both frames can plausibly produce the same table even when both are read correctly. This is not proven without the silicon algorithm. A gradient or deterministic noise frame would be a stronger content-sensitivity test, but should wait until the black fallback branch is checked in the kernel log.
 
 ### One useful confirmation without another hardware submission
 
