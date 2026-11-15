@@ -1,5 +1,6 @@
 /*
  * Exynos 9820 JSQZ one-shot probe
+ * Includes a non-submitting --check-device preflight for /dev/jsqz.
  *
  * Uses an Exynos ION DMA-BUF (not USERPTR), fills a small valid NV21 frame,
  * and optionally submits exactly one JSQZ ioctl.
