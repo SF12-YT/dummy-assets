@@ -556,7 +556,7 @@ A new `chroma-checker-fine` pattern has been added to `analysis/jsqz_probe.c`:
 - The checker tile is reduced from 4×4 chroma samples (8×8 luma-equivalent regions, used for Table F) to 2×2 chroma samples (4×4 luma-equivalent regions).
 - Frame size, NV21 format, DMA-BUF size, NORMAL/LIVE mode and ioctl path remain unchanged.
 
-Comparing this output with Table F will isolate whether the observed chroma-table response changes when the same contrast is delivered at a finer spatial scale. The new pattern has been added to the probe's accepted-pattern list and help output, and GCC/Clang CI checks now verify its presence. This pattern is prepared but has not yet been submitted to the phone.
+Comparing this output with Table F will isolate whether the observed chroma-table response changes when the same contrast is delivered at a finer spatial scale. The new pattern has been added to the probe's accepted-pattern list and help output, and GCC/Clang CI checks now verify its presence; those checks passed in [Actions run #43680273034](https://github.com/SF12-YT/dummy-assets/actions/runs/43680273034). This pattern is prepared but has not yet been submitted to the phone.
 
 ## Investigation status and practical completion criteria
 
