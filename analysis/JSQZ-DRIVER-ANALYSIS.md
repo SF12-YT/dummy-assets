@@ -479,3 +479,18 @@ The available public Beyond0 reference HAL contains two overloads of `ExynosJsqz
 
 The exact 8×8 coefficient scan layout (zigzag versus raster) is **not established** by this HAL copy routine or the kernel register reads. Accordingly, `jsqz_qtable_diff.py` reports linear byte offsets within each 64-byte table and deliberately does not label them as 8×8 row/column coordinates.
 
+## Byte-level comparison of the captured pattern outputs
+
+The seven captured 32-word outputs were unpacked as little-endian bytes (64-byte Y bank followed by 64-byte C bank). These are re-analyses of the already recorded runs, not new hardware submissions:
+
+| Input compared with grey Table A | Y bytes changed | C bytes changed | Observation |
+|---|---:|---:|---|
+| Gradient (Table C) | 1/64 | 0/64 | Y table byte offset 1 changes 0x03 → 0x04 |
+| Deterministic noise (Table D) | 50/64 | 0/64 | All 50 changed Y bytes increase; 14 remain unchanged |
+| Spatial chroma checker (Table F) | 0/64 | 4/64 | C offsets 4, 51, 58 and 60 change; each increases |
+| Black (Table B) | 29/64 | 15/64 | 44 of 128 output bytes differ from grey |
+
+For the spatial chroma checker specifically, the changed C-bank bytes are offset 4 (0x03 → 0x04), 51 (0x08 → 0x0b), 58 (0x0c → 0x0d), and 60 (0x0c → 0x0d). This confirms that the four changed packed words each contain exactly one changed byte.
+
+The byte counts make the separation between the observed Y and C responses explicit: the deterministic-noise input changed only the Y bank, while the spatial chroma checker changed only the C bank. The HAL byte-order caveat above still applies to interpreting these as matrix coordinates: the offsets are linear output-byte positions, not asserted 8×8 row/column positions.
+
