@@ -1,0 +1,124 @@
+name: Inspect uploaded target JSQZ libraries
+
+on:
+  push:
+    paths:
+      - ".github/workflows/inspect-target-jsqz-libs.yml"
+      - "libhwjsqz.so"
+      - "libexynoscamera3.so"
+
+permissions:
+  contents: write
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out uploaded target libraries
+        uses: actions/checkout@v4
+
+      - name: Install ARM binutils
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y binutils-arm-linux-gnueabi file
+
+      - name: Verify and analyse the exact target binaries
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p analysis
+          test -s libhwjsqz.so
+          test -s libexynoscamera3.so
+
+          {
+            echo "Uploaded target Samsung camera libraries"
+            date -u +"Analysis time (UTC): %Y-%m-%dT%H:%M:%SZ"
+            for f in libhwjsqz.so libexynoscamera3.so; do
+              echo
+              echo "===== $f ====="
+              stat -c 'Size: %s bytes' "$f"
+              sha256sum "$f"
+              file "$f"
+              readelf -h "$f" | grep -E 'Class:|Data:|Machine:|Type:|Entry point'
+              readelf -n "$f" | grep -E 'Build ID|GNU' || true
+            done
+          } | tee analysis/target-jsqz-library-identification.txt
+
+          readelf -h -A -d -n -W libhwjsqz.so > analysis/target-libhwjsqz-elf.txt
+          readelf -Ws -W libhwjsqz.so > analysis/target-libhwjsqz-symbol-table.txt
+          readelf -rW libhwjsqz.so > analysis/target-libhwjsqz-relocations.txt
+          nm -D -C --undefined-only libhwjsqz.so > analysis/target-libhwjsqz-undefined-symbols.txt
+          nm -D -C --defined-only libhwjsqz.so > analysis/target-libhwjsqz-defined-symbols.txt
+          arm-linux-gnueabi-objdump -d -C -r libhwjsqz.so > analysis/target-libhwjsqz-disassembly.txt
+          strings -a -t x -n 4 libhwjsqz.so > analysis/target-libhwjsqz-all-strings.txt
+          grep -Ei 'jsqz|sqz|jpeg|quant|quality|/dev/|openNode|execute|ion|dma|qtable|table|error|failed' analysis/target-libhwjsqz-all-strings.txt > analysis/target-libhwjsqz-relevant-strings.txt || true
+
+          readelf -h -A -d -n -W libexynoscamera3.so > analysis/target-libexynoscamera3-elf.txt
+          readelf -Ws -W libexynoscamera3.so > analysis/target-libexynoscamera3-symbol-table.txt
+          readelf -rW libexynoscamera3.so > analysis/target-libexynoscamera3-relocations.txt
+          nm -D -C --undefined-only libexynoscamera3.so > analysis/target-libexynoscamera3-undefined-symbols.txt
+          nm -D -C --defined-only libexynoscamera3.so > analysis/target-libexynoscamera3-defined-symbols.txt
+          strings -a -t x -n 4 libexynoscamera3.so > analysis/target-libexynoscamera3-all-strings.txt
+          grep -Ei 'jsqz|sqz|jpeg|quant|quality|/dev/jsqz|SAMSUNG_HW_JQ|Qtable|QtableStatus|setJpegQtable' analysis/target-libexynoscamera3-all-strings.txt > analysis/target-libexynoscamera3-relevant-strings.txt || true
+
+          arm-linux-gnueabi-objdump -d -C libexynoscamera3.so > /tmp/target-camera-disassembly.txt
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+
+          lines = Path("/tmp/target-camera-disassembly.txt").read_text(errors="replace").splitlines()
+          patterns = re.compile(r"jsqz|sqz|jpeg.?squeezer|qtable|SAMSUNG_HW_JQ", re.I)
+          call = re.compile(r"\\b(bl|blx)\\b", re.I)
+          hits = []
+          current = "(no function label)"
+          for i, line in enumerate(lines):
+              label = re.match(r"^([0-9a-f]+) <(.+)>:$", line.strip())
+              if label:
+                  current = f"{label.group(2)} @ 0x{label.group(1)}"
+              if patterns.search(line):
+                  hits.append((i, current, line))
+              elif call.search(line) and i + 1 < len(lines) and patterns.search(lines[i + 1]):
+                  hits.append((i, current, line + "\\n" + lines[i + 1]))
+          out = [
+              "JSQZ/JPEG-squeezer references found in disassembly of the exact uploaded camera HAL",
+              f"Total matching disassembly lines: {len(hits)}",
+              "Reference output is from the target device binary, not the public comparison build.",
+              ""
+          ]
+          for i, function, line in hits:
+              out.append(f"===== {function} =====")
+              out.extend(lines[max(0, i-10):min(len(lines), i+8)])
+              out.append("")
+          Path("analysis/target-libexynoscamera3-jsqz-disassembly-xrefs.txt").write_text("\\n".join(out) + "\\n")
+          print("\\n".join(out[:80]))
+          PY
+
+          {
+            echo "===== libhwjsqz.so relevant exported/imported symbols ====="
+            grep -Ei 'jsqz|sqz|open|ioctl|mmap|ion|dma|jpeg|qtable' analysis/target-libhwjsqz-defined-symbols.txt analysis/target-libhwjsqz-undefined-symbols.txt || true
+            echo
+            echo "===== libexynoscamera3.so relevant exported/imported symbols ====="
+            grep -Ei 'jsqz|sqz|jpeg|qtable|quant' analysis/target-libexynoscamera3-defined-symbols.txt analysis/target-libexynoscamera3-undefined-symbols.txt || true
+            echo
+            echo "===== Camera HAL relevant strings ====="
+            cat analysis/target-libexynoscamera3-relevant-strings.txt
+            echo
+            echo "===== JSQZ library relevant strings ====="
+            cat analysis/target-libhwjsqz-relevant-strings.txt
+          } | tee analysis/target-jsqz-library-summary.txt
+
+      - name: Commit generated binary analysis reports
+        if: always()
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add analysis/target-jsqz-*.txt analysis/target-libhwjsqz-*.txt analysis/target-libexynoscamera3-*.txt
+          if ! git diff --cached --quiet; then
+            git commit -m "Analyse uploaded target JSQZ camera libraries"
+            git fetch origin main
+            git rebase origin/main
+            git push origin HEAD:main
+          fi
