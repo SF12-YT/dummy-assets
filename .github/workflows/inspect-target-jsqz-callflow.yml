@@ -1,0 +1,100 @@
+name: Inspect target camera HAL JSQZ call flow
+
+on:
+  push:
+    paths:
+      - ".github/workflows/inspect-target-jsqz-callflow.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install ARM binutils
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y binutils-arm-linux-gnueabi
+
+      - name: Extract exact target camera JSQZ call flow
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p analysis
+          arm-linux-gnueabi-objdump -d -C --start-address=0x136dac --stop-address=0x136fc8 libexynoscamera3.so > analysis/target-camera-jpeg-squeezer-thread.txt
+          arm-linux-gnueabi-objdump -d -C -j .plt libexynoscamera3.so > analysis/target-camera-jsqz-plt.txt
+          readelf -rW libexynoscamera3.so | grep -E 'ExynosJsqz|JUMP_SLOT' > analysis/target-camera-jsqz-jump-slots.txt || true
+
+          arm-linux-gnueabi-objdump -d -C libexynoscamera3.so > /tmp/target-camera-full-disassembly.txt
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+
+          plt_lines = Path("analysis/target-camera-jsqz-plt.txt").read_text(errors="replace").splitlines()
+          targets = {}
+          for line in plt_lines:
+              m = re.match(r"^\s*([0-9a-f]+)\s+<(.+)>:$", line)
+              if m and "ExynosJsqz" in m.group(2):
+                  targets[int(m.group(1), 16)] = m.group(2)
+
+          dis = Path("/tmp/target-camera-full-disassembly.txt").read_text(errors="replace").splitlines()
+          label_re = re.compile(r"^\s*([0-9a-f]+) <(.+)>:$")
+          call_re = re.compile(r"\b(?:bl|blx)\s+([0-9a-f]+)")
+          hits = []
+          current = "(unknown caller)"
+          for i, line in enumerate(dis):
+              label = label_re.match(line)
+              if label:
+                  current = f"{label.group(2)} @ 0x{label.group(1)}"
+              call = call_re.search(line)
+              if call:
+                  dest = int(call.group(1), 16)
+                  if dest in targets:
+                      hits.append((i, current, targets[dest], dest))
+
+          out = [
+              "Calls from the exact target libexynoscamera3.so into exact target libhwjsqz.so imports",
+              "PLT labels for ExynosJsqz were resolved from this camera HAL's own .plt section.",
+              f"Resolved ExynosJsqz PLT destinations: {len(targets)}",
+              f"Direct call instructions targeting those PLT entries: {len(hits)}",
+              ""
+          ]
+          for i, caller, target, dest in hits:
+              out.append(f"===== caller={caller}; target={target}; plt=0x{dest:08x} =====")
+              out.extend(dis[max(0, i-12):min(len(dis), i+5)])
+              out.append("")
+          Path("analysis/target-camera-jsqz-call-sites.txt").write_text("\n".join(out) + "\n")
+          print("\n".join(out[:100]))
+          PY
+
+          {
+            echo "Target camera HAL and JSQZ library identity"
+            grep -E 'Build ID:|Size:' analysis/target-jsqz-library-identification.txt
+            echo
+            echo "Camera HAL imports and links"
+            grep -E 'libhwjsqz.so|ExynosJsqz' analysis/target-libexynoscamera3-elf.txt analysis/target-libexynoscamera3-undefined-symbols.txt
+            echo
+            echo "JSQZ PLT labels"
+            grep -i 'ExynosJsqz' analysis/target-camera-jsqz-plt.txt || true
+            echo
+            echo "Resolved JSQZ calls"
+            cat analysis/target-camera-jsqz-call-sites.txt
+          } > analysis/target-camera-jsqz-callflow-summary.txt
+
+      - name: Commit call-flow reports
+        if: always()
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add analysis/target-camera-jpeg-squeezer-thread.txt analysis/target-camera-jsqz-*.txt
+          if ! git diff --cached --quiet; then
+            git commit -m "Trace target camera HAL into JSQZ library"
+            git fetch origin main
+            git rebase origin/main
+            git push origin HEAD:main
+          fi
