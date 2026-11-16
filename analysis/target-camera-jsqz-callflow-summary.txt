@@ -1,25 +1,38 @@
-Target camera HAL and JSQZ library identity
-Size: 21340 bytes
-    Build ID: 2954034e91ab9505aef839b7d9feded0
-Size: 1834728 bytes
-    Build ID: 1b7a6dfaf4dcbf7034b467a6fcec2fc1
+Exact target Samsung camera-HAL / JSQZ binary call-flow summary
+Analysis date: 2026-11-16
 
-Camera HAL imports and links
-analysis/target-libexynoscamera3-elf.txt: 0x00000001 (NEEDED)                     Shared library: [libhwjsqz.so]
-analysis/target-libexynoscamera3-undefined-symbols.txt:         U ExynosJsqz::getResultQT(unsigned char*)
-analysis/target-libexynoscamera3-undefined-symbols.txt:         U ExynosJsqz::setImageInfo(int, int, int, hwJSQZ_input_cs_format)
-analysis/target-libexynoscamera3-undefined-symbols.txt:         U ExynosJsqz::setJsqzConfig(hwJSQZ_processing_function, hwJSQZ_processing_mode)
-analysis/target-libexynoscamera3-undefined-symbols.txt:         U ExynosJsqz::run()
-analysis/target-libexynoscamera3-undefined-symbols.txt:         U ExynosJsqz::create()
-analysis/target-libexynoscamera3-undefined-symbols.txt:         U ExynosJsqz::destroy()
-analysis/target-libexynoscamera3-undefined-symbols.txt:         U ExynosJsqz::setInBuf(int*, unsigned int*, int)
-analysis/target-libexynoscamera3-undefined-symbols.txt:         U ExynosJsqz::ExynosJsqz()
+Exact uploaded target libraries:
+- libhwjsqz.so Build ID: 2954034e91ab9505aef839b7d9feded0
+- libexynoscamera3.so Build ID: 1b7a6dfaf4dcbf7034b467a6fcec2fc1
 
-JSQZ PLT labels
+Target camera HAL dynamically depends on libhwjsqz.so and imports:
+- ExynosJsqz::ExynosJsqz()
+- ExynosJsqz::create()
+- ExynosJsqz::destroy()
+- ExynosJsqz::setInBuf(...)
+- ExynosJsqz::setImageInfo(...)
+- ExynosJsqz::setJsqzConfig(...)
+- ExynosJsqz::run()
+- ExynosJsqz::getResultQT(...)
 
-Resolved JSQZ calls
-Calls from the exact target libexynoscamera3.so into exact target libhwjsqz.so imports
-PLT labels for ExynosJsqz were resolved from this camera HAL's own .plt section.
-Resolved ExynosJsqz PLT destinations: 0
-Direct call instructions targeting those PLT entries: 0
+Resolved target worker call sites in android::ExynosCamera::m_jpegSqueezerThreadFunc():
+- 0x136ee0 -> setInBuf (camera HAL PLT 0x199d00)
+- 0x136ef0 -> setImageInfo (camera HAL PLT 0x199d10)
+- 0x136efa -> setJsqzConfig (camera HAL PLT 0x199d20)
+- 0x136f00 -> run (camera HAL PLT 0x199d30)
+- 0x136f0a -> getResultQT (camera HAL PLT 0x199d40)
 
+The worker forwards the result through ExynosCameraConfigurations::setJpegQtable() at 0x136f12 and sets table status to 1 at 0x136f1a.
+
+Exact target libhwjsqz.so:
+- ExynosJsqz::create() dispatches to ExynosSqzBase::create().
+- Base create calls openNode().
+- openNode calls open("/dev/jsqz", O_RDWR, 0) through open@LIBC.
+- ExynosJsqz::run() dispatches to ExynosSqzBase::execute().
+- execute validates the instance/input buffers then calls ioctl(fd, 0xC1344D00, task) through ioctl@LIBC.
+- execute_msqz() has a separate request 0xC03C4D01.
+
+The previous zero-call-site result from the first PLT parser was a parser false negative: ARM32 PLT entries were not labelled by objdump, and the JUMP_SLOT-to-PLT mapping was not applied. See target-camera-jsqz-call-sites.txt for the corrected relocation-derived mapping.
+
+Static path: confirmed.
+Runtime call during the user's specific Camera2 probe: not confirmed; the captured provider trace contained no known JSQZ ioctl. The worker has format/setup/buffer guards before calling JSQZ, so object lifecycle logs do not prove the execute/ioctl branch ran.
