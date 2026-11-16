@@ -1,0 +1,297 @@
+  198d4 _ZN7android17ExynosCameraFrame11getJpegSizeEv
+  19a66 _ZN7android17ExynosCameraFrame11setJpegSizeEi
+  2036e _ZN7android17getJPEGMaxBPPSizeEv
+  21983 _ZN7android16ExynosCameraNode10setQualityEPKh
+  219b1 _ZN7android16ExynosCameraNode10setQualityEi
+  22a9b _ZN11CHWJpegBase11SetAuxFlagsEj
+  22abb _ZN17ExynosJpegEncoder10setQualityEPKh
+  22ae2 _ZN17ExynosJpegEncoder13setJpegFormatEi
+  22b0a _ZN17ExynosJpegEncoder8setInBufEPiS0_
+  22b30 _ZN17ExynosJpegEncoder9setOutBufEiii
+  22b55 _ZN21CHWJpegV4L2Compressor10SetQualityEjj
+  22b7f _ZN26ExynosJpegEncoderForCamera16setThumbnailSizeEii
+  22bb4 _ZN26ExynosJpegEncoderForCamera18WaitForCompressionEv
+  22bea _ZN26ExynosJpegEncoderForCamera19setThumbnailQualityEi
+  22c21 _ZN26ExynosJpegEncoderForCamera6encodeEPiP16exif_attribute_tiPPcP17debug_attribute_t
+  22c76 _ZN26ExynosJpegEncoderForCamera9setInBuf2EPiS0_
+  22ca6 _ZN26ExynosJpegEncoderForCameraC1Ebj
+  22ce4 _ZN7android23ExynosCameraNodeJpegHAL10clrBuffersEv
+  22d17 _ZN7android23ExynosCameraNodeJpegHAL10getControlEjPi
+  22d4c _ZN7android23ExynosCameraNodeJpegHAL10reqBuffersEv
+  22d7f _ZN7android23ExynosCameraNodeJpegHAL10setControlEji
+  22db3 _ZN7android23ExynosCameraNodeJpegHAL10setQualityEPKh
+  22de8 _ZN7android23ExynosCameraNodeJpegHAL10setQualityEi
+  22e1b _ZN7android23ExynosCameraNodeJpegHAL11setExifInfoEP16exif_attribute_t
+  22e61 _ZN7android23ExynosCameraNodeJpegHAL12setDebugInfoEP17debug_attribute_t
+  22ea9 _ZN7android23ExynosCameraNodeJpegHAL13prepareBufferEPNS_18ExynosCameraBufferE
+  22ef7 _ZN7android23ExynosCameraNodeJpegHAL14setColorFormatEii9YUV_RANGE17camera_pixel_size
+  22f4c _ZN7android23ExynosCameraNodeJpegHAL15reqBuffersCountEv
+  22f84 _ZN7android23ExynosCameraNodeJpegHAL17getInternalModuleEPPv
+  22fc0 _ZN7android23ExynosCameraNodeJpegHAL4dumpEv
+  22fec _ZN7android23ExynosCameraNodeJpegHAL4openEi
+  23018 _ZN7android23ExynosCameraNodeJpegHAL4openEii
+  23045 _ZN7android23ExynosCameraNodeJpegHAL4stopEv
+  23071 _ZN7android23ExynosCameraNodeJpegHAL5closeEv
+  2309e _ZN7android23ExynosCameraNodeJpegHAL5startEv
+  230cb _ZN7android23ExynosCameraNodeJpegHAL6createEPKciNS_27EXYNOS_CAMERA_NODE_LOCATIONEPv
+  2311f _ZN7android23ExynosCameraNodeJpegHAL7pollingEv
+  2314e _ZN7android23ExynosCameraNodeJpegHAL7setCropE13v4l2_buf_typeiiii
+  2318f _ZN7android23ExynosCameraNodeJpegHAL7setSizeEii
+  231bf _ZN7android23ExynosCameraNodeJpegHAL8setInputEi
+  231ef _ZN7android23ExynosCameraNodeJpegHAL9dumpQueueEv
+  23220 _ZN7android23ExynosCameraNodeJpegHAL9dumpStateEv
+  23251 _ZN7android23ExynosCameraNodeJpegHAL9getBufferEPNS_18ExynosCameraBufferEPi
+  2329c _ZN7android23ExynosCameraNodeJpegHAL9putBufferEPNS_18ExynosCameraBufferE
+  232e5 _ZN7android23ExynosCameraNodeJpegHAL9setFormatEPj
+  23317 _ZN7android23ExynosCameraNodeJpegHAL9setFormatEv
+  23348 _ZN7android23ExynosCameraNodeJpegHALC1Ev
+  23371 _ZN7android23ExynosCameraNodeJpegHALC2Ev
+  2339a _ZN7android23ExynosCameraNodeJpegHALD0Ev
+  233c3 _ZN7android23ExynosCameraNodeJpegHALD1Ev
+  233ec _ZN7android23ExynosCameraNodeJpegHALD2Ev
+  23415 _ZTTN7android23ExynosCameraNodeJpegHALE
+  2343d _ZTVN7android23ExynosCameraNodeJpegHALE
+  23465 _ZTv0_n112_N7android23ExynosCameraNodeJpegHAL10reqBuffersEv
+  234a1 _ZTv0_n116_N7android23ExynosCameraNodeJpegHAL10clrBuffersEv
+  234dd _ZTv0_n120_N7android23ExynosCameraNodeJpegHAL15reqBuffersCountEv
+  2351e _ZTv0_n124_N7android23ExynosCameraNodeJpegHAL10setControlEji
+  2355b _ZTv0_n128_N7android23ExynosCameraNodeJpegHAL10getControlEjPi
+  23599 _ZTv0_n12_N7android23ExynosCameraNodeJpegHALD0Ev
+  235ca _ZTv0_n12_N7android23ExynosCameraNodeJpegHALD1Ev
+  235fb _ZTv0_n136_N7android23ExynosCameraNodeJpegHAL7pollingEv
+  23633 _ZTv0_n140_N7android23ExynosCameraNodeJpegHAL8setInputEi
+  2366c _ZTv0_n152_N7android23ExynosCameraNodeJpegHAL7setCropE13v4l2_buf_typeiiii
+  236b6 _ZTv0_n156_N7android23ExynosCameraNodeJpegHAL9setFormatEv
+  236f0 _ZTv0_n160_N7android23ExynosCameraNodeJpegHAL9setFormatEPj
+  2372b _ZTv0_n164_N7android23ExynosCameraNodeJpegHAL11setExifInfoEP16exif_attribute_t
+  2377a _ZTv0_n168_N7android23ExynosCameraNodeJpegHAL12setDebugInfoEP17debug_attribute_t
+  237cb _ZTv0_n172_N7android23ExynosCameraNodeJpegHAL5startEv
+  23801 _ZTv0_n176_N7android23ExynosCameraNodeJpegHAL4stopEv
+  23836 _ZTv0_n188_N7android23ExynosCameraNodeJpegHAL13prepareBufferEPNS_18ExynosCameraBufferE
+  2388d _ZTv0_n192_N7android23ExynosCameraNodeJpegHAL9putBufferEPNS_18ExynosCameraBufferE
+  238df _ZTv0_n200_N7android23ExynosCameraNodeJpegHAL9getBufferEPNS_18ExynosCameraBufferEPi
+  23933 _ZTv0_n204_N7android23ExynosCameraNodeJpegHAL4dumpEv
+  23968 _ZTv0_n208_N7android23ExynosCameraNodeJpegHAL9dumpStateEv
+  239a2 _ZTv0_n212_N7android23ExynosCameraNodeJpegHAL9dumpQueueEv
+  239dc _ZTv0_n36_N7android23ExynosCameraNodeJpegHAL6createEPKciNS_27EXYNOS_CAMERA_NODE_LOCATIONEPv
+  23a38 _ZTv0_n44_N7android23ExynosCameraNodeJpegHAL4openEi
+  23a6c _ZTv0_n48_N7android23ExynosCameraNodeJpegHAL4openEii
+  23aa1 _ZTv0_n52_N7android23ExynosCameraNodeJpegHAL5closeEv
+  23ad6 _ZTv0_n64_N7android23ExynosCameraNodeJpegHAL17getInternalModuleEPPv
+  23b1a _ZTv0_n72_N7android23ExynosCameraNodeJpegHAL14setColorFormatEii9YUV_RANGE17camera_pixel_size
+  23b77 _ZTv0_n80_N7android23ExynosCameraNodeJpegHAL10setQualityEi
+  23bb2 _ZTv0_n84_N7android23ExynosCameraNodeJpegHAL10setQualityEPKh
+  23bef _ZTv0_n88_N7android23ExynosCameraNodeJpegHAL7setSizeEii
+  26f10 _ZN18ExynosCameraPPJPEG6m_drawEP17ExynosCameraImageS1_PN7android22ExynosCameraParametersE
+  26f6a _ZN18ExynosCameraPPJPEG6m_initEv
+  26f8b _ZN18ExynosCameraPPJPEGD0Ev
+  26fa7 _ZN18ExynosCameraPPJPEGD1Ev
+  26fc3 _ZN18ExynosCameraPPJPEGD2Ev
+  26fdf _ZN26ExynosJpegEncoderForCameraD1Ev
+  270f7 _ZTV18ExynosCameraPPJPEG
+  280fe _ZN7android18ExynosCameraMCPipe13m_setJpegInfoEiNS_2spINS_17ExynosCameraFrameEEE
+  29a6e _ZN7android26ExynosCameraConfigurations13getJpegQtableEPh
+  29aa8 _ZN7android26ExynosCameraConfigurations15getJpegQtableOnEv
+  29b1f _ZN7android26ExynosCameraConfigurations19getJpegQtableStatusEv
+  29b5e _ZN7android26ExynosCameraConfigurations19setJpegQtableStatusEi
+  2b85d _ZN26ExynosJpegEncoderForCamera7destroyEv
+  2b887 _ZN7android20ExynosCameraPipeJpeg4stopEv
+  2b8b0 _ZN7android20ExynosCameraPipeJpeg5m_runEv
+  2b8da _ZN7android20ExynosCameraPipeJpeg6m_initEv
+  2b905 _ZN7android20ExynosCameraPipeJpeg9m_destroyEv
+  2b97c _ZTTN7android20ExynosCameraPipeJpegE
+  2b9a1 _ZTVN7android20ExynosCameraPipeJpegE
+  2b9c6 _ZTv0_n404_N7android20ExynosCameraPipeJpeg9m_destroyEv
+  2b9fd _ZTv0_n408_N7android20ExynosCameraPipeJpeg5m_runEv
+  2ba30 _ZTv0_n60_N7android20ExynosCameraPipeJpeg4stopEv
+  39f4b _ZN7android29ExynosCameraMetadataConverter21translateJpegMetaDataENS_2spINS_19ExynosCameraRequestEEEPNS_8hardware6camera6common4V1_06helper14CameraMetadataEP16camera2_shot_ext
+  3a6f7 _ZN7android29ExynosCameraMetadataConverter24translateJpegControlDataEPNS_8hardware6camera6common4V1_06helper14CameraMetadataEP16camera2_shot_extS7_
+  3b61b _ZN7android29ExynosCameraMetadataConverter27translateVendorJpegMetaDataENS_2spINS_19ExynosCameraRequestEEEPNS_8hardware6camera6common4V1_06helper14CameraMetadataE
+  3c73a _ZN7android29ExynosCameraMetadataConverter35m_createJpegAvailableThumbnailSizesEPKNS_26ExynosCameraSensorInfoBaseEPNS_6VectorIiEE
+  41e9e _ZN7android12ExynosCamera22m_sendJpegStreamResultENS_2spINS_19ExynosCameraRequestEEEPNS_18ExynosCameraBufferEi
+  422c0 _ZN7android12ExynosCamera23m_updateJpegControlInfoEPK16camera2_shot_ext
+  489b1 _ZN7android40ExynosCameraFrameJpegReprocessingFactory10startPipesEv
+  489f5 _ZN7android40ExynosCameraFrameJpegReprocessingFactory11getScenarioEi
+  48a3a _ZN7android40ExynosCameraFrameJpegReprocessingFactory11setStopFlagEv
+  48a7f _ZN7android40ExynosCameraFrameJpegReprocessingFactory12preparePipesEv
+  48ac5 _ZN7android40ExynosCameraFrameJpegReprocessingFactory12stopScenarioEib
+  48b0c _ZN7android40ExynosCameraFrameJpegReprocessingFactory13m_setupConfigEv
+  48b53 _ZN7android40ExynosCameraFrameJpegReprocessingFactory13startScenarioEi
+  48b9a _ZN7android40ExynosCameraFrameJpegReprocessingFactory14createNewFrameEjb
+  48be3 _ZN7android40ExynosCameraFrameJpegReprocessingFactory15connectScenarioEii
+  48c2d _ZN7android40ExynosCameraFrameJpegReprocessingFactory16m_constructPipesEv
+  48c77 _ZN7android40ExynosCameraFrameJpegReprocessingFactory19m_fillNodeGroupInfoENS_2spINS_17ExynosCameraFrameEEE
+  48ce3 _ZN7android40ExynosCameraFrameJpegReprocessingFactory19m_initFrameMetadataENS_2spINS_17ExynosCameraFrameEEE
+  48d4f _ZN7android40ExynosCameraFrameJpegReprocessingFactory19startInitialThreadsEv
+  48d9c _ZN7android40ExynosCameraFrameJpegReprocessingFactory6createEv
+  48ddb _ZN7android40ExynosCameraFrameJpegReprocessingFactory6m_initEv
+  48e1a _ZN7android40ExynosCameraFrameJpegReprocessingFactory9initPipesEv
+  48e5c _ZN7android40ExynosCameraFrameJpegReprocessingFactory9stopPipesEv
+  48e9e _ZN7android40ExynosCameraFrameJpegReprocessingFactoryD0Ev
+  48ed8 _ZN7android40ExynosCameraFrameJpegReprocessingFactoryD1Ev
+  48f12 _ZN7android40ExynosCameraFrameJpegReprocessingFactoryD2Ev
+  48f4c _ZTVN7android40ExynosCameraFrameJpegReprocessingFactoryE
+  490fc _ZN10ExynosJsqz11getResultQTEPh
+  4911c _ZN10ExynosJsqz12setImageInfoEiii22hwJSQZ_input_cs_format
+  49156 _ZN10ExynosJsqz13setJsqzConfigE26hwJSQZ_processing_function22hwJSQZ_processing_mode
+  491aa _ZN10ExynosJsqz3runEv
+  491c0 _ZN10ExynosJsqz6createEv
+  491d9 _ZN10ExynosJsqz7destroyEv
+  491f3 _ZN10ExynosJsqz8setInBufEPiPji
+  49212 _ZN10ExynosJsqzC1Ev
+  49a7e _ZN7android12ExynosCamera17m_handleJpegFrameENS_2spINS_17ExynosCameraFrameEEEi
+  4ab24 _ZN7android12ExynosCamera22m_checkPipeJpegRequestEPNS_25frame_handle_components_tEbii
+  4b15e _ZN7android12ExynosCamera24m_jpegSqueezerThreadFuncEv
+  4bde9 _ZN7android12ExynosCamera29m_updateJpegPartialResultShotENS_2spINS_19ExynosCameraRequestEEEP16camera2_shot_extPNS_22ExynosCameraParametersE
+  4de13 _ZN7android26ExynosCameraConfigurations13setJpegQtableEPh
+  4dfcd _ZN7android26ExynosCameraConfigurations15setJpegQtableOnEb
+  4e596 _ZN7android26ExynosCameraConfigurations23checkJpegSqueezerEnableEb
+  52c1d _ZN12SecAppMarker13checkJpegDataEv
+  52d28 _ZN12SecAppMarker16setJpegStartAddrEPcj
+  57246 _ZN7android8hardware6camera6common4V1_06helper16CameraParameters16KEY_JPEG_QUALITYE
+  576e9 _ZN7android8hardware6camera6common4V1_06helper16CameraParameters17PIXEL_FORMAT_JPEGE
+  58502 _ZN7android8hardware6camera6common4V1_06helper16CameraParameters24KEY_JPEG_THUMBNAIL_WIDTHE
+  58675 _ZN7android8hardware6camera6common4V1_06helper16CameraParameters25KEY_JPEG_THUMBNAIL_HEIGHTE
+  58a18 _ZN7android8hardware6camera6common4V1_06helper16CameraParameters26KEY_JPEG_THUMBNAIL_QUALITYE
+  592ca _ZN7android8hardware6camera6common4V1_06helper16CameraParameters34KEY_SUPPORTED_JPEG_THUMBNAIL_SIZESE
+  5c392 libhwjpeg.so
+  5c39f libhwjsqz.so
+  62f38 [CAM(%d)][%s]-(%s[%d]):pipeId-%d thumbnailRect[%d %d] thumbnailQuality %d pictureRect[%d %d ]
+  63f7a m_updateJpegPartialResultShot
+  64336 [CAM(%d)][%s]-(%s[%d]):complete jpeg convert
+  6504a [CAM(%d)][%s]-(%s[%d]):jpegEncoder is NULL
+  65075 [CAM(%d)][%s]-(%s[%d]):m_jpegEncoder is NULL, Invalid function call
+  660c9 HWFC_JPEG_DST
+  6665b [CAM(%d)][%s]-(%s[%d]):[R%d F%d B%d]Failed to putBuffer for JPEG_SRC. ret %d
+  67e47 ExynosCameraFrameJpegReprocessingFactory
+  67e70 REPROCESSING_HWFC_JPEG_SRC
+  6881c [CAM(%d)][%s]-(%s[%d]):[SAMSUNG_HW_JQ] : JPEG Qtable is initiated
+  6a01e MCSC_CAPTURE_JPEG
+  6a12e PIPE_JPEG_REPROCESSING
+  6a308 [CAM(%d)][%s]-(%s[%d]):useJpegPipe = %d
+  6a7f5 [CAM(%d)][%s]-(%s[%d]):[SAMSUNG_HW_JQ]:Unknown format(%x)
+  6b180 ExynosCameraPPJPEG
+  6b1cb [CAM(%d)][%s]-(%s[%d]):Failed to setJpegInfo, pipeId %s buffer.index %d
+  6c327 [CAM(%d)][%s]-(%s[%d]):Jpeg output done, jpeg size(%d)
+  6c68d [CAM(%d)][%s]-(%s[%d]):You need to set V4L2_CID_HFLIP on jpegReprocessingFrameFactory
+  6c9b7 samsung.android.jpeg
+  6d713 [CAM(%d)][%s]-(%s[%d]):ANDROID_JPEG_AVAILABLE_THUMBNAIL_SIZES update failed(%d)
+  6e9a0 %s : jpeg Size is wrong!
+  6ef82 [CAM(%d)][%s]-(%s[%d]):ExynosJpegEncoderForCamera setQuality fail, ret(%d)
+  70170 [CAM(%d)][%s]-(%s[%d]):VendorJpegList is NULL
+  7077f ~ExynosCameraFrameJpegReprocessingFactory
+  71134 JPEG_INTERNAL_BUF
+  71af5 [CAM(%d)][%s]-(%s[%d]):JpegEncoder created
+  71d05 [CAM(%d)][%s]-(%s[%d]):m_jpegEnc.setQuality() fail
+  73e86 [CAM(%d)][%s]-(%s[%d]):m_jpegEnc.setThumbnailSize(%d, %d) fail
+  73ec5 [CAM(%d)][%s]-(%s[%d]):m_jpegEnc.setThumbnailQuality(%d) fail
+  74024 [CAM(%d)][%s]-(%s[%d]):Failed to set jpeg quality %d into %s, ret %d
+  74185 [CAM(%d)][%s]-(%s[%d]):wait JPEG pipe inputFrameQ
+  76849 [CAM(%d)][%s]-(%s[%d]):ANDROID_JPEG_GPS_TIMESTAMP(%ju)
+  78260 [CAM(%d)][%s]-(%s[%d]):m_jpegEnc.setOutBuf() fail
+  784d6 ExynosCameraPipeJpeg
+  79174 [CAM(%d)][%s]-(%s[%d]):[R%d F%d] getStreamBuffer fail. streamId HAL_STREAM_ID_JPEG
+  7a699 [CAM(%d)][%s]-(%s[%d]):Invalid jpegColorFormat(%d)!
+  7a75a [CAM(%d)][%s]-(%s[%d]):m_jpegEnc.encode() fail
+  7a995 [CAM(%d)][%s]-(%s[%d]):[SAMSUNG_HW_JQ]:Set JPEG Q-table
+  7a9cd [CAM(%d)][%s]-(%s[%d]):[SAMSUNG_HW_JQ]:m_node[nodeType]->setQuality(qtable[]) fail
+  7b05c [CAM(%d)][%s]-(%s[%d]):ANDROID_JPEG_THUMBNAIL_QUALITY(%d)
+  7b5b5 [CAM(%d)][%s]-(%s[%d]):Set JPEG result Done. streamId %d, frameCount %d
+  7bc18 [CAM(%d)][%s]-(%s[%d]):request %d outputBuffer-Index %zu buffer-StreamType(HAL_STREAM_ID_JPEG)
+  7bd02 [CAM(%d)][%s]-(%s[%d]):Invalid JPEG buffer state. frameCount %d bufferState %d
+  7bec6 [CAM(%d)][%s]-(%s[%d]):[BokehCapture] convert Master LLS NV21 frame from LiveFocusLLS to Jpeg
+  7ca14 [CAM(%d)][%s]-(%s[%d]):ExynosJpegEncoderForCamera setColorFormat fail, ret(%d)
+  7cca1 [CAM(%d)][%s]-(%s[%d]):[SAMSUNG_HW_JQ]:Get JPEG Q-table
+  7d65a [CAM(%d)][%s]-(%s[%d]):ANDROID_JPEG_SIZE update failed(%d)
+  7e1bd [CAM(%d)][%s]-(%s[%d]):Wide Jpeg buffer is invalid!!
+  7eea8 [CAM(%d)][%s]-(%s[%d]):m_jpegEnc.setInBuf() fail
+  7f7d4 [CAM(%d)][%s]-(%s[%d]):ANDROID_JPEG_ORIENTATION(%d)
+  7f808 [CAM(%d)][%s]-(%s[%d]):ANDROID_JPEG_QUALITY(%d)
+  7fc30 m_sendJpegStreamResult
+  7fd8f [CAM(%d)][%s]-(%s[%d]):Failed to setThumbnailQuality. quality %d
+  811b3 [CAM(%d)][%s]-(%s[%d]):jpegNode->getInternalModule failed
+  81449 [CAM(%d)][%s]-(%s[%d]):[R%d F%d T%d] JPEG pipe inputFrameQ output done. srcFormat: %c%c%c%c, jpegFormat: %c%c%c%c
+  8231c PIPE_JPEG
+  825f1 JPEG_STREAM_BUF
+  82984 m_handleJpegFrame
+  82ac5 [CAM(%d)][%s]-(%s[%d]):[SAMSUNG_HW_JQ]:Wrong input size (%dx%d)
+  83176 [CAM(%d)][%s]-(%s[%d]):ExynosJpegEncoderForCamera create fail, ret(%d)
+  831bd [CAM(%d)][%s]-(%s[%d]):Quality (%d)
+  831e1 [CAM(%d)][%s]-(%s[%d]):ExynosJpegEncoderForCamera setThumbnailQuality fail, ret(%d)
+  85fa6 [CAM(%d)][%s]-(%s[%d]):SAMSUNG_ANDROID_JPEG_AVAILABLE_THUMBNAIL_SIZES update failed(%d)
+  86191 [CAM(%d)][%s]-(%s[%d]):Failed to getStream from StreamMgr. streamId HAL_STREAM_ID_JPEG
+  869fc JPEG_STREAM_CLONE_BUF
+  86ee6 [CAM(%d)][%s]-(%s[%d]):Change SlaveJpeg to FirstSlaveJpeg
+  86f20 m_jpegSqueezerThreadFunc
+  87132 setJpegQtableStatus
+  87700 [CAM(%d)][%s]-(%s[%d]):ExynosJpegEncoderForCamera encode fail. ret(%d)
+  878fa PIPE_HWFC_JPEG_SRC_REPROCESSING
+  8799e [CAM(%d)][%s]-(%s[%d]):Failed to setQuality %d into %s, ret %d
+  881a0 [CAM(%d)][%s]-(%s[%d]):SAMSUNG_ANDROID_JPEG_AVAILABLE_THUMBNAIL_SIZES is NULL
+  88d64 [CAM(%d)][%s]-(%s[%d]):getDstBuffer fail, pipeId(%d), jpegBuffer.index(%d), ret(%d)
+  890b2 [CAM(%d)][%s]-(%s[%d]):[SAMSUNG_HW_JQ] : JPEG Qtable is denitiated
+  8a738 JPEG_SQUEEZER_THREAD_START
+  8aff0 [CAM(%d)][%s]-(%s[%d]):JPEG stop fail, ret(%d)
+  8b052 [CAM(%d)][%s]-(%s[%d]):[R%d][%s Stream] PREVIEW(%d), VIDEO(%d), CB(%d), CB_PHYSICAL(%d), CB_CPY(%d), ZSL_OUTPUT(%d), DEPTHMAP(%d), RAW(%d), ZSL_INPUT(%d), JPEG(%d), CB_STALL(%d), DEPTHMAP_STALL(%d), THUMBNAIL_CB(%d)
+  8b502 [CAM(%d)][%s]-(%s[%d]):ERR(%s[%d]):Invalid JPEG buffer state. frameCount %d bufferState %d
+  8b93f [CAM(%d)][%s]-(%s[%d]):[SAMSUNG_HW_JQ] : JPEG Qtable is retrieved
+  8bff2 [CAM(%d)][%s]-(%s[%d]):ExynosJpegEncoderForCamera setInBuffer fail, ret(%d)
+  8c03e [CAM(%d)][%s]-(%s[%d]):ExynosJpegEncoderForCamera setOutBuffer fail. ret(%d)
+  8d20b ExynosCameraFrameJpegReprocessingFactorySec
+  8db19 [CAM(%d)][%s]-(%s[%d]):[SAMSUNG_HW_JQ] : Unsupported status
+  8dcd9 %s : exif or debug or jpeg Size is wrong!
+  8e321 [CAM(%d)][%s]-(%s[%d]):setQuality(qtable[])
+  8f8c9 [CAM(%d)][%s]-(%s[%d]):Failed to create JPEG_INTERNAL_BUF. ret %d
+  9197a [CAM(%d)][%s]-(%s[%d]):m_allocBuffers(JPEG_INTERNAL_BUF Buffer) %d x %d,                    planeSize(%d), planeCount(%d), maxBufferCount(%d)
+  9364e [CAM(%d)][%s]-(%s[%d]):Create buffer manager(JPEG_CLONE)
+  94705 setQuality
+  95e45 m_checkPipeJpegRequest
+  95eb0 [CAM(%d)][%s]-(%s[%d]):requestKey %d buffer-StreamType(HAL_STREAM_ID_JPEG), YuvStallPortUsage()(%d)
+  96141 [CAM(%d)][%s]-(%s[%d]):Failed to setHwYuvSize for JPEG stream. size %dx%d outputPortId %d slave_idx %d
+  97efd m_jpegSqueezerThread
+  9829b [CAM(%d)][%s]-(%s[%d]):Failed to create JPEG_STREAM_BUF. ret %d
+  98a0b %s: start! exif(%04x), debug(%04x), jpeg(%04x)
+  995f9 [CAM(%d)][%s]-(%s[%d]):[SAMSUNG_HW_JQ]:m_jpegEnc.setQuality(qtable[]) fail
+  99e6d [CAM(%d)][%s]-(%s[%d]):[R%d F%d] createResultRequest fail. streamId HAL_STREAM_ID_JPEG
+  99f31 m_updateJpegControlInfo
+  99fce [CAM(%d)][%s]-(%s[%d]):pictureFormat 0x%x, JPEG_INPUT_COLOR_FMT 0x%x
+  9a1f2 HWFC_JPEG_SRC
+  9a51a [CAM(%d)][%s]-(%s[%d]):Failed to m_updateJpegPartialResultShot
+  9a772 [CAM(%d)][%s]-(%s[%d]):slaveJpegBufferAddr(%p), slaveJpegBufferSize(%d)
+  9b226 [CAM(%d)][%s]-(%s[%d]):Failed to JPEG Encoding. bufferIndex %d jpegSize %ld
+  9b75b [CAM(%d)][%s]-(%s[%d]): Waiting for update jpeg metadata failed (%d) 
+  9be70 m_createJpegAvailableThumbnailSizes
+  9c6a3 [CAM(%d)][%s]-(%s[%d]):Failed to checkPictureSize for JPEG stream. size %dx%d
+  9c889 [CAM(%d)][%s]-(%s[%d]):[F%d B%d]Failed to putBuffer for MCSC_JPEG_REP. ret %d
+  9c8d7 [CAM(%d)][%s]-(%s[%d]):waiting m_slaveJpegDoneQ
+  9cee1 setJpegStartAddr
+  9d647 [CAM(%d)][%s]-(%s[%d]):ExynosJpegEncoderForCamera setThumbnailSize fail, ret(%d)
+  9d736 [CAM(%d)][%s]-(%s[%d]):m_jpegEnc.create() fail
+  9d765 [CAM(%d)][%s]-(%s[%d]):m_jpegEnc.setJpegFormat() fail
+  9de81 [CAM(%d)][%s]-(%s[%d]):ANDROID_JPEG_MAX_SIZE update failed(%d)
+  9df63 [CAM(%d)][%s]-(%s[%d]):ANDROID_JPEG_THUMBNAIL_SIZE(%d, %d)
+  9e2d6 [CAM(%d)][%s]-(%s[%d]):[R%d F%d] getCaptureResult fail. streamId HAL_STREAM_ID_JPEG
+  9f8cb ExynosCameraNodeJpegHAL
+  a04d7 [CAM(%d)][%s]-(%s[%d]):Failed to getStream from ExynosCameraStream. streamId HAL_STREAM_ID_JPEG
+  a22ea translateJpegControlData
+  a2986 [CAM(%d)][%s]-(%s[%d]):Failed to setJpegQuality. quality %d
+  a2fb9 [CAM(%d)][%s]-(%s[%d]):Failed to alloc JPEG_STREAM_BUF. ret %d
+  a3136 [CAM(%d)][%s]-(%s[%d]):Failed to handleJpegFrame. pipeId %d ret %d
+  a336b [CAM(%d)][%s]-(%s[%d]):[SAMSUNG_HW_JQ]:Jpeg Squeezer buffer queue is not filled(%d)
+  a38dd checkJpegData
+  a597e [CAM(%d)][%s]-(%s[%d]):HAL_STREAM_ID_JPEG
+  a5c37 [CAM(%d)][%s]-(%s[%d]):Failed to add JPEG_INTERNAL_BUF. ret %d
+  a5cf2 [CAM(%d)][%s]-(%s[%d]):[SAMSUNG_HW_JQ]:Jpeg Squeezer instance is NULL
+  a6731 [CAM(%d)][%s]-(%s[%d]):JpegHAL Node(%d) opened
+  a688e m_setJpegInfo
+  a6a3d [CAM(%d)][%s]-(%s[%d]):[jpegBuf.fd[0] %d][jpegBuf.size[0] + jpegBuf.size[1] + jpegBuf.size[2] %d]
+  a7043 JPEG_SQUEEZER_THREAD_END
+  a793e REPROCESSING_HWFC_JPEG_DST
+  a7b8c [CAM(%d)][%s]-(%s[%d]):Create buffer manager(JPEG)
+  a8354 %s : this data is not Jpeg Data(%x)
+  a8e44 jpeg-thumbnail-width
+  a8e59 jpeg-thumbnail-height
+  a8e6f jpeg-thumbnail-size-values
+  a8e8a jpeg-thumbnail-quality
+  a8ea1 jpeg-quality
+  a93cf jpeg

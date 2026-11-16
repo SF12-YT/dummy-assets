@@ -1,0 +1,621 @@
+===== libhwjsqz.so relevant exported/imported symbols =====
+analysis/target-libhwjsqz-defined-symbols.txt:00003013 T ExynosJsqz::getResultQT(unsigned char*)
+analysis/target-libhwjsqz-defined-symbols.txt:00002f71 T ExynosJsqz::getResultQT(unsigned int*)
+analysis/target-libhwjsqz-defined-symbols.txt:00002eb5 T ExynosJsqz::setImageInfo(int, int, int, hwJSQZ_input_cs_format)
+analysis/target-libhwjsqz-defined-symbols.txt:00002f3d T ExynosJsqz::setJsqzConfig(hwJSQZ_processing_function, hwJSQZ_processing_mode)
+analysis/target-libhwjsqz-defined-symbols.txt:00003045 T ExynosJsqz::run()
+analysis/target-libhwjsqz-defined-symbols.txt:00002e7d T ExynosJsqz::create()
+analysis/target-libhwjsqz-defined-symbols.txt:00002e39 T ExynosJsqz::destroy()
+analysis/target-libhwjsqz-defined-symbols.txt:00002ea9 T ExynosJsqz::setInBuf(char*, unsigned int)
+analysis/target-libhwjsqz-defined-symbols.txt:00002e8d T ExynosJsqz::setInBuf(int*, unsigned int*, int)
+analysis/target-libhwjsqz-defined-symbols.txt:00002e81 T ExynosJsqz::setInBuf(int, unsigned int)
+analysis/target-libhwjsqz-defined-symbols.txt:00002ded T ExynosJsqz::ExynosJsqz()
+analysis/target-libhwjsqz-defined-symbols.txt:00002ded T ExynosJsqz::ExynosJsqz()
+analysis/target-libhwjsqz-defined-symbols.txt:00002e45 T ExynosJsqz::~ExynosJsqz()
+analysis/target-libhwjsqz-defined-symbols.txt:00002e05 T ExynosJsqz::~ExynosJsqz()
+analysis/target-libhwjsqz-defined-symbols.txt:00002e05 T ExynosJsqz::~ExynosJsqz()
+analysis/target-libhwjsqz-defined-symbols.txt:00003d91 T ExynosMsqz::submeanDQP(signed char const*, int, int, signed char*)
+analysis/target-libhwjsqz-defined-symbols.txt:0000380d T ExynosMsqz::getFrameDqp()
+analysis/target-libhwjsqz-defined-symbols.txt:000033b1 T ExynosMsqz::setVideoInfo(int, int, int, int, int, bool)
+analysis/target-libhwjsqz-defined-symbols.txt:000035f1 T ExynosMsqz::setDcTuneValue(int, int, int)
+analysis/target-libhwjsqz-defined-symbols.txt:0000336f T ExynosMsqz::releaseMemories()
+analysis/target-libhwjsqz-defined-symbols.txt:00003669 T ExynosMsqz::setDqpTuneValue(int, int)
+analysis/target-libhwjsqz-defined-symbols.txt:00003631 T ExynosMsqz::setAlphaTuneValue(int, int)
+analysis/target-libhwjsqz-defined-symbols.txt:00004245 T ExynosMsqz::transformDQP_8B_OPT7(unsigned int, int, int, signed char const*, signed char, signed char*)
+analysis/target-libhwjsqz-defined-symbols.txt:00003819 T ExynosMsqz::run(int, int, float, int)
+analysis/target-libhwjsqz-defined-symbols.txt:0000336b T ExynosMsqz::create()
+analysis/target-libhwjsqz-defined-symbols.txt:00003301 T ExynosMsqz::destroy()
+analysis/target-libhwjsqz-defined-symbols.txt:000044f1 T ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)
+analysis/target-libhwjsqz-defined-symbols.txt:000036ad T ExynosMsqz::setInBuf(unsigned char*, unsigned int)
+analysis/target-libhwjsqz-defined-symbols.txt:000036a1 T ExynosMsqz::setInBuf(int, unsigned int)
+analysis/target-libhwjsqz-defined-symbols.txt:000037d9 T ExynosMsqz::setOutBuf(signed char*, unsigned int)
+analysis/target-libhwjsqz-defined-symbols.txt:00003745 T ExynosMsqz::setOutBuf(int, unsigned int)
+analysis/target-libhwjsqz-defined-symbols.txt:00003259 T ExynosMsqz::ExynosMsqz()
+analysis/target-libhwjsqz-defined-symbols.txt:00003259 T ExynosMsqz::ExynosMsqz()
+analysis/target-libhwjsqz-defined-symbols.txt:0000335d T ExynosMsqz::~ExynosMsqz()
+analysis/target-libhwjsqz-defined-symbols.txt:00003291 T ExynosMsqz::~ExynosMsqz()
+analysis/target-libhwjsqz-defined-symbols.txt:00003291 T ExynosMsqz::~ExynosMsqz()
+analysis/target-libhwjsqz-defined-symbols.txt:000054dd T ExynosSqzBase::getBufType(hwSQZ_buffer*)
+analysis/target-libhwjsqz-defined-symbols.txt:00005265 T ExynosSqzBase::execute_msqz()
+analysis/target-libhwjsqz-defined-symbols.txt:00004efd T ExynosSqzBase::getJsqzConfig()
+analysis/target-libhwjsqz-defined-symbols.txt:00004e21 T ExynosSqzBase::create()
+analysis/target-libhwjsqz-defined-symbols.txt:000050e5 T ExynosSqzBase::setBuf(hwSQZ_buffer*, char*, unsigned int)
+analysis/target-libhwjsqz-defined-symbols.txt:00004fcd T ExynosSqzBase::setBuf(hwSQZ_buffer*, int*, unsigned int*, int)
+analysis/target-libhwjsqz-defined-symbols.txt:00004f35 T ExynosSqzBase::setBuf(hwSQZ_buffer*, int, unsigned int)
+analysis/target-libhwjsqz-defined-symbols.txt:00004e81 T ExynosSqzBase::destroy()
+analysis/target-libhwjsqz-defined-symbols.txt:0000517d T ExynosSqzBase::execute()
+analysis/target-libhwjsqz-defined-symbols.txt:00004e7d T ExynosSqzBase::openJsqz()
+analysis/target-libhwjsqz-defined-symbols.txt:00005429 T ExynosSqzBase::openNode()
+analysis/target-libhwjsqz-defined-symbols.txt:00004f29 T ExynosSqzBase::resetBuf(hwSQZ_buffer*)
+analysis/target-libhwjsqz-defined-symbols.txt:00005491 T ExynosSqzBase::closeNode()
+analysis/target-libhwjsqz-defined-symbols.txt:00004db5 T ExynosSqzBase::ExynosSqzBase()
+analysis/target-libhwjsqz-defined-symbols.txt:00004db5 T ExynosSqzBase::ExynosSqzBase()
+analysis/target-libhwjsqz-defined-symbols.txt:00004e1d T ExynosSqzBase::~ExynosSqzBase()
+analysis/target-libhwjsqz-defined-symbols.txt:00004e0d T ExynosSqzBase::~ExynosSqzBase()
+analysis/target-libhwjsqz-defined-symbols.txt:00004e0d T ExynosSqzBase::~ExynosSqzBase()
+analysis/target-libhwjsqz-defined-symbols.txt:000068a4 V typeinfo for std::exception
+analysis/target-libhwjsqz-defined-symbols.txt:00001d8d V typeinfo name for std::exception
+analysis/target-libhwjsqz-defined-symbols.txt:00006884 D vtable for ExynosJsqz
+analysis/target-libhwjsqz-defined-symbols.txt:00006894 D vtable for ExynosMsqz
+analysis/target-libhwjsqz-defined-symbols.txt:000068ac D vtable for ExynosSqzBase
+analysis/target-libhwjsqz-defined-symbols.txt:00003049 T c_run_jsqz
+analysis/target-libhwjsqz-defined-symbols.txt:0000541d T destroyJsqzHal
+analysis/target-libhwjsqz-defined-symbols.txt:00005321 T instantiateJsqzHal
+analysis/target-libhwjsqz-undefined-symbols.txt:         U exynos_ion_alloc
+analysis/target-libhwjsqz-undefined-symbols.txt:         U exynos_ion_close
+analysis/target-libhwjsqz-undefined-symbols.txt:         U exynos_ion_open
+analysis/target-libhwjsqz-undefined-symbols.txt:         U ioctl@LIBC
+analysis/target-libhwjsqz-undefined-symbols.txt:         U mmap@LIBC
+analysis/target-libhwjsqz-undefined-symbols.txt:         U open@LIBC
+
+===== libexynoscamera3.so relevant exported/imported symbols =====
+analysis/target-libexynoscamera3-defined-symbols.txt:00186dd1 T SecAppMarker::checkJpegData()
+analysis/target-libexynoscamera3-defined-symbols.txt:00186cf1 T SecAppMarker::setJpegStartAddr(char*, unsigned int)
+analysis/target-libexynoscamera3-defined-symbols.txt:000cd6d9 T ExynosCameraPPJPEG::m_draw(ExynosCameraImage*, ExynosCameraImage*, android::ExynosCameraParameters*)
+analysis/target-libexynoscamera3-defined-symbols.txt:000cdbd1 T ExynosCameraPPJPEG::m_init()
+analysis/target-libexynoscamera3-defined-symbols.txt:000cd6b1 T ExynosCameraPPJPEG::~ExynosCameraPPJPEG()
+analysis/target-libexynoscamera3-defined-symbols.txt:000cd68d T ExynosCameraPPJPEG::~ExynosCameraPPJPEG()
+analysis/target-libexynoscamera3-defined-symbols.txt:000cd68d T ExynosCameraPPJPEG::~ExynosCameraPPJPEG()
+analysis/target-libexynoscamera3-defined-symbols.txt:0016338d T android::ExynosCamera::m_handleJpegFrame(android::sp<android::ExynosCameraFrame>, int)
+analysis/target-libexynoscamera3-defined-symbols.txt:0014d981 T android::ExynosCamera::m_checkPipeJpegRequest(android::frame_handle_components_t*, bool, int, int)
+analysis/target-libexynoscamera3-defined-symbols.txt:00115fa5 T android::ExynosCamera::m_sendJpegStreamResult(android::sp<android::ExynosCameraRequest>, android::ExynosCameraBuffer*, int)
+analysis/target-libexynoscamera3-defined-symbols.txt:00118bd9 T android::ExynosCamera::m_updateJpegControlInfo(camera2_shot_ext const*)
+analysis/target-libexynoscamera3-defined-symbols.txt:00136dad T android::ExynosCamera::m_jpegSqueezerThreadFunc()
+analysis/target-libexynoscamera3-defined-symbols.txt:00150295 T android::ExynosCamera::m_updateJpegPartialResultShot(android::sp<android::ExynosCameraRequest>, camera2_shot_ext*, android::ExynosCameraParameters*)
+analysis/target-libexynoscamera3-defined-symbols.txt:000aee89 T android::ExynosCameraFrame::getJpegSize()
+analysis/target-libexynoscamera3-defined-symbols.txt:000aee7d T android::ExynosCameraFrame::setJpegSize(int)
+analysis/target-libexynoscamera3-defined-symbols.txt:000b6da9 T android::getJPEGMaxBPPSize()
+analysis/target-libexynoscamera3-defined-symbols.txt:000d60bd T android::ExynosCameraMCPipe::m_setJpegInfo(int, android::sp<android::ExynosCameraFrame>)
+analysis/target-libexynoscamera3-defined-symbols.txt:000dd1c5 T android::ExynosCameraPipeJpeg::stop()
+analysis/target-libexynoscamera3-defined-symbols.txt:000dd265 T android::ExynosCameraPipeJpeg::m_run()
+analysis/target-libexynoscamera3-defined-symbols.txt:000ddd83 T android::ExynosCameraPipeJpeg::m_init()
+analysis/target-libexynoscamera3-defined-symbols.txt:000dd227 T android::ExynosCameraPipeJpeg::m_destroy()
+analysis/target-libexynoscamera3-defined-symbols.txt:000bc291 T android::ExynosCameraNodeJpegHAL::clrBuffers()
+analysis/target-libexynoscamera3-defined-symbols.txt:000bc2c5 T android::ExynosCameraNodeJpegHAL::getControl(unsigned int, int*)
+analysis/target-libexynoscamera3-defined-symbols.txt:000bc289 T android::ExynosCameraNodeJpegHAL::reqBuffers()
+analysis/target-libexynoscamera3-defined-symbols.txt:000bc2bd T android::ExynosCameraNodeJpegHAL::setControl(unsigned int, int)
+analysis/target-libexynoscamera3-defined-symbols.txt:000bbff1 T android::ExynosCameraNodeJpegHAL::setQuality(unsigned char const*)
+analysis/target-libexynoscamera3-defined-symbols.txt:000bbe6d T android::ExynosCameraNodeJpegHAL::setQuality(int)
+analysis/target-libexynoscamera3-defined-symbols.txt:000bc315 T android::ExynosCameraNodeJpegHAL::setExifInfo(exif_attribute_t*)
+analysis/target-libexynoscamera3-defined-symbols.txt:000bc345 T android::ExynosCameraNodeJpegHAL::setDebugInfo(debug_attribute_t*)
+analysis/target-libexynoscamera3-defined-symbols.txt:000bc423 T android::ExynosCameraNodeJpegHAL::prepareBuffer(android::ExynosCameraBuffer*)
+analysis/target-libexynoscamera3-defined-symbols.txt:000bbc99 T android::ExynosCameraNodeJpegHAL::setColorFormat(int, int, YUV_RANGE, camera_pixel_size)
+analysis/target-libexynoscamera3-defined-symbols.txt:000bc2b5 T android::ExynosCameraNodeJpegHAL::reqBuffersCount()
+analysis/target-libexynoscamera3-defined-symbols.txt:000bbc6d T android::ExynosCameraNodeJpegHAL::getInternalModule(void**)
+analysis/target-libexynoscamera3-defined-symbols.txt:000bc719 T android::ExynosCameraNodeJpegHAL::dump()
+analysis/target-libexynoscamera3-defined-symbols.txt:000bb8b1 T android::ExynosCameraNodeJpegHAL::open(int)
+analysis/target-libexynoscamera3-defined-symbols.txt:000bb911 T android::ExynosCameraNodeJpegHAL::open(int, int)
+analysis/target-libexynoscamera3-defined-symbols.txt:000bc41b T android::ExynosCameraNodeJpegHAL::stop()
+analysis/target-libexynoscamera3-defined-symbols.txt:000bbad5 T android::ExynosCameraNodeJpegHAL::close()
+analysis/target-libexynoscamera3-defined-symbols.txt:000bc413 T android::ExynosCameraNodeJpegHAL::start()
+analysis/target-libexynoscamera3-defined-symbols.txt:000bb7b1 T android::ExynosCameraNodeJpegHAL::create(char const*, int, android::EXYNOS_CAMERA_NODE_LOCATION, void*)
+analysis/target-libexynoscamera3-defined-symbols.txt:000bc2cd T android::ExynosCameraNodeJpegHAL::polling()
+analysis/target-libexynoscamera3-defined-symbols.txt:000bc30d T android::ExynosCameraNodeJpegHAL::setCrop(v4l2_buf_type, int, int, int, int)
+analysis/target-libexynoscamera3-defined-symbols.txt:000bc125 T android::ExynosCameraNodeJpegHAL::setSize(int, int)
+analysis/target-libexynoscamera3-defined-symbols.txt:000bc2d5 T android::ExynosCameraNodeJpegHAL::setInput(int)
+analysis/target-libexynoscamera3-defined-symbols.txt:000bc93d T android::ExynosCameraNodeJpegHAL::dumpQueue()
+analysis/target-libexynoscamera3-defined-symbols.txt:000bc751 T android::ExynosCameraNodeJpegHAL::dumpState()
+analysis/target-libexynoscamera3-defined-symbols.txt:000bc649 T android::ExynosCameraNodeJpegHAL::getBuffer(android::ExynosCameraBuffer*, int*)
+analysis/target-libexynoscamera3-defined-symbols.txt:000bc42d T android::ExynosCameraNodeJpegHAL::putBuffer(android::ExynosCameraBuffer*)
+analysis/target-libexynoscamera3-defined-symbols.txt:000bc305 T android::ExynosCameraNodeJpegHAL::setFormat(unsigned int*)
+analysis/target-libexynoscamera3-defined-symbols.txt:000bc2fd T android::ExynosCameraNodeJpegHAL::setFormat()
+analysis/target-libexynoscamera3-defined-symbols.txt:000bb459 T android::ExynosCameraNodeJpegHAL::ExynosCameraNodeJpegHAL()
+analysis/target-libexynoscamera3-defined-symbols.txt:000bb1d7 T android::ExynosCameraNodeJpegHAL::ExynosCameraNodeJpegHAL()
+analysis/target-libexynoscamera3-defined-symbols.txt:000bb771 T android::ExynosCameraNodeJpegHAL::~ExynosCameraNodeJpegHAL()
+analysis/target-libexynoscamera3-defined-symbols.txt:000bb709 T android::ExynosCameraNodeJpegHAL::~ExynosCameraNodeJpegHAL()
+analysis/target-libexynoscamera3-defined-symbols.txt:000bb6e5 T android::ExynosCameraNodeJpegHAL::~ExynosCameraNodeJpegHAL()
+analysis/target-libexynoscamera3-defined-symbols.txt:001748f5 T android::ExynosCameraConfigurations::getJpegQtable(unsigned char*)
+analysis/target-libexynoscamera3-defined-symbols.txt:001748e7 T android::ExynosCameraConfigurations::setJpegQtable(unsigned char*)
+analysis/target-libexynoscamera3-defined-symbols.txt:00174807 T android::ExynosCameraConfigurations::getJpegQtableOn()
+analysis/target-libexynoscamera3-defined-symbols.txt:00174801 T android::ExynosCameraConfigurations::setJpegQtableOn(bool)
+analysis/target-libexynoscamera3-defined-symbols.txt:001748e1 T android::ExynosCameraConfigurations::getJpegQtableStatus()
+analysis/target-libexynoscamera3-defined-symbols.txt:0017480d T android::ExynosCameraConfigurations::setJpegQtableStatus(int)
+analysis/target-libexynoscamera3-defined-symbols.txt:00174907 T android::ExynosCameraConfigurations::checkJpegSqueezerEnable(bool)
+analysis/target-libexynoscamera3-defined-symbols.txt:000ff841 T android::ExynosCameraMetadataConverter::translateJpegMetaData(android::sp<android::ExynosCameraRequest>, android::hardware::camera::common::V1_0::helper::CameraMetadata*, camera2_shot_ext*)
+analysis/target-libexynoscamera3-defined-symbols.txt:000fd489 T android::ExynosCameraMetadataConverter::translateJpegControlData(android::hardware::camera::common::V1_0::helper::CameraMetadata*, camera2_shot_ext*, android::hardware::camera::common::V1_0::helper::CameraMetadata*)
+analysis/target-libexynoscamera3-defined-symbols.txt:0010b5b9 T android::ExynosCameraMetadataConverter::translateVendorJpegMetaData(android::sp<android::ExynosCameraRequest>, android::hardware::camera::common::V1_0::helper::CameraMetadata*)
+analysis/target-libexynoscamera3-defined-symbols.txt:000faf41 T android::ExynosCameraMetadataConverter::m_createJpegAvailableThumbnailSizes(android::ExynosCameraSensorInfoBase const*, android::Vector<int>*)
+analysis/target-libexynoscamera3-defined-symbols.txt:00130ae5 T android::ExynosCameraFrameJpegReprocessingFactory::startPipes()
+analysis/target-libexynoscamera3-defined-symbols.txt:0013454d T android::ExynosCameraFrameJpegReprocessingFactory::getScenario(int)
+analysis/target-libexynoscamera3-defined-symbols.txt:00130f99 T android::ExynosCameraFrameJpegReprocessingFactory::setStopFlag()
+analysis/target-libexynoscamera3-defined-symbols.txt:00130ae1 T android::ExynosCameraFrameJpegReprocessingFactory::preparePipes()
+analysis/target-libexynoscamera3-defined-symbols.txt:00134515 T android::ExynosCameraFrameJpegReprocessingFactory::stopScenario(int, bool)
+analysis/target-libexynoscamera3-defined-symbols.txt:001332e5 T android::ExynosCameraFrameJpegReprocessingFactory::m_setupConfig()
+analysis/target-libexynoscamera3-defined-symbols.txt:001344dd T android::ExynosCameraFrameJpegReprocessingFactory::startScenario(int)
+analysis/target-libexynoscamera3-defined-symbols.txt:00132f85 T android::ExynosCameraFrameJpegReprocessingFactory::createNewFrame(unsigned int, bool)
+analysis/target-libexynoscamera3-defined-symbols.txt:001344a5 T android::ExynosCameraFrameJpegReprocessingFactory::connectScenario(int, int)
+analysis/target-libexynoscamera3-defined-symbols.txt:00133f49 T android::ExynosCameraFrameJpegReprocessingFactory::m_constructPipes()
+analysis/target-libexynoscamera3-defined-symbols.txt:0013102d T android::ExynosCameraFrameJpegReprocessingFactory::m_fillNodeGroupInfo(android::sp<android::ExynosCameraFrame>)
+analysis/target-libexynoscamera3-defined-symbols.txt:001342e9 T android::ExynosCameraFrameJpegReprocessingFactory::m_initFrameMetadata(android::sp<android::ExynosCameraFrame>)
+analysis/target-libexynoscamera3-defined-symbols.txt:00130f61 T android::ExynosCameraFrameJpegReprocessingFactory::startInitialThreads()
+analysis/target-libexynoscamera3-defined-symbols.txt:0012fd09 T android::ExynosCameraFrameJpegReprocessingFactory::create()
+analysis/target-libexynoscamera3-defined-symbols.txt:00131339 T android::ExynosCameraFrameJpegReprocessingFactory::m_init()
+analysis/target-libexynoscamera3-defined-symbols.txt:0012fddd T android::ExynosCameraFrameJpegReprocessingFactory::initPipes()
+analysis/target-libexynoscamera3-defined-symbols.txt:00130c41 T android::ExynosCameraFrameJpegReprocessingFactory::stopPipes()
+analysis/target-libexynoscamera3-defined-symbols.txt:0012fcf9 T android::ExynosCameraFrameJpegReprocessingFactory::~ExynosCameraFrameJpegReprocessingFactory()
+analysis/target-libexynoscamera3-defined-symbols.txt:0012fc89 T android::ExynosCameraFrameJpegReprocessingFactory::~ExynosCameraFrameJpegReprocessingFactory()
+analysis/target-libexynoscamera3-defined-symbols.txt:0012fc89 T android::ExynosCameraFrameJpegReprocessingFactory::~ExynosCameraFrameJpegReprocessingFactory()
+analysis/target-libexynoscamera3-defined-symbols.txt:000a8ea1 R android::hardware::camera::common::V1_0::helper::CameraParameters::KEY_JPEG_QUALITY
+analysis/target-libexynoscamera3-defined-symbols.txt:000a93cf R android::hardware::camera::common::V1_0::helper::CameraParameters::PIXEL_FORMAT_JPEG
+analysis/target-libexynoscamera3-defined-symbols.txt:000a8e44 R android::hardware::camera::common::V1_0::helper::CameraParameters::KEY_JPEG_THUMBNAIL_WIDTH
+analysis/target-libexynoscamera3-defined-symbols.txt:000a8e59 R android::hardware::camera::common::V1_0::helper::CameraParameters::KEY_JPEG_THUMBNAIL_HEIGHT
+analysis/target-libexynoscamera3-defined-symbols.txt:000a8e8a R android::hardware::camera::common::V1_0::helper::CameraParameters::KEY_JPEG_THUMBNAIL_QUALITY
+analysis/target-libexynoscamera3-defined-symbols.txt:000a8e6f R android::hardware::camera::common::V1_0::helper::CameraParameters::KEY_SUPPORTED_JPEG_THUMBNAIL_SIZES
+analysis/target-libexynoscamera3-defined-symbols.txt:0019cef4 D VTT for android::ExynosCameraPipeJpeg
+analysis/target-libexynoscamera3-defined-symbols.txt:0019bb34 D VTT for android::ExynosCameraNodeJpegHAL
+analysis/target-libexynoscamera3-defined-symbols.txt:0019bd7c D vtable for ExynosCameraPPJPEG
+analysis/target-libexynoscamera3-defined-symbols.txt:0019cba8 D vtable for android::ExynosCameraPipeJpeg
+analysis/target-libexynoscamera3-defined-symbols.txt:0019b8f8 D vtable for android::ExynosCameraNodeJpegHAL
+analysis/target-libexynoscamera3-defined-symbols.txt:0019edb8 D vtable for android::ExynosCameraFrameJpegReprocessingFactory
+analysis/target-libexynoscamera3-defined-symbols.txt:000bc28d T virtual thunk to android::ExynosCameraNodeJpegHAL::reqBuffers()
+analysis/target-libexynoscamera3-defined-symbols.txt:000bc29f T virtual thunk to android::ExynosCameraNodeJpegHAL::clrBuffers()
+analysis/target-libexynoscamera3-defined-symbols.txt:000bc2b9 T virtual thunk to android::ExynosCameraNodeJpegHAL::reqBuffersCount()
+analysis/target-libexynoscamera3-defined-symbols.txt:000bc2c1 T virtual thunk to android::ExynosCameraNodeJpegHAL::setControl(unsigned int, int)
+analysis/target-libexynoscamera3-defined-symbols.txt:000bc2c9 T virtual thunk to android::ExynosCameraNodeJpegHAL::getControl(unsigned int, int*)
+analysis/target-libexynoscamera3-defined-symbols.txt:000bb7a5 T virtual thunk to android::ExynosCameraNodeJpegHAL::~ExynosCameraNodeJpegHAL()
+analysis/target-libexynoscamera3-defined-symbols.txt:000bb739 T virtual thunk to android::ExynosCameraNodeJpegHAL::~ExynosCameraNodeJpegHAL()
+analysis/target-libexynoscamera3-defined-symbols.txt:000bc2d1 T virtual thunk to android::ExynosCameraNodeJpegHAL::polling()
+analysis/target-libexynoscamera3-defined-symbols.txt:000bc2e5 T virtual thunk to android::ExynosCameraNodeJpegHAL::setInput(int)
+analysis/target-libexynoscamera3-defined-symbols.txt:000bc311 T virtual thunk to android::ExynosCameraNodeJpegHAL::setCrop(v4l2_buf_type, int, int, int, int)
+analysis/target-libexynoscamera3-defined-symbols.txt:000bc301 T virtual thunk to android::ExynosCameraNodeJpegHAL::setFormat()
+analysis/target-libexynoscamera3-defined-symbols.txt:000bc309 T virtual thunk to android::ExynosCameraNodeJpegHAL::setFormat(unsigned int*)
+analysis/target-libexynoscamera3-defined-symbols.txt:000bc32d T virtual thunk to android::ExynosCameraNodeJpegHAL::setExifInfo(exif_attribute_t*)
+analysis/target-libexynoscamera3-defined-symbols.txt:000bc401 T virtual thunk to android::ExynosCameraNodeJpegHAL::setDebugInfo(debug_attribute_t*)
+analysis/target-libexynoscamera3-defined-symbols.txt:000bc417 T virtual thunk to android::ExynosCameraNodeJpegHAL::start()
+analysis/target-libexynoscamera3-defined-symbols.txt:000bc41f T virtual thunk to android::ExynosCameraNodeJpegHAL::stop()
+analysis/target-libexynoscamera3-defined-symbols.txt:000bc427 T virtual thunk to android::ExynosCameraNodeJpegHAL::prepareBuffer(android::ExynosCameraBuffer*)
+analysis/target-libexynoscamera3-defined-symbols.txt:000bc63d T virtual thunk to android::ExynosCameraNodeJpegHAL::putBuffer(android::ExynosCameraBuffer*)
+analysis/target-libexynoscamera3-defined-symbols.txt:000bc70d T virtual thunk to android::ExynosCameraNodeJpegHAL::getBuffer(android::ExynosCameraBuffer*, int*)
+analysis/target-libexynoscamera3-defined-symbols.txt:000bc731 T virtual thunk to android::ExynosCameraNodeJpegHAL::dump()
+analysis/target-libexynoscamera3-defined-symbols.txt:000bc931 T virtual thunk to android::ExynosCameraNodeJpegHAL::dumpState()
+analysis/target-libexynoscamera3-defined-symbols.txt:000bc93f T virtual thunk to android::ExynosCameraNodeJpegHAL::dumpQueue()
+analysis/target-libexynoscamera3-defined-symbols.txt:000bb8a1 T virtual thunk to android::ExynosCameraNodeJpegHAL::create(char const*, int, android::EXYNOS_CAMERA_NODE_LOCATION, void*)
+analysis/target-libexynoscamera3-defined-symbols.txt:000dd24b T virtual thunk to android::ExynosCameraPipeJpeg::m_destroy()
+analysis/target-libexynoscamera3-defined-symbols.txt:000ddd71 T virtual thunk to android::ExynosCameraPipeJpeg::m_run()
+analysis/target-libexynoscamera3-defined-symbols.txt:000bb905 T virtual thunk to android::ExynosCameraNodeJpegHAL::open(int)
+analysis/target-libexynoscamera3-defined-symbols.txt:000bbac9 T virtual thunk to android::ExynosCameraNodeJpegHAL::open(int, int)
+analysis/target-libexynoscamera3-defined-symbols.txt:000bbc61 T virtual thunk to android::ExynosCameraNodeJpegHAL::close()
+analysis/target-libexynoscamera3-defined-symbols.txt:000dd215 T virtual thunk to android::ExynosCameraPipeJpeg::stop()
+analysis/target-libexynoscamera3-defined-symbols.txt:000bbc7f T virtual thunk to android::ExynosCameraNodeJpegHAL::getInternalModule(void**)
+analysis/target-libexynoscamera3-defined-symbols.txt:000bbe59 T virtual thunk to android::ExynosCameraNodeJpegHAL::setColorFormat(int, int, YUV_RANGE, camera_pixel_size)
+analysis/target-libexynoscamera3-defined-symbols.txt:000bbfe5 T virtual thunk to android::ExynosCameraNodeJpegHAL::setQuality(int)
+analysis/target-libexynoscamera3-defined-symbols.txt:000bc119 T virtual thunk to android::ExynosCameraNodeJpegHAL::setQuality(unsigned char const*)
+analysis/target-libexynoscamera3-defined-symbols.txt:000bc27d T virtual thunk to android::ExynosCameraNodeJpegHAL::setSize(int, int)
+analysis/target-libexynoscamera3-undefined-symbols.txt:         U ExynosJsqz::getResultQT(unsigned char*)
+analysis/target-libexynoscamera3-undefined-symbols.txt:         U ExynosJsqz::setImageInfo(int, int, int, hwJSQZ_input_cs_format)
+analysis/target-libexynoscamera3-undefined-symbols.txt:         U ExynosJsqz::setJsqzConfig(hwJSQZ_processing_function, hwJSQZ_processing_mode)
+analysis/target-libexynoscamera3-undefined-symbols.txt:         U ExynosJsqz::run()
+analysis/target-libexynoscamera3-undefined-symbols.txt:         U ExynosJsqz::create()
+analysis/target-libexynoscamera3-undefined-symbols.txt:         U ExynosJsqz::destroy()
+analysis/target-libexynoscamera3-undefined-symbols.txt:         U ExynosJsqz::setInBuf(int*, unsigned int*, int)
+analysis/target-libexynoscamera3-undefined-symbols.txt:         U ExynosJsqz::ExynosJsqz()
+analysis/target-libexynoscamera3-undefined-symbols.txt:         U CHWJpegBase::SetAuxFlags(unsigned int)
+analysis/target-libexynoscamera3-undefined-symbols.txt:         U ExynosJpegEncoder::setQuality(unsigned char const*)
+analysis/target-libexynoscamera3-undefined-symbols.txt:         U ExynosJpegEncoder::setJpegFormat(int)
+analysis/target-libexynoscamera3-undefined-symbols.txt:         U ExynosJpegEncoder::setInBuf(int*, int*)
+analysis/target-libexynoscamera3-undefined-symbols.txt:         U ExynosJpegEncoder::setOutBuf(int, int, int)
+analysis/target-libexynoscamera3-undefined-symbols.txt:         U CHWJpegV4L2Compressor::SetQuality(unsigned int, unsigned int)
+analysis/target-libexynoscamera3-undefined-symbols.txt:         U ExynosJpegEncoderForCamera::setThumbnailSize(int, int)
+analysis/target-libexynoscamera3-undefined-symbols.txt:         U ExynosJpegEncoderForCamera::WaitForCompression()
+analysis/target-libexynoscamera3-undefined-symbols.txt:         U ExynosJpegEncoderForCamera::setThumbnailQuality(int)
+analysis/target-libexynoscamera3-undefined-symbols.txt:         U ExynosJpegEncoderForCamera::encode(int*, exif_attribute_t*, int, char**, debug_attribute_t*)
+analysis/target-libexynoscamera3-undefined-symbols.txt:         U ExynosJpegEncoderForCamera::destroy()
+analysis/target-libexynoscamera3-undefined-symbols.txt:         U ExynosJpegEncoderForCamera::setInBuf2(int*, int*)
+analysis/target-libexynoscamera3-undefined-symbols.txt:         U ExynosJpegEncoderForCamera::ExynosJpegEncoderForCamera(bool, unsigned int)
+analysis/target-libexynoscamera3-undefined-symbols.txt:         U ExynosJpegEncoderForCamera::~ExynosJpegEncoderForCamera()
+
+===== Camera HAL relevant strings =====
+  198d4 _ZN7android17ExynosCameraFrame11getJpegSizeEv
+  19a66 _ZN7android17ExynosCameraFrame11setJpegSizeEi
+  2036e _ZN7android17getJPEGMaxBPPSizeEv
+  21983 _ZN7android16ExynosCameraNode10setQualityEPKh
+  219b1 _ZN7android16ExynosCameraNode10setQualityEi
+  22a9b _ZN11CHWJpegBase11SetAuxFlagsEj
+  22abb _ZN17ExynosJpegEncoder10setQualityEPKh
+  22ae2 _ZN17ExynosJpegEncoder13setJpegFormatEi
+  22b0a _ZN17ExynosJpegEncoder8setInBufEPiS0_
+  22b30 _ZN17ExynosJpegEncoder9setOutBufEiii
+  22b55 _ZN21CHWJpegV4L2Compressor10SetQualityEjj
+  22b7f _ZN26ExynosJpegEncoderForCamera16setThumbnailSizeEii
+  22bb4 _ZN26ExynosJpegEncoderForCamera18WaitForCompressionEv
+  22bea _ZN26ExynosJpegEncoderForCamera19setThumbnailQualityEi
+  22c21 _ZN26ExynosJpegEncoderForCamera6encodeEPiP16exif_attribute_tiPPcP17debug_attribute_t
+  22c76 _ZN26ExynosJpegEncoderForCamera9setInBuf2EPiS0_
+  22ca6 _ZN26ExynosJpegEncoderForCameraC1Ebj
+  22ce4 _ZN7android23ExynosCameraNodeJpegHAL10clrBuffersEv
+  22d17 _ZN7android23ExynosCameraNodeJpegHAL10getControlEjPi
+  22d4c _ZN7android23ExynosCameraNodeJpegHAL10reqBuffersEv
+  22d7f _ZN7android23ExynosCameraNodeJpegHAL10setControlEji
+  22db3 _ZN7android23ExynosCameraNodeJpegHAL10setQualityEPKh
+  22de8 _ZN7android23ExynosCameraNodeJpegHAL10setQualityEi
+  22e1b _ZN7android23ExynosCameraNodeJpegHAL11setExifInfoEP16exif_attribute_t
+  22e61 _ZN7android23ExynosCameraNodeJpegHAL12setDebugInfoEP17debug_attribute_t
+  22ea9 _ZN7android23ExynosCameraNodeJpegHAL13prepareBufferEPNS_18ExynosCameraBufferE
+  22ef7 _ZN7android23ExynosCameraNodeJpegHAL14setColorFormatEii9YUV_RANGE17camera_pixel_size
+  22f4c _ZN7android23ExynosCameraNodeJpegHAL15reqBuffersCountEv
+  22f84 _ZN7android23ExynosCameraNodeJpegHAL17getInternalModuleEPPv
+  22fc0 _ZN7android23ExynosCameraNodeJpegHAL4dumpEv
+  22fec _ZN7android23ExynosCameraNodeJpegHAL4openEi
+  23018 _ZN7android23ExynosCameraNodeJpegHAL4openEii
+  23045 _ZN7android23ExynosCameraNodeJpegHAL4stopEv
+  23071 _ZN7android23ExynosCameraNodeJpegHAL5closeEv
+  2309e _ZN7android23ExynosCameraNodeJpegHAL5startEv
+  230cb _ZN7android23ExynosCameraNodeJpegHAL6createEPKciNS_27EXYNOS_CAMERA_NODE_LOCATIONEPv
+  2311f _ZN7android23ExynosCameraNodeJpegHAL7pollingEv
+  2314e _ZN7android23ExynosCameraNodeJpegHAL7setCropE13v4l2_buf_typeiiii
+  2318f _ZN7android23ExynosCameraNodeJpegHAL7setSizeEii
+  231bf _ZN7android23ExynosCameraNodeJpegHAL8setInputEi
+  231ef _ZN7android23ExynosCameraNodeJpegHAL9dumpQueueEv
+  23220 _ZN7android23ExynosCameraNodeJpegHAL9dumpStateEv
+  23251 _ZN7android23ExynosCameraNodeJpegHAL9getBufferEPNS_18ExynosCameraBufferEPi
+  2329c _ZN7android23ExynosCameraNodeJpegHAL9putBufferEPNS_18ExynosCameraBufferE
+  232e5 _ZN7android23ExynosCameraNodeJpegHAL9setFormatEPj
+  23317 _ZN7android23ExynosCameraNodeJpegHAL9setFormatEv
+  23348 _ZN7android23ExynosCameraNodeJpegHALC1Ev
+  23371 _ZN7android23ExynosCameraNodeJpegHALC2Ev
+  2339a _ZN7android23ExynosCameraNodeJpegHALD0Ev
+  233c3 _ZN7android23ExynosCameraNodeJpegHALD1Ev
+  233ec _ZN7android23ExynosCameraNodeJpegHALD2Ev
+  23415 _ZTTN7android23ExynosCameraNodeJpegHALE
+  2343d _ZTVN7android23ExynosCameraNodeJpegHALE
+  23465 _ZTv0_n112_N7android23ExynosCameraNodeJpegHAL10reqBuffersEv
+  234a1 _ZTv0_n116_N7android23ExynosCameraNodeJpegHAL10clrBuffersEv
+  234dd _ZTv0_n120_N7android23ExynosCameraNodeJpegHAL15reqBuffersCountEv
+  2351e _ZTv0_n124_N7android23ExynosCameraNodeJpegHAL10setControlEji
+  2355b _ZTv0_n128_N7android23ExynosCameraNodeJpegHAL10getControlEjPi
+  23599 _ZTv0_n12_N7android23ExynosCameraNodeJpegHALD0Ev
+  235ca _ZTv0_n12_N7android23ExynosCameraNodeJpegHALD1Ev
+  235fb _ZTv0_n136_N7android23ExynosCameraNodeJpegHAL7pollingEv
+  23633 _ZTv0_n140_N7android23ExynosCameraNodeJpegHAL8setInputEi
+  2366c _ZTv0_n152_N7android23ExynosCameraNodeJpegHAL7setCropE13v4l2_buf_typeiiii
+  236b6 _ZTv0_n156_N7android23ExynosCameraNodeJpegHAL9setFormatEv
+  236f0 _ZTv0_n160_N7android23ExynosCameraNodeJpegHAL9setFormatEPj
+  2372b _ZTv0_n164_N7android23ExynosCameraNodeJpegHAL11setExifInfoEP16exif_attribute_t
+  2377a _ZTv0_n168_N7android23ExynosCameraNodeJpegHAL12setDebugInfoEP17debug_attribute_t
+  237cb _ZTv0_n172_N7android23ExynosCameraNodeJpegHAL5startEv
+  23801 _ZTv0_n176_N7android23ExynosCameraNodeJpegHAL4stopEv
+  23836 _ZTv0_n188_N7android23ExynosCameraNodeJpegHAL13prepareBufferEPNS_18ExynosCameraBufferE
+  2388d _ZTv0_n192_N7android23ExynosCameraNodeJpegHAL9putBufferEPNS_18ExynosCameraBufferE
+  238df _ZTv0_n200_N7android23ExynosCameraNodeJpegHAL9getBufferEPNS_18ExynosCameraBufferEPi
+  23933 _ZTv0_n204_N7android23ExynosCameraNodeJpegHAL4dumpEv
+  23968 _ZTv0_n208_N7android23ExynosCameraNodeJpegHAL9dumpStateEv
+  239a2 _ZTv0_n212_N7android23ExynosCameraNodeJpegHAL9dumpQueueEv
+  239dc _ZTv0_n36_N7android23ExynosCameraNodeJpegHAL6createEPKciNS_27EXYNOS_CAMERA_NODE_LOCATIONEPv
+  23a38 _ZTv0_n44_N7android23ExynosCameraNodeJpegHAL4openEi
+  23a6c _ZTv0_n48_N7android23ExynosCameraNodeJpegHAL4openEii
+  23aa1 _ZTv0_n52_N7android23ExynosCameraNodeJpegHAL5closeEv
+  23ad6 _ZTv0_n64_N7android23ExynosCameraNodeJpegHAL17getInternalModuleEPPv
+  23b1a _ZTv0_n72_N7android23ExynosCameraNodeJpegHAL14setColorFormatEii9YUV_RANGE17camera_pixel_size
+  23b77 _ZTv0_n80_N7android23ExynosCameraNodeJpegHAL10setQualityEi
+  23bb2 _ZTv0_n84_N7android23ExynosCameraNodeJpegHAL10setQualityEPKh
+  23bef _ZTv0_n88_N7android23ExynosCameraNodeJpegHAL7setSizeEii
+  26f10 _ZN18ExynosCameraPPJPEG6m_drawEP17ExynosCameraImageS1_PN7android22ExynosCameraParametersE
+  26f6a _ZN18ExynosCameraPPJPEG6m_initEv
+  26f8b _ZN18ExynosCameraPPJPEGD0Ev
+  26fa7 _ZN18ExynosCameraPPJPEGD1Ev
+  26fc3 _ZN18ExynosCameraPPJPEGD2Ev
+  26fdf _ZN26ExynosJpegEncoderForCameraD1Ev
+  270f7 _ZTV18ExynosCameraPPJPEG
+  280fe _ZN7android18ExynosCameraMCPipe13m_setJpegInfoEiNS_2spINS_17ExynosCameraFrameEEE
+  29a6e _ZN7android26ExynosCameraConfigurations13getJpegQtableEPh
+  29aa8 _ZN7android26ExynosCameraConfigurations15getJpegQtableOnEv
+  29b1f _ZN7android26ExynosCameraConfigurations19getJpegQtableStatusEv
+  29b5e _ZN7android26ExynosCameraConfigurations19setJpegQtableStatusEi
+  2b85d _ZN26ExynosJpegEncoderForCamera7destroyEv
+  2b887 _ZN7android20ExynosCameraPipeJpeg4stopEv
+  2b8b0 _ZN7android20ExynosCameraPipeJpeg5m_runEv
+  2b8da _ZN7android20ExynosCameraPipeJpeg6m_initEv
+  2b905 _ZN7android20ExynosCameraPipeJpeg9m_destroyEv
+  2b97c _ZTTN7android20ExynosCameraPipeJpegE
+  2b9a1 _ZTVN7android20ExynosCameraPipeJpegE
+  2b9c6 _ZTv0_n404_N7android20ExynosCameraPipeJpeg9m_destroyEv
+  2b9fd _ZTv0_n408_N7android20ExynosCameraPipeJpeg5m_runEv
+  2ba30 _ZTv0_n60_N7android20ExynosCameraPipeJpeg4stopEv
+  39f4b _ZN7android29ExynosCameraMetadataConverter21translateJpegMetaDataENS_2spINS_19ExynosCameraRequestEEEPNS_8hardware6camera6common4V1_06helper14CameraMetadataEP16camera2_shot_ext
+  3a6f7 _ZN7android29ExynosCameraMetadataConverter24translateJpegControlDataEPNS_8hardware6camera6common4V1_06helper14CameraMetadataEP16camera2_shot_extS7_
+  3b61b _ZN7android29ExynosCameraMetadataConverter27translateVendorJpegMetaDataENS_2spINS_19ExynosCameraRequestEEEPNS_8hardware6camera6common4V1_06helper14CameraMetadataE
+  3c73a _ZN7android29ExynosCameraMetadataConverter35m_createJpegAvailableThumbnailSizesEPKNS_26ExynosCameraSensorInfoBaseEPNS_6VectorIiEE
+  41e9e _ZN7android12ExynosCamera22m_sendJpegStreamResultENS_2spINS_19ExynosCameraRequestEEEPNS_18ExynosCameraBufferEi
+  422c0 _ZN7android12ExynosCamera23m_updateJpegControlInfoEPK16camera2_shot_ext
+  489b1 _ZN7android40ExynosCameraFrameJpegReprocessingFactory10startPipesEv
+  489f5 _ZN7android40ExynosCameraFrameJpegReprocessingFactory11getScenarioEi
+  48a3a _ZN7android40ExynosCameraFrameJpegReprocessingFactory11setStopFlagEv
+  48a7f _ZN7android40ExynosCameraFrameJpegReprocessingFactory12preparePipesEv
+  48ac5 _ZN7android40ExynosCameraFrameJpegReprocessingFactory12stopScenarioEib
+  48b0c _ZN7android40ExynosCameraFrameJpegReprocessingFactory13m_setupConfigEv
+  48b53 _ZN7android40ExynosCameraFrameJpegReprocessingFactory13startScenarioEi
+  48b9a _ZN7android40ExynosCameraFrameJpegReprocessingFactory14createNewFrameEjb
+  48be3 _ZN7android40ExynosCameraFrameJpegReprocessingFactory15connectScenarioEii
+  48c2d _ZN7android40ExynosCameraFrameJpegReprocessingFactory16m_constructPipesEv
+  48c77 _ZN7android40ExynosCameraFrameJpegReprocessingFactory19m_fillNodeGroupInfoENS_2spINS_17ExynosCameraFrameEEE
+  48ce3 _ZN7android40ExynosCameraFrameJpegReprocessingFactory19m_initFrameMetadataENS_2spINS_17ExynosCameraFrameEEE
+  48d4f _ZN7android40ExynosCameraFrameJpegReprocessingFactory19startInitialThreadsEv
+  48d9c _ZN7android40ExynosCameraFrameJpegReprocessingFactory6createEv
+  48ddb _ZN7android40ExynosCameraFrameJpegReprocessingFactory6m_initEv
+  48e1a _ZN7android40ExynosCameraFrameJpegReprocessingFactory9initPipesEv
+  48e5c _ZN7android40ExynosCameraFrameJpegReprocessingFactory9stopPipesEv
+  48e9e _ZN7android40ExynosCameraFrameJpegReprocessingFactoryD0Ev
+  48ed8 _ZN7android40ExynosCameraFrameJpegReprocessingFactoryD1Ev
+  48f12 _ZN7android40ExynosCameraFrameJpegReprocessingFactoryD2Ev
+  48f4c _ZTVN7android40ExynosCameraFrameJpegReprocessingFactoryE
+  490fc _ZN10ExynosJsqz11getResultQTEPh
+  4911c _ZN10ExynosJsqz12setImageInfoEiii22hwJSQZ_input_cs_format
+  49156 _ZN10ExynosJsqz13setJsqzConfigE26hwJSQZ_processing_function22hwJSQZ_processing_mode
+  491aa _ZN10ExynosJsqz3runEv
+  491c0 _ZN10ExynosJsqz6createEv
+  491d9 _ZN10ExynosJsqz7destroyEv
+  491f3 _ZN10ExynosJsqz8setInBufEPiPji
+  49212 _ZN10ExynosJsqzC1Ev
+  49a7e _ZN7android12ExynosCamera17m_handleJpegFrameENS_2spINS_17ExynosCameraFrameEEEi
+  4ab24 _ZN7android12ExynosCamera22m_checkPipeJpegRequestEPNS_25frame_handle_components_tEbii
+  4b15e _ZN7android12ExynosCamera24m_jpegSqueezerThreadFuncEv
+  4bde9 _ZN7android12ExynosCamera29m_updateJpegPartialResultShotENS_2spINS_19ExynosCameraRequestEEEP16camera2_shot_extPNS_22ExynosCameraParametersE
+  4de13 _ZN7android26ExynosCameraConfigurations13setJpegQtableEPh
+  4dfcd _ZN7android26ExynosCameraConfigurations15setJpegQtableOnEb
+  4e596 _ZN7android26ExynosCameraConfigurations23checkJpegSqueezerEnableEb
+  52c1d _ZN12SecAppMarker13checkJpegDataEv
+  52d28 _ZN12SecAppMarker16setJpegStartAddrEPcj
+  57246 _ZN7android8hardware6camera6common4V1_06helper16CameraParameters16KEY_JPEG_QUALITYE
+  576e9 _ZN7android8hardware6camera6common4V1_06helper16CameraParameters17PIXEL_FORMAT_JPEGE
+  58502 _ZN7android8hardware6camera6common4V1_06helper16CameraParameters24KEY_JPEG_THUMBNAIL_WIDTHE
+  58675 _ZN7android8hardware6camera6common4V1_06helper16CameraParameters25KEY_JPEG_THUMBNAIL_HEIGHTE
+  58a18 _ZN7android8hardware6camera6common4V1_06helper16CameraParameters26KEY_JPEG_THUMBNAIL_QUALITYE
+  592ca _ZN7android8hardware6camera6common4V1_06helper16CameraParameters34KEY_SUPPORTED_JPEG_THUMBNAIL_SIZESE
+  5c392 libhwjpeg.so
+  5c39f libhwjsqz.so
+  62f38 [CAM(%d)][%s]-(%s[%d]):pipeId-%d thumbnailRect[%d %d] thumbnailQuality %d pictureRect[%d %d ]
+  63f7a m_updateJpegPartialResultShot
+  64336 [CAM(%d)][%s]-(%s[%d]):complete jpeg convert
+  6504a [CAM(%d)][%s]-(%s[%d]):jpegEncoder is NULL
+  65075 [CAM(%d)][%s]-(%s[%d]):m_jpegEncoder is NULL, Invalid function call
+  660c9 HWFC_JPEG_DST
+  6665b [CAM(%d)][%s]-(%s[%d]):[R%d F%d B%d]Failed to putBuffer for JPEG_SRC. ret %d
+  67e47 ExynosCameraFrameJpegReprocessingFactory
+  67e70 REPROCESSING_HWFC_JPEG_SRC
+  6881c [CAM(%d)][%s]-(%s[%d]):[SAMSUNG_HW_JQ] : JPEG Qtable is initiated
+  6a01e MCSC_CAPTURE_JPEG
+  6a12e PIPE_JPEG_REPROCESSING
+  6a308 [CAM(%d)][%s]-(%s[%d]):useJpegPipe = %d
+  6a7f5 [CAM(%d)][%s]-(%s[%d]):[SAMSUNG_HW_JQ]:Unknown format(%x)
+  6b180 ExynosCameraPPJPEG
+  6b1cb [CAM(%d)][%s]-(%s[%d]):Failed to setJpegInfo, pipeId %s buffer.index %d
+  6c327 [CAM(%d)][%s]-(%s[%d]):Jpeg output done, jpeg size(%d)
+  6c68d [CAM(%d)][%s]-(%s[%d]):You need to set V4L2_CID_HFLIP on jpegReprocessingFrameFactory
+  6c9b7 samsung.android.jpeg
+  6d713 [CAM(%d)][%s]-(%s[%d]):ANDROID_JPEG_AVAILABLE_THUMBNAIL_SIZES update failed(%d)
+  6e9a0 %s : jpeg Size is wrong!
+  6ef82 [CAM(%d)][%s]-(%s[%d]):ExynosJpegEncoderForCamera setQuality fail, ret(%d)
+  70170 [CAM(%d)][%s]-(%s[%d]):VendorJpegList is NULL
+  7077f ~ExynosCameraFrameJpegReprocessingFactory
+  71134 JPEG_INTERNAL_BUF
+  71af5 [CAM(%d)][%s]-(%s[%d]):JpegEncoder created
+  71d05 [CAM(%d)][%s]-(%s[%d]):m_jpegEnc.setQuality() fail
+  73e86 [CAM(%d)][%s]-(%s[%d]):m_jpegEnc.setThumbnailSize(%d, %d) fail
+  73ec5 [CAM(%d)][%s]-(%s[%d]):m_jpegEnc.setThumbnailQuality(%d) fail
+  74024 [CAM(%d)][%s]-(%s[%d]):Failed to set jpeg quality %d into %s, ret %d
+  74185 [CAM(%d)][%s]-(%s[%d]):wait JPEG pipe inputFrameQ
+  76849 [CAM(%d)][%s]-(%s[%d]):ANDROID_JPEG_GPS_TIMESTAMP(%ju)
+  78260 [CAM(%d)][%s]-(%s[%d]):m_jpegEnc.setOutBuf() fail
+  784d6 ExynosCameraPipeJpeg
+  79174 [CAM(%d)][%s]-(%s[%d]):[R%d F%d] getStreamBuffer fail. streamId HAL_STREAM_ID_JPEG
+  7a699 [CAM(%d)][%s]-(%s[%d]):Invalid jpegColorFormat(%d)!
+  7a75a [CAM(%d)][%s]-(%s[%d]):m_jpegEnc.encode() fail
+  7a995 [CAM(%d)][%s]-(%s[%d]):[SAMSUNG_HW_JQ]:Set JPEG Q-table
+  7a9cd [CAM(%d)][%s]-(%s[%d]):[SAMSUNG_HW_JQ]:m_node[nodeType]->setQuality(qtable[]) fail
+  7b05c [CAM(%d)][%s]-(%s[%d]):ANDROID_JPEG_THUMBNAIL_QUALITY(%d)
+  7b5b5 [CAM(%d)][%s]-(%s[%d]):Set JPEG result Done. streamId %d, frameCount %d
+  7bc18 [CAM(%d)][%s]-(%s[%d]):request %d outputBuffer-Index %zu buffer-StreamType(HAL_STREAM_ID_JPEG)
+  7bd02 [CAM(%d)][%s]-(%s[%d]):Invalid JPEG buffer state. frameCount %d bufferState %d
+  7bec6 [CAM(%d)][%s]-(%s[%d]):[BokehCapture] convert Master LLS NV21 frame from LiveFocusLLS to Jpeg
+  7ca14 [CAM(%d)][%s]-(%s[%d]):ExynosJpegEncoderForCamera setColorFormat fail, ret(%d)
+  7cca1 [CAM(%d)][%s]-(%s[%d]):[SAMSUNG_HW_JQ]:Get JPEG Q-table
+  7d65a [CAM(%d)][%s]-(%s[%d]):ANDROID_JPEG_SIZE update failed(%d)
+  7e1bd [CAM(%d)][%s]-(%s[%d]):Wide Jpeg buffer is invalid!!
+  7eea8 [CAM(%d)][%s]-(%s[%d]):m_jpegEnc.setInBuf() fail
+  7f7d4 [CAM(%d)][%s]-(%s[%d]):ANDROID_JPEG_ORIENTATION(%d)
+  7f808 [CAM(%d)][%s]-(%s[%d]):ANDROID_JPEG_QUALITY(%d)
+  7fc30 m_sendJpegStreamResult
+  7fd8f [CAM(%d)][%s]-(%s[%d]):Failed to setThumbnailQuality. quality %d
+  811b3 [CAM(%d)][%s]-(%s[%d]):jpegNode->getInternalModule failed
+  81449 [CAM(%d)][%s]-(%s[%d]):[R%d F%d T%d] JPEG pipe inputFrameQ output done. srcFormat: %c%c%c%c, jpegFormat: %c%c%c%c
+  8231c PIPE_JPEG
+  825f1 JPEG_STREAM_BUF
+  82984 m_handleJpegFrame
+  82ac5 [CAM(%d)][%s]-(%s[%d]):[SAMSUNG_HW_JQ]:Wrong input size (%dx%d)
+  83176 [CAM(%d)][%s]-(%s[%d]):ExynosJpegEncoderForCamera create fail, ret(%d)
+  831bd [CAM(%d)][%s]-(%s[%d]):Quality (%d)
+  831e1 [CAM(%d)][%s]-(%s[%d]):ExynosJpegEncoderForCamera setThumbnailQuality fail, ret(%d)
+  85fa6 [CAM(%d)][%s]-(%s[%d]):SAMSUNG_ANDROID_JPEG_AVAILABLE_THUMBNAIL_SIZES update failed(%d)
+  86191 [CAM(%d)][%s]-(%s[%d]):Failed to getStream from StreamMgr. streamId HAL_STREAM_ID_JPEG
+  869fc JPEG_STREAM_CLONE_BUF
+  86ee6 [CAM(%d)][%s]-(%s[%d]):Change SlaveJpeg to FirstSlaveJpeg
+  86f20 m_jpegSqueezerThreadFunc
+  87132 setJpegQtableStatus
+  87700 [CAM(%d)][%s]-(%s[%d]):ExynosJpegEncoderForCamera encode fail. ret(%d)
+  878fa PIPE_HWFC_JPEG_SRC_REPROCESSING
+  8799e [CAM(%d)][%s]-(%s[%d]):Failed to setQuality %d into %s, ret %d
+  881a0 [CAM(%d)][%s]-(%s[%d]):SAMSUNG_ANDROID_JPEG_AVAILABLE_THUMBNAIL_SIZES is NULL
+  88d64 [CAM(%d)][%s]-(%s[%d]):getDstBuffer fail, pipeId(%d), jpegBuffer.index(%d), ret(%d)
+  890b2 [CAM(%d)][%s]-(%s[%d]):[SAMSUNG_HW_JQ] : JPEG Qtable is denitiated
+  8a738 JPEG_SQUEEZER_THREAD_START
+  8aff0 [CAM(%d)][%s]-(%s[%d]):JPEG stop fail, ret(%d)
+  8b052 [CAM(%d)][%s]-(%s[%d]):[R%d][%s Stream] PREVIEW(%d), VIDEO(%d), CB(%d), CB_PHYSICAL(%d), CB_CPY(%d), ZSL_OUTPUT(%d), DEPTHMAP(%d), RAW(%d), ZSL_INPUT(%d), JPEG(%d), CB_STALL(%d), DEPTHMAP_STALL(%d), THUMBNAIL_CB(%d)
+  8b502 [CAM(%d)][%s]-(%s[%d]):ERR(%s[%d]):Invalid JPEG buffer state. frameCount %d bufferState %d
+  8b93f [CAM(%d)][%s]-(%s[%d]):[SAMSUNG_HW_JQ] : JPEG Qtable is retrieved
+  8bff2 [CAM(%d)][%s]-(%s[%d]):ExynosJpegEncoderForCamera setInBuffer fail, ret(%d)
+  8c03e [CAM(%d)][%s]-(%s[%d]):ExynosJpegEncoderForCamera setOutBuffer fail. ret(%d)
+  8d20b ExynosCameraFrameJpegReprocessingFactorySec
+  8db19 [CAM(%d)][%s]-(%s[%d]):[SAMSUNG_HW_JQ] : Unsupported status
+  8dcd9 %s : exif or debug or jpeg Size is wrong!
+  8e321 [CAM(%d)][%s]-(%s[%d]):setQuality(qtable[])
+  8f8c9 [CAM(%d)][%s]-(%s[%d]):Failed to create JPEG_INTERNAL_BUF. ret %d
+  9197a [CAM(%d)][%s]-(%s[%d]):m_allocBuffers(JPEG_INTERNAL_BUF Buffer) %d x %d,                    planeSize(%d), planeCount(%d), maxBufferCount(%d)
+  9364e [CAM(%d)][%s]-(%s[%d]):Create buffer manager(JPEG_CLONE)
+  94705 setQuality
+  95e45 m_checkPipeJpegRequest
+  95eb0 [CAM(%d)][%s]-(%s[%d]):requestKey %d buffer-StreamType(HAL_STREAM_ID_JPEG), YuvStallPortUsage()(%d)
+  96141 [CAM(%d)][%s]-(%s[%d]):Failed to setHwYuvSize for JPEG stream. size %dx%d outputPortId %d slave_idx %d
+  97efd m_jpegSqueezerThread
+  9829b [CAM(%d)][%s]-(%s[%d]):Failed to create JPEG_STREAM_BUF. ret %d
+  98a0b %s: start! exif(%04x), debug(%04x), jpeg(%04x)
+  995f9 [CAM(%d)][%s]-(%s[%d]):[SAMSUNG_HW_JQ]:m_jpegEnc.setQuality(qtable[]) fail
+  99e6d [CAM(%d)][%s]-(%s[%d]):[R%d F%d] createResultRequest fail. streamId HAL_STREAM_ID_JPEG
+  99f31 m_updateJpegControlInfo
+  99fce [CAM(%d)][%s]-(%s[%d]):pictureFormat 0x%x, JPEG_INPUT_COLOR_FMT 0x%x
+  9a1f2 HWFC_JPEG_SRC
+  9a51a [CAM(%d)][%s]-(%s[%d]):Failed to m_updateJpegPartialResultShot
+  9a772 [CAM(%d)][%s]-(%s[%d]):slaveJpegBufferAddr(%p), slaveJpegBufferSize(%d)
+  9b226 [CAM(%d)][%s]-(%s[%d]):Failed to JPEG Encoding. bufferIndex %d jpegSize %ld
+  9b75b [CAM(%d)][%s]-(%s[%d]): Waiting for update jpeg metadata failed (%d) 
+  9be70 m_createJpegAvailableThumbnailSizes
+  9c6a3 [CAM(%d)][%s]-(%s[%d]):Failed to checkPictureSize for JPEG stream. size %dx%d
+  9c889 [CAM(%d)][%s]-(%s[%d]):[F%d B%d]Failed to putBuffer for MCSC_JPEG_REP. ret %d
+  9c8d7 [CAM(%d)][%s]-(%s[%d]):waiting m_slaveJpegDoneQ
+  9cee1 setJpegStartAddr
+  9d647 [CAM(%d)][%s]-(%s[%d]):ExynosJpegEncoderForCamera setThumbnailSize fail, ret(%d)
+  9d736 [CAM(%d)][%s]-(%s[%d]):m_jpegEnc.create() fail
+  9d765 [CAM(%d)][%s]-(%s[%d]):m_jpegEnc.setJpegFormat() fail
+  9de81 [CAM(%d)][%s]-(%s[%d]):ANDROID_JPEG_MAX_SIZE update failed(%d)
+  9df63 [CAM(%d)][%s]-(%s[%d]):ANDROID_JPEG_THUMBNAIL_SIZE(%d, %d)
+  9e2d6 [CAM(%d)][%s]-(%s[%d]):[R%d F%d] getCaptureResult fail. streamId HAL_STREAM_ID_JPEG
+  9f8cb ExynosCameraNodeJpegHAL
+  a04d7 [CAM(%d)][%s]-(%s[%d]):Failed to getStream from ExynosCameraStream. streamId HAL_STREAM_ID_JPEG
+  a22ea translateJpegControlData
+  a2986 [CAM(%d)][%s]-(%s[%d]):Failed to setJpegQuality. quality %d
+  a2fb9 [CAM(%d)][%s]-(%s[%d]):Failed to alloc JPEG_STREAM_BUF. ret %d
+  a3136 [CAM(%d)][%s]-(%s[%d]):Failed to handleJpegFrame. pipeId %d ret %d
+  a336b [CAM(%d)][%s]-(%s[%d]):[SAMSUNG_HW_JQ]:Jpeg Squeezer buffer queue is not filled(%d)
+  a38dd checkJpegData
+  a597e [CAM(%d)][%s]-(%s[%d]):HAL_STREAM_ID_JPEG
+  a5c37 [CAM(%d)][%s]-(%s[%d]):Failed to add JPEG_INTERNAL_BUF. ret %d
+  a5cf2 [CAM(%d)][%s]-(%s[%d]):[SAMSUNG_HW_JQ]:Jpeg Squeezer instance is NULL
+  a6731 [CAM(%d)][%s]-(%s[%d]):JpegHAL Node(%d) opened
+  a688e m_setJpegInfo
+  a6a3d [CAM(%d)][%s]-(%s[%d]):[jpegBuf.fd[0] %d][jpegBuf.size[0] + jpegBuf.size[1] + jpegBuf.size[2] %d]
+  a7043 JPEG_SQUEEZER_THREAD_END
+  a793e REPROCESSING_HWFC_JPEG_DST
+  a7b8c [CAM(%d)][%s]-(%s[%d]):Create buffer manager(JPEG)
+  a8354 %s : this data is not Jpeg Data(%x)
+  a8e44 jpeg-thumbnail-width
+  a8e59 jpeg-thumbnail-height
+  a8e6f jpeg-thumbnail-size-values
+  a8e8a jpeg-thumbnail-quality
+  a8ea1 jpeg-quality
+  a93cf jpeg
+
+===== JSQZ library relevant strings =====
+    aaf _ZN10ExynosJsqz11getResultQTEPh
+    acf _ZN10ExynosJsqz11getResultQTEPj
+    aef _ZN10ExynosJsqz12setImageInfoEiii22hwJSQZ_input_cs_format
+    b29 _ZN10ExynosJsqz13setJsqzConfigE26hwJSQZ_processing_function22hwJSQZ_processing_mode
+    b7d _ZN10ExynosJsqz3runEv
+    b93 _ZN10ExynosJsqz6createEv
+    bac _ZN10ExynosJsqz7destroyEv
+    bc6 _ZN10ExynosJsqz8setInBufEPcj
+    be3 _ZN10ExynosJsqz8setInBufEPiPji
+    c02 _ZN10ExynosJsqz8setInBufEij
+    c1e _ZN10ExynosJsqzC1Ev
+    c32 _ZN10ExynosJsqzC2Ev
+    c46 _ZN10ExynosJsqzD0Ev
+    c5a _ZN10ExynosJsqzD1Ev
+    c6e _ZN10ExynosJsqzD2Ev
+    c82 _ZN13ExynosSqzBase6createEv
+    c9e _ZN13ExynosSqzBase6setBufEP12hwSQZ_bufferPcj
+    ccb _ZN13ExynosSqzBase6setBufEP12hwSQZ_bufferPiPji
+    cfa _ZN13ExynosSqzBase6setBufEP12hwSQZ_bufferij
+    d26 _ZN13ExynosSqzBase7destroyEv
+    d43 _ZN13ExynosSqzBase7executeEv
+    d60 _ZN13ExynosSqzBaseC2Ev
+    d77 _ZN13ExynosSqzBaseD2Ev
+    d9e _ZTV10ExynosJsqz
+    df7 c_run_jsqz
+    e02 destroyJsqzHal
+    e11 _ZN10ExynosMsqz10submeanDQPEPKaiiPa
+    e35 _ZN10ExynosMsqz11getFrameDqpEv
+    e54 _ZN10ExynosMsqz12setVideoInfoEiiiiib
+    e79 _ZN10ExynosMsqz14setDcTuneValueEiii
+    e9d _ZN10ExynosMsqz15releaseMemoriesEv
+    ec0 _ZN10ExynosMsqz15setDqpTuneValueEii
+    ee4 _ZN10ExynosMsqz17setAlphaTuneValueEii
+    f0a _ZN10ExynosMsqz20transformDQP_8B_OPT7EjiiPKaaPa
+    f3a _ZN10ExynosMsqz3runEiifi
+    f53 _ZN10ExynosMsqz6createEv
+    f6c _ZN10ExynosMsqz7destroyEv
+    f86 _ZN10ExynosMsqz8run_testEiifiP7__sFILES1_S1_S1_
+    fb6 _ZN10ExynosMsqz8setInBufEPhj
+    fd3 _ZN10ExynosMsqz8setInBufEij
+    fef _ZN10ExynosMsqz9setOutBufEPaj
+   100d _ZN10ExynosMsqz9setOutBufEij
+   102a _ZN10ExynosMsqzC1Ev
+   103e _ZN10ExynosMsqzC2Ev
+   1052 _ZN10ExynosMsqzD0Ev
+   1066 _ZN10ExynosMsqzD1Ev
+   107a _ZN10ExynosMsqzD2Ev
+   108e _ZN13ExynosSqzBase12execute_msqzEv
+   10b1 _ZTISt9exception
+   10c2 _ZTSSt9exception
+   10d3 _ZTV10ExynosMsqz
+   1151 exynos_ion_alloc
+   1162 exynos_ion_close
+   1173 exynos_ion_open
+   11a8 strerror
+   11b1 _ZN13ExynosSqzBase10getBufTypeEP12hwSQZ_buffer
+   11e0 _ZN13ExynosSqzBase13getJsqzConfigEv
+   1204 _ZN13ExynosSqzBase8openJsqzEv
+   1222 _ZN13ExynosSqzBase8openNodeEv
+   1240 _ZN13ExynosSqzBase8resetBufEP12hwSQZ_buffer
+   126c _ZN13ExynosSqzBase9closeNodeEv
+   128b _ZN13ExynosSqzBaseC1Ev
+   12a2 _ZN13ExynosSqzBaseD0Ev
+   12b9 _ZN13ExynosSqzBaseD1Ev
+   131d _ZNKSt3__121__basic_string_commonILb1EE20__throw_length_errorEv
+   135d _ZTV13ExynosSqzBase
+   1371 instantiateJsqzHal
+   13de libion_exynos.so
+   140e libhwjsqz.so
+   1814 jsqz instance is destroyed
+   1877 setJsqzConfig
+   1885 ~ExynosMsqz
+   18d8 [!!ERR!!] %s -> the device node could not be closed. Error %d, %s
+   191b execute_msqz
+   1928 getJsqzConfig
+   1945 [!!ERR!!] %s -> ion_open_fail
+   1965 [!!ERR!!] %s -> null dma fd!
+   1983 openNode
+   19d5 [!!ERR!!] %s -> there was an error while setting up the encoding process!
+   1afb jsqz
+   1b3e jsqz instance is created
+   1b58 Array Buffer size is small than ION buffer size
+   1bfd execute
+   1c36 jsqz_hal
+   1c3f [!!ERR!!] %s -> Failed to mmap at dqp_ip buffer err=%s
+   1c77 [!!ERR!!] %s -> MSQZ failed
+   1cca [!!ERR!!] %s -> std error
+   1cf4 [!!ERR!!] %s -> JSQZ device node (%s) opening failed with error %d: %s
+   1d3c c_run_jsqz
+   1d47 [!!ERR!!] %s -> hardware operation failed, %s, %d
+   1d7a instantiateJsqzHal
+   1d8d St9exception
+   1dca /dev/jsqz
+   4b54 .gnu.version_r
+   4b83 .gnu.version

@@ -1,0 +1,269 @@
+         U FRAME_SIZE
+         U HAL_PIXEL_FORMAT_2_V4L2_PIX
+         U V4L2_PIX_2_HAL_PIXEL_FORMAT
+         U UpdateExif(char*, unsigned int, exif_attribute_t*)
+         U uni_api_init()
+         U uni_api_deinit()
+         U UpdateDebugData(char*, unsigned int, debug_attribute_t*)
+         U uni_appMarker_flatten(char*, int)
+         U uni_appMarker_getSize(int)
+         U ExynosJsqz::getResultQT(unsigned char*)
+         U ExynosJsqz::setImageInfo(int, int, int, hwJSQZ_input_cs_format)
+         U ExynosJsqz::setJsqzConfig(hwJSQZ_processing_function, hwJSQZ_processing_mode)
+         U ExynosJsqz::run()
+         U ExynosJsqz::create()
+         U ExynosJsqz::destroy()
+         U ExynosJsqz::setInBuf(int*, unsigned int*, int)
+         U ExynosJsqz::ExynosJsqz()
+         U CHWJpegBase::SetAuxFlags(unsigned int)
+         U SecNativeFeature::getInstance()
+         U SecNativeFeature::getString(char const*)
+         U ExynosJpegEncoder::setQuality(unsigned char const*)
+         U ExynosJpegEncoder::setJpegFormat(int)
+         U ExynosJpegEncoder::setInBuf(int*, int*)
+         U ExynosJpegEncoder::setOutBuf(int, int, int)
+         U CHWJpegV4L2Compressor::SetQuality(unsigned int, unsigned int)
+         U ExynosJpegEncoderForCamera::setThumbnailSize(int, int)
+         U ExynosJpegEncoderForCamera::WaitForCompression()
+         U ExynosJpegEncoderForCamera::setThumbnailQuality(int)
+         U ExynosJpegEncoderForCamera::encode(int*, exif_attribute_t*, int, char**, debug_attribute_t*)
+         U ExynosJpegEncoderForCamera::destroy()
+         U ExynosJpegEncoderForCamera::setInBuf2(int*, int*)
+         U ExynosJpegEncoderForCamera::ExynosJpegEncoderForCamera(bool, unsigned int)
+         U ExynosJpegEncoderForCamera::~ExynosJpegEncoderForCamera()
+         U android::VectorImpl::appendArray(void const*, unsigned int)
+         U android::VectorImpl::setCapacity(unsigned int)
+         U android::VectorImpl::editArrayImpl()
+         U android::VectorImpl::finish_vector()
+         U android::VectorImpl::insertArrayAt(void const*, unsigned int, unsigned int)
+         U android::VectorImpl::add(void const*)
+         U android::VectorImpl::push(void const*)
+         U android::VectorImpl::clear()
+         U android::VectorImpl::resize(unsigned int)
+         U android::VectorImpl::VectorImpl(unsigned int, unsigned int)
+         U android::VectorImpl::~VectorImpl()
+         U android::GrallocWrapper::Mapper::Mapper()
+         U android::sp_report_race()
+         U android::SortedVectorImpl::add(void const*)
+         U android::SortedVectorImpl::remove(void const*)
+         U android::SortedVectorImpl::SortedVectorImpl(unsigned int, unsigned int)
+         U android::SortedVectorImpl::~SortedVectorImpl()
+         U android::SortedVectorImpl::operator=(android::SortedVectorImpl const&)
+         U android::sensor_listener_load()
+         U android::sensor_listener_unload(void**)
+         U android::sp_report_stack_pointer()
+         U android::sensor_listener_get_data(void*, int, android::SensorListenerEvent*, bool)
+         U android::sensor_listener_enable_sensor(void*, int, int)
+         U android::sensor_listener_disable_sensor(void*, int)
+         U android::Fence::wait(int)
+         U android::Fence::Fence(int)
+         U android::Thread::readyToRun()
+         U android::Thread::requestExit()
+         U android::Thread::requestExitAndWait()
+         U android::Thread::run(char const*, int, unsigned int)
+         U android::Thread::join()
+         U android::Thread::Thread(bool)
+         U android::Thread::~Thread()
+         U android::Thread::~Thread()
+         U android::Thread::~Thread()
+         U android::RefBase::onFirstRef()
+         U android::RefBase::weakref_type::attemptIncStrong(void const*)
+         U android::RefBase::weakref_type::decWeak(void const*)
+         U android::RefBase::weakref_type::incWeak(void const*)
+         U android::RefBase::onLastWeakRef(void const*)
+         U android::RefBase::onLastStrongRef(void const*)
+         U android::RefBase::onIncStrongAttempted(unsigned int, void const*)
+         U android::RefBase::RefBase()
+         U android::RefBase::~RefBase()
+         U android::String8::lockBuffer(unsigned int)
+         U android::String8::appendFormat(char const*, ...)
+         U android::String8::unlockBuffer(unsigned int)
+         U android::String8::appendFormatV(char const*, std::__va_list)
+         U android::String8::clear()
+         U android::String8::setTo(char const*)
+         U android::String8::setTo(android::String8 const&)
+         U android::String8::append(char const*)
+         U android::String8::append(android::String8 const&)
+         U android::String8::format(char const*, ...)
+         U android::String8::String8(char const*)
+         U android::String8::String8(char const*, unsigned int)
+         U android::String8::String8(android::String8 const&)
+         U android::String8::String8()
+         U android::String8::~String8()
+         U android::GrallocWrapper::Mapper::lock(native_handle const*, unsigned long long, android::hardware::graphics::mapper::V2_0::IMapper::Rect const&, int, android::hardware::graphics::mapper::V2_0::YCbCrLayout*) const
+         U android::GrallocWrapper::Mapper::lock(native_handle const*, unsigned long long, android::hardware::graphics::mapper::V2_0::IMapper::Rect const&, int, void**) const
+         U android::GrallocWrapper::Mapper::unlock(native_handle const*) const
+         U android::SortedVectorImpl::indexOf(void const*) const
+         U android::Thread::getTid() const
+         U android::Thread::isRunning() const
+         U android::RefBase::createWeak(void const*) const
+         U android::RefBase::getStrongCount() const
+         U android::RefBase::decStrong(void const*) const
+         U android::RefBase::incStrong(void const*) const
+         U android::String8::length() const
+         U std::__1::__next_prime(unsigned int)
+         U std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >::basic_string(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&)
+         U virtual thunk to android::Thread::~Thread()
+         U virtual thunk to android::Thread::~Thread()
+         U operator delete[](void*)
+         U operator delete(void*)
+         U operator new[](unsigned int)
+         U operator new(unsigned int)
+         U __android_log_assert@LIBLOG
+         U __android_log_print@LIBLOG
+         U __cxa_atexit@LIBC
+         U __cxa_finalize@LIBC
+         U __cxa_guard_acquire
+         U __cxa_guard_release
+         U __cxa_pure_virtual
+         U __errno@LIBC
+         U __fwrite_chk@LIBC_N
+         U __open_2@LIBC
+         U __stack_chk_fail@LIBC
+         U __stack_chk_guard@LIBC
+         U __strcpy_chk@LIBC
+         U __strlcpy_chk@LIBC
+         U __strlen_chk@LIBC
+         U __strncat_chk@LIBC
+         U __strncpy_chk@LIBC
+         U __strncpy_chk2@LIBC
+         U __vsnprintf_chk@LIBC
+         U __vsprintf_chk@LIBC
+         U __write_chk@LIBC_N
+         U abort@LIBC
+         U add_camera_metadata_entry
+         U allocate_camera_metadata
+         w android_fdsan_close_with_tag@LIBC_Q
+         w android_fdsan_create_owner_tag@LIBC_Q
+         w android_fdsan_exchange_owner_tag@LIBC_Q
+         U append_camera_metadata
+         U atoi@LIBC
+         U atrace_get_enabled_tags
+         U calculate_camera_metadata_entry_data_size
+         U camera_metadata_section_bounds
+         U camera_metadata_section_names
+         U camera_metadata_type_names
+         U clock_gettime@LIBC
+         U clone_camera_metadata
+         U close@LIBC
+         U csc_convert_with_rotation
+         U csc_deinit
+         U csc_init
+         U csc_set_dst_buffer
+         U csc_set_dst_format
+         U csc_set_eq_property
+         U csc_set_hw_property
+         U csc_set_src_buffer
+         U csc_set_src_format
+         U delete_camera_metadata_entry
+         U destroySEFBuffer
+         U dlclose@LIBC
+         U dlerror@LIBC
+         U dlopen@LIBC
+         U dlsym@LIBC
+         U dma_buf_merge
+         U dprintf@LIBC
+         U dump_indented_camera_metadata
+         U exynos_ion_alloc
+         U exynos_ion_close
+         U exynos_ion_open
+         U exynos_ion_sync_fd
+         U exynos_v4l2_close
+         U exynos_v4l2_dqbuf
+         U exynos_v4l2_g_ctrl
+         U exynos_v4l2_open
+         U exynos_v4l2_prepare
+         U exynos_v4l2_qbuf
+         U exynos_v4l2_reqbufs
+         U exynos_v4l2_s_crop
+         U exynos_v4l2_s_ctrl
+         U exynos_v4l2_s_ext_ctrl
+         U exynos_v4l2_s_fmt
+         U exynos_v4l2_s_input
+         U exynos_v4l2_s_parm
+         U exynos_v4l2_streamoff
+         U exynos_v4l2_streamon
+         U fclose@LIBC
+         U fflush@LIBC
+         U fgets@LIBC
+         U find_camera_metadata_entry
+         U find_camera_metadata_ro_entry
+         U fopen@LIBC
+         U fprintf@LIBC
+         U fputc@LIBC
+         U fread@LIBC
+         U free@LIBC
+         U free_camera_metadata
+         U fwrite@LIBC
+         U getSEFWriteSize
+         U get_camera_metadata_data_capacity
+         U get_camera_metadata_data_count
+         U get_camera_metadata_entry_capacity
+         U get_camera_metadata_entry_count
+         U get_camera_metadata_size
+         U get_camera_metadata_tag_name
+         U get_local_camera_metadata_section_name
+         U get_local_camera_metadata_tag_name
+         U get_local_camera_metadata_tag_type
+         U gettid@LIBC
+         U gettimeofday@LIBC
+         U gmtime_r@LIBC
+         U initSEFAllocatedBuffer
+         U ioctl@LIBC
+         U localtime@LIBC
+         U localtime_r@LIBC
+         U log@LIBC
+         U log2@LIBC
+         U malloc@LIBC
+         U memcmp@LIBC
+         U memcpy@LIBC
+         U memmove@LIBC
+         U memset@LIBC
+         U mmap@LIBC
+         U munmap@LIBC
+         U poll@LIBC
+         U printSEFVersion
+         U property_get
+         U property_set
+         U pthread_cond_destroy@LIBC
+         U pthread_cond_init@LIBC
+         U pthread_cond_signal@LIBC
+         U pthread_cond_timedwait@LIBC
+         U pthread_condattr_destroy@LIBC
+         U pthread_condattr_init@LIBC
+         U pthread_condattr_setclock@LIBC
+         U pthread_mutex_destroy@LIBC
+         U pthread_mutex_init@LIBC
+         U pthread_mutex_lock@LIBC
+         U pthread_mutex_unlock@LIBC
+         U saveSEFDataToBuffer
+         U set_camera_metadata_vendor_cache_ops
+         U set_camera_metadata_vendor_ops
+         U sort_camera_metadata
+         U stdout@LIBC
+         U strchr@LIBC
+         U strcmp@LIBC
+         U strerror@LIBC
+         U strftime@LIBC
+         U strlen@LIBC
+         U strncmp@LIBC
+         U strncpy@LIBC
+         U strnlen@LIBC
+         U strstr@LIBC
+         U strtof@LIBC
+         U strtok_r@LIBC
+         U strtol@LIBC
+         U sync_wait@LIBSYNC
+         U systemTime
+         U time@LIBC
+         U uni_plugin_deinit
+         U uni_plugin_get
+         U uni_plugin_init
+         U uni_plugin_load
+         U uni_plugin_process
+         U uni_plugin_set
+         U uni_plugin_unload
+         U update_camera_metadata_entry
+         U usleep@LIBC
+         U validate_camera_metadata_structure
+         U vsnprintf@LIBC

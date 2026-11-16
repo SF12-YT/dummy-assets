@@ -1,0 +1,56 @@
+
+Relocation section '.relr.dyn' at offset 0x145c contains 2 entries which relocate 3 locations:
+Index: Entry    Address   Symbolic Address
+0000:  00006880 00006880  .data.rel.ro
+0001:  00018001 000068bc  .fini_array
+                000068c0  .fini_array + 0x4
+
+Relocation section '.rel.plt' at offset 0x15ec contains 47 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+000069e4  00000116 R_ARM_JUMP_SLOT        00000000   __cxa_finalize@LIBC
+000069e8  00005316 R_ARM_JUMP_SLOT        00004db5   _ZN13ExynosSqzBaseC2Ev
+000069ec  00005916 R_ARM_JUMP_SLOT        00004e81   _ZN13ExynosSqzBase7destroyEv
+000069f0  00004316 R_ARM_JUMP_SLOT        00004e0d   _ZN13ExynosSqzBaseD2Ev
+000069f4  00000816 R_ARM_JUMP_SLOT        00000000   __gxx_personality_v0
+000069f8  00000716 R_ARM_JUMP_SLOT        00000000   __cxa_begin_catch
+000069fc  00000316 R_ARM_JUMP_SLOT        00000000   _ZSt9terminatev
+00006a00  00000416 R_ARM_JUMP_SLOT        00000000   _ZdlPv
+00006a04  00005016 R_ARM_JUMP_SLOT        00004e21   _ZN13ExynosSqzBase6createEv
+00006a08  00005116 R_ARM_JUMP_SLOT        00004f35   _ZN13ExynosSqzBase6setBufEP12hwSQZ_bufferij
+00006a0c  00003816 R_ARM_JUMP_SLOT        00004fcd   _ZN13ExynosSqzBase6setBufEP12hwSQZ_bufferPiPji
+00006a10  00004216 R_ARM_JUMP_SLOT        000050e5   _ZN13ExynosSqzBase6setBufEP12hwSQZ_bufferPcj
+00006a14  00000616 R_ARM_JUMP_SLOT        00000000   __android_log_print@LIBLOG
+00006a18  00005216 R_ARM_JUMP_SLOT        0000517d   _ZN13ExynosSqzBase7executeEv
+00006a1c  00000516 R_ARM_JUMP_SLOT        00000000   _Znwj
+00006a20  00005b16 R_ARM_JUMP_SLOT        0000541d   destroyJsqzHal
+00006a24  00000216 R_ARM_JUMP_SLOT        00000000   _Unwind_Resume@LIBC_R
+00006a28  00004f16 R_ARM_JUMP_SLOT        00003301   _ZN10ExynosMsqz7destroyEv
+00006a2c  00000a16 R_ARM_JUMP_SLOT        00000000   __cxa_end_catch
+00006a30  00001816 R_ARM_JUMP_SLOT        00000000   munmap@LIBC
+00006a34  00000f16 R_ARM_JUMP_SLOT        00000000   close@LIBC
+00006a38  00001416 R_ARM_JUMP_SLOT        00000000   free@LIBC
+00006a3c  00001116 R_ARM_JUMP_SLOT        00000000   exynos_ion_close
+00006a40  00002316 R_ARM_JUMP_SLOT        00003291   _ZN10ExynosMsqzD2Ev
+00006a44  00001216 R_ARM_JUMP_SLOT        00000000   exynos_ion_open
+00006a48  00001016 R_ARM_JUMP_SLOT        00000000   exynos_ion_alloc
+00006a4c  00001616 R_ARM_JUMP_SLOT        00000000   malloc@LIBC
+00006a50  00001716 R_ARM_JUMP_SLOT        00000000   mmap@LIBC
+00006a54  00000b16 R_ARM_JUMP_SLOT        00000000   __errno@LIBC
+00006a58  00001916 R_ARM_JUMP_SLOT        00000000   strerror@LIBC
+00006a5c  00000e16 R_ARM_JUMP_SLOT        00000000   atan2@LIBC
+00006a60  00003c16 R_ARM_JUMP_SLOT        00005265   _ZN13ExynosSqzBase12execute_msqzEv
+00006a64  00003116 R_ARM_JUMP_SLOT        00003d91   _ZN10ExynosMsqz10submeanDQPEPKaiiPa
+00006a68  00005d16 R_ARM_JUMP_SLOT        00004245   _ZN10ExynosMsqz20transformDQP_8B_OPT7EjiiPKaaPa
+00006a6c  00000c16 R_ARM_JUMP_SLOT        00000000   __stack_chk_fail@LIBC
+00006a70  00001316 R_ARM_JUMP_SLOT        00000000   fputc@LIBC
+00006a74  00001516 R_ARM_JUMP_SLOT        00000000   fwrite@LIBC
+00006a78  00003316 R_ARM_JUMP_SLOT        00005429   _ZN13ExynosSqzBase8openNodeEv
+00006a7c  00003d16 R_ARM_JUMP_SLOT        00005491   _ZN13ExynosSqzBase9closeNodeEv
+00006a80  00002816 R_ARM_JUMP_SLOT        000054dd   _ZN13ExynosSqzBase10getBufTypeEP12hwSQZ_buffer
+00006a84  00001c16 R_ARM_JUMP_SLOT        00000000   ioctl@LIBC
+00006a88  00001d16 R_ARM_JUMP_SLOT        00000000   strlen@LIBC
+00006a8c  00001a16 R_ARM_JUMP_SLOT        00000000   _ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE7compareEPKc
+00006a90  00001b16 R_ARM_JUMP_SLOT        00000000   _ZNKSt3__121__basic_string_commonILb1EE20__throw_length_errorEv
+00006a94  00001e16 R_ARM_JUMP_SLOT        00000000   open@LIBC
+00006a98  00001f16 R_ARM_JUMP_SLOT        00000000   memcpy@LIBC
+00006a9c  00002016 R_ARM_JUMP_SLOT        00000000   memset@LIBC

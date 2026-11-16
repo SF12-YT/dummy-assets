@@ -1,0 +1,310 @@
+    180 Android
+    8dc @A0A
+    9df ::F8
+    a1e _I`;
+    a2b d+WI
+    a7c B$+k
+    a91 __cxa_finalize
+    aa0 _Unwind_Resume
+    aaf _ZN10ExynosJsqz11getResultQTEPh
+    acf _ZN10ExynosJsqz11getResultQTEPj
+    aef _ZN10ExynosJsqz12setImageInfoEiii22hwJSQZ_input_cs_format
+    b29 _ZN10ExynosJsqz13setJsqzConfigE26hwJSQZ_processing_function22hwJSQZ_processing_mode
+    b7d _ZN10ExynosJsqz3runEv
+    b93 _ZN10ExynosJsqz6createEv
+    bac _ZN10ExynosJsqz7destroyEv
+    bc6 _ZN10ExynosJsqz8setInBufEPcj
+    be3 _ZN10ExynosJsqz8setInBufEPiPji
+    c02 _ZN10ExynosJsqz8setInBufEij
+    c1e _ZN10ExynosJsqzC1Ev
+    c32 _ZN10ExynosJsqzC2Ev
+    c46 _ZN10ExynosJsqzD0Ev
+    c5a _ZN10ExynosJsqzD1Ev
+    c6e _ZN10ExynosJsqzD2Ev
+    c82 _ZN13ExynosSqzBase6createEv
+    c9e _ZN13ExynosSqzBase6setBufEP12hwSQZ_bufferPcj
+    ccb _ZN13ExynosSqzBase6setBufEP12hwSQZ_bufferPiPji
+    cfa _ZN13ExynosSqzBase6setBufEP12hwSQZ_bufferij
+    d26 _ZN13ExynosSqzBase7destroyEv
+    d43 _ZN13ExynosSqzBase7executeEv
+    d60 _ZN13ExynosSqzBaseC2Ev
+    d77 _ZN13ExynosSqzBaseD2Ev
+    d8e _ZSt9terminatev
+    d9e _ZTV10ExynosJsqz
+    daf _ZdlPv
+    db6 _Znwj
+    dbc __android_log_print
+    dd0 __cxa_begin_catch
+    de2 __gxx_personality_v0
+    df7 c_run_jsqz
+    e02 destroyJsqzHal
+    e11 _ZN10ExynosMsqz10submeanDQPEPKaiiPa
+    e35 _ZN10ExynosMsqz11getFrameDqpEv
+    e54 _ZN10ExynosMsqz12setVideoInfoEiiiiib
+    e79 _ZN10ExynosMsqz14setDcTuneValueEiii
+    e9d _ZN10ExynosMsqz15releaseMemoriesEv
+    ec0 _ZN10ExynosMsqz15setDqpTuneValueEii
+    ee4 _ZN10ExynosMsqz17setAlphaTuneValueEii
+    f0a _ZN10ExynosMsqz20transformDQP_8B_OPT7EjiiPKaaPa
+    f3a _ZN10ExynosMsqz3runEiifi
+    f53 _ZN10ExynosMsqz6createEv
+    f6c _ZN10ExynosMsqz7destroyEv
+    f86 _ZN10ExynosMsqz8run_testEiifiP7__sFILES1_S1_S1_
+    fb6 _ZN10ExynosMsqz8setInBufEPhj
+    fd3 _ZN10ExynosMsqz8setInBufEij
+    fef _ZN10ExynosMsqz9setOutBufEPaj
+   100d _ZN10ExynosMsqz9setOutBufEij
+   102a _ZN10ExynosMsqzC1Ev
+   103e _ZN10ExynosMsqzC2Ev
+   1052 _ZN10ExynosMsqzD0Ev
+   1066 _ZN10ExynosMsqzD1Ev
+   107a _ZN10ExynosMsqzD2Ev
+   108e _ZN13ExynosSqzBase12execute_msqzEv
+   10b1 _ZTISt9exception
+   10c2 _ZTSSt9exception
+   10d3 _ZTV10ExynosMsqz
+   10e4 _ZTVN10__cxxabiv117__class_type_infoE
+   110a __cxa_end_catch
+   111a __errno
+   1122 __stack_chk_fail
+   1133 __stack_chk_guard
+   1145 atan2
+   114b close
+   1151 exynos_ion_alloc
+   1162 exynos_ion_close
+   1173 exynos_ion_open
+   1183 fputc
+   1189 free
+   118e fwrite
+   1195 malloc
+   119c mmap
+   11a1 munmap
+   11a8 strerror
+   11b1 _ZN13ExynosSqzBase10getBufTypeEP12hwSQZ_buffer
+   11e0 _ZN13ExynosSqzBase13getJsqzConfigEv
+   1204 _ZN13ExynosSqzBase8openJsqzEv
+   1222 _ZN13ExynosSqzBase8openNodeEv
+   1240 _ZN13ExynosSqzBase8resetBufEP12hwSQZ_buffer
+   126c _ZN13ExynosSqzBase9closeNodeEv
+   128b _ZN13ExynosSqzBaseC1Ev
+   12a2 _ZN13ExynosSqzBaseD0Ev
+   12b9 _ZN13ExynosSqzBaseD1Ev
+   12d0 _ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE7compareEPKc
+   131d _ZNKSt3__121__basic_string_commonILb1EE20__throw_length_errorEv
+   135d _ZTV13ExynosSqzBase
+   1371 instantiateJsqzHal
+   1384 ioctl
+   138a strlen
+   1391 open
+   1396 memcpy
+   139d memset
+   13a4 liblog.so
+   13ae LIBLOG
+   13b5 libc.so
+   13bd LIBC
+   13c2 LIBC_R
+   13c9 libm.so
+   13d1 libcutils.so
+   13de libion_exynos.so
+   13ef libutils.so
+   13fb libc++.so
+   1405 libdl.so
+   140e libhwjsqz.so
+   141c APS2
+   1814 jsqz instance is destroyed
+   1830 [!!ERR!!] %s -> null ptr! pcBuf
+   1851 [!!ERR!!] %s -> Unsupported class %s
+   1877 setJsqzConfig
+   1885 ~ExynosMsqz
+   1891 setBuf
+   1898 ip width : %d, ip height : %d, out width : %d, out height : %d
+   18d8 [!!ERR!!] %s -> the device node could not be closed. Error %d, %s
+   191b execute_msqz
+   1928 getJsqzConfig
+   1936 setDcTuneValue
+   1945 [!!ERR!!] %s -> ion_open_fail
+   1965 [!!ERR!!] %s -> null dma fd!
+   1983 openNode
+   198c setImageInfo
+   1999 [!!ERR!!] %s -> invalid image size width = %d, height = %d
+   19d5 [!!ERR!!] %s -> there was an error while setting up the encoding process!
+   1a20 [!!ERR!!] %s -> null ptr! pstBuf
+   1a42 [!!ERR!!] %s -> invalid source buffer 0 type %d
+   1a73 [!!ERR!!] %s -> out buffer length is not correct!!, %zu
+   1aac [!!ERR!!] %s -> invalid parameter!
+   1ad0 setDqpTuneValue
+   1ae0 setInBuf
+   1ae9 destroy
+   1af1 closeNode
+   1afb jsqz
+   1b00 post_process_factor is %d, scale rate is %d, %d
+   1b31 setVideoInfo
+   1b3e jsqz instance is created
+   1b58 Array Buffer size is small than ION buffer size
+   1b8a [!!ERR!!] %s -> width, height is not set
+   1bb5 setAlphaTuneValue
+   1bc7 [!!ERR!!] %s -> Invalid source buffer size!
+   1bf4 run_test
+   1bfd execute
+   1c05 [!!ERR!!] %s -> invalid source buffer 1 type %d
+   1c36 jsqz_hal
+   1c3f [!!ERR!!] %s -> Failed to mmap at dqp_ip buffer err=%s
+   1c77 [!!ERR!!] %s -> MSQZ failed
+   1c94 [!!ERR!!] %s -> you need to create the device first!
+   1cca [!!ERR!!] %s -> std error
+   1cea setOutBuf
+   1cf4 [!!ERR!!] %s -> JSQZ device node (%s) opening failed with error %d: %s
+   1d3c c_run_jsqz
+   1d47 [!!ERR!!] %s -> hardware operation failed, %s, %d
+   1d7a instantiateJsqzHal
+   1d8d St9exception
+   1dca /dev/jsqz
+   1df3 IyD	h
+   1e0f 0 ` y
+   1e4f 0 ` y
+   1ef1  yDzD{D
+   1f09  	I	J
+   1f0f KyDzD{D
+   1f51  yDzD{D
+   1f75 lJ`Bl
+   1f85 mJaBm
+   1f95 nJbBn
+   1fa5 oJcBo
+   206c *F3F
+   208a fHxD
+   2091 0 ` F
+   209e bIbJcK
+   20a5  yDzD{D
+   20b6 :F3F
+   2110 HIIJIK
+   2117  yDzD{D
+   212d  DIDJEKyDzD{D
+   2142 BIBJCK
+   2149  yDzD{D
+   216f `!lA`al
+   217f a!mAaam
+   218f b!nAban
+   219f c!oAcao
+   2281 IyD	h
+   229b 0 ` y
+   22c5  yDzD{D
+   2350 |Q F
+   2414 jIkJkK
+   241b  yDzD{D
+   24c4 AIBJBK
+   24cb  yDzD{D
+   2571 J}DzD)F
+   25ad KyDzD{D
+   2613  yDzD{D
+   2649  yDzD{D
+   2681  yDzD{D
+   2702 (F1F"F
+   270c 0F!F
+   2723  yDzD{D
+   27b5  yDzD{D
+   27eb  yDzD
+   2a4d KyDzD{D
+   2a65 KyDzD{D
+   2a8a PCYF
+   2b89 KyDzD{D
+   2bdb BPCYF
+   2eb6 7D9D
+   2fd3 F[F_
+   3059 $4Be
+   32e8 BFrD
+   334f FbJo
+   3385 P,Do
+   33fa rFRD
+   3476 BFVF
+   3657  yDzD{D
+   36f9  {I{J|KyDzD{D
+   37bd  MIMJNKyDzD{D
+   37d9  IIIJJKyDzD{D
+   3813  =I>J>KyDzD{D
+   3923 KyDzD{D
+   3984 MDODID
+   3b22 IFCFbFc
+   3b44 OEIF
+   3ba0 SERF
+   3c08 :FcFC
+   3c95 k:F3F
+   3cac (FAF
+   3e0d IyD	h
+   3e65 JyDzD
+   3eaf KyDzD{D
+   3ec9   qO
+   3ed7 JyDzD
+   3f0d  yDzD{D
+   3f65  yDzD{D
+   3f7d  yDzD{D
+   3f95  yDzD{D
+   3fe4 6I7J7K
+   3feb  yDzD{D
+   3ffc 3I4J4K
+   4003  yDzD{D
+   403d rH`Ph
+   404f ``` `
+   40ad  yDzD{D
+   4115  yDzD{D
+   412d  yDzD{D
+   4145  yDzD{D
+   41cb  yDzD{D
+   41e5 JyDzD
+   4205 KyDzD{D
+   421f JyDzD	K
+   429f  yDzD{D
+   42bd KyDzD{D
+   42e9 KyDzD{D
+   4327 F4HxD
+   4360 'I(J(K
+   4367  yDzD{D
+   438c 0F!F*F
+   43af KyDzD{D
+   4435 &|D F
+   446b KyDzD{D
+   44bd KyDzD{D
+   4509 D`G@
+   4515 D`G@
+   4521 D`G@
+   452d D`G@
+   4539 D`G@
+   4545 D`G@
+   4551 D`G@
+   455d D`G@
+   4aa5 aeabi
+   4ab0 C2.09
+   4ab7 cortex-a53
+   4aef .fini_array
+   4afb .ARM.exidx
+   4b06 .text
+   4b0c .got
+   4b11 .note.android.ident
+   4b25 .got.plt
+   4b2e .rel.plt
+   4b37 .bss
+   4b3c .ARM.attributes
+   4b4c .dynstr
+   4b54 .gnu.version_r
+   4b63 .data.rel.ro
+   4b70 .relr.dyn
+   4b7a .rel.dyn
+   4b83 .gnu.version
+   4b90 .dynsym
+   4b98 .gnu.hash
+   4ba2 .note.gnu.build-id
+   4bb5 .dynamic
+   4bbe .ARM.extab
+   4bc9 .shstrtab
+   4bd3 .rodata
+   4bdb .gnu_debugdata
+   4beb 7zXZ
+   4c23 D\^7
+   4c45 C\!o
+   4c8f x<c 
+   4cc4 a~bA
+   4d59 2\KIb
+   4d91 t*:V
+   4ddf J*1 
+   4e0b GtMn
+   4e5e _EbW
+   4ee9 `LBm

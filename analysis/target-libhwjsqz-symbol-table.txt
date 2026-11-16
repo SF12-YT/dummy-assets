@@ -1,0 +1,98 @@
+
+Symbol table '.dynsym' contains 95 entries:
+   Num:    Value  Size Type    Bind   Vis      Ndx Name
+     0: 00000000     0 NOTYPE  LOCAL  DEFAULT  UND 
+     1: 00000000     0 FUNC    GLOBAL DEFAULT  UND __cxa_finalize@LIBC (2)
+     2: 00000000     0 FUNC    GLOBAL DEFAULT  UND _Unwind_Resume@LIBC_R (3)
+     3: 00000000     0 FUNC    GLOBAL DEFAULT  UND _ZSt9terminatev
+     4: 00000000     0 FUNC    GLOBAL DEFAULT  UND _ZdlPv
+     5: 00000000     0 FUNC    GLOBAL DEFAULT  UND _Znwj
+     6: 00000000     0 FUNC    GLOBAL DEFAULT  UND __android_log_print@LIBLOG (4)
+     7: 00000000     0 FUNC    GLOBAL DEFAULT  UND __cxa_begin_catch
+     8: 00000000     0 FUNC    GLOBAL DEFAULT  UND __gxx_personality_v0
+     9: 00000000     0 OBJECT  GLOBAL DEFAULT  UND _ZTVN10__cxxabiv117__class_type_infoE
+    10: 00000000     0 FUNC    GLOBAL DEFAULT  UND __cxa_end_catch
+    11: 00000000     0 FUNC    GLOBAL DEFAULT  UND __errno@LIBC (2)
+    12: 00000000     0 FUNC    GLOBAL DEFAULT  UND __stack_chk_fail@LIBC (2)
+    13: 00000000     0 OBJECT  GLOBAL DEFAULT  UND __stack_chk_guard@LIBC (2)
+    14: 00000000     0 FUNC    GLOBAL DEFAULT  UND atan2@LIBC (5)
+    15: 00000000     0 FUNC    GLOBAL DEFAULT  UND close@LIBC (2)
+    16: 00000000     0 FUNC    GLOBAL DEFAULT  UND exynos_ion_alloc
+    17: 00000000     0 FUNC    GLOBAL DEFAULT  UND exynos_ion_close
+    18: 00000000     0 FUNC    GLOBAL DEFAULT  UND exynos_ion_open
+    19: 00000000     0 FUNC    GLOBAL DEFAULT  UND fputc@LIBC (2)
+    20: 00000000     0 FUNC    GLOBAL DEFAULT  UND free@LIBC (2)
+    21: 00000000     0 FUNC    GLOBAL DEFAULT  UND fwrite@LIBC (2)
+    22: 00000000     0 FUNC    GLOBAL DEFAULT  UND malloc@LIBC (2)
+    23: 00000000     0 FUNC    GLOBAL DEFAULT  UND mmap@LIBC (2)
+    24: 00000000     0 FUNC    GLOBAL DEFAULT  UND munmap@LIBC (2)
+    25: 00000000     0 FUNC    GLOBAL DEFAULT  UND strerror@LIBC (2)
+    26: 00000000     0 FUNC    GLOBAL DEFAULT  UND _ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE7compareEPKc
+    27: 00000000     0 FUNC    GLOBAL DEFAULT  UND _ZNKSt3__121__basic_string_commonILb1EE20__throw_length_errorEv
+    28: 00000000     0 FUNC    GLOBAL DEFAULT  UND ioctl@LIBC (2)
+    29: 00000000     0 FUNC    GLOBAL DEFAULT  UND strlen@LIBC (2)
+    30: 00000000     0 FUNC    GLOBAL DEFAULT  UND open@LIBC (2)
+    31: 00000000     0 FUNC    GLOBAL DEFAULT  UND memcpy@LIBC (2)
+    32: 00000000     0 FUNC    GLOBAL DEFAULT  UND memset@LIBC (2)
+    33: 00002e8d    28 FUNC    GLOBAL DEFAULT   14 _ZN10ExynosJsqz8setInBufEPiPji
+    34: 00002e05    52 FUNC    GLOBAL DEFAULT   14 _ZN10ExynosJsqzD1Ev
+    35: 00003291   112 FUNC    GLOBAL DEFAULT   14 _ZN10ExynosMsqzD2Ev
+    36: 00001d8d    13 OBJECT  WEAK   DEFAULT   13 _ZTSSt9exception
+    37: 000036ad   152 FUNC    GLOBAL DEFAULT   14 _ZN10ExynosMsqz8setInBufEPhj
+    38: 000036a1    12 FUNC    GLOBAL DEFAULT   14 _ZN10ExynosMsqz8setInBufEij
+    39: 00003745   148 FUNC    GLOBAL DEFAULT   14 _ZN10ExynosMsqz9setOutBufEij
+    40: 000054dd     4 FUNC    GLOBAL DEFAULT   14 _ZN13ExynosSqzBase10getBufTypeEP12hwSQZ_buffer
+    41: 00004e7d     4 FUNC    GLOBAL DEFAULT   14 _ZN13ExynosSqzBase8openJsqzEv
+    42: 00004db5    88 FUNC    GLOBAL DEFAULT   14 _ZN13ExynosSqzBaseC1Ev
+    43: 00002e7d     4 FUNC    GLOBAL DEFAULT   14 _ZN10ExynosJsqz6createEv
+    44: 00002ea9    12 FUNC    GLOBAL DEFAULT   14 _ZN10ExynosJsqz8setInBufEPcj
+    45: 00002ded    24 FUNC    GLOBAL DEFAULT   14 _ZN10ExynosJsqzC1Ev
+    46: 00003259    56 FUNC    GLOBAL DEFAULT   14 _ZN10ExynosMsqzC2Ev
+    47: 000068a4     8 OBJECT  WEAK   DEFAULT   16 _ZTISt9exception
+    48: 00004efd    44 FUNC    GLOBAL DEFAULT   14 _ZN13ExynosSqzBase13getJsqzConfigEv
+    49: 00003d91  1202 FUNC    GLOBAL DEFAULT   14 _ZN10ExynosMsqz10submeanDQPEPKaiiPa
+    50: 00003631    56 FUNC    GLOBAL DEFAULT   14 _ZN10ExynosMsqz17setAlphaTuneValueEii
+    51: 00005429   104 FUNC    GLOBAL DEFAULT   14 _ZN13ExynosSqzBase8openNodeEv
+    52: 00004e1d     4 FUNC    GLOBAL DEFAULT   14 _ZN13ExynosSqzBaseD0Ev
+    53: 00005321   252 FUNC    GLOBAL DEFAULT   14 instantiateJsqzHal
+    54: 00003045     4 FUNC    GLOBAL DEFAULT   14 _ZN10ExynosJsqz3runEv
+    55: 00002e45    56 FUNC    GLOBAL DEFAULT   14 _ZN10ExynosJsqzD0Ev
+    56: 00004fcd   280 FUNC    GLOBAL DEFAULT   14 _ZN13ExynosSqzBase6setBufEP12hwSQZ_bufferPiPji
+    57: 00006884    16 OBJECT  GLOBAL DEFAULT   16 _ZTV10ExynosJsqz
+    58: 0000336f    64 FUNC    GLOBAL DEFAULT   14 _ZN10ExynosMsqz15releaseMemoriesEv
+    59: 00003291   112 FUNC    GLOBAL DEFAULT   14 _ZN10ExynosMsqzD1Ev
+    60: 00005265   188 FUNC    GLOBAL DEFAULT   14 _ZN13ExynosSqzBase12execute_msqzEv
+    61: 00005491    76 FUNC    GLOBAL DEFAULT   14 _ZN13ExynosSqzBase9closeNodeEv
+    62: 000035f1    64 FUNC    GLOBAL DEFAULT   14 _ZN10ExynosMsqz14setDcTuneValueEiii
+    63: 00003013    50 FUNC    GLOBAL DEFAULT   14 _ZN10ExynosJsqz11getResultQTEPh
+    64: 00002f3d    52 FUNC    GLOBAL DEFAULT   14 _ZN10ExynosJsqz13setJsqzConfigE26hwJSQZ_processing_function22hwJSQZ_processing_mode
+    65: 00002e39     4 FUNC    GLOBAL DEFAULT   14 _ZN10ExynosJsqz7destroyEv
+    66: 000050e5   152 FUNC    GLOBAL DEFAULT   14 _ZN13ExynosSqzBase6setBufEP12hwSQZ_bufferPcj
+    67: 00004e0d    16 FUNC    GLOBAL DEFAULT   14 _ZN13ExynosSqzBaseD2Ev
+    68: 0000336b     4 FUNC    GLOBAL DEFAULT   14 _ZN10ExynosMsqz6createEv
+    69: 000044f1  2244 FUNC    GLOBAL DEFAULT   14 _ZN10ExynosMsqz8run_testEiifiP7__sFILES1_S1_S1_
+    70: 000068ac    16 OBJECT  GLOBAL DEFAULT   16 _ZTV13ExynosSqzBase
+    71: 00002eb5   136 FUNC    GLOBAL DEFAULT   14 _ZN10ExynosJsqz12setImageInfoEiii22hwJSQZ_input_cs_format
+    72: 00002e05    52 FUNC    GLOBAL DEFAULT   14 _ZN10ExynosJsqzD2Ev
+    73: 0000380d     6 FUNC    GLOBAL DEFAULT   14 _ZN10ExynosMsqz11getFrameDqpEv
+    74: 000033b1   576 FUNC    GLOBAL DEFAULT   14 _ZN10ExynosMsqz12setVideoInfoEiiiiib
+    75: 00003819  1400 FUNC    GLOBAL DEFAULT   14 _ZN10ExynosMsqz3runEiifi
+    76: 00003259    56 FUNC    GLOBAL DEFAULT   14 _ZN10ExynosMsqzC1Ev
+    77: 00002f71   162 FUNC    GLOBAL DEFAULT   14 _ZN10ExynosJsqz11getResultQTEPj
+    78: 00002e81    12 FUNC    GLOBAL DEFAULT   14 _ZN10ExynosJsqz8setInBufEij
+    79: 00003301    92 FUNC    GLOBAL DEFAULT   14 _ZN10ExynosMsqz7destroyEv
+    80: 00004e21    92 FUNC    GLOBAL DEFAULT   14 _ZN13ExynosSqzBase6createEv
+    81: 00004f35   152 FUNC    GLOBAL DEFAULT   14 _ZN13ExynosSqzBase6setBufEP12hwSQZ_bufferij
+    82: 0000517d   232 FUNC    GLOBAL DEFAULT   14 _ZN13ExynosSqzBase7executeEv
+    83: 00004db5    88 FUNC    GLOBAL DEFAULT   14 _ZN13ExynosSqzBaseC2Ev
+    84: 00002ded    24 FUNC    GLOBAL DEFAULT   14 _ZN10ExynosJsqzC2Ev
+    85: 000037d9    52 FUNC    GLOBAL DEFAULT   14 _ZN10ExynosMsqz9setOutBufEPaj
+    86: 0000335d    14 FUNC    GLOBAL DEFAULT   14 _ZN10ExynosMsqzD0Ev
+    87: 00006894    16 OBJECT  GLOBAL DEFAULT   16 _ZTV10ExynosMsqz
+    88: 00004f29    12 FUNC    GLOBAL DEFAULT   14 _ZN13ExynosSqzBase8resetBufEP12hwSQZ_buffer
+    89: 00004e81   124 FUNC    GLOBAL DEFAULT   14 _ZN13ExynosSqzBase7destroyEv
+    90: 00003049   528 FUNC    GLOBAL DEFAULT   14 c_run_jsqz
+    91: 0000541d    10 FUNC    GLOBAL DEFAULT   14 destroyJsqzHal
+    92: 00003669    56 FUNC    GLOBAL DEFAULT   14 _ZN10ExynosMsqz15setDqpTuneValueEii
+    93: 00004245   680 FUNC    GLOBAL DEFAULT   14 _ZN10ExynosMsqz20transformDQP_8B_OPT7EjiiPKaaPa
+    94: 00004e0d    16 FUNC    GLOBAL DEFAULT   14 _ZN13ExynosSqzBaseD1Ev

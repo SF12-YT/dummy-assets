@@ -1,0 +1,3942 @@
+
+libhwjsqz.so:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+00002dd8 <ExynosJsqz::ExynosJsqz()@@Base-0x14>:
+    2dd8:	44784801 	ldrbtmi	r4, [r8], #-2049	@ 0xfffff7ff
+    2ddc:	bb90f002 	bllt	fe43edec <vtable for ExynosSqzBase@@Base+0xfe438540>
+    2de0:	00003aa2 	andeq	r3, r0, r2, lsr #21
+    2de4:	f7ff4770 			@ <UNDEFINED> instruction: 0xf7ff4770
+    2de8:	d4d4bffd 	ldrble	fp, [r4], #4093	@ 0xffd
+
+00002dec <ExynosJsqz::ExynosJsqz()@@Base>:
+    2dec:	b580      	push	{r7, lr}
+    2dee:	f002 ebd8 	blx	55a0 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0xc4>
+    2df2:	4903      	ldr	r1, [pc, #12]	@ (2e00 <ExynosJsqz::ExynosJsqz()@@Base+0x14>)
+    2df4:	4479      	add	r1, pc
+    2df6:	6809      	ldr	r1, [r1, #0]
+    2df8:	3108      	adds	r1, #8
+    2dfa:	6001      	str	r1, [r0, #0]
+    2dfc:	bd80      	pop	{r7, pc}
+    2dfe:	bf00      	nop
+    2e00:	3bcc      	subs	r3, #204	@ 0xcc
+	...
+
+00002e04 <ExynosJsqz::~ExynosJsqz()@@Base>:
+    2e04:	b5b0      	push	{r4, r5, r7, lr}
+    2e06:	4604      	mov	r4, r0
+    2e08:	480a      	ldr	r0, [pc, #40]	@ (2e34 <ExynosJsqz::~ExynosJsqz()@@Base+0x30>)
+    2e0a:	4478      	add	r0, pc
+    2e0c:	6800      	ldr	r0, [r0, #0]
+    2e0e:	3008      	adds	r0, #8
+    2e10:	6020      	str	r0, [r4, #0]
+    2e12:	7920      	ldrb	r0, [r4, #4]
+    2e14:	b110      	cbz	r0, 2e1c <ExynosJsqz::~ExynosJsqz()@@Base+0x18>
+    2e16:	4620      	mov	r0, r4
+    2e18:	f002 ebca 	blx	55b0 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0xd4>
+    2e1c:	4620      	mov	r0, r4
+    2e1e:	e8bd 40b0 	ldmia.w	sp!, {r4, r5, r7, lr}
+    2e22:	f002 bb73 	b.w	550c <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x30>
+    2e26:	4605      	mov	r5, r0
+    2e28:	4620      	mov	r0, r4
+    2e2a:	f002 ebca 	blx	55c0 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0xe4>
+    2e2e:	4628      	mov	r0, r5
+    2e30:	f000 f804 	bl	2e3c <ExynosJsqz::destroy()@@Base+0x4>
+    2e34:	3bb6      	subs	r3, #182	@ 0xb6
+	...
+
+00002e38 <ExynosJsqz::destroy()@@Base>:
+    2e38:	f002 bb6e 	b.w	5518 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x3c>
+    2e3c:	f002 ebd0 	blx	55e0 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x104>
+    2e40:	f002 ebd6 	blx	55f0 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x114>
+
+00002e44 <ExynosJsqz::~ExynosJsqz()@@Base>:
+    2e44:	b5b0      	push	{r4, r5, r7, lr}
+    2e46:	4604      	mov	r4, r0
+    2e48:	480b      	ldr	r0, [pc, #44]	@ (2e78 <ExynosJsqz::~ExynosJsqz()@@Base+0x34>)
+    2e4a:	4478      	add	r0, pc
+    2e4c:	6800      	ldr	r0, [r0, #0]
+    2e4e:	3008      	adds	r0, #8
+    2e50:	6020      	str	r0, [r4, #0]
+    2e52:	7920      	ldrb	r0, [r4, #4]
+    2e54:	b110      	cbz	r0, 2e5c <ExynosJsqz::~ExynosJsqz()@@Base+0x18>
+    2e56:	4620      	mov	r0, r4
+    2e58:	f002 ebaa 	blx	55b0 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0xd4>
+    2e5c:	4620      	mov	r0, r4
+    2e5e:	f002 ebb0 	blx	55c0 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0xe4>
+    2e62:	e8bd 40b0 	ldmia.w	sp!, {r4, r5, r7, lr}
+    2e66:	f002 bb5d 	b.w	5524 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x48>
+    2e6a:	4605      	mov	r5, r0
+    2e6c:	4620      	mov	r0, r4
+    2e6e:	f002 eba8 	blx	55c0 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0xe4>
+    2e72:	4628      	mov	r0, r5
+    2e74:	f7ff ffe2 	bl	2e3c <ExynosJsqz::destroy()@@Base+0x4>
+    2e78:	3b76      	subs	r3, #118	@ 0x76
+	...
+
+00002e7c <ExynosJsqz::create()@@Base>:
+    2e7c:	f002 bb58 	b.w	5530 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x54>
+
+00002e80 <ExynosJsqz::setInBuf(int, unsigned int)@@Base>:
+    2e80:	4613      	mov	r3, r2
+    2e82:	460a      	mov	r2, r1
+    2e84:	f100 011c 	add.w	r1, r0, #28
+    2e88:	f002 bb58 	b.w	553c <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x60>
+
+00002e8c <ExynosJsqz::setInBuf(int*, unsigned int*, int)@@Base>:
+    2e8c:	b580      	push	{r7, lr}
+    2e8e:	b082      	sub	sp, #8
+    2e90:	4694      	mov	ip, r2
+    2e92:	460a      	mov	r2, r1
+    2e94:	f8c0 313c 	str.w	r3, [r0, #316]	@ 0x13c
+    2e98:	9300      	str	r3, [sp, #0]
+    2e9a:	f100 011c 	add.w	r1, r0, #28
+    2e9e:	4663      	mov	r3, ip
+    2ea0:	f002 ebc6 	blx	5630 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x154>
+    2ea4:	b002      	add	sp, #8
+    2ea6:	bd80      	pop	{r7, pc}
+
+00002ea8 <ExynosJsqz::setInBuf(char*, unsigned int)@@Base>:
+    2ea8:	4613      	mov	r3, r2
+    2eaa:	460a      	mov	r2, r1
+    2eac:	f100 011c 	add.w	r1, r0, #28
+    2eb0:	f002 bb4a 	b.w	5548 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x6c>
+
+00002eb4 <ExynosJsqz::setImageInfo(int, int, int, hwJSQZ_input_cs_format)@@Base>:
+    2eb4:	b580      	push	{r7, lr}
+    2eb6:	b082      	sub	sp, #8
+    2eb8:	f890 c004 	ldrb.w	ip, [r0, #4]
+    2ebc:	f1bc 0f00 	cmp.w	ip, #0
+    2ec0:	d013      	beq.n	2eea <ExynosJsqz::setImageInfo(int, int, int, hwJSQZ_input_cs_format)@@Base+0x36>
+    2ec2:	f1a1 0c20 	sub.w	ip, r1, #32
+    2ec6:	f643 7edc 	movw	lr, #16348	@ 0x3fdc
+    2eca:	45f4      	cmp	ip, lr
+    2ecc:	d81a      	bhi.n	2f04 <ExynosJsqz::setImageInfo(int, int, int, hwJSQZ_input_cs_format)@@Base+0x50>
+    2ece:	f1a2 0c20 	sub.w	ip, r2, #32
+    2ed2:	f643 7edd 	movw	lr, #16349	@ 0x3fdd
+    2ed6:	45f4      	cmp	ip, lr
+    2ed8:	d214      	bcs.n	2f04 <ExynosJsqz::setImageInfo(int, int, int, hwJSQZ_input_cs_format)@@Base+0x50>
+    2eda:	300c      	adds	r0, #12
+    2edc:	f8dd c010 	ldr.w	ip, [sp, #16]
+    2ee0:	e880 100e 	stmia.w	r0, {r1, r2, r3, ip}
+    2ee4:	2000      	movs	r0, #0
+    2ee6:	b002      	add	sp, #8
+    2ee8:	bd80      	pop	{r7, pc}
+    2eea:	490e      	ldr	r1, [pc, #56]	@ (2f24 <ExynosJsqz::setImageInfo(int, int, int, hwJSQZ_input_cs_format)@@Base+0x70>)
+    2eec:	4a0e      	ldr	r2, [pc, #56]	@ (2f28 <ExynosJsqz::setImageInfo(int, int, int, hwJSQZ_input_cs_format)@@Base+0x74>)
+    2eee:	4b0f      	ldr	r3, [pc, #60]	@ (2f2c <ExynosJsqz::setImageInfo(int, int, int, hwJSQZ_input_cs_format)@@Base+0x78>)
+    2ef0:	2006      	movs	r0, #6
+    2ef2:	4479      	add	r1, pc
+    2ef4:	447a      	add	r2, pc
+    2ef6:	447b      	add	r3, pc
+    2ef8:	f002 ebaa 	blx	5650 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x174>
+    2efc:	f06f 00f9 	mvn.w	r0, #249	@ 0xf9
+    2f00:	b002      	add	sp, #8
+    2f02:	bd80      	pop	{r7, pc}
+    2f04:	e9cd 1200 	strd	r1, r2, [sp]
+    2f08:	2006      	movs	r0, #6
+    2f0a:	4909      	ldr	r1, [pc, #36]	@ (2f30 <ExynosJsqz::setImageInfo(int, int, int, hwJSQZ_input_cs_format)@@Base+0x7c>)
+    2f0c:	4a09      	ldr	r2, [pc, #36]	@ (2f34 <ExynosJsqz::setImageInfo(int, int, int, hwJSQZ_input_cs_format)@@Base+0x80>)
+    2f0e:	4b0a      	ldr	r3, [pc, #40]	@ (2f38 <ExynosJsqz::setImageInfo(int, int, int, hwJSQZ_input_cs_format)@@Base+0x84>)
+    2f10:	4479      	add	r1, pc
+    2f12:	447a      	add	r2, pc
+    2f14:	447b      	add	r3, pc
+    2f16:	f002 eb9c 	blx	5650 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x174>
+    2f1a:	f06f 00f6 	mvn.w	r0, #246	@ 0xf6
+    2f1e:	b002      	add	sp, #8
+    2f20:	bd80      	pop	{r7, pc}
+    2f22:	bf00      	nop
+    2f24:	ed40 ffff 	stcl	15, cr15, [r0, #-1020]	@ 0xfffffc04
+    2f28:	ed9c ffff 	ldc	15, cr15, [ip, #1020]	@ 0x3fc
+    2f2c:	ea92 ffff 			@ <UNDEFINED> instruction: 0xea92ffff
+    2f30:	ed22 ffff 	stc	15, cr15, [r2, #-1020]!	@ 0xfffffc04
+    2f34:	ea83 ffff 			@ <UNDEFINED> instruction: 0xea83ffff
+    2f38:	ea74 ffff 			@ <UNDEFINED> instruction: 0xea74ffff
+
+00002f3c <ExynosJsqz::setJsqzConfig(hwJSQZ_processing_function, hwJSQZ_processing_mode)@@Base>:
+    2f3c:	b580      	push	{r7, lr}
+    2f3e:	7903      	ldrb	r3, [r0, #4]
+    2f40:	b11b      	cbz	r3, 2f4a <ExynosJsqz::setJsqzConfig(hwJSQZ_processing_function, hwJSQZ_processing_mode)@@Base+0xe>
+    2f42:	e9c0 210d 	strd	r2, r1, [r0, #52]	@ 0x34
+    2f46:	2000      	movs	r0, #0
+    2f48:	bd80      	pop	{r7, pc}
+    2f4a:	4906      	ldr	r1, [pc, #24]	@ (2f64 <ExynosJsqz::setJsqzConfig(hwJSQZ_processing_function, hwJSQZ_processing_mode)@@Base+0x28>)
+    2f4c:	4a06      	ldr	r2, [pc, #24]	@ (2f68 <ExynosJsqz::setJsqzConfig(hwJSQZ_processing_function, hwJSQZ_processing_mode)@@Base+0x2c>)
+    2f4e:	4b07      	ldr	r3, [pc, #28]	@ (2f6c <ExynosJsqz::setJsqzConfig(hwJSQZ_processing_function, hwJSQZ_processing_mode)@@Base+0x30>)
+    2f50:	2006      	movs	r0, #6
+    2f52:	4479      	add	r1, pc
+    2f54:	447a      	add	r2, pc
+    2f56:	447b      	add	r3, pc
+    2f58:	f002 eb7a 	blx	5650 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x174>
+    2f5c:	f06f 00f9 	mvn.w	r0, #249	@ 0xf9
+    2f60:	bd80      	pop	{r7, pc}
+    2f62:	bf00      	nop
+    2f64:	ece0 ffff 	stcl	15, cr15, [r0], #1020	@ 0x3fc
+    2f68:	ed3c ffff 	ldc	15, cr15, [ip, #-1020]!	@ 0xfffffc04
+    2f6c:	e91d ffff 	ldmdb	sp, {r0, r1, r2, r3, r4, r5, r6, r7, r8, r9, sl, fp, ip, sp, lr, pc}
+
+00002f70 <ExynosJsqz::getResultQT(unsigned int*)@@Base>:
+    2f70:	6bc2      	ldr	r2, [r0, #60]	@ 0x3c
+    2f72:	600a      	str	r2, [r1, #0]
+    2f74:	6c02      	ldr	r2, [r0, #64]	@ 0x40
+    2f76:	604a      	str	r2, [r1, #4]
+    2f78:	6c42      	ldr	r2, [r0, #68]	@ 0x44
+    2f7a:	608a      	str	r2, [r1, #8]
+    2f7c:	6c82      	ldr	r2, [r0, #72]	@ 0x48
+    2f7e:	60ca      	str	r2, [r1, #12]
+    2f80:	6cc2      	ldr	r2, [r0, #76]	@ 0x4c
+    2f82:	610a      	str	r2, [r1, #16]
+    2f84:	6d02      	ldr	r2, [r0, #80]	@ 0x50
+    2f86:	614a      	str	r2, [r1, #20]
+    2f88:	6d42      	ldr	r2, [r0, #84]	@ 0x54
+    2f8a:	618a      	str	r2, [r1, #24]
+    2f8c:	6d82      	ldr	r2, [r0, #88]	@ 0x58
+    2f8e:	61ca      	str	r2, [r1, #28]
+    2f90:	6dc2      	ldr	r2, [r0, #92]	@ 0x5c
+    2f92:	620a      	str	r2, [r1, #32]
+    2f94:	6e02      	ldr	r2, [r0, #96]	@ 0x60
+    2f96:	624a      	str	r2, [r1, #36]	@ 0x24
+    2f98:	6e42      	ldr	r2, [r0, #100]	@ 0x64
+    2f9a:	628a      	str	r2, [r1, #40]	@ 0x28
+    2f9c:	6e82      	ldr	r2, [r0, #104]	@ 0x68
+    2f9e:	62ca      	str	r2, [r1, #44]	@ 0x2c
+    2fa0:	6ec2      	ldr	r2, [r0, #108]	@ 0x6c
+    2fa2:	630a      	str	r2, [r1, #48]	@ 0x30
+    2fa4:	6f02      	ldr	r2, [r0, #112]	@ 0x70
+    2fa6:	634a      	str	r2, [r1, #52]	@ 0x34
+    2fa8:	6f42      	ldr	r2, [r0, #116]	@ 0x74
+    2faa:	638a      	str	r2, [r1, #56]	@ 0x38
+    2fac:	6f82      	ldr	r2, [r0, #120]	@ 0x78
+    2fae:	63ca      	str	r2, [r1, #60]	@ 0x3c
+    2fb0:	6fc2      	ldr	r2, [r0, #124]	@ 0x7c
+    2fb2:	640a      	str	r2, [r1, #64]	@ 0x40
+    2fb4:	f8d0 2080 	ldr.w	r2, [r0, #128]	@ 0x80
+    2fb8:	644a      	str	r2, [r1, #68]	@ 0x44
+    2fba:	f8d0 2084 	ldr.w	r2, [r0, #132]	@ 0x84
+    2fbe:	648a      	str	r2, [r1, #72]	@ 0x48
+    2fc0:	f8d0 2088 	ldr.w	r2, [r0, #136]	@ 0x88
+    2fc4:	64ca      	str	r2, [r1, #76]	@ 0x4c
+    2fc6:	f8d0 208c 	ldr.w	r2, [r0, #140]	@ 0x8c
+    2fca:	650a      	str	r2, [r1, #80]	@ 0x50
+    2fcc:	f8d0 2090 	ldr.w	r2, [r0, #144]	@ 0x90
+    2fd0:	654a      	str	r2, [r1, #84]	@ 0x54
+    2fd2:	f8d0 2094 	ldr.w	r2, [r0, #148]	@ 0x94
+    2fd6:	658a      	str	r2, [r1, #88]	@ 0x58
+    2fd8:	f8d0 2098 	ldr.w	r2, [r0, #152]	@ 0x98
+    2fdc:	65ca      	str	r2, [r1, #92]	@ 0x5c
+    2fde:	f8d0 209c 	ldr.w	r2, [r0, #156]	@ 0x9c
+    2fe2:	660a      	str	r2, [r1, #96]	@ 0x60
+    2fe4:	f8d0 20a0 	ldr.w	r2, [r0, #160]	@ 0xa0
+    2fe8:	664a      	str	r2, [r1, #100]	@ 0x64
+    2fea:	f8d0 20a4 	ldr.w	r2, [r0, #164]	@ 0xa4
+    2fee:	668a      	str	r2, [r1, #104]	@ 0x68
+    2ff0:	f8d0 20a8 	ldr.w	r2, [r0, #168]	@ 0xa8
+    2ff4:	66ca      	str	r2, [r1, #108]	@ 0x6c
+    2ff6:	f8d0 20ac 	ldr.w	r2, [r0, #172]	@ 0xac
+    2ffa:	670a      	str	r2, [r1, #112]	@ 0x70
+    2ffc:	f8d0 20b0 	ldr.w	r2, [r0, #176]	@ 0xb0
+    3000:	674a      	str	r2, [r1, #116]	@ 0x74
+    3002:	f8d0 20b4 	ldr.w	r2, [r0, #180]	@ 0xb4
+    3006:	678a      	str	r2, [r1, #120]	@ 0x78
+    3008:	f8d0 00b8 	ldr.w	r0, [r0, #184]	@ 0xb8
+    300c:	67c8      	str	r0, [r1, #124]	@ 0x7c
+    300e:	2000      	movs	r0, #0
+    3010:	4770      	bx	lr
+
+00003012 <ExynosJsqz::getResultQT(unsigned char*)@@Base>:
+    3012:	b580      	push	{r7, lr}
+    3014:	f100 0c3c 	add.w	ip, r0, #60	@ 0x3c
+    3018:	2200      	movs	r2, #0
+    301a:	f85c 3002 	ldr.w	r3, [ip, r2]
+    301e:	eb0c 0e02 	add.w	lr, ip, r2
+    3022:	548b      	strb	r3, [r1, r2]
+    3024:	188b      	adds	r3, r1, r2
+    3026:	f85c 0002 	ldr.w	r0, [ip, r2]
+    302a:	3204      	adds	r2, #4
+    302c:	0a00      	lsrs	r0, r0, #8
+    302e:	7058      	strb	r0, [r3, #1]
+    3030:	2a80      	cmp	r2, #128	@ 0x80
+    3032:	f8be 0002 	ldrh.w	r0, [lr, #2]
+    3036:	7098      	strb	r0, [r3, #2]
+    3038:	f89e 0003 	ldrb.w	r0, [lr, #3]
+    303c:	70d8      	strb	r0, [r3, #3]
+    303e:	d1ec      	bne.n	301a <ExynosJsqz::getResultQT(unsigned char*)@@Base+0x8>
+    3040:	2000      	movs	r0, #0
+    3042:	bd80      	pop	{r7, pc}
+
+00003044 <ExynosJsqz::run()@@Base>:
+    3044:	f002 ba86 	b.w	5554 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x78>
+
+00003048 <c_run_jsqz@@Base>:
+    3048:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+    304c:	b082      	sub	sp, #8
+    304e:	461e      	mov	r6, r3
+    3050:	4617      	mov	r7, r2
+    3052:	460d      	mov	r5, r1
+    3054:	4680      	mov	r8, r0
+    3056:	4604      	mov	r4, r0
+    3058:	b180      	cbz	r0, 307c <c_run_jsqz@@Base+0x34>
+    305a:	4620      	mov	r0, r4
+    305c:	f002 ead8 	blx	5610 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x134>
+    3060:	2e00      	cmp	r6, #0
+    3062:	dd1c      	ble.n	309e <c_run_jsqz@@Base+0x56>
+    3064:	f104 011c 	add.w	r1, r4, #28
+    3068:	4620      	mov	r0, r4
+    306a:	b325      	cbz	r5, 30b6 <c_run_jsqz@@Base+0x6e>
+    306c:	462a      	mov	r2, r5
+    306e:	4633      	mov	r3, r6
+    3070:	f002 ead6 	blx	5620 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x144>
+    3074:	4606      	mov	r6, r0
+    3076:	2800      	cmp	r0, #0
+    3078:	d163      	bne.n	3142 <c_run_jsqz@@Base+0xfa>
+    307a:	e023      	b.n	30c4 <c_run_jsqz@@Base+0x7c>
+    307c:	f44f 70be 	mov.w	r0, #380	@ 0x17c
+    3080:	f002 eaf6 	blx	5670 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x194>
+    3084:	4604      	mov	r4, r0
+    3086:	f002 ea8c 	blx	55a0 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0xc4>
+    308a:	4866      	ldr	r0, [pc, #408]	@ (3224 <c_run_jsqz@@Base+0x1dc>)
+    308c:	4478      	add	r0, pc
+    308e:	6800      	ldr	r0, [r0, #0]
+    3090:	3008      	adds	r0, #8
+    3092:	6020      	str	r0, [r4, #0]
+    3094:	4620      	mov	r0, r4
+    3096:	f002 eabc 	blx	5610 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x134>
+    309a:	2e00      	cmp	r6, #0
+    309c:	dce2      	bgt.n	3064 <c_run_jsqz@@Base+0x1c>
+    309e:	4962      	ldr	r1, [pc, #392]	@ (3228 <c_run_jsqz@@Base+0x1e0>)
+    30a0:	4a62      	ldr	r2, [pc, #392]	@ (322c <c_run_jsqz@@Base+0x1e4>)
+    30a2:	4b63      	ldr	r3, [pc, #396]	@ (3230 <c_run_jsqz@@Base+0x1e8>)
+    30a4:	2006      	movs	r0, #6
+    30a6:	4479      	add	r1, pc
+    30a8:	447a      	add	r2, pc
+    30aa:	447b      	add	r3, pc
+    30ac:	f002 ead0 	blx	5650 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x174>
+    30b0:	f06f 06ec 	mvn.w	r6, #236	@ 0xec
+    30b4:	e045      	b.n	3142 <c_run_jsqz@@Base+0xfa>
+    30b6:	463a      	mov	r2, r7
+    30b8:	4633      	mov	r3, r6
+    30ba:	f002 eac2 	blx	5640 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x164>
+    30be:	4606      	mov	r6, r0
+    30c0:	2800      	cmp	r0, #0
+    30c2:	d13e      	bne.n	3142 <c_run_jsqz@@Base+0xfa>
+    30c4:	7920      	ldrb	r0, [r4, #4]
+    30c6:	b318      	cbz	r0, 3110 <c_run_jsqz@@Base+0xc8>
+    30c8:	e9dd 1008 	ldrd	r1, r0, [sp, #32]
+    30cc:	f643 73dc 	movw	r3, #16348	@ 0x3fdc
+    30d0:	f1a1 0220 	sub.w	r2, r1, #32
+    30d4:	429a      	cmp	r2, r3
+    30d6:	d827      	bhi.n	3128 <c_run_jsqz@@Base+0xe0>
+    30d8:	f1a0 0220 	sub.w	r2, r0, #32
+    30dc:	f643 73dd 	movw	r3, #16349	@ 0x3fdd
+    30e0:	429a      	cmp	r2, r3
+    30e2:	d221      	bcs.n	3128 <c_run_jsqz@@Base+0xe0>
+    30e4:	e9dd 320c 	ldrd	r3, r2, [sp, #48]	@ 0x30
+    30e8:	e9dd 670a 	ldrd	r6, r7, [sp, #40]	@ 0x28
+    30ec:	e9c4 1003 	strd	r1, r0, [r4, #12]
+    30f0:	4620      	mov	r0, r4
+    30f2:	e9c4 6705 	strd	r6, r7, [r4, #20]
+    30f6:	e9c4 230d 	strd	r2, r3, [r4, #52]	@ 0x34
+    30fa:	f002 eab2 	blx	5660 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x184>
+    30fe:	4606      	mov	r6, r0
+    3100:	b390      	cbz	r0, 3168 <c_run_jsqz@@Base+0x120>
+    3102:	f1b8 0f00 	cmp.w	r8, #0
+    3106:	d028      	beq.n	315a <c_run_jsqz@@Base+0x112>
+    3108:	4630      	mov	r0, r6
+    310a:	b002      	add	sp, #8
+    310c:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+    3110:	4948      	ldr	r1, [pc, #288]	@ (3234 <c_run_jsqz@@Base+0x1ec>)
+    3112:	4a49      	ldr	r2, [pc, #292]	@ (3238 <c_run_jsqz@@Base+0x1f0>)
+    3114:	4b49      	ldr	r3, [pc, #292]	@ (323c <c_run_jsqz@@Base+0x1f4>)
+    3116:	2006      	movs	r0, #6
+    3118:	4479      	add	r1, pc
+    311a:	447a      	add	r2, pc
+    311c:	447b      	add	r3, pc
+    311e:	f002 ea98 	blx	5650 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x174>
+    3122:	f06f 06f9 	mvn.w	r6, #249	@ 0xf9
+    3126:	e00c      	b.n	3142 <c_run_jsqz@@Base+0xfa>
+    3128:	e9cd 1000 	strd	r1, r0, [sp]
+    312c:	2006      	movs	r0, #6
+    312e:	4944      	ldr	r1, [pc, #272]	@ (3240 <c_run_jsqz@@Base+0x1f8>)
+    3130:	4a44      	ldr	r2, [pc, #272]	@ (3244 <c_run_jsqz@@Base+0x1fc>)
+    3132:	4b45      	ldr	r3, [pc, #276]	@ (3248 <c_run_jsqz@@Base+0x200>)
+    3134:	4479      	add	r1, pc
+    3136:	447a      	add	r2, pc
+    3138:	447b      	add	r3, pc
+    313a:	f002 ea8a 	blx	5650 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x174>
+    313e:	f06f 06f6 	mvn.w	r6, #246	@ 0xf6
+    3142:	4942      	ldr	r1, [pc, #264]	@ (324c <c_run_jsqz@@Base+0x204>)
+    3144:	4a42      	ldr	r2, [pc, #264]	@ (3250 <c_run_jsqz@@Base+0x208>)
+    3146:	4b43      	ldr	r3, [pc, #268]	@ (3254 <c_run_jsqz@@Base+0x20c>)
+    3148:	2006      	movs	r0, #6
+    314a:	4479      	add	r1, pc
+    314c:	447a      	add	r2, pc
+    314e:	447b      	add	r3, pc
+    3150:	f002 ea7e 	blx	5650 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x174>
+    3154:	f1b8 0f00 	cmp.w	r8, #0
+    3158:	d1d6      	bne.n	3108 <c_run_jsqz@@Base+0xc0>
+    315a:	4620      	mov	r0, r4
+    315c:	f002 ea90 	blx	5680 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x1a4>
+    3160:	4630      	mov	r0, r6
+    3162:	b002      	add	sp, #8
+    3164:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+    3168:	980e      	ldr	r0, [sp, #56]	@ 0x38
+    316a:	6be1      	ldr	r1, [r4, #60]	@ 0x3c
+    316c:	2600      	movs	r6, #0
+    316e:	6001      	str	r1, [r0, #0]
+    3170:	6c21      	ldr	r1, [r4, #64]	@ 0x40
+    3172:	6041      	str	r1, [r0, #4]
+    3174:	6c61      	ldr	r1, [r4, #68]	@ 0x44
+    3176:	6081      	str	r1, [r0, #8]
+    3178:	6ca1      	ldr	r1, [r4, #72]	@ 0x48
+    317a:	60c1      	str	r1, [r0, #12]
+    317c:	6ce1      	ldr	r1, [r4, #76]	@ 0x4c
+    317e:	6101      	str	r1, [r0, #16]
+    3180:	6d21      	ldr	r1, [r4, #80]	@ 0x50
+    3182:	6141      	str	r1, [r0, #20]
+    3184:	6d61      	ldr	r1, [r4, #84]	@ 0x54
+    3186:	6181      	str	r1, [r0, #24]
+    3188:	6da1      	ldr	r1, [r4, #88]	@ 0x58
+    318a:	61c1      	str	r1, [r0, #28]
+    318c:	6de1      	ldr	r1, [r4, #92]	@ 0x5c
+    318e:	6201      	str	r1, [r0, #32]
+    3190:	6e21      	ldr	r1, [r4, #96]	@ 0x60
+    3192:	6241      	str	r1, [r0, #36]	@ 0x24
+    3194:	6e61      	ldr	r1, [r4, #100]	@ 0x64
+    3196:	6281      	str	r1, [r0, #40]	@ 0x28
+    3198:	6ea1      	ldr	r1, [r4, #104]	@ 0x68
+    319a:	62c1      	str	r1, [r0, #44]	@ 0x2c
+    319c:	6ee1      	ldr	r1, [r4, #108]	@ 0x6c
+    319e:	6301      	str	r1, [r0, #48]	@ 0x30
+    31a0:	6f21      	ldr	r1, [r4, #112]	@ 0x70
+    31a2:	6341      	str	r1, [r0, #52]	@ 0x34
+    31a4:	6f61      	ldr	r1, [r4, #116]	@ 0x74
+    31a6:	6381      	str	r1, [r0, #56]	@ 0x38
+    31a8:	6fa1      	ldr	r1, [r4, #120]	@ 0x78
+    31aa:	63c1      	str	r1, [r0, #60]	@ 0x3c
+    31ac:	6fe1      	ldr	r1, [r4, #124]	@ 0x7c
+    31ae:	6401      	str	r1, [r0, #64]	@ 0x40
+    31b0:	f8d4 1080 	ldr.w	r1, [r4, #128]	@ 0x80
+    31b4:	6441      	str	r1, [r0, #68]	@ 0x44
+    31b6:	f8d4 1084 	ldr.w	r1, [r4, #132]	@ 0x84
+    31ba:	6481      	str	r1, [r0, #72]	@ 0x48
+    31bc:	f8d4 1088 	ldr.w	r1, [r4, #136]	@ 0x88
+    31c0:	64c1      	str	r1, [r0, #76]	@ 0x4c
+    31c2:	f8d4 108c 	ldr.w	r1, [r4, #140]	@ 0x8c
+    31c6:	6501      	str	r1, [r0, #80]	@ 0x50
+    31c8:	f8d4 1090 	ldr.w	r1, [r4, #144]	@ 0x90
+    31cc:	6541      	str	r1, [r0, #84]	@ 0x54
+    31ce:	f8d4 1094 	ldr.w	r1, [r4, #148]	@ 0x94
+    31d2:	6581      	str	r1, [r0, #88]	@ 0x58
+    31d4:	f8d4 1098 	ldr.w	r1, [r4, #152]	@ 0x98
+    31d8:	65c1      	str	r1, [r0, #92]	@ 0x5c
+    31da:	f8d4 109c 	ldr.w	r1, [r4, #156]	@ 0x9c
+    31de:	6601      	str	r1, [r0, #96]	@ 0x60
+    31e0:	f8d4 10a0 	ldr.w	r1, [r4, #160]	@ 0xa0
+    31e4:	6641      	str	r1, [r0, #100]	@ 0x64
+    31e6:	f8d4 10a4 	ldr.w	r1, [r4, #164]	@ 0xa4
+    31ea:	6681      	str	r1, [r0, #104]	@ 0x68
+    31ec:	f8d4 10a8 	ldr.w	r1, [r4, #168]	@ 0xa8
+    31f0:	66c1      	str	r1, [r0, #108]	@ 0x6c
+    31f2:	f8d4 10ac 	ldr.w	r1, [r4, #172]	@ 0xac
+    31f6:	6701      	str	r1, [r0, #112]	@ 0x70
+    31f8:	f8d4 10b0 	ldr.w	r1, [r4, #176]	@ 0xb0
+    31fc:	6741      	str	r1, [r0, #116]	@ 0x74
+    31fe:	f8d4 10b4 	ldr.w	r1, [r4, #180]	@ 0xb4
+    3202:	6781      	str	r1, [r0, #120]	@ 0x78
+    3204:	f8d4 10b8 	ldr.w	r1, [r4, #184]	@ 0xb8
+    3208:	67c1      	str	r1, [r0, #124]	@ 0x7c
+    320a:	f1b8 0f00 	cmp.w	r8, #0
+    320e:	f47f af7b 	bne.w	3108 <c_run_jsqz@@Base+0xc0>
+    3212:	e7a2      	b.n	315a <c_run_jsqz@@Base+0x112>
+    3214:	4605      	mov	r5, r0
+    3216:	4620      	mov	r0, r4
+    3218:	f002 e9f2 	blx	5600 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x124>
+    321c:	4628      	mov	r0, r5
+    321e:	f002 ea38 	blx	5690 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x1b4>
+    3222:	bf00      	nop
+    3224:	3934      	subs	r1, #52	@ 0x34
+    3226:	0000      	movs	r0, r0
+    3228:	eb8c ffff 			@ <UNDEFINED> instruction: 0xeb8cffff
+    322c:	eb1b ffff 			@ <UNDEFINED> instruction: 0xeb1bffff
+    3230:	ec8e ffff 	stc	15, cr15, [lr], {255}	@ 0xff
+    3234:	eb1a ffff 			@ <UNDEFINED> instruction: 0xeb1affff
+    3238:	eb76 ffff 			@ <UNDEFINED> instruction: 0xeb76ffff
+    323c:	e86c ffff 	strd	pc, pc, [ip], #-1020	@ 0x3fc
+    3240:	eafe ffff 			@ <UNDEFINED> instruction: 0xeafeffff
+    3244:	e85f ffff 	ldrex	pc, [pc, #1020]	@ 0x3fc
+    3248:	e850 ffff 	ldrex	pc, [r0, #1020]	@ 0x3fc
+    324c:	eae8 ffff 			@ <UNDEFINED> instruction: 0xeae8ffff
+    3250:	e885 ffff 	stmia.w	r5, {r0, r1, r2, r3, r4, r5, r6, r7, r8, r9, sl, fp, ip, sp, lr, pc}
+    3254:	ebea ffff 			@ <UNDEFINED> instruction: 0xebeaffff
+
+00003258 <ExynosMsqz::ExynosMsqz()@@Base>:
+    3258:	b580      	push	{r7, lr}
+    325a:	f002 e9a2 	blx	55a0 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0xc4>
+    325e:	efc0 0050 	vmov.i32	q8, #0	@ 0x00000000
+    3262:	f500 71be 	add.w	r1, r0, #380	@ 0x17c
+    3266:	f941 0a8f 	vst1.32	{d16-d17}, [r1]
+    326a:	f500 71c6 	add.w	r1, r0, #396	@ 0x18c
+    326e:	f941 0a8f 	vst1.32	{d16-d17}, [r1]
+    3272:	f500 71ce 	add.w	r1, r0, #412	@ 0x19c
+    3276:	f941 0a8f 	vst1.32	{d16-d17}, [r1]
+    327a:	2100      	movs	r1, #0
+    327c:	f8a0 11ac 	strh.w	r1, [r0, #428]	@ 0x1ac
+    3280:	4902      	ldr	r1, [pc, #8]	@ (328c <ExynosMsqz::ExynosMsqz()@@Base+0x34>)
+    3282:	4479      	add	r1, pc
+    3284:	6809      	ldr	r1, [r1, #0]
+    3286:	3108      	adds	r1, #8
+    3288:	6001      	str	r1, [r0, #0]
+    328a:	bd80      	pop	{r7, pc}
+    328c:	3742      	adds	r7, #66	@ 0x42
+	...
+
+00003290 <ExynosMsqz::~ExynosMsqz()@@Base>:
+    3290:	b5b0      	push	{r4, r5, r7, lr}
+    3292:	4604      	mov	r4, r0
+    3294:	4816      	ldr	r0, [pc, #88]	@ (32f0 <ExynosMsqz::~ExynosMsqz()@@Base+0x60>)
+    3296:	4478      	add	r0, pc
+    3298:	6800      	ldr	r0, [r0, #0]
+    329a:	3008      	adds	r0, #8
+    329c:	6020      	str	r0, [r4, #0]
+    329e:	7920      	ldrb	r0, [r4, #4]
+    32a0:	b110      	cbz	r0, 32a8 <ExynosMsqz::~ExynosMsqz()@@Base+0x18>
+    32a2:	4620      	mov	r0, r4
+    32a4:	f002 e9fc 	blx	56a0 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x1c4>
+    32a8:	4620      	mov	r0, r4
+    32aa:	e8bd 40b0 	ldmia.w	sp!, {r4, r5, r7, lr}
+    32ae:	f002 b92d 	b.w	550c <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x30>
+    32b2:	4605      	mov	r5, r0
+    32b4:	2902      	cmp	r1, #2
+    32b6:	d113      	bne.n	32e0 <ExynosMsqz::~ExynosMsqz()@@Base+0x50>
+    32b8:	4628      	mov	r0, r5
+    32ba:	f002 e992 	blx	55e0 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x104>
+    32be:	490d      	ldr	r1, [pc, #52]	@ (32f4 <ExynosMsqz::~ExynosMsqz()@@Base+0x64>)
+    32c0:	4a0d      	ldr	r2, [pc, #52]	@ (32f8 <ExynosMsqz::~ExynosMsqz()@@Base+0x68>)
+    32c2:	4b0e      	ldr	r3, [pc, #56]	@ (32fc <ExynosMsqz::~ExynosMsqz()@@Base+0x6c>)
+    32c4:	2006      	movs	r0, #6
+    32c6:	4479      	add	r1, pc
+    32c8:	447a      	add	r2, pc
+    32ca:	447b      	add	r3, pc
+    32cc:	f002 e9c0 	blx	5650 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x174>
+    32d0:	f002 e9ee 	blx	56b0 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x1d4>
+    32d4:	e7e8      	b.n	32a8 <ExynosMsqz::~ExynosMsqz()@@Base+0x18>
+    32d6:	4605      	mov	r5, r0
+    32d8:	e002      	b.n	32e0 <ExynosMsqz::~ExynosMsqz()@@Base+0x50>
+    32da:	4605      	mov	r5, r0
+    32dc:	f002 e9e8 	blx	56b0 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x1d4>
+    32e0:	4620      	mov	r0, r4
+    32e2:	f002 e96e 	blx	55c0 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0xe4>
+    32e6:	4628      	mov	r0, r5
+    32e8:	f7ff fda8 	bl	2e3c <ExynosJsqz::destroy()@@Base+0x4>
+    32ec:	f7ff fda6 	bl	2e3c <ExynosJsqz::destroy()@@Base+0x4>
+    32f0:	372e      	adds	r7, #46	@ 0x2e
+    32f2:	0000      	movs	r0, r0
+    32f4:	e96c ffff 	strd	pc, pc, [ip, #-1020]!	@ 0x3fc
+    32f8:	e9fe ffff 	ldrd	pc, pc, [lr, #1020]!	@ 0x3fc
+    32fc:	e5b7      	b.n	2e6e <ExynosJsqz::~ExynosJsqz()@@Base+0x2a>
+    32fe:	Address 0x32fe is out of bounds.
+
+
+00003300 <ExynosMsqz::destroy()@@Base>:
+    3300:	b5b0      	push	{r4, r5, r7, lr}
+    3302:	4604      	mov	r4, r0
+    3304:	f8d0 01a0 	ldr.w	r0, [r0, #416]	@ 0x1a0
+    3308:	b118      	cbz	r0, 3312 <ExynosMsqz::destroy()@@Base+0x12>
+    330a:	f8d4 1170 	ldr.w	r1, [r4, #368]	@ 0x170
+    330e:	f002 e9d8 	blx	56c0 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x1e4>
+    3312:	f8d4 016c 	ldr.w	r0, [r4, #364]	@ 0x16c
+    3316:	2801      	cmp	r0, #1
+    3318:	db01      	blt.n	331e <ExynosMsqz::destroy()@@Base+0x1e>
+    331a:	f002 e9da 	blx	56d0 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x1f4>
+    331e:	f8d4 01a4 	ldr.w	r0, [r4, #420]	@ 0x1a4
+    3322:	b108      	cbz	r0, 3328 <ExynosMsqz::destroy()@@Base+0x28>
+    3324:	f002 e9dc 	blx	56e0 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x204>
+    3328:	f8d4 01a8 	ldr.w	r0, [r4, #424]	@ 0x1a8
+    332c:	b108      	cbz	r0, 3332 <ExynosMsqz::destroy()@@Base+0x32>
+    332e:	f002 e9d8 	blx	56e0 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x204>
+    3332:	f8d4 017c 	ldr.w	r0, [r4, #380]	@ 0x17c
+    3336:	2500      	movs	r5, #0
+    3338:	e9c4 5568 	strd	r5, r5, [r4, #416]	@ 0x1a0
+    333c:	f8c4 51a8 	str.w	r5, [r4, #424]	@ 0x1a8
+    3340:	b108      	cbz	r0, 3346 <ExynosMsqz::destroy()@@Base+0x46>
+    3342:	f002 e9d6 	blx	56f0 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x214>
+    3346:	f8c4 51a4 	str.w	r5, [r4, #420]	@ 0x1a4
+    334a:	f8c4 519c 	str.w	r5, [r4, #412]	@ 0x19c
+    334e:	f8c4 517c 	str.w	r5, [r4, #380]	@ 0x17c
+    3352:	4620      	mov	r0, r4
+    3354:	e8bd 40b0 	ldmia.w	sp!, {r4, r5, r7, lr}
+    3358:	f002 b8de 	b.w	5518 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x3c>
+
+0000335c <ExynosMsqz::~ExynosMsqz()@@Base>:
+    335c:	b580      	push	{r7, lr}
+    335e:	f002 e9d0 	blx	5700 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x224>
+    3362:	e8bd 4080 	ldmia.w	sp!, {r7, lr}
+    3366:	f002 b8dd 	b.w	5524 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x48>
+
+0000336a <ExynosMsqz::create()@@Base>:
+    336a:	f002 b8e1 	b.w	5530 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x54>
+
+0000336e <ExynosMsqz::releaseMemories()@@Base>:
+    336e:	b510      	push	{r4, lr}
+    3370:	4604      	mov	r4, r0
+    3372:	f8d0 01a0 	ldr.w	r0, [r0, #416]	@ 0x1a0
+    3376:	b118      	cbz	r0, 3380 <ExynosMsqz::releaseMemories()@@Base+0x12>
+    3378:	f8d4 1170 	ldr.w	r1, [r4, #368]	@ 0x170
+    337c:	f002 e9a0 	blx	56c0 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x1e4>
+    3380:	f8d4 016c 	ldr.w	r0, [r4, #364]	@ 0x16c
+    3384:	2801      	cmp	r0, #1
+    3386:	db01      	blt.n	338c <ExynosMsqz::releaseMemories()@@Base+0x1e>
+    3388:	f002 e9a2 	blx	56d0 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x1f4>
+    338c:	f8d4 01a4 	ldr.w	r0, [r4, #420]	@ 0x1a4
+    3390:	b108      	cbz	r0, 3396 <ExynosMsqz::releaseMemories()@@Base+0x28>
+    3392:	f002 e9a6 	blx	56e0 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x204>
+    3396:	f8d4 01a8 	ldr.w	r0, [r4, #424]	@ 0x1a8
+    339a:	b108      	cbz	r0, 33a0 <ExynosMsqz::releaseMemories()@@Base+0x32>
+    339c:	f002 e9a0 	blx	56e0 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x204>
+    33a0:	2000      	movs	r0, #0
+    33a2:	e9c4 0068 	strd	r0, r0, [r4, #416]	@ 0x1a0
+    33a6:	f8c4 01a8 	str.w	r0, [r4, #424]	@ 0x1a8
+    33aa:	2000      	movs	r0, #0
+    33ac:	bd10      	pop	{r4, pc}
+    33ae:	d4d4      	bmi.n	335a <ExynosMsqz::destroy()@@Base+0x5a>
+
+000033b0 <ExynosMsqz::setVideoInfo(int, int, int, int, int, bool)@@Base>:
+    33b0:	b5f0      	push	{r4, r5, r6, r7, lr}
+    33b2:	b083      	sub	sp, #12
+    33b4:	4604      	mov	r4, r0
+    33b6:	7900      	ldrb	r0, [r0, #4]
+    33b8:	b360      	cbz	r0, 3414 <ExynosMsqz::setVideoInfo(int, int, int, int, int, bool)@@Base+0x64>
+    33ba:	980a      	ldr	r0, [sp, #40]	@ 0x28
+    33bc:	e9dd 6708 	ldrd	r6, r7, [sp, #32]
+    33c0:	e9c4 1260 	strd	r1, r2, [r4, #384]	@ 0x180
+    33c4:	f884 01ac 	strb.w	r0, [r4, #428]	@ 0x1ac
+    33c8:	f504 70a0 	add.w	r0, r4, #320	@ 0x140
+    33cc:	c0c8      	stmia	r0!, {r3, r6, r7}
+    33ce:	1137      	asrs	r7, r6, #4
+    33d0:	2001      	movs	r0, #1
+    33d2:	eb00 1226 	add.w	r2, r0, r6, asr #4
+    33d6:	f36f 161e 	bfc	r6, #4, #27
+    33da:	eb00 1023 	add.w	r0, r0, r3, asr #4
+    33de:	2e00      	cmp	r6, #0
+    33e0:	bfc8      	it	gt
+    33e2:	4617      	movgt	r7, r2
+    33e4:	f8c4 718c 	str.w	r7, [r4, #396]	@ 0x18c
+    33e8:	461f      	mov	r7, r3
+    33ea:	111a      	asrs	r2, r3, #4
+    33ec:	f36f 171e 	bfc	r7, #4, #27
+    33f0:	2f00      	cmp	r7, #0
+    33f2:	bfc8      	it	gt
+    33f4:	4602      	movgt	r2, r0
+    33f6:	fb91 f0f3 	sdiv	r0, r1, r3
+    33fa:	f8c4 2188 	str.w	r2, [r4, #392]	@ 0x188
+    33fe:	fb00 1113 	mls	r1, r0, r3, r1
+    3402:	1c46      	adds	r6, r0, #1
+    3404:	2900      	cmp	r1, #0
+    3406:	bf08      	it	eq
+    3408:	4606      	moveq	r6, r0
+    340a:	f8d4 017c 	ldr.w	r0, [r4, #380]	@ 0x17c
+    340e:	b170      	cbz	r0, 342e <ExynosMsqz::setVideoInfo(int, int, int, int, int, bool)@@Base+0x7e>
+    3410:	b9ba      	cbnz	r2, 3442 <ExynosMsqz::setVideoInfo(int, int, int, int, int, bool)@@Base+0x92>
+    3412:	e057      	b.n	34c4 <ExynosMsqz::setVideoInfo(int, int, int, int, int, bool)@@Base+0x114>
+    3414:	496a      	ldr	r1, [pc, #424]	@ (35c0 <ExynosMsqz::setVideoInfo(int, int, int, int, int, bool)@@Base+0x210>)
+    3416:	4a6b      	ldr	r2, [pc, #428]	@ (35c4 <ExynosMsqz::setVideoInfo(int, int, int, int, int, bool)@@Base+0x214>)
+    3418:	4b6b      	ldr	r3, [pc, #428]	@ (35c8 <ExynosMsqz::setVideoInfo(int, int, int, int, int, bool)@@Base+0x218>)
+    341a:	2006      	movs	r0, #6
+    341c:	4479      	add	r1, pc
+    341e:	447a      	add	r2, pc
+    3420:	447b      	add	r3, pc
+    3422:	f002 e916 	blx	5650 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x174>
+    3426:	f06f 00f9 	mvn.w	r0, #249	@ 0xf9
+    342a:	b003      	add	sp, #12
+    342c:	bdf0      	pop	{r4, r5, r6, r7, pc}
+    342e:	f002 e970 	blx	5710 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x234>
+    3432:	2800      	cmp	r0, #0
+    3434:	f8c4 017c 	str.w	r0, [r4, #380]	@ 0x17c
+    3438:	d44d      	bmi.n	34d6 <ExynosMsqz::setVideoInfo(int, int, int, int, int, bool)@@Base+0x126>
+    343a:	f8d4 2188 	ldr.w	r2, [r4, #392]	@ 0x188
+    343e:	2a00      	cmp	r2, #0
+    3440:	d040      	beq.n	34c4 <ExynosMsqz::setVideoInfo(int, int, int, int, int, bool)@@Base+0x114>
+    3442:	f8d4 118c 	ldr.w	r1, [r4, #396]	@ 0x18c
+    3446:	b3e9      	cbz	r1, 34c4 <ExynosMsqz::setVideoInfo(int, int, int, int, int, bool)@@Base+0x114>
+    3448:	2301      	movs	r3, #1
+    344a:	4351      	muls	r1, r2
+    344c:	2201      	movs	r2, #1
+    344e:	f884 3174 	strb.w	r3, [r4, #372]	@ 0x174
+    3452:	2300      	movs	r3, #0
+    3454:	f8c4 1170 	str.w	r1, [r4, #368]	@ 0x170
+    3458:	f002 e962 	blx	5720 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x244>
+    345c:	2800      	cmp	r0, #0
+    345e:	f8c4 016c 	str.w	r0, [r4, #364]	@ 0x16c
+    3462:	d438      	bmi.n	34d6 <ExynosMsqz::setVideoInfo(int, int, int, int, int, bool)@@Base+0x126>
+    3464:	f894 21ac 	ldrb.w	r2, [r4, #428]	@ 0x1ac
+    3468:	f8d4 1180 	ldr.w	r1, [r4, #384]	@ 0x180
+    346c:	4605      	mov	r5, r0
+    346e:	200f      	movs	r0, #15
+    3470:	f2c8 0000 	movt	r0, #32768	@ 0x8000
+    3474:	b39a      	cbz	r2, 34de <ExynosMsqz::setVideoInfo(int, int, int, int, int, bool)@@Base+0x12e>
+    3476:	2701      	movs	r7, #1
+    3478:	3010      	adds	r0, #16
+    347a:	eb07 1261 	add.w	r2, r7, r1, asr #5
+    347e:	ea01 0300 	and.w	r3, r1, r0
+    3482:	1149      	asrs	r1, r1, #5
+    3484:	2b00      	cmp	r3, #0
+    3486:	bfc8      	it	gt
+    3488:	4611      	movgt	r1, r2
+    348a:	f8d4 2184 	ldr.w	r2, [r4, #388]	@ 0x184
+    348e:	4010      	ands	r0, r2
+    3490:	eb07 1362 	add.w	r3, r7, r2, asr #5
+    3494:	1152      	asrs	r2, r2, #5
+    3496:	2800      	cmp	r0, #0
+    3498:	bfc8      	it	gt
+    349a:	461a      	movgt	r2, r3
+    349c:	fb02 f001 	mul.w	r0, r2, r1
+    34a0:	e9c4 1265 	strd	r1, r2, [r4, #404]	@ 0x194
+    34a4:	f002 e944 	blx	5730 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x254>
+    34a8:	2e02      	cmp	r6, #2
+    34aa:	f8c4 01a4 	str.w	r0, [r4, #420]	@ 0x1a4
+    34ae:	d032      	beq.n	3516 <ExynosMsqz::setVideoInfo(int, int, int, int, int, bool)@@Base+0x166>
+    34b0:	2e01      	cmp	r6, #1
+    34b2:	d133      	bne.n	351c <ExynosMsqz::setVideoInfo(int, int, int, int, int, bool)@@Base+0x16c>
+    34b4:	f8d4 0170 	ldr.w	r0, [r4, #368]	@ 0x170
+    34b8:	f002 e93a 	blx	5730 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x254>
+    34bc:	f8c4 01a8 	str.w	r0, [r4, #424]	@ 0x1a8
+    34c0:	2000      	movs	r0, #0
+    34c2:	e03d      	b.n	3540 <ExynosMsqz::setVideoInfo(int, int, int, int, int, bool)@@Base+0x190>
+    34c4:	4941      	ldr	r1, [pc, #260]	@ (35cc <ExynosMsqz::setVideoInfo(int, int, int, int, int, bool)@@Base+0x21c>)
+    34c6:	4a42      	ldr	r2, [pc, #264]	@ (35d0 <ExynosMsqz::setVideoInfo(int, int, int, int, int, bool)@@Base+0x220>)
+    34c8:	4b42      	ldr	r3, [pc, #264]	@ (35d4 <ExynosMsqz::setVideoInfo(int, int, int, int, int, bool)@@Base+0x224>)
+    34ca:	2006      	movs	r0, #6
+    34cc:	4479      	add	r1, pc
+    34ce:	447a      	add	r2, pc
+    34d0:	447b      	add	r3, pc
+    34d2:	f002 e8be 	blx	5650 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x174>
+    34d6:	f06f 00f3 	mvn.w	r0, #243	@ 0xf3
+    34da:	b003      	add	sp, #12
+    34dc:	bdf0      	pop	{r4, r5, r6, r7, pc}
+    34de:	2701      	movs	r7, #1
+    34e0:	ea01 0200 	and.w	r2, r1, r0
+    34e4:	eb07 1321 	add.w	r3, r7, r1, asr #4
+    34e8:	1109      	asrs	r1, r1, #4
+    34ea:	2a00      	cmp	r2, #0
+    34ec:	bfc8      	it	gt
+    34ee:	4619      	movgt	r1, r3
+    34f0:	f8d4 2184 	ldr.w	r2, [r4, #388]	@ 0x184
+    34f4:	4010      	ands	r0, r2
+    34f6:	eb07 1322 	add.w	r3, r7, r2, asr #4
+    34fa:	1112      	asrs	r2, r2, #4
+    34fc:	2800      	cmp	r0, #0
+    34fe:	bfc8      	it	gt
+    3500:	461a      	movgt	r2, r3
+    3502:	fb02 f001 	mul.w	r0, r2, r1
+    3506:	e9c4 1265 	strd	r1, r2, [r4, #404]	@ 0x194
+    350a:	f002 e912 	blx	5730 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x254>
+    350e:	2e01      	cmp	r6, #1
+    3510:	f8c4 01a4 	str.w	r0, [r4, #420]	@ 0x1a4
+    3514:	d10a      	bne.n	352c <ExynosMsqz::setVideoInfo(int, int, int, int, int, bool)@@Base+0x17c>
+    3516:	f8c4 7190 	str.w	r7, [r4, #400]	@ 0x190
+    351a:	e013      	b.n	3544 <ExynosMsqz::setVideoInfo(int, int, int, int, int, bool)@@Base+0x194>
+    351c:	f8d4 0170 	ldr.w	r0, [r4, #368]	@ 0x170
+    3520:	f002 e906 	blx	5730 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x254>
+    3524:	f8c4 01a8 	str.w	r0, [r4, #424]	@ 0x1a8
+    3528:	2002      	movs	r0, #2
+    352a:	e009      	b.n	3540 <ExynosMsqz::setVideoInfo(int, int, int, int, int, bool)@@Base+0x190>
+    352c:	f8d4 0170 	ldr.w	r0, [r4, #368]	@ 0x170
+    3530:	f002 e8fe 	blx	5730 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x254>
+    3534:	f8c4 01a8 	str.w	r0, [r4, #424]	@ 0x1a8
+    3538:	2002      	movs	r0, #2
+    353a:	2e04      	cmp	r6, #4
+    353c:	bf08      	it	eq
+    353e:	2003      	moveq	r0, #3
+    3540:	f8c4 0190 	str.w	r0, [r4, #400]	@ 0x190
+    3544:	f8d4 1170 	ldr.w	r1, [r4, #368]	@ 0x170
+    3548:	2000      	movs	r0, #0
+    354a:	2203      	movs	r2, #3
+    354c:	2301      	movs	r3, #1
+    354e:	e9cd 5000 	strd	r5, r0, [sp]
+    3552:	2000      	movs	r0, #0
+    3554:	f002 e8f4 	blx	5740 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x264>
+    3558:	f8c4 01a0 	str.w	r0, [r4, #416]	@ 0x1a0
+    355c:	3001      	adds	r0, #1
+    355e:	d01c      	beq.n	359a <ExynosMsqz::setVideoInfo(int, int, int, int, int, bool)@@Base+0x1ea>
+    3560:	f894 01ac 	ldrb.w	r0, [r4, #428]	@ 0x1ac
+    3564:	f8d4 3190 	ldr.w	r3, [r4, #400]	@ 0x190
+    3568:	e9cd 6000 	strd	r6, r0, [sp]
+    356c:	2004      	movs	r0, #4
+    356e:	4d1d      	ldr	r5, [pc, #116]	@ (35e4 <ExynosMsqz::setVideoInfo(int, int, int, int, int, bool)@@Base+0x234>)
+    3570:	4a1d      	ldr	r2, [pc, #116]	@ (35e8 <ExynosMsqz::setVideoInfo(int, int, int, int, int, bool)@@Base+0x238>)
+    3572:	447d      	add	r5, pc
+    3574:	447a      	add	r2, pc
+    3576:	4629      	mov	r1, r5
+    3578:	f002 e86a 	blx	5650 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x174>
+    357c:	e9d4 3062 	ldrd	r3, r0, [r4, #392]	@ 0x188
+    3580:	e9d4 1265 	ldrd	r1, r2, [r4, #404]	@ 0x194
+    3584:	e88d 0007 	stmia.w	sp, {r0, r1, r2}
+    3588:	2004      	movs	r0, #4
+    358a:	4629      	mov	r1, r5
+    358c:	4a17      	ldr	r2, [pc, #92]	@ (35ec <ExynosMsqz::setVideoInfo(int, int, int, int, int, bool)@@Base+0x23c>)
+    358e:	447a      	add	r2, pc
+    3590:	f002 e85e 	blx	5650 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x174>
+    3594:	2000      	movs	r0, #0
+    3596:	b003      	add	sp, #12
+    3598:	bdf0      	pop	{r4, r5, r6, r7, pc}
+    359a:	f002 e8da 	blx	5750 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x274>
+    359e:	6800      	ldr	r0, [r0, #0]
+    35a0:	f002 e8de 	blx	5760 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x284>
+    35a4:	9000      	str	r0, [sp, #0]
+    35a6:	2006      	movs	r0, #6
+    35a8:	490b      	ldr	r1, [pc, #44]	@ (35d8 <ExynosMsqz::setVideoInfo(int, int, int, int, int, bool)@@Base+0x228>)
+    35aa:	4a0c      	ldr	r2, [pc, #48]	@ (35dc <ExynosMsqz::setVideoInfo(int, int, int, int, int, bool)@@Base+0x22c>)
+    35ac:	4b0c      	ldr	r3, [pc, #48]	@ (35e0 <ExynosMsqz::setVideoInfo(int, int, int, int, int, bool)@@Base+0x230>)
+    35ae:	4479      	add	r1, pc
+    35b0:	447a      	add	r2, pc
+    35b2:	447b      	add	r3, pc
+    35b4:	f002 e84c 	blx	5650 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x174>
+    35b8:	f06f 007d 	mvn.w	r0, #125	@ 0x7d
+    35bc:	b003      	add	sp, #12
+    35be:	bdf0      	pop	{r4, r5, r6, r7, pc}
+    35c0:	e816 ffff 			@ <UNDEFINED> instruction: 0xe816ffff
+    35c4:	e872 ffff 	ldrd	pc, pc, [r2], #-1020	@ 0x3fc
+    35c8:	e70d      	b.n	33e6 <ExynosMsqz::setVideoInfo(int, int, int, int, int, bool)@@Base+0x36>
+    35ca:	ffff e766 			@ <UNDEFINED> instruction: 0xffffe766
+    35ce:	ffff e6b8 	vqshlu.s64	d30, d24, #63	@ 0x3f
+    35d2:	ffff e65d 	vqshlu.s32	q15, <illegal reg q6.5>, #31
+    35d6:	ffff e684 	vrsubhn.i<illegal width 128>	d30, <illegal reg q15.5>, q2
+    35da:	ffff e68b 	vrsubhn.i<illegal width 128>	d30, <illegal reg q15.5>, <illegal reg q5.5>
+    35de:	ffff e57b 	vsli.32	q15, <illegal reg q13.5>, #31
+    35e2:	ffff e6c0 	vmlsl.u<illegal width 64>	q15, d31, d0[0]
+    35e6:	ffff e588 	vabal.u<illegal width 64>	q15, d31, d8
+    35ea:	ffff e306 	vsubw.u<illegal width 64>	q15, <illegal reg q7.5>, d6
+    35ee:	Address 0x35ee is out of bounds.
+
+
+000035f0 <ExynosMsqz::setDcTuneValue(int, int, int)@@Base>:
+    35f0:	b580      	push	{r7, lr}
+    35f2:	f890 c004 	ldrb.w	ip, [r0, #4]
+    35f6:	f1bc 0f00 	cmp.w	ip, #0
+    35fa:	d007      	beq.n	360c <ExynosMsqz::setDcTuneValue(int, int, int)@@Base+0x1c>
+    35fc:	f880 3157 	strb.w	r3, [r0, #343]	@ 0x157
+    3600:	f880 2156 	strb.w	r2, [r0, #342]	@ 0x156
+    3604:	f8a0 1154 	strh.w	r1, [r0, #340]	@ 0x154
+    3608:	2000      	movs	r0, #0
+    360a:	bd80      	pop	{r7, pc}
+    360c:	4905      	ldr	r1, [pc, #20]	@ (3624 <ExynosMsqz::setDcTuneValue(int, int, int)@@Base+0x34>)
+    360e:	4a06      	ldr	r2, [pc, #24]	@ (3628 <ExynosMsqz::setDcTuneValue(int, int, int)@@Base+0x38>)
+    3610:	4b06      	ldr	r3, [pc, #24]	@ (362c <ExynosMsqz::setDcTuneValue(int, int, int)@@Base+0x3c>)
+    3612:	2006      	movs	r0, #6
+    3614:	4479      	add	r1, pc
+    3616:	447a      	add	r2, pc
+    3618:	447b      	add	r3, pc
+    361a:	f002 e81a 	blx	5650 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x174>
+    361e:	f06f 00f9 	mvn.w	r0, #249	@ 0xf9
+    3622:	bd80      	pop	{r7, pc}
+    3624:	e61e      	b.n	3264 <ExynosMsqz::ExynosMsqz()@@Base+0xc>
+    3626:	ffff e67a 	vqshlu.s32	q15, q13, #31
+    362a:	ffff e31a 	vrsra.u32	d30, d10, #1
+    362e:	Address 0x362e is out of bounds.
+
+
+00003630 <ExynosMsqz::setAlphaTuneValue(int, int)@@Base>:
+    3630:	b580      	push	{r7, lr}
+    3632:	7903      	ldrb	r3, [r0, #4]
+    3634:	b12b      	cbz	r3, 3642 <ExynosMsqz::setAlphaTuneValue(int, int)@@Base+0x12>
+    3636:	f8a0 215a 	strh.w	r2, [r0, #346]	@ 0x15a
+    363a:	f8a0 1158 	strh.w	r1, [r0, #344]	@ 0x158
+    363e:	2000      	movs	r0, #0
+    3640:	bd80      	pop	{r7, pc}
+    3642:	4906      	ldr	r1, [pc, #24]	@ (365c <ExynosMsqz::setAlphaTuneValue(int, int)@@Base+0x2c>)
+    3644:	4a06      	ldr	r2, [pc, #24]	@ (3660 <ExynosMsqz::setAlphaTuneValue(int, int)@@Base+0x30>)
+    3646:	4b07      	ldr	r3, [pc, #28]	@ (3664 <ExynosMsqz::setAlphaTuneValue(int, int)@@Base+0x34>)
+    3648:	2006      	movs	r0, #6
+    364a:	4479      	add	r1, pc
+    364c:	447a      	add	r2, pc
+    364e:	447b      	add	r3, pc
+    3650:	f001 effe 	blx	5650 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x174>
+    3654:	f06f 00f9 	mvn.w	r0, #249	@ 0xf9
+    3658:	bd80      	pop	{r7, pc}
+    365a:	bf00      	nop
+    365c:	e5e8      	b.n	3230 <c_run_jsqz@@Base+0x1e8>
+    365e:	ffff e644 	vmlsl.u<illegal width 64>	q15, d15, d4[0]
+    3662:	ffff e563 			@ <UNDEFINED> instruction: 0xffffe563
+    3666:	Address 0x3666 is out of bounds.
+
+
+00003668 <ExynosMsqz::setDqpTuneValue(int, int)@@Base>:
+    3668:	b580      	push	{r7, lr}
+    366a:	7903      	ldrb	r3, [r0, #4]
+    366c:	b12b      	cbz	r3, 367a <ExynosMsqz::setDqpTuneValue(int, int)@@Base+0x12>
+    366e:	f8a0 215e 	strh.w	r2, [r0, #350]	@ 0x15e
+    3672:	f8a0 115c 	strh.w	r1, [r0, #348]	@ 0x15c
+    3676:	2000      	movs	r0, #0
+    3678:	bd80      	pop	{r7, pc}
+    367a:	4906      	ldr	r1, [pc, #24]	@ (3694 <ExynosMsqz::setDqpTuneValue(int, int)@@Base+0x2c>)
+    367c:	4a06      	ldr	r2, [pc, #24]	@ (3698 <ExynosMsqz::setDqpTuneValue(int, int)@@Base+0x30>)
+    367e:	4b07      	ldr	r3, [pc, #28]	@ (369c <ExynosMsqz::setDqpTuneValue(int, int)@@Base+0x34>)
+    3680:	2006      	movs	r0, #6
+    3682:	4479      	add	r1, pc
+    3684:	447a      	add	r2, pc
+    3686:	447b      	add	r3, pc
+    3688:	f001 efe2 	blx	5650 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x174>
+    368c:	f06f 00f9 	mvn.w	r0, #249	@ 0xf9
+    3690:	bd80      	pop	{r7, pc}
+    3692:	bf00      	nop
+    3694:	e5b0      	b.n	31f8 <c_run_jsqz@@Base+0x1b0>
+    3696:	ffff e60c 	vrsubhn.i<illegal width 128>	d30, <illegal reg q7.5>, q6
+    369a:	ffff e446 	vmls.i<illegal width 64>	q15, <illegal reg q7.5>, d6[0]
+    369e:	Address 0x369e is out of bounds.
+
+
+000036a0 <ExynosMsqz::setInBuf(int, unsigned int)@@Base>:
+    36a0:	4613      	mov	r3, r2
+    36a2:	460a      	mov	r2, r1
+    36a4:	f500 71b0 	add.w	r1, r0, #352	@ 0x160
+    36a8:	f001 bf48 	b.w	553c <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x60>
+
+000036ac <ExynosMsqz::setInBuf(unsigned char*, unsigned int)@@Base>:
+    36ac:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+    36b0:	b082      	sub	sp, #8
+    36b2:	4606      	mov	r6, r0
+    36b4:	f8d0 017c 	ldr.w	r0, [r0, #380]	@ 0x17c
+    36b8:	4614      	mov	r4, r2
+    36ba:	460d      	mov	r5, r1
+    36bc:	b930      	cbnz	r0, 36cc <ExynosMsqz::setInBuf(unsigned char*, unsigned int)@@Base+0x20>
+    36be:	f002 e828 	blx	5710 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x234>
+    36c2:	f1b0 3fff 	cmp.w	r0, #4294967295	@ 0xffffffff
+    36c6:	f8c6 017c 	str.w	r0, [r6, #380]	@ 0x17c
+    36ca:	dd27      	ble.n	371c <ExynosMsqz::setInBuf(unsigned char*, unsigned int)@@Base+0x70>
+    36cc:	4621      	mov	r1, r4
+    36ce:	2201      	movs	r2, #1
+    36d0:	2300      	movs	r3, #0
+    36d2:	2701      	movs	r7, #1
+    36d4:	f04f 0800 	mov.w	r8, #0
+    36d8:	f002 e822 	blx	5720 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x244>
+    36dc:	2800      	cmp	r0, #0
+    36de:	f8c6 0160 	str.w	r0, [r6, #352]	@ 0x160
+    36e2:	d424      	bmi.n	372e <ExynosMsqz::setInBuf(unsigned char*, unsigned int)@@Base+0x82>
+    36e4:	f886 7168 	strb.w	r7, [r6, #360]	@ 0x168
+    36e8:	f8c6 4164 	str.w	r4, [r6, #356]	@ 0x164
+    36ec:	e9cd 0800 	strd	r0, r8, [sp]
+    36f0:	2000      	movs	r0, #0
+    36f2:	4621      	mov	r1, r4
+    36f4:	2203      	movs	r2, #3
+    36f6:	2301      	movs	r3, #1
+    36f8:	f002 e822 	blx	5740 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x264>
+    36fc:	4606      	mov	r6, r0
+    36fe:	3001      	adds	r0, #1
+    3700:	d015      	beq.n	372e <ExynosMsqz::setInBuf(unsigned char*, unsigned int)@@Base+0x82>
+    3702:	4628      	mov	r0, r5
+    3704:	4631      	mov	r1, r6
+    3706:	4622      	mov	r2, r4
+    3708:	f001 eeea 	blx	54e0 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x4>
+    370c:	4630      	mov	r0, r6
+    370e:	4621      	mov	r1, r4
+    3710:	f001 efd6 	blx	56c0 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x1e4>
+    3714:	2000      	movs	r0, #0
+    3716:	b002      	add	sp, #8
+    3718:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+    371c:	4906      	ldr	r1, [pc, #24]	@ (3738 <ExynosMsqz::setInBuf(unsigned char*, unsigned int)@@Base+0x8c>)
+    371e:	4a07      	ldr	r2, [pc, #28]	@ (373c <ExynosMsqz::setInBuf(unsigned char*, unsigned int)@@Base+0x90>)
+    3720:	4b07      	ldr	r3, [pc, #28]	@ (3740 <ExynosMsqz::setInBuf(unsigned char*, unsigned int)@@Base+0x94>)
+    3722:	2006      	movs	r0, #6
+    3724:	4479      	add	r1, pc
+    3726:	447a      	add	r2, pc
+    3728:	447b      	add	r3, pc
+    372a:	f001 ef92 	blx	5650 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x174>
+    372e:	f06f 00f3 	mvn.w	r0, #243	@ 0xf3
+    3732:	b002      	add	sp, #8
+    3734:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+    3738:	e50e      	b.n	3158 <c_run_jsqz@@Base+0x110>
+    373a:	ffff e21b 	vrshr.u32	d30, d11, #1
+    373e:	ffff e3b4 	vrsra.u64	d30, d20, #1
+    3742:	Address 0x3742 is out of bounds.
+
+
+00003744 <ExynosMsqz::setOutBuf(int, unsigned int)@@Base>:
+    3744:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+    3748:	b082      	sub	sp, #8
+    374a:	4604      	mov	r4, r0
+    374c:	f8d0 017c 	ldr.w	r0, [r0, #380]	@ 0x17c
+    3750:	4615      	mov	r5, r2
+    3752:	460e      	mov	r6, r1
+    3754:	b928      	cbnz	r0, 3762 <ExynosMsqz::setOutBuf(int, unsigned int)@@Base+0x1e>
+    3756:	f001 efdc 	blx	5710 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x234>
+    375a:	2800      	cmp	r0, #0
+    375c:	f8c4 017c 	str.w	r0, [r4, #380]	@ 0x17c
+    3760:	d42e      	bmi.n	37c0 <ExynosMsqz::setOutBuf(int, unsigned int)@@Base+0x7c>
+    3762:	f8d4 1188 	ldr.w	r1, [r4, #392]	@ 0x188
+    3766:	b311      	cbz	r1, 37ae <ExynosMsqz::setOutBuf(int, unsigned int)@@Base+0x6a>
+    3768:	f8d4 218c 	ldr.w	r2, [r4, #396]	@ 0x18c
+    376c:	b1fa      	cbz	r2, 37ae <ExynosMsqz::setOutBuf(int, unsigned int)@@Base+0x6a>
+    376e:	4351      	muls	r1, r2
+    3770:	f04f 0801 	mov.w	r8, #1
+    3774:	2201      	movs	r2, #1
+    3776:	2300      	movs	r3, #0
+    3778:	2700      	movs	r7, #0
+    377a:	f884 8174 	strb.w	r8, [r4, #372]	@ 0x174
+    377e:	f8c4 1170 	str.w	r1, [r4, #368]	@ 0x170
+    3782:	f001 efce 	blx	5720 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x244>
+    3786:	2800      	cmp	r0, #0
+    3788:	f8c4 016c 	str.w	r0, [r4, #364]	@ 0x16c
+    378c:	d418      	bmi.n	37c0 <ExynosMsqz::setOutBuf(int, unsigned int)@@Base+0x7c>
+    378e:	2000      	movs	r0, #0
+    3790:	4629      	mov	r1, r5
+    3792:	2203      	movs	r2, #3
+    3794:	2301      	movs	r3, #1
+    3796:	e9cd 6700 	strd	r6, r7, [sp]
+    379a:	f001 efd2 	blx	5740 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x264>
+    379e:	f884 81ad 	strb.w	r8, [r4, #429]	@ 0x1ad
+    37a2:	f8c4 019c 	str.w	r0, [r4, #412]	@ 0x19c
+    37a6:	4638      	mov	r0, r7
+    37a8:	b002      	add	sp, #8
+    37aa:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+    37ae:	4907      	ldr	r1, [pc, #28]	@ (37cc <ExynosMsqz::setOutBuf(int, unsigned int)@@Base+0x88>)
+    37b0:	4a07      	ldr	r2, [pc, #28]	@ (37d0 <ExynosMsqz::setOutBuf(int, unsigned int)@@Base+0x8c>)
+    37b2:	4b08      	ldr	r3, [pc, #32]	@ (37d4 <ExynosMsqz::setOutBuf(int, unsigned int)@@Base+0x90>)
+    37b4:	2006      	movs	r0, #6
+    37b6:	4479      	add	r1, pc
+    37b8:	447a      	add	r2, pc
+    37ba:	447b      	add	r3, pc
+    37bc:	f001 ef48 	blx	5650 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x174>
+    37c0:	f06f 07f3 	mvn.w	r7, #243	@ 0xf3
+    37c4:	4638      	mov	r0, r7
+    37c6:	b002      	add	sp, #8
+    37c8:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+    37cc:	e47c      	b.n	30c8 <c_run_jsqz@@Base+0x80>
+    37ce:	ffff e3ce 			@ <UNDEFINED> instruction: 0xffffe3ce
+    37d2:	ffff e52c 	vabal.u<illegal width 64>	q15, d15, d28
+    37d6:	Address 0x37d6 is out of bounds.
+
+
+000037d8 <ExynosMsqz::setOutBuf(signed char*, unsigned int)@@Base>:
+    37d8:	b5b0      	push	{r4, r5, r7, lr}
+    37da:	4605      	mov	r5, r0
+    37dc:	f8d0 0170 	ldr.w	r0, [r0, #368]	@ 0x170
+    37e0:	460c      	mov	r4, r1
+    37e2:	4290      	cmp	r0, r2
+    37e4:	d906      	bls.n	37f4 <ExynosMsqz::setOutBuf(signed char*, unsigned int)@@Base+0x1c>
+    37e6:	4907      	ldr	r1, [pc, #28]	@ (3804 <ExynosMsqz::setOutBuf(signed char*, unsigned int)@@Base+0x2c>)
+    37e8:	4a07      	ldr	r2, [pc, #28]	@ (3808 <ExynosMsqz::setOutBuf(signed char*, unsigned int)@@Base+0x30>)
+    37ea:	2004      	movs	r0, #4
+    37ec:	4479      	add	r1, pc
+    37ee:	447a      	add	r2, pc
+    37f0:	f001 ef2e 	blx	5650 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x174>
+    37f4:	2000      	movs	r0, #0
+    37f6:	f8c5 419c 	str.w	r4, [r5, #412]	@ 0x19c
+    37fa:	f885 01ad 	strb.w	r0, [r5, #429]	@ 0x1ad
+    37fe:	2000      	movs	r0, #0
+    3800:	bdb0      	pop	{r4, r5, r7, pc}
+    3802:	bf00      	nop
+    3804:	e446      	b.n	3094 <c_run_jsqz@@Base+0x4c>
+    3806:	ffff e366 			@ <UNDEFINED> instruction: 0xffffe366
+    380a:	Address 0x380a is out of bounds.
+
+
+0000380c <ExynosMsqz::getFrameDqp()@@Base>:
+    380c:	f8d0 0178 	ldr.w	r0, [r0, #376]	@ 0x178
+    3810:	4770      	bx	lr
+    3812:	d4d4      	bmi.n	37be <ExynosMsqz::setOutBuf(int, unsigned int)@@Base+0x7a>
+    3814:	d4d4      	bmi.n	37c0 <ExynosMsqz::setOutBuf(int, unsigned int)@@Base+0x7c>
+    3816:	d4d4      	bmi.n	37c2 <ExynosMsqz::setOutBuf(int, unsigned int)@@Base+0x7e>
+
+00003818 <ExynosMsqz::run(int, int, float, int)@@Base>:
+    3818:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+    381c:	f2ad 4d24 	subw	sp, sp, #1060	@ 0x424
+    3820:	4682      	mov	sl, r0
+    3822:	48e3      	ldr	r0, [pc, #908]	@ (3bb0 <ExynosMsqz::run(int, int, float, int)@@Base+0x398>)
+    3824:	eef7 0b00 	vmov.f64	d16, #112	@ 0x3f800000  1.0
+    3828:	461d      	mov	r5, r3
+    382a:	4616      	mov	r6, r2
+    382c:	460f      	mov	r7, r1
+    382e:	4478      	add	r0, pc
+    3830:	f8d0 8000 	ldr.w	r8, [r0]
+    3834:	f8d8 0000 	ldr.w	r0, [r8]
+    3838:	f8cd 0420 	str.w	r0, [sp, #1056]	@ 0x420
+    383c:	f8da 0144 	ldr.w	r0, [sl, #324]	@ 0x144
+    3840:	00c0      	lsls	r0, r0, #3
+    3842:	ee00 0a10 	vmov	s0, r0
+    3846:	ec51 0b30 	vmov	r0, r1, d16
+    384a:	eef8 1b40 	vcvt.f64.u32	d17, s0
+    384e:	ec53 2b31 	vmov	r2, r3, d17
+    3852:	f001 ef8e 	blx	5770 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x294>
+    3856:	ed9f 1ad7 	vldr	s2, [pc, #860]	@ 3bb4 <ExynosMsqz::run(int, int, float, int)@@Base+0x39c>
+    385a:	ec41 0b30 	vmov	d16, r0, r1
+    385e:	ee00 6a10 	vmov	s0, r6
+    3862:	ee02 7a10 	vmov	s4, r7
+    3866:	ee03 5a10 	vmov	s6, r5
+    386a:	eddf 2bd3 	vldr	d18, [pc, #844]	@ 3bb8 <ExynosMsqz::run(int, int, float, int)@@Base+0x3a0>
+    386e:	ee70 0ba0 	vadd.f64	d16, d16, d16
+    3872:	eeb8 0ac0 	vcvt.f32.s32	s0, s0
+    3876:	eeb8 2ac2 	vcvt.f32.s32	s4, s4
+    387a:	eeb7 4be0 	vcvt.f32.f64	s8, d16
+    387e:	eddf 0bd0 	vldr	d16, [pc, #832]	@ 3bc0 <ExynosMsqz::run(int, int, float, int)@@Base+0x3a8>
+    3882:	ee24 5a03 	vmul.f32	s10, s8, s6
+    3886:	eef7 1ac4 	vcvt.f64.f32	d17, s8
+    388a:	ee80 0a01 	vdiv.f32	s0, s0, s2
+    388e:	ee82 1a01 	vdiv.f32	s2, s4, s2
+    3892:	ee80 0a05 	vdiv.f32	s0, s0, s10
+    3896:	ee81 1a05 	vdiv.f32	s2, s2, s10
+    389a:	ed9f 5acb 	vldr	s10, [pc, #812]	@ 3bc8 <ExynosMsqz::run(int, int, float, int)@@Base+0x3b0>
+    389e:	eeb5 0a40 	vcmp.f32	s0, #0.0
+    38a2:	eeb1 4a41 	vneg.f32	s8, s2
+    38a6:	ee61 0ba0 	vmul.f64	d16, d17, d16
+    38aa:	eeb1 2a40 	vneg.f32	s4, s0
+    38ae:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+    38b2:	eeb5 1a40 	vcmp.f32	s2, #0.0
+    38b6:	bf48      	it	mi
+    38b8:	eeb0 0a42 	vmovmi.f32	s0, s4
+    38bc:	eec0 0ba2 	vdiv.f64	d16, d16, d18
+    38c0:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+    38c4:	bf48      	it	mi
+    38c6:	eeb0 1a44 	vmovmi.f32	s2, s8
+    38ca:	ed9f 4ac0 	vldr	s8, [pc, #768]	@ 3bcc <ExynosMsqz::run(int, int, float, int)@@Base+0x3b4>
+    38ce:	ee20 0a03 	vmul.f32	s0, s0, s6
+    38d2:	eeb7 2be0 	vcvt.f32.f64	s4, d16
+    38d6:	ee21 1a03 	vmul.f32	s2, s2, s6
+    38da:	ed9f 3abd 	vldr	s6, [pc, #756]	@ 3bd0 <ExynosMsqz::run(int, int, float, int)@@Base+0x3b8>
+    38de:	ee20 0a02 	vmul.f32	s0, s0, s4
+    38e2:	eeb0 6a45 	vmov.f32	s12, s10
+    38e6:	ee21 1a02 	vmul.f32	s2, s2, s4
+    38ea:	ee00 6a04 	vmla.f32	s12, s0, s8
+    38ee:	ee01 5a04 	vmla.f32	s10, s2, s8
+    38f2:	ed9f 4ab8 	vldr	s8, [pc, #736]	@ 3bd4 <ExynosMsqz::run(int, int, float, int)@@Base+0x3bc>
+    38f6:	eeb4 6a43 	vcmp.f32	s12, s6
+    38fa:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+    38fe:	eeb4 5a43 	vcmp.f32	s10, s6
+    3902:	fe33 6a06 	vselgt.f32	s12, s6, s12
+    3906:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+    390a:	fe33 3a05 	vselgt.f32	s6, s6, s10
+    390e:	ee30 0a46 	vsub.f32	s0, s0, s12
+    3912:	ed9f 5ab1 	vldr	s10, [pc, #708]	@ 3bd8 <ExynosMsqz::run(int, int, float, int)@@Base+0x3c0>
+    3916:	eeb5 0a40 	vcmp.f32	s0, #0.0
+    391a:	ee31 1a43 	vsub.f32	s2, s2, s6
+    391e:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+    3922:	eeb5 1a40 	vcmp.f32	s2, #0.0
+    3926:	bf48      	it	mi
+    3928:	eeb0 0a44 	vmovmi.f32	s0, s8
+    392c:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+    3930:	bf48      	it	mi
+    3932:	eeb0 1a44 	vmovmi.f32	s2, s8
+    3936:	ee21 1a05 	vmul.f32	s2, s2, s10
+    393a:	ee20 0a05 	vmul.f32	s0, s0, s10
+    393e:	ee81 1a02 	vdiv.f32	s2, s2, s4
+    3942:	ee80 0a02 	vdiv.f32	s0, s0, s4
+    3946:	feb8 3a41 	vrinta.f32	s6, s2
+    394a:	febc 1ac1 	vcvta.s32.f32	s2, s2
+    394e:	feb8 2a40 	vrinta.f32	s4, s0
+    3952:	febc 0ac0 	vcvta.s32.f32	s0, s0
+    3956:	ee11 1a10 	vmov	r1, s2
+    395a:	eebd 2ac2 	vcvt.s32.f32	s4, s4
+    395e:	eebd 3ac3 	vcvt.s32.f32	s6, s6
+    3962:	ee10 0a10 	vmov	r0, s0
+    3966:	f5b1 3f80 	cmp.w	r1, #65536	@ 0x10000
+    396a:	ed8a 3a53 	vstr	s6, [sl, #332]	@ 0x14c
+    396e:	ed8a 2a54 	vstr	s4, [sl, #336]	@ 0x150
+    3972:	d303      	bcc.n	397c <ExynosMsqz::run(int, int, float, int)@@Base+0x164>
+    3974:	f64f 71ff 	movw	r1, #65535	@ 0xffff
+    3978:	f8ca 114c 	str.w	r1, [sl, #332]	@ 0x14c
+    397c:	f5b0 3f80 	cmp.w	r0, #65536	@ 0x10000
+    3980:	d303      	bcc.n	398a <ExynosMsqz::run(int, int, float, int)@@Base+0x172>
+    3982:	f64f 70ff 	movw	r0, #65535	@ 0xffff
+    3986:	f8ca 0150 	str.w	r0, [sl, #336]	@ 0x150
+    398a:	4650      	mov	r0, sl
+    398c:	f001 eef8 	blx	5780 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x2a4>
+    3990:	4605      	mov	r5, r0
+    3992:	2800      	cmp	r0, #0
+    3994:	f040 81bf 	bne.w	3d16 <ExynosMsqz::run(int, int, float, int)@@Base+0x4fe>
+    3998:	f8da 0190 	ldr.w	r0, [sl, #400]	@ 0x190
+    399c:	f8dd 4448 	ldr.w	r4, [sp, #1096]	@ 0x448
+    39a0:	f8da 6178 	ldr.w	r6, [sl, #376]	@ 0x178
+    39a4:	2802      	cmp	r0, #2
+    39a6:	d014      	beq.n	39d2 <ExynosMsqz::run(int, int, float, int)@@Base+0x1ba>
+    39a8:	2801      	cmp	r0, #1
+    39aa:	d029      	beq.n	3a00 <ExynosMsqz::run(int, int, float, int)@@Base+0x1e8>
+    39ac:	bb80      	cbnz	r0, 3a10 <ExynosMsqz::run(int, int, float, int)@@Base+0x1f8>
+    39ae:	f8da 2170 	ldr.w	r2, [sl, #368]	@ 0x170
+    39b2:	2a00      	cmp	r2, #0
+    39b4:	d045      	beq.n	3a42 <ExynosMsqz::run(int, int, float, int)@@Base+0x22a>
+    39b6:	f8da 11a0 	ldr.w	r1, [sl, #416]	@ 0x1a0
+    39ba:	f8da 01a8 	ldr.w	r0, [sl, #424]	@ 0x1a8
+    39be:	f001 ed90 	blx	54e0 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x4>
+    39c2:	e9da 2362 	ldrd	r2, r3, [sl, #392]	@ 0x188
+    39c6:	e9da 0169 	ldrd	r0, r1, [sl, #420]	@ 0x1a4
+    39ca:	9000      	str	r0, [sp, #0]
+    39cc:	f001 eee0 	blx	5790 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x2b4>
+    39d0:	e185      	b.n	3cde <ExynosMsqz::run(int, int, float, int)@@Base+0x4c6>
+    39d2:	f8da 4198 	ldr.w	r4, [sl, #408]	@ 0x198
+    39d6:	f10d 0b20 	add.w	fp, sp, #32
+    39da:	f44f 6180 	mov.w	r1, #1024	@ 0x400
+    39de:	4658      	mov	r0, fp
+    39e0:	f001 ed88 	blx	54f4 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x18>
+    39e4:	f8da 2170 	ldr.w	r2, [sl, #368]	@ 0x170
+    39e8:	f8cd 801c 	str.w	r8, [sp, #28]
+    39ec:	e9cd 6505 	strd	r6, r5, [sp, #20]
+    39f0:	b39a      	cbz	r2, 3a5a <ExynosMsqz::run(int, int, float, int)@@Base+0x242>
+    39f2:	f8da 11a0 	ldr.w	r1, [sl, #416]	@ 0x1a0
+    39f6:	f8da 01a8 	ldr.w	r0, [sl, #424]	@ 0x1a8
+    39fa:	f001 ed72 	blx	54e0 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x4>
+    39fe:	e037      	b.n	3a70 <ExynosMsqz::run(int, int, float, int)@@Base+0x258>
+    3a00:	f8da 2170 	ldr.w	r2, [sl, #368]	@ 0x170
+    3a04:	b1ea      	cbz	r2, 3a42 <ExynosMsqz::run(int, int, float, int)@@Base+0x22a>
+    3a06:	e9da 1068 	ldrd	r1, r0, [sl, #416]	@ 0x1a0
+    3a0a:	f001 ed6a 	blx	54e0 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x4>
+    3a0e:	e166      	b.n	3cde <ExynosMsqz::run(int, int, float, int)@@Base+0x4c6>
+    3a10:	f8da 4198 	ldr.w	r4, [sl, #408]	@ 0x198
+    3a14:	f10d 0b20 	add.w	fp, sp, #32
+    3a18:	f44f 6180 	mov.w	r1, #1024	@ 0x400
+    3a1c:	4658      	mov	r0, fp
+    3a1e:	f001 ed6a 	blx	54f4 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x18>
+    3a22:	f8da 2170 	ldr.w	r2, [sl, #368]	@ 0x170
+    3a26:	f8cd 801c 	str.w	r8, [sp, #28]
+    3a2a:	e9cd 6505 	strd	r6, r5, [sp, #20]
+    3a2e:	2a00      	cmp	r2, #0
+    3a30:	f000 80a5 	beq.w	3b7e <ExynosMsqz::run(int, int, float, int)@@Base+0x366>
+    3a34:	f8da 11a0 	ldr.w	r1, [sl, #416]	@ 0x1a0
+    3a38:	f8da 01a8 	ldr.w	r0, [sl, #424]	@ 0x1a8
+    3a3c:	f001 ed50 	blx	54e0 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x4>
+    3a40:	e0a8      	b.n	3b94 <ExynosMsqz::run(int, int, float, int)@@Base+0x37c>
+    3a42:	2000      	movs	r0, #0
+    3a44:	9000      	str	r0, [sp, #0]
+    3a46:	2006      	movs	r0, #6
+    3a48:	49c8      	ldr	r1, [pc, #800]	@ (3d6c <ExynosMsqz::run(int, int, float, int)@@Base+0x554>)
+    3a4a:	4ac9      	ldr	r2, [pc, #804]	@ (3d70 <ExynosMsqz::run(int, int, float, int)@@Base+0x558>)
+    3a4c:	4bc9      	ldr	r3, [pc, #804]	@ (3d74 <ExynosMsqz::run(int, int, float, int)@@Base+0x55c>)
+    3a4e:	4479      	add	r1, pc
+    3a50:	447a      	add	r2, pc
+    3a52:	447b      	add	r3, pc
+    3a54:	f001 edfc 	blx	5650 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x174>
+    3a58:	e141      	b.n	3cde <ExynosMsqz::run(int, int, float, int)@@Base+0x4c6>
+    3a5a:	2000      	movs	r0, #0
+    3a5c:	9000      	str	r0, [sp, #0]
+    3a5e:	2006      	movs	r0, #6
+    3a60:	49c5      	ldr	r1, [pc, #788]	@ (3d78 <ExynosMsqz::run(int, int, float, int)@@Base+0x560>)
+    3a62:	4ac6      	ldr	r2, [pc, #792]	@ (3d7c <ExynosMsqz::run(int, int, float, int)@@Base+0x564>)
+    3a64:	4bc6      	ldr	r3, [pc, #792]	@ (3d80 <ExynosMsqz::run(int, int, float, int)@@Base+0x568>)
+    3a66:	4479      	add	r1, pc
+    3a68:	447a      	add	r2, pc
+    3a6a:	447b      	add	r3, pc
+    3a6c:	f001 edf0 	blx	5650 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x174>
+    3a70:	f004 0001 	and.w	r0, r4, #1
+    3a74:	ea4f 0964 	mov.w	r9, r4, asr #1
+    3a78:	2c02      	cmp	r4, #2
+    3a7a:	9403      	str	r4, [sp, #12]
+    3a7c:	9004      	str	r0, [sp, #16]
+    3a7e:	db4d      	blt.n	3b1c <ExynosMsqz::run(int, int, float, int)@@Base+0x304>
+    3a80:	f10b 0401 	add.w	r4, fp, #1
+    3a84:	f04f 0800 	mov.w	r8, #0
+    3a88:	e00e      	b.n	3aa8 <ExynosMsqz::run(int, int, float, int)@@Base+0x290>
+    3a8a:	4350      	muls	r0, r2
+    3a8c:	4659      	mov	r1, fp
+    3a8e:	eb0c 0640 	add.w	r6, ip, r0, lsl #1
+    3a92:	4630      	mov	r0, r6
+    3a94:	f001 ed24 	blx	54e0 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x4>
+    3a98:	f8da 2194 	ldr.w	r2, [sl, #404]	@ 0x194
+    3a9c:	4659      	mov	r1, fp
+    3a9e:	18b0      	adds	r0, r6, r2
+    3aa0:	f001 ed1e 	blx	54e0 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x4>
+    3aa4:	45c8      	cmp	r8, r9
+    3aa6:	da39      	bge.n	3b1c <ExynosMsqz::run(int, int, float, int)@@Base+0x304>
+    3aa8:	f8da 3188 	ldr.w	r3, [sl, #392]	@ 0x188
+    3aac:	f8da 2194 	ldr.w	r2, [sl, #404]	@ 0x194
+    3ab0:	f8da c1a4 	ldr.w	ip, [sl, #420]	@ 0x1a4
+    3ab4:	4640      	mov	r0, r8
+    3ab6:	f108 0801 	add.w	r8, r8, #1
+    3aba:	2b01      	cmp	r3, #1
+    3abc:	dbe5      	blt.n	3a8a <ExynosMsqz::run(int, int, float, int)@@Base+0x272>
+    3abe:	f8da 61a8 	ldr.w	r6, [sl, #424]	@ 0x1a8
+    3ac2:	2b10      	cmp	r3, #16
+    3ac4:	d309      	bcc.n	3ada <ExynosMsqz::run(int, int, float, int)@@Base+0x2c2>
+    3ac6:	fb03 6108 	mla	r1, r3, r8, r6
+    3aca:	fb03 6700 	mla	r7, r3, r0, r6
+    3ace:	458b      	cmp	fp, r1
+    3ad0:	d213      	bcs.n	3afa <ExynosMsqz::run(int, int, float, int)@@Base+0x2e2>
+    3ad2:	eb0b 0143 	add.w	r1, fp, r3, lsl #1
+    3ad6:	428f      	cmp	r7, r1
+    3ad8:	d20f      	bcs.n	3afa <ExynosMsqz::run(int, int, float, int)@@Base+0x2e2>
+    3ada:	2100      	movs	r1, #0
+    3adc:	fb03 1700 	mla	r7, r3, r0, r1
+    3ae0:	1a5b      	subs	r3, r3, r1
+    3ae2:	4437      	add	r7, r6
+    3ae4:	eb04 0641 	add.w	r6, r4, r1, lsl #1
+    3ae8:	f817 1b01 	ldrb.w	r1, [r7], #1
+    3aec:	3b01      	subs	r3, #1
+    3aee:	f806 1b02 	strb.w	r1, [r6], #2
+    3af2:	f806 1c03 	strb.w	r1, [r6, #-3]
+    3af6:	d1f7      	bne.n	3ae8 <ExynosMsqz::run(int, int, float, int)@@Base+0x2d0>
+    3af8:	e7c7      	b.n	3a8a <ExynosMsqz::run(int, int, float, int)@@Base+0x272>
+    3afa:	f023 010f 	bic.w	r1, r3, #15
+    3afe:	46a6      	mov	lr, r4
+    3b00:	465c      	mov	r4, fp
+    3b02:	460d      	mov	r5, r1
+    3b04:	f967 0a0d 	vld1.8	{d16-d17}, [r7]!
+    3b08:	3d10      	subs	r5, #16
+    3b0a:	ef60 21f0 	vorr	q9, q8, q8
+    3b0e:	f944 030d 	vst2.8	{d16-d19}, [r4]!
+    3b12:	d1f7      	bne.n	3b04 <ExynosMsqz::run(int, int, float, int)@@Base+0x2ec>
+    3b14:	428b      	cmp	r3, r1
+    3b16:	4674      	mov	r4, lr
+    3b18:	d0b7      	beq.n	3a8a <ExynosMsqz::run(int, int, float, int)@@Base+0x272>
+    3b1a:	e7df      	b.n	3adc <ExynosMsqz::run(int, int, float, int)@@Base+0x2c4>
+    3b1c:	9804      	ldr	r0, [sp, #16]
+    3b1e:	f8dd 801c 	ldr.w	r8, [sp, #28]
+    3b22:	2800      	cmp	r0, #0
+    3b24:	f000 80d7 	beq.w	3cd6 <ExynosMsqz::run(int, int, float, int)@@Base+0x4be>
+    3b28:	9803      	ldr	r0, [sp, #12]
+    3b2a:	f8da 1188 	ldr.w	r1, [sl, #392]	@ 0x188
+    3b2e:	f020 0001 	bic.w	r0, r0, #1
+    3b32:	2901      	cmp	r1, #1
+    3b34:	f2c0 80c6 	blt.w	3cc4 <ExynosMsqz::run(int, int, float, int)@@Base+0x4ac>
+    3b38:	f8da 21a8 	ldr.w	r2, [sl, #424]	@ 0x1a8
+    3b3c:	2910      	cmp	r1, #16
+    3b3e:	d30d      	bcc.n	3b5c <ExynosMsqz::run(int, int, float, int)@@Base+0x344>
+    3b40:	f109 0301 	add.w	r3, r9, #1
+    3b44:	fb01 2609 	mla	r6, r1, r9, r2
+    3b48:	fb01 2303 	mla	r3, r1, r3, r2
+    3b4c:	459b      	cmp	fp, r3
+    3b4e:	f080 80ed 	bcs.w	3d2c <ExynosMsqz::run(int, int, float, int)@@Base+0x514>
+    3b52:	eb0b 0341 	add.w	r3, fp, r1, lsl #1
+    3b56:	429e      	cmp	r6, r3
+    3b58:	f080 80e8 	bcs.w	3d2c <ExynosMsqz::run(int, int, float, int)@@Base+0x514>
+    3b5c:	2500      	movs	r5, #0
+    3b5e:	fb01 5309 	mla	r3, r1, r9, r5
+    3b62:	1b49      	subs	r1, r1, r5
+    3b64:	441a      	add	r2, r3
+    3b66:	eb0b 0345 	add.w	r3, fp, r5, lsl #1
+    3b6a:	3301      	adds	r3, #1
+    3b6c:	f812 7b01 	ldrb.w	r7, [r2], #1
+    3b70:	3901      	subs	r1, #1
+    3b72:	f803 7b02 	strb.w	r7, [r3], #2
+    3b76:	f803 7c03 	strb.w	r7, [r3, #-3]
+    3b7a:	d1f7      	bne.n	3b6c <ExynosMsqz::run(int, int, float, int)@@Base+0x354>
+    3b7c:	e0a2      	b.n	3cc4 <ExynosMsqz::run(int, int, float, int)@@Base+0x4ac>
+    3b7e:	2000      	movs	r0, #0
+    3b80:	9000      	str	r0, [sp, #0]
+    3b82:	2006      	movs	r0, #6
+    3b84:	497f      	ldr	r1, [pc, #508]	@ (3d84 <ExynosMsqz::run(int, int, float, int)@@Base+0x56c>)
+    3b86:	4a80      	ldr	r2, [pc, #512]	@ (3d88 <ExynosMsqz::run(int, int, float, int)@@Base+0x570>)
+    3b88:	4b80      	ldr	r3, [pc, #512]	@ (3d8c <ExynosMsqz::run(int, int, float, int)@@Base+0x574>)
+    3b8a:	4479      	add	r1, pc
+    3b8c:	447a      	add	r2, pc
+    3b8e:	447b      	add	r3, pc
+    3b90:	f001 ed5e 	blx	5650 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x174>
+    3b94:	f004 0001 	and.w	r0, r4, #1
+    3b98:	ea4f 0964 	mov.w	r9, r4, asr #1
+    3b9c:	2c02      	cmp	r4, #2
+    3b9e:	9403      	str	r4, [sp, #12]
+    3ba0:	9004      	str	r0, [sp, #16]
+    3ba2:	db64      	blt.n	3c6e <ExynosMsqz::run(int, int, float, int)@@Base+0x456>
+    3ba4:	f10b 0401 	add.w	r4, fp, #1
+    3ba8:	f04f 0800 	mov.w	r8, #0
+    3bac:	e025      	b.n	3bfa <ExynosMsqz::run(int, int, float, int)@@Base+0x3e2>
+    3bae:	bf00      	nop
+    3bb0:	319e      	adds	r1, #158	@ 0x9e
+    3bb2:	0000      	movs	r0, r0
+    3bb4:	0000      	movs	r0, r0
+    3bb6:	447a      	add	r2, pc
+    3bb8:	2d18      	cmp	r5, #24
+    3bba:	5444      	strb	r4, [r0, r1]
+    3bbc:	21fb      	movs	r1, #251	@ 0xfb
+    3bbe:	4009      	ands	r1, r1
+    3bc0:	0000      	movs	r0, r0
+    3bc2:	0000      	movs	r0, r0
+    3bc4:	8000      	strh	r0, [r0, #0]
+    3bc6:	4066      	eors	r6, r4
+    3bc8:	999a      	ldr	r1, [sp, #616]	@ 0x268
+    3bca:	3e19      	subs	r6, #25
+    3bcc:	e148      	b.n	3e60 <ExynosMsqz::submeanDQP(signed char const*, int, int, signed char*)@@Base+0xd0>
+    3bce:	3f7a      	subs	r7, #122	@ 0x7a
+    3bd0:	0000      	movs	r0, r0
+    3bd2:	42a0      	cmp	r0, r4
+    3bd4:	0000      	movs	r0, r0
+    3bd6:	0000      	movs	r0, r0
+    3bd8:	0000      	movs	r0, r0
+    3bda:	4280      	cmp	r0, r0
+    3bdc:	4350      	muls	r0, r2
+    3bde:	4659      	mov	r1, fp
+    3be0:	eb0c 0640 	add.w	r6, ip, r0, lsl #1
+    3be4:	4630      	mov	r0, r6
+    3be6:	f001 ec7c 	blx	54e0 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x4>
+    3bea:	f8da 2194 	ldr.w	r2, [sl, #404]	@ 0x194
+    3bee:	4659      	mov	r1, fp
+    3bf0:	18b0      	adds	r0, r6, r2
+    3bf2:	f001 ec76 	blx	54e0 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x4>
+    3bf6:	45c8      	cmp	r8, r9
+    3bf8:	da39      	bge.n	3c6e <ExynosMsqz::run(int, int, float, int)@@Base+0x456>
+    3bfa:	f8da 3188 	ldr.w	r3, [sl, #392]	@ 0x188
+    3bfe:	f8da 2194 	ldr.w	r2, [sl, #404]	@ 0x194
+    3c02:	f8da c1a4 	ldr.w	ip, [sl, #420]	@ 0x1a4
+    3c06:	4640      	mov	r0, r8
+    3c08:	f108 0801 	add.w	r8, r8, #1
+    3c0c:	2b01      	cmp	r3, #1
+    3c0e:	dbe5      	blt.n	3bdc <ExynosMsqz::run(int, int, float, int)@@Base+0x3c4>
+    3c10:	f8da 61a8 	ldr.w	r6, [sl, #424]	@ 0x1a8
+    3c14:	2b10      	cmp	r3, #16
+    3c16:	d309      	bcc.n	3c2c <ExynosMsqz::run(int, int, float, int)@@Base+0x414>
+    3c18:	fb03 6108 	mla	r1, r3, r8, r6
+    3c1c:	fb03 6700 	mla	r7, r3, r0, r6
+    3c20:	458b      	cmp	fp, r1
+    3c22:	d213      	bcs.n	3c4c <ExynosMsqz::run(int, int, float, int)@@Base+0x434>
+    3c24:	eb0b 0143 	add.w	r1, fp, r3, lsl #1
+    3c28:	428f      	cmp	r7, r1
+    3c2a:	d20f      	bcs.n	3c4c <ExynosMsqz::run(int, int, float, int)@@Base+0x434>
+    3c2c:	2100      	movs	r1, #0
+    3c2e:	fb03 1700 	mla	r7, r3, r0, r1
+    3c32:	1a5b      	subs	r3, r3, r1
+    3c34:	4437      	add	r7, r6
+    3c36:	eb04 0641 	add.w	r6, r4, r1, lsl #1
+    3c3a:	f817 1b01 	ldrb.w	r1, [r7], #1
+    3c3e:	3b01      	subs	r3, #1
+    3c40:	f806 1b02 	strb.w	r1, [r6], #2
+    3c44:	f806 1c03 	strb.w	r1, [r6, #-3]
+    3c48:	d1f7      	bne.n	3c3a <ExynosMsqz::run(int, int, float, int)@@Base+0x422>
+    3c4a:	e7c7      	b.n	3bdc <ExynosMsqz::run(int, int, float, int)@@Base+0x3c4>
+    3c4c:	f023 010f 	bic.w	r1, r3, #15
+    3c50:	46a6      	mov	lr, r4
+    3c52:	465c      	mov	r4, fp
+    3c54:	460d      	mov	r5, r1
+    3c56:	f967 0a0d 	vld1.8	{d16-d17}, [r7]!
+    3c5a:	3d10      	subs	r5, #16
+    3c5c:	ef60 21f0 	vorr	q9, q8, q8
+    3c60:	f944 030d 	vst2.8	{d16-d19}, [r4]!
+    3c64:	d1f7      	bne.n	3c56 <ExynosMsqz::run(int, int, float, int)@@Base+0x43e>
+    3c66:	428b      	cmp	r3, r1
+    3c68:	4674      	mov	r4, lr
+    3c6a:	d0b7      	beq.n	3bdc <ExynosMsqz::run(int, int, float, int)@@Base+0x3c4>
+    3c6c:	e7df      	b.n	3c2e <ExynosMsqz::run(int, int, float, int)@@Base+0x416>
+    3c6e:	9804      	ldr	r0, [sp, #16]
+    3c70:	f8dd 801c 	ldr.w	r8, [sp, #28]
+    3c74:	b378      	cbz	r0, 3cd6 <ExynosMsqz::run(int, int, float, int)@@Base+0x4be>
+    3c76:	9803      	ldr	r0, [sp, #12]
+    3c78:	f8da 1188 	ldr.w	r1, [sl, #392]	@ 0x188
+    3c7c:	f020 0001 	bic.w	r0, r0, #1
+    3c80:	2901      	cmp	r1, #1
+    3c82:	db1f      	blt.n	3cc4 <ExynosMsqz::run(int, int, float, int)@@Base+0x4ac>
+    3c84:	f8da 21a8 	ldr.w	r2, [sl, #424]	@ 0x1a8
+    3c88:	2910      	cmp	r1, #16
+    3c8a:	d30b      	bcc.n	3ca4 <ExynosMsqz::run(int, int, float, int)@@Base+0x48c>
+    3c8c:	f109 0301 	add.w	r3, r9, #1
+    3c90:	fb01 2609 	mla	r6, r1, r9, r2
+    3c94:	fb01 2303 	mla	r3, r1, r3, r2
+    3c98:	459b      	cmp	fp, r3
+    3c9a:	d256      	bcs.n	3d4a <ExynosMsqz::run(int, int, float, int)@@Base+0x532>
+    3c9c:	eb0b 0341 	add.w	r3, fp, r1, lsl #1
+    3ca0:	429e      	cmp	r6, r3
+    3ca2:	d252      	bcs.n	3d4a <ExynosMsqz::run(int, int, float, int)@@Base+0x532>
+    3ca4:	2500      	movs	r5, #0
+    3ca6:	fb01 5309 	mla	r3, r1, r9, r5
+    3caa:	1b49      	subs	r1, r1, r5
+    3cac:	441a      	add	r2, r3
+    3cae:	eb0b 0345 	add.w	r3, fp, r5, lsl #1
+    3cb2:	3301      	adds	r3, #1
+    3cb4:	f812 7b01 	ldrb.w	r7, [r2], #1
+    3cb8:	3901      	subs	r1, #1
+    3cba:	f803 7b02 	strb.w	r7, [r3], #2
+    3cbe:	f803 7c03 	strb.w	r7, [r3, #-3]
+    3cc2:	d1f7      	bne.n	3cb4 <ExynosMsqz::run(int, int, float, int)@@Base+0x49c>
+    3cc4:	f8da 2194 	ldr.w	r2, [sl, #404]	@ 0x194
+    3cc8:	f8da 11a4 	ldr.w	r1, [sl, #420]	@ 0x1a4
+    3ccc:	fb02 1000 	mla	r0, r2, r0, r1
+    3cd0:	a908      	add	r1, sp, #32
+    3cd2:	f001 ec06 	blx	54e0 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x4>
+    3cd6:	f8dd 4448 	ldr.w	r4, [sp, #1096]	@ 0x448
+    3cda:	e9dd 6505 	ldrd	r6, r5, [sp, #20]
+    3cde:	f8da 11a4 	ldr.w	r1, [sl, #420]	@ 0x1a4
+    3ce2:	e9da 2365 	ldrd	r2, r3, [sl, #404]	@ 0x194
+    3ce6:	f8da 019c 	ldr.w	r0, [sl, #412]	@ 0x19c
+    3cea:	b277      	sxtb	r7, r6
+    3cec:	e9cd 1700 	strd	r1, r7, [sp]
+    3cf0:	4621      	mov	r1, r4
+    3cf2:	9002      	str	r0, [sp, #8]
+    3cf4:	f001 ed54 	blx	57a0 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x2c4>
+    3cf8:	f89a 01ad 	ldrb.w	r0, [sl, #429]	@ 0x1ad
+    3cfc:	b158      	cbz	r0, 3d16 <ExynosMsqz::run(int, int, float, int)@@Base+0x4fe>
+    3cfe:	e9da 1265 	ldrd	r1, r2, [sl, #404]	@ 0x194
+    3d02:	f8da 019c 	ldr.w	r0, [sl, #412]	@ 0x19c
+    3d06:	2400      	movs	r4, #0
+    3d08:	f88a 41ad 	strb.w	r4, [sl, #429]	@ 0x1ad
+    3d0c:	4351      	muls	r1, r2
+    3d0e:	f001 ecd8 	blx	56c0 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x1e4>
+    3d12:	f8ca 419c 	str.w	r4, [sl, #412]	@ 0x19c
+    3d16:	f8d8 0000 	ldr.w	r0, [r8]
+    3d1a:	f8dd 1420 	ldr.w	r1, [sp, #1056]	@ 0x420
+    3d1e:	4288      	cmp	r0, r1
+    3d20:	d122      	bne.n	3d68 <ExynosMsqz::run(int, int, float, int)@@Base+0x550>
+    3d22:	4628      	mov	r0, r5
+    3d24:	f20d 4d24 	addw	sp, sp, #1060	@ 0x424
+    3d28:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+    3d2c:	f021 050f 	bic.w	r5, r1, #15
+    3d30:	af08      	add	r7, sp, #32
+    3d32:	462b      	mov	r3, r5
+    3d34:	f966 0a0d 	vld1.8	{d16-d17}, [r6]!
+    3d38:	3b10      	subs	r3, #16
+    3d3a:	ef60 21f0 	vorr	q9, q8, q8
+    3d3e:	f947 030d 	vst2.8	{d16-d19}, [r7]!
+    3d42:	d1f7      	bne.n	3d34 <ExynosMsqz::run(int, int, float, int)@@Base+0x51c>
+    3d44:	42a9      	cmp	r1, r5
+    3d46:	d0bd      	beq.n	3cc4 <ExynosMsqz::run(int, int, float, int)@@Base+0x4ac>
+    3d48:	e709      	b.n	3b5e <ExynosMsqz::run(int, int, float, int)@@Base+0x346>
+    3d4a:	f021 050f 	bic.w	r5, r1, #15
+    3d4e:	af08      	add	r7, sp, #32
+    3d50:	462b      	mov	r3, r5
+    3d52:	f966 0a0d 	vld1.8	{d16-d17}, [r6]!
+    3d56:	3b10      	subs	r3, #16
+    3d58:	ef60 21f0 	vorr	q9, q8, q8
+    3d5c:	f947 030d 	vst2.8	{d16-d19}, [r7]!
+    3d60:	d1f7      	bne.n	3d52 <ExynosMsqz::run(int, int, float, int)@@Base+0x53a>
+    3d62:	42a9      	cmp	r1, r5
+    3d64:	d0ae      	beq.n	3cc4 <ExynosMsqz::run(int, int, float, int)@@Base+0x4ac>
+    3d66:	e79e      	b.n	3ca6 <ExynosMsqz::run(int, int, float, int)@@Base+0x48e>
+    3d68:	f001 ed22 	blx	57b0 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x2d4>
+    3d6c:	e1e4      	b.n	4138 <ExynosMsqz::submeanDQP(signed char const*, int, int, signed char*)@@Base+0x3a8>
+    3d6e:	ffff e01f 	vshr.u32	d30, d15, #1
+    3d72:	ffff e290 	vrshr.u64	d30, d0, #1
+    3d76:	ffff e1cc 			@ <UNDEFINED> instruction: 0xffffe1cc
+    3d7a:	ffff e007 	vaddl.u<illegal width 64>	q15, d15, d7
+    3d7e:	ffff e278 	vrshr.u32	q15, q12, #1
+    3d82:	ffff e0a8 	vaddl.u<illegal width 64>	q15, d31, d24
+    3d86:	ffff dee3 	vqrdmlah.s<illegal width 64>	<illegal reg q14.5>, <illegal reg q15.5>, d19[0]
+    3d8a:	ffff e154 	vsra.u32	q15, q2, #1
+    3d8e:	Address 0x3d8e is out of bounds.
+
+
+00003d90 <ExynosMsqz::submeanDQP(signed char const*, int, int, signed char*)@@Base>:
+    3d90:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+    3d94:	b08b      	sub	sp, #44	@ 0x2c
+    3d96:	eb02 70d2 	add.w	r0, r2, r2, lsr #31
+    3d9a:	2500      	movs	r5, #0
+    3d9c:	ea4f 0962 	mov.w	r9, r2, asr #1
+    3da0:	f020 0001 	bic.w	r0, r0, #1
+    3da4:	eba2 0a00 	sub.w	sl, r2, r0
+    3da8:	2000      	movs	r0, #0
+    3daa:	f1ba 0f00 	cmp.w	sl, #0
+    3dae:	bfc8      	it	gt
+    3db0:	2501      	movgt	r5, #1
+    3db2:	4656      	mov	r6, sl
+    3db4:	eb05 0762 	add.w	r7, r5, r2, asr #1
+    3db8:	4654      	mov	r4, sl
+    3dba:	bf18      	it	ne
+    3dbc:	2601      	movne	r6, #1
+    3dbe:	eba7 0c06 	sub.w	ip, r7, r6
+    3dc2:	eb03 77d3 	add.w	r7, r3, r3, lsr #31
+    3dc6:	f027 0701 	bic.w	r7, r7, #1
+    3dca:	1bdf      	subs	r7, r3, r7
+    3dcc:	2f00      	cmp	r7, #0
+    3dce:	bfc8      	it	gt
+    3dd0:	2001      	movgt	r0, #1
+    3dd2:	463e      	mov	r6, r7
+    3dd4:	eb00 0e63 	add.w	lr, r0, r3, asr #1
+    3dd8:	bf18      	it	ne
+    3dda:	2601      	movne	r6, #1
+    3ddc:	ebae 0806 	sub.w	r8, lr, r6
+    3de0:	f8dd e050 	ldr.w	lr, [sp, #80]	@ 0x50
+    3de4:	2f00      	cmp	r7, #0
+    3de6:	463e      	mov	r6, r7
+    3de8:	bf18      	it	ne
+    3dea:	f04f 36ff 	movne.w	r6, #4294967295	@ 0xffffffff
+    3dee:	f1ba 0f00 	cmp.w	sl, #0
+    3df2:	bf18      	it	ne
+    3df4:	f04f 34ff 	movne.w	r4, #4294967295	@ 0xffffffff
+    3df8:	e9cd 5c04 	strd	r5, ip, [sp, #16]
+    3dfc:	e9cd a706 	strd	sl, r7, [sp, #24]
+    3e00:	e9cd 4902 	strd	r4, r9, [sp, #8]
+    3e04:	f1b8 0f01 	cmp.w	r8, #1
+    3e08:	f2c0 81aa 	blt.w	4160 <ExynosMsqz::submeanDQP(signed char const*, int, int, signed char*)@@Base+0x3d0>
+    3e0c:	105b      	asrs	r3, r3, #1
+    3e0e:	4433      	add	r3, r6
+    3e10:	f1bc 0f01 	cmp.w	ip, #1
+    3e14:	f2c0 80e0 	blt.w	3fd8 <ExynosMsqz::submeanDQP(signed char const*, int, int, signed char*)@@Base+0x248>
+    3e18:	4403      	add	r3, r0
+    3e1a:	eb09 0004 	add.w	r0, r9, r4
+    3e1e:	f1ba 0f00 	cmp.w	sl, #0
+    3e22:	eb00 0c05 	add.w	ip, r0, r5
+    3e26:	eb02 004c 	add.w	r0, r2, ip, lsl #1
+    3e2a:	f02c 0b0f 	bic.w	fp, ip, #15
+    3e2e:	900a      	str	r0, [sp, #40]	@ 0x28
+    3e30:	ea4f 004c 	mov.w	r0, ip, lsl #1
+    3e34:	9009      	str	r0, [sp, #36]	@ 0x24
+    3e36:	ea4f 004b 	mov.w	r0, fp, lsl #1
+    3e3a:	9008      	str	r0, [sp, #32]
+    3e3c:	f000 80e2 	beq.w	4004 <ExynosMsqz::submeanDQP(signed char const*, int, int, signed char*)@@Base+0x274>
+    3e40:	f06f 0001 	mvn.w	r0, #1
+    3e44:	f102 0801 	add.w	r8, r2, #1
+    3e48:	f04f 0900 	mov.w	r9, #0
+    3e4c:	efc0 0051 	vmov.i32	q8, #1	@ 0x00000001
+    3e50:	469a      	mov	sl, r3
+    3e52:	eb00 004b 	add.w	r0, r0, fp, lsl #1
+    3e56:	9001      	str	r0, [sp, #4]
+    3e58:	f1ab 0001 	sub.w	r0, fp, #1
+    3e5c:	9000      	str	r0, [sp, #0]
+    3e5e:	e016      	b.n	3e8e <ExynosMsqz::submeanDQP(signed char const*, int, int, signed char*)@@Base+0xfe>
+    3e60:	9c00      	ldr	r4, [sp, #0]
+    3e62:	9e01      	ldr	r6, [sp, #4]
+    3e64:	eb0e 0704 	add.w	r7, lr, r4
+    3e68:	198d      	adds	r5, r1, r6
+    3e6a:	5699      	ldrsb	r1, [r3, r2]
+    3e6c:	f993 3000 	ldrsb.w	r3, [r3]
+    3e70:	f109 0901 	add.w	r9, r9, #1
+    3e74:	f107 0e02 	add.w	lr, r7, #2
+    3e78:	4419      	add	r1, r3
+    3e7a:	f001 0301 	and.w	r3, r1, #1
+    3e7e:	eb03 0151 	add.w	r1, r3, r1, lsr #1
+    3e82:	7001      	strb	r1, [r0, #0]
+    3e84:	18a8      	adds	r0, r5, r2
+    3e86:	1cc1      	adds	r1, r0, #3
+    3e88:	45d1      	cmp	r9, sl
+    3e8a:	f000 8169 	beq.w	4160 <ExynosMsqz::submeanDQP(signed char const*, int, int, signed char*)@@Base+0x3d0>
+    3e8e:	2300      	movs	r3, #0
+    3e90:	f1bc 0f10 	cmp.w	ip, #16
+    3e94:	d21c      	bcs.n	3ed0 <ExynosMsqz::submeanDQP(signed char const*, int, int, signed char*)@@Base+0x140>
+    3e96:	4670      	mov	r0, lr
+    3e98:	3902      	subs	r1, #2
+    3e9a:	ebac 0303 	sub.w	r3, ip, r3
+    3e9e:	460d      	mov	r5, r1
+    3ea0:	f991 6003 	ldrsb.w	r6, [r1, #3]
+    3ea4:	f915 7f02 	ldrsb.w	r7, [r5, #2]!
+    3ea8:	4441      	add	r1, r8
+    3eaa:	3b01      	subs	r3, #1
+    3eac:	4437      	add	r7, r6
+    3eae:	f991 6001 	ldrsb.w	r6, [r1, #1]
+    3eb2:	f991 1002 	ldrsb.w	r1, [r1, #2]
+    3eb6:	4437      	add	r7, r6
+    3eb8:	4439      	add	r1, r7
+    3eba:	f3c1 0740 	ubfx	r7, r1, #1, #1
+    3ebe:	eb07 0191 	add.w	r1, r7, r1, lsr #2
+    3ec2:	f800 1b01 	strb.w	r1, [r0], #1
+    3ec6:	4629      	mov	r1, r5
+    3ec8:	d1ea      	bne.n	3ea0 <ExynosMsqz::submeanDQP(signed char const*, int, int, signed char*)@@Base+0x110>
+    3eca:	1e47      	subs	r7, r0, #1
+    3ecc:	1cab      	adds	r3, r5, #2
+    3ece:	e7cc      	b.n	3e6a <ExynosMsqz::submeanDQP(signed char const*, int, int, signed char*)@@Base+0xda>
+    3ed0:	eb0e 000c 	add.w	r0, lr, ip
+    3ed4:	188c      	adds	r4, r1, r2
+    3ed6:	2500      	movs	r5, #0
+    3ed8:	4284      	cmp	r4, r0
+    3eda:	bf38      	it	cc
+    3edc:	2501      	movcc	r5, #1
+    3ede:	4281      	cmp	r1, r0
+    3ee0:	f04f 0000 	mov.w	r0, #0
+    3ee4:	bf38      	it	cc
+    3ee6:	2001      	movcc	r0, #1
+    3ee8:	9c09      	ldr	r4, [sp, #36]	@ 0x24
+    3eea:	440c      	add	r4, r1
+    3eec:	45a6      	cmp	lr, r4
+    3eee:	f04f 0400 	mov.w	r4, #0
+    3ef2:	bf38      	it	cc
+    3ef4:	2401      	movcc	r4, #1
+    3ef6:	9e0a      	ldr	r6, [sp, #40]	@ 0x28
+    3ef8:	440e      	add	r6, r1
+    3efa:	45b6      	cmp	lr, r6
+    3efc:	f04f 0600 	mov.w	r6, #0
+    3f00:	bf38      	it	cc
+    3f02:	2601      	movcc	r6, #1
+    3f04:	422e      	tst	r6, r5
+    3f06:	d1c6      	bne.n	3e96 <ExynosMsqz::submeanDQP(signed char const*, int, int, signed char*)@@Base+0x106>
+    3f08:	4020      	ands	r0, r4
+    3f0a:	d1c4      	bne.n	3e96 <ExynosMsqz::submeanDQP(signed char const*, int, int, signed char*)@@Base+0x106>
+    3f0c:	9b08      	ldr	r3, [sp, #32]
+    3f0e:	eb0e 000b 	add.w	r0, lr, fp
+    3f12:	465d      	mov	r5, fp
+    3f14:	460f      	mov	r7, r1
+    3f16:	4674      	mov	r4, lr
+    3f18:	440b      	add	r3, r1
+    3f1a:	18be      	adds	r6, r7, r2
+    3f1c:	f967 230d 	vld2.8	{d18-d21}, [r7]!
+    3f20:	efc8 aa33 	vmovl.s8	q13, d19
+    3f24:	efc8 ca35 	vmovl.s8	q14, d21
+    3f28:	f966 630f 	vld2.8	{d22-d25}, [r6]
+    3f2c:	ef68 e1f8 	vorr	q15, q12, q12
+    3f30:	3d10      	subs	r5, #16
+    3f32:	ef88 0a32 	vmovl.s8	q0, d18
+    3f36:	efc8 2a34 	vmovl.s8	q9, d20
+    3f3a:	efc8 4a37 	vmovl.s8	q10, d23
+    3f3e:	efdd 80ab 	vaddl.s16	q12, d29, d27
+    3f42:	efdc a0aa 	vaddl.s16	q13, d28, d26
+    3f46:	efc8 ca3f 	vmovl.s8	q14, d31
+    3f4a:	efc8 ea3e 	vmovl.s8	q15, d30
+    3f4e:	ef26 21b6 	vorr	d2, d22, d22
+    3f52:	efd8 81a5 	vaddw.s16	q12, q12, d21
+    3f56:	efc8 6a36 	vmovl.s8	q11, d22
+    3f5a:	efda 41a4 	vaddw.s16	q10, q13, d20
+    3f5e:	ef93 2081 	vaddl.s16	q1, d19, d1
+    3f62:	efd2 2080 	vaddl.s16	q9, d18, d0
+    3f66:	efd4 41ac 	vaddw.s16	q10, q10, d28
+    3f6a:	efd2 21a6 	vaddw.s16	q9, q9, d22
+    3f6e:	efd2 a127 	vaddw.s16	q13, q1, d23
+    3f72:	efd8 61ad 	vaddw.s16	q11, q12, d29
+    3f76:	ffff c074 	vshr.u32	q14, q10, #1
+    3f7a:	efda 81af 	vaddw.s16	q12, q13, d31
+    3f7e:	efd2 21ae 	vaddw.s16	q9, q9, d30
+    3f82:	ffff a076 	vshr.u32	q13, q11, #1
+    3f86:	ef4c c1f0 	vand	q14, q14, q8
+    3f8a:	ffff e078 	vshr.u32	q15, q12, #1
+    3f8e:	ffbf 0072 	vshr.u32	q0, q9, #1
+    3f92:	ef4a a1f0 	vand	q13, q13, q8
+    3f96:	fffe c174 	vsra.u32	q14, q10, #2
+    3f9a:	ef4e e1f0 	vand	q15, q15, q8
+    3f9e:	ef00 0170 	vand	q0, q0, q8
+    3fa2:	fffe a176 	vsra.u32	q13, q11, #2
+    3fa6:	fffe e178 	vsra.u32	q15, q12, #2
+    3faa:	ffbe 0172 	vsra.u32	q0, q9, #2
+    3fae:	fff6 322a 	vmovn.i32	d19, q13
+    3fb2:	fff6 222c 	vmovn.i32	d18, q14
+    3fb6:	fff6 522e 	vmovn.i32	d21, q15
+    3fba:	fff6 4200 	vmovn.i32	d20, q0
+    3fbe:	fff2 3222 	vmovn.i16	d19, q9
+    3fc2:	fff2 2224 	vmovn.i16	d18, q10
+    3fc6:	f944 2a0d 	vst1.8	{d18-d19}, [r4]!
+    3fca:	d1a6      	bne.n	3f1a <ExynosMsqz::submeanDQP(signed char const*, int, int, signed char*)@@Base+0x18a>
+    3fcc:	45dc      	cmp	ip, fp
+    3fce:	f43f af47 	beq.w	3e60 <ExynosMsqz::submeanDQP(signed char const*, int, int, signed char*)@@Base+0xd0>
+    3fd2:	4619      	mov	r1, r3
+    3fd4:	465b      	mov	r3, fp
+    3fd6:	e75f      	b.n	3e98 <ExynosMsqz::submeanDQP(signed char const*, int, int, signed char*)@@Base+0x108>
+    3fd8:	4418      	add	r0, r3
+    3fda:	f1ba 0f00 	cmp.w	sl, #0
+    3fde:	f000 80bd 	beq.w	415c <ExynosMsqz::submeanDQP(signed char const*, int, int, signed char*)@@Base+0x3cc>
+    3fe2:	460b      	mov	r3, r1
+    3fe4:	1899      	adds	r1, r3, r2
+    3fe6:	f993 3000 	ldrsb.w	r3, [r3]
+    3fea:	f911 7b01 	ldrsb.w	r7, [r1], #1
+    3fee:	3801      	subs	r0, #1
+    3ff0:	443b      	add	r3, r7
+    3ff2:	f003 0701 	and.w	r7, r3, #1
+    3ff6:	eb07 0353 	add.w	r3, r7, r3, lsr #1
+    3ffa:	f80e 3b01 	strb.w	r3, [lr], #1
+    3ffe:	460b      	mov	r3, r1
+    4000:	d1f0      	bne.n	3fe4 <ExynosMsqz::submeanDQP(signed char const*, int, int, signed char*)@@Base+0x254>
+    4002:	e0ad      	b.n	4160 <ExynosMsqz::submeanDQP(signed char const*, int, int, signed char*)@@Base+0x3d0>
+    4004:	1c57      	adds	r7, r2, #1
+    4006:	2000      	movs	r0, #0
+    4008:	efc0 0051 	vmov.i32	q8, #1	@ 0x00000001
+    400c:	4699      	mov	r9, r3
+    400e:	e004      	b.n	401a <ExynosMsqz::submeanDQP(signed char const*, int, int, signed char*)@@Base+0x28a>
+    4010:	1899      	adds	r1, r3, r2
+    4012:	3001      	adds	r0, #1
+    4014:	4548      	cmp	r0, r9
+    4016:	f000 80a3 	beq.w	4160 <ExynosMsqz::submeanDQP(signed char const*, int, int, signed char*)@@Base+0x3d0>
+    401a:	f04f 0800 	mov.w	r8, #0
+    401e:	f1bc 0f10 	cmp.w	ip, #16
+    4022:	f0c0 8082 	bcc.w	412a <ExynosMsqz::submeanDQP(signed char const*, int, int, signed char*)@@Base+0x39a>
+    4026:	eb0e 030c 	add.w	r3, lr, ip
+    402a:	188d      	adds	r5, r1, r2
+    402c:	2600      	movs	r6, #0
+    402e:	429d      	cmp	r5, r3
+    4030:	bf38      	it	cc
+    4032:	2601      	movcc	r6, #1
+    4034:	4299      	cmp	r1, r3
+    4036:	f04f 0300 	mov.w	r3, #0
+    403a:	bf38      	it	cc
+    403c:	2301      	movcc	r3, #1
+    403e:	9c09      	ldr	r4, [sp, #36]	@ 0x24
+    4040:	190d      	adds	r5, r1, r4
+    4042:	45ae      	cmp	lr, r5
+    4044:	f04f 0500 	mov.w	r5, #0
+    4048:	bf38      	it	cc
+    404a:	2501      	movcc	r5, #1
+    404c:	9c0a      	ldr	r4, [sp, #40]	@ 0x28
+    404e:	440c      	add	r4, r1
+    4050:	45a6      	cmp	lr, r4
+    4052:	f04f 0400 	mov.w	r4, #0
+    4056:	bf38      	it	cc
+    4058:	2401      	movcc	r4, #1
+    405a:	4234      	tst	r4, r6
+    405c:	d165      	bne.n	412a <ExynosMsqz::submeanDQP(signed char const*, int, int, signed char*)@@Base+0x39a>
+    405e:	402b      	ands	r3, r5
+    4060:	d163      	bne.n	412a <ExynosMsqz::submeanDQP(signed char const*, int, int, signed char*)@@Base+0x39a>
+    4062:	9b08      	ldr	r3, [sp, #32]
+    4064:	eb0e 040b 	add.w	r4, lr, fp
+    4068:	465d      	mov	r5, fp
+    406a:	440b      	add	r3, r1
+    406c:	188e      	adds	r6, r1, r2
+    406e:	f961 230d 	vld2.8	{d18-d21}, [r1]!
+    4072:	efc8 aa33 	vmovl.s8	q13, d19
+    4076:	efc8 ca35 	vmovl.s8	q14, d21
+    407a:	f966 630f 	vld2.8	{d22-d25}, [r6]
+    407e:	ef68 e1f8 	vorr	q15, q12, q12
+    4082:	3d10      	subs	r5, #16
+    4084:	ef88 0a32 	vmovl.s8	q0, d18
+    4088:	efc8 2a34 	vmovl.s8	q9, d20
+    408c:	efc8 4a37 	vmovl.s8	q10, d23
+    4090:	efdd 80ab 	vaddl.s16	q12, d29, d27
+    4094:	efdc a0aa 	vaddl.s16	q13, d28, d26
+    4098:	efc8 ca3f 	vmovl.s8	q14, d31
+    409c:	efc8 ea3e 	vmovl.s8	q15, d30
+    40a0:	ef26 21b6 	vorr	d2, d22, d22
+    40a4:	efd8 81a5 	vaddw.s16	q12, q12, d21
+    40a8:	efc8 6a36 	vmovl.s8	q11, d22
+    40ac:	efda 41a4 	vaddw.s16	q10, q13, d20
+    40b0:	ef93 2081 	vaddl.s16	q1, d19, d1
+    40b4:	efd2 2080 	vaddl.s16	q9, d18, d0
+    40b8:	efd4 41ac 	vaddw.s16	q10, q10, d28
+    40bc:	efd2 21a6 	vaddw.s16	q9, q9, d22
+    40c0:	efd2 a127 	vaddw.s16	q13, q1, d23
+    40c4:	efd8 61ad 	vaddw.s16	q11, q12, d29
+    40c8:	ffff c074 	vshr.u32	q14, q10, #1
+    40cc:	efda 81af 	vaddw.s16	q12, q13, d31
+    40d0:	efd2 21ae 	vaddw.s16	q9, q9, d30
+    40d4:	ffff a076 	vshr.u32	q13, q11, #1
+    40d8:	ef4c c1f0 	vand	q14, q14, q8
+    40dc:	ffff e078 	vshr.u32	q15, q12, #1
+    40e0:	ffbf 0072 	vshr.u32	q0, q9, #1
+    40e4:	ef4a a1f0 	vand	q13, q13, q8
+    40e8:	fffe c174 	vsra.u32	q14, q10, #2
+    40ec:	ef4e e1f0 	vand	q15, q15, q8
+    40f0:	ef00 0170 	vand	q0, q0, q8
+    40f4:	fffe a176 	vsra.u32	q13, q11, #2
+    40f8:	fffe e178 	vsra.u32	q15, q12, #2
+    40fc:	ffbe 0172 	vsra.u32	q0, q9, #2
+    4100:	fff6 322a 	vmovn.i32	d19, q13
+    4104:	fff6 222c 	vmovn.i32	d18, q14
+    4108:	fff6 522e 	vmovn.i32	d21, q15
+    410c:	fff6 4200 	vmovn.i32	d20, q0
+    4110:	fff2 3222 	vmovn.i16	d19, q9
+    4114:	fff2 2224 	vmovn.i16	d18, q10
+    4118:	f94e 2a0d 	vst1.8	{d18-d19}, [lr]!
+    411c:	d1a6      	bne.n	406c <ExynosMsqz::submeanDQP(signed char const*, int, int, signed char*)@@Base+0x2dc>
+    411e:	45dc      	cmp	ip, fp
+    4120:	46a6      	mov	lr, r4
+    4122:	46d8      	mov	r8, fp
+    4124:	f43f af74 	beq.w	4010 <ExynosMsqz::submeanDQP(signed char const*, int, int, signed char*)@@Base+0x280>
+    4128:	e000      	b.n	412c <ExynosMsqz::submeanDQP(signed char const*, int, int, signed char*)@@Base+0x39c>
+    412a:	460b      	mov	r3, r1
+    412c:	ebac 0108 	sub.w	r1, ip, r8
+    4130:	f993 4000 	ldrsb.w	r4, [r3]
+    4134:	f993 5001 	ldrsb.w	r5, [r3, #1]
+    4138:	442c      	add	r4, r5
+    413a:	19dd      	adds	r5, r3, r7
+    413c:	f915 5c01 	ldrsb.w	r5, [r5, #-1]
+    4140:	3901      	subs	r1, #1
+    4142:	442c      	add	r4, r5
+    4144:	57dd      	ldrsb	r5, [r3, r7]
+    4146:	f103 0302 	add.w	r3, r3, #2
+    414a:	442c      	add	r4, r5
+    414c:	f3c4 0540 	ubfx	r5, r4, #1, #1
+    4150:	eb05 0494 	add.w	r4, r5, r4, lsr #2
+    4154:	f80e 4b01 	strb.w	r4, [lr], #1
+    4158:	d1ea      	bne.n	4130 <ExynosMsqz::submeanDQP(signed char const*, int, int, signed char*)@@Base+0x3a0>
+    415a:	e759      	b.n	4010 <ExynosMsqz::submeanDQP(signed char const*, int, int, signed char*)@@Base+0x280>
+    415c:	fb00 1102 	mla	r1, r0, r2, r1
+    4160:	9807      	ldr	r0, [sp, #28]
+    4162:	b360      	cbz	r0, 41be <ExynosMsqz::submeanDQP(signed char const*, int, int, signed char*)@@Base+0x42e>
+    4164:	9805      	ldr	r0, [sp, #20]
+    4166:	2801      	cmp	r0, #1
+    4168:	db21      	blt.n	41ae <ExynosMsqz::submeanDQP(signed char const*, int, int, signed char*)@@Base+0x41e>
+    416a:	e9dd 2002 	ldrd	r2, r0, [sp, #8]
+    416e:	9d06      	ldr	r5, [sp, #24]
+    4170:	4410      	add	r0, r2
+    4172:	9a04      	ldr	r2, [sp, #16]
+    4174:	1883      	adds	r3, r0, r2
+    4176:	2b10      	cmp	r3, #16
+    4178:	d307      	bcc.n	418a <ExynosMsqz::submeanDQP(signed char const*, int, int, signed char*)@@Base+0x3fa>
+    417a:	eb01 0043 	add.w	r0, r1, r3, lsl #1
+    417e:	4586      	cmp	lr, r0
+    4180:	d221      	bcs.n	41c6 <ExynosMsqz::submeanDQP(signed char const*, int, int, signed char*)@@Base+0x436>
+    4182:	eb0e 0003 	add.w	r0, lr, r3
+    4186:	4281      	cmp	r1, r0
+    4188:	d21d      	bcs.n	41c6 <ExynosMsqz::submeanDQP(signed char const*, int, int, signed char*)@@Base+0x436>
+    418a:	2600      	movs	r6, #0
+    418c:	460a      	mov	r2, r1
+    418e:	4670      	mov	r0, lr
+    4190:	1b99      	subs	r1, r3, r6
+    4192:	f912 3b02 	ldrsb.w	r3, [r2], #2
+    4196:	3901      	subs	r1, #1
+    4198:	f912 7c01 	ldrsb.w	r7, [r2, #-1]
+    419c:	443b      	add	r3, r7
+    419e:	f003 0701 	and.w	r7, r3, #1
+    41a2:	eb07 0353 	add.w	r3, r7, r3, lsr #1
+    41a6:	f800 3b01 	strb.w	r3, [r0], #1
+    41aa:	d1f2      	bne.n	4192 <ExynosMsqz::submeanDQP(signed char const*, int, int, signed char*)@@Base+0x402>
+    41ac:	e002      	b.n	41b4 <ExynosMsqz::submeanDQP(signed char const*, int, int, signed char*)@@Base+0x424>
+    41ae:	9d06      	ldr	r5, [sp, #24]
+    41b0:	4670      	mov	r0, lr
+    41b2:	460a      	mov	r2, r1
+    41b4:	2d00      	cmp	r5, #0
+    41b6:	bf18      	it	ne
+    41b8:	7811      	ldrbne	r1, [r2, #0]
+    41ba:	bf18      	it	ne
+    41bc:	7001      	strbne	r1, [r0, #0]
+    41be:	2000      	movs	r0, #0
+    41c0:	b00b      	add	sp, #44	@ 0x2c
+    41c2:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+    41c6:	f023 060f 	bic.w	r6, r3, #15
+    41ca:	efc0 0051 	vmov.i32	q8, #1	@ 0x00000001
+    41ce:	eb0e 0006 	add.w	r0, lr, r6
+    41d2:	eb01 0246 	add.w	r2, r1, r6, lsl #1
+    41d6:	4637      	mov	r7, r6
+    41d8:	f961 230d 	vld2.8	{d18-d21}, [r1]!
+    41dc:	efc8 6a33 	vmovl.s8	q11, d19
+    41e0:	efc8 8a35 	vmovl.s8	q12, d21
+    41e4:	3f10      	subs	r7, #16
+    41e6:	efc8 aa32 	vmovl.s8	q13, d18
+    41ea:	efc8 2a34 	vmovl.s8	q9, d20
+    41ee:	efd9 40a7 	vaddl.s16	q10, d25, d23
+    41f2:	efd8 60a6 	vaddl.s16	q11, d24, d22
+    41f6:	efd3 80ab 	vaddl.s16	q12, d19, d27
+    41fa:	efd2 20aa 	vaddl.s16	q9, d18, d26
+    41fe:	ef44 a1f0 	vand	q13, q10, q8
+    4202:	ef46 c1f0 	vand	q14, q11, q8
+    4206:	ef48 e1f0 	vand	q15, q12, q8
+    420a:	ef02 01f0 	vand	q0, q9, q8
+    420e:	ffff a174 	vsra.u32	q13, q10, #1
+    4212:	ffff c176 	vsra.u32	q14, q11, #1
+    4216:	ffff e178 	vsra.u32	q15, q12, #1
+    421a:	ffbf 0172 	vsra.u32	q0, q9, #1
+    421e:	fff6 322a 	vmovn.i32	d19, q13
+    4222:	fff6 222c 	vmovn.i32	d18, q14
+    4226:	fff6 522e 	vmovn.i32	d21, q15
+    422a:	fff6 4200 	vmovn.i32	d20, q0
+    422e:	fff2 3222 	vmovn.i16	d19, q9
+    4232:	fff2 2224 	vmovn.i16	d18, q10
+    4236:	f94e 2a0d 	vst1.8	{d18-d19}, [lr]!
+    423a:	d1cd      	bne.n	41d8 <ExynosMsqz::submeanDQP(signed char const*, int, int, signed char*)@@Base+0x448>
+    423c:	42b3      	cmp	r3, r6
+    423e:	d1a7      	bne.n	4190 <ExynosMsqz::submeanDQP(signed char const*, int, int, signed char*)@@Base+0x400>
+    4240:	e7b8      	b.n	41b4 <ExynosMsqz::submeanDQP(signed char const*, int, int, signed char*)@@Base+0x424>
+    4242:	d4d4      	bmi.n	41ee <ExynosMsqz::submeanDQP(signed char const*, int, int, signed char*)@@Base+0x45e>
+
+00004244 <ExynosMsqz::transformDQP_8B_OPT7(unsigned int, int, int, signed char const*, signed char, signed char*)@@Base>:
+    4244:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+    4248:	b081      	sub	sp, #4
+    424a:	fb03 fb02 	mul.w	fp, r3, r2
+    424e:	4aa2      	ldr	r2, [pc, #648]	@ (44d8 <ExynosMsqz::transformDQP_8B_OPT7(unsigned int, int, int, signed char const*, signed char, signed char*)@@Base+0x294>)
+    4250:	f246 6067 	movw	r0, #26215	@ 0x6667
+    4254:	2500      	movs	r5, #0
+    4256:	f2c6 6066 	movt	r0, #26214	@ 0x6666
+    425a:	fb5b f000 	smmul	r0, fp, r0
+    425e:	1083      	asrs	r3, r0, #2
+    4260:	447a      	add	r2, pc
+    4262:	eb03 73d0 	add.w	r3, r3, r0, lsr #31
+    4266:	6810      	ldr	r0, [r2, #0]
+    4268:	2800      	cmp	r0, #0
+    426a:	4607      	mov	r7, r0
+    426c:	bf48      	it	mi
+    426e:	4247      	negmi	r7, r0
+    4270:	2600      	movs	r6, #0
+    4272:	429f      	cmp	r7, r3
+    4274:	bf88      	it	hi
+    4276:	2501      	movhi	r5, #1
+    4278:	ebb7 0f43 	cmp.w	r7, r3, lsl #1
+    427c:	bf88      	it	hi
+    427e:	2502      	movhi	r5, #2
+    4280:	f1c5 0900 	rsb	r9, r5, #0
+    4284:	f1b0 3fff 	cmp.w	r0, #4294967295	@ 0xffffffff
+    4288:	bfd8      	it	le
+    428a:	46a9      	movle	r9, r5
+    428c:	9200      	str	r2, [sp, #0]
+    428e:	f1bb 0f01 	cmp.w	fp, #1
+    4292:	db52      	blt.n	433a <ExynosMsqz::transformDQP_8B_OPT7(unsigned int, int, int, signed char const*, signed char, signed char*)@@Base+0xf6>
+    4294:	9b0c      	ldr	r3, [sp, #48]	@ 0x30
+    4296:	e9dd 0c0a 	ldrd	r0, ip, [sp, #40]	@ 0x28
+    429a:	fab1 f781 	clz	r7, r1
+    429e:	f04f 0e01 	mov.w	lr, #1
+    42a2:	2900      	cmp	r1, #0
+    42a4:	bf08      	it	eq
+    42a6:	f04f 0e02 	moveq.w	lr, #2
+    42aa:	ea4f 1a57 	mov.w	sl, r7, lsr #5
+    42ae:	2900      	cmp	r1, #0
+    42b0:	d045      	beq.n	433e <ExynosMsqz::transformDQP_8B_OPT7(unsigned int, int, int, signed char const*, signed char, signed char*)@@Base+0xfa>
+    42b2:	2100      	movs	r1, #0
+    42b4:	f1bc 0f04 	cmp.w	ip, #4
+    42b8:	f2c0 8087 	blt.w	43ca <ExynosMsqz::transformDQP_8B_OPT7(unsigned int, int, int, signed char const*, signed char, signed char*)@@Base+0x186>
+    42bc:	4a88      	ldr	r2, [pc, #544]	@ (44e0 <ExynosMsqz::transformDQP_8B_OPT7(unsigned int, int, int, signed char const*, signed char, signed char*)@@Base+0x29c>)
+    42be:	f04f 080a 	mov.w	r8, #10
+    42c2:	2600      	movs	r6, #0
+    42c4:	2400      	movs	r4, #0
+    42c6:	447a      	add	r2, pc
+    42c8:	4692      	mov	sl, r2
+    42ca:	f810 2b01 	ldrb.w	r2, [r0], #1
+    42ce:	f06f 0509 	mvn.w	r5, #9
+    42d2:	eba2 020c 	sub.w	r2, r2, ip
+    42d6:	b257      	sxtb	r7, r2
+    42d8:	f117 0f0a 	cmn.w	r7, #10
+    42dc:	bfd8      	it	le
+    42de:	462a      	movle	r2, r5
+    42e0:	b257      	sxtb	r7, r2
+    42e2:	4655      	mov	r5, sl
+    42e4:	2f0a      	cmp	r7, #10
+    42e6:	bfa8      	it	ge
+    42e8:	4642      	movge	r2, r8
+    42ea:	4472      	add	r2, lr
+    42ec:	320c      	adds	r2, #12
+    42ee:	fa49 f282 	sxtab	r2, r9, r2
+    42f2:	f91a 2002 	ldrsb.w	r2, [sl, r2]
+    42f6:	4414      	add	r4, r2
+    42f8:	1e57      	subs	r7, r2, #1
+    42fa:	2c64      	cmp	r4, #100	@ 0x64
+    42fc:	f1a4 0501 	sub.w	r5, r4, #1
+    4300:	bfd8      	it	le
+    4302:	4617      	movle	r7, r2
+    4304:	f107 0201 	add.w	r2, r7, #1
+    4308:	bfd8      	it	le
+    430a:	4625      	movle	r5, r4
+    430c:	f115 0f64 	cmn.w	r5, #100	@ 0x64
+    4310:	bfa8      	it	ge
+    4312:	463a      	movge	r2, r7
+    4314:	b254      	sxtb	r4, r2
+    4316:	1c77      	adds	r7, r6, #1
+    4318:	2c00      	cmp	r4, #0
+    431a:	bfc8      	it	gt
+    431c:	463e      	movgt	r6, r7
+    431e:	f803 2b01 	strb.w	r2, [r3], #1
+    4322:	b2d2      	uxtb	r2, r2
+    4324:	1c6c      	adds	r4, r5, #1
+    4326:	eb01 11d2 	add.w	r1, r1, r2, lsr #7
+    432a:	f115 0f64 	cmn.w	r5, #100	@ 0x64
+    432e:	bfa8      	it	ge
+    4330:	462c      	movge	r4, r5
+    4332:	f1bb 0b01 	subs.w	fp, fp, #1
+    4336:	d1c8      	bne.n	42ca <ExynosMsqz::transformDQP_8B_OPT7(unsigned int, int, int, signed char const*, signed char, signed char*)@@Base+0x86>
+    4338:	e0c6      	b.n	44c8 <ExynosMsqz::transformDQP_8B_OPT7(unsigned int, int, int, signed char const*, signed char, signed char*)@@Base+0x284>
+    433a:	2100      	movs	r1, #0
+    433c:	e0c4      	b.n	44c8 <ExynosMsqz::transformDQP_8B_OPT7(unsigned int, int, int, signed char const*, signed char, signed char*)@@Base+0x284>
+    433e:	2100      	movs	r1, #0
+    4340:	f04f 080a 	mov.w	r8, #10
+    4344:	f1bc 0f03 	cmp.w	ip, #3
+    4348:	bf18      	it	ne
+    434a:	468a      	movne	sl, r1
+    434c:	bfc8      	it	gt
+    434e:	46f2      	movgt	sl, lr
+    4350:	4a62      	ldr	r2, [pc, #392]	@ (44dc <ExynosMsqz::transformDQP_8B_OPT7(unsigned int, int, int, signed char const*, signed char, signed char*)@@Base+0x298>)
+    4352:	f06f 0e09 	mvn.w	lr, #9
+    4356:	2600      	movs	r6, #0
+    4358:	2400      	movs	r4, #0
+    435a:	447a      	add	r2, pc
+    435c:	4691      	mov	r9, r2
+    435e:	f810 7b01 	ldrb.w	r7, [r0], #1
+    4362:	464a      	mov	r2, r9
+    4364:	eba7 070c 	sub.w	r7, r7, ip
+    4368:	b27d      	sxtb	r5, r7
+    436a:	f115 0f0a 	cmn.w	r5, #10
+    436e:	bfd8      	it	le
+    4370:	4677      	movle	r7, lr
+    4372:	b27d      	sxtb	r5, r7
+    4374:	2d0a      	cmp	r5, #10
+    4376:	bfa8      	it	ge
+    4378:	4647      	movge	r7, r8
+    437a:	eb07 050a 	add.w	r5, r7, sl
+    437e:	fa49 f585 	sxtab	r5, r9, r5
+    4382:	f995 500a 	ldrsb.w	r5, [r5, #10]
+    4386:	442c      	add	r4, r5
+    4388:	1e6f      	subs	r7, r5, #1
+    438a:	2c64      	cmp	r4, #100	@ 0x64
+    438c:	f1a4 0201 	sub.w	r2, r4, #1
+    4390:	bfd8      	it	le
+    4392:	462f      	movle	r7, r5
+    4394:	f107 0501 	add.w	r5, r7, #1
+    4398:	bfd8      	it	le
+    439a:	4622      	movle	r2, r4
+    439c:	f112 0f64 	cmn.w	r2, #100	@ 0x64
+    43a0:	bfa8      	it	ge
+    43a2:	463d      	movge	r5, r7
+    43a4:	b26c      	sxtb	r4, r5
+    43a6:	1c77      	adds	r7, r6, #1
+    43a8:	2c00      	cmp	r4, #0
+    43aa:	b2ec      	uxtb	r4, r5
+    43ac:	bfc8      	it	gt
+    43ae:	463e      	movgt	r6, r7
+    43b0:	f803 5b01 	strb.w	r5, [r3], #1
+    43b4:	eb01 11d4 	add.w	r1, r1, r4, lsr #7
+    43b8:	1c54      	adds	r4, r2, #1
+    43ba:	f112 0f64 	cmn.w	r2, #100	@ 0x64
+    43be:	bfa8      	it	ge
+    43c0:	4614      	movge	r4, r2
+    43c2:	f1bb 0b01 	subs.w	fp, fp, #1
+    43c6:	d1ca      	bne.n	435e <ExynosMsqz::transformDQP_8B_OPT7(unsigned int, int, int, signed char const*, signed char, signed char*)@@Base+0x11a>
+    43c8:	e07e      	b.n	44c8 <ExynosMsqz::transformDQP_8B_OPT7(unsigned int, int, int, signed char const*, signed char, signed char*)@@Base+0x284>
+    43ca:	f1bc 0f03 	cmp.w	ip, #3
+    43ce:	d13d      	bne.n	444c <ExynosMsqz::transformDQP_8B_OPT7(unsigned int, int, int, signed char const*, signed char, signed char*)@@Base+0x208>
+    43d0:	4a45      	ldr	r2, [pc, #276]	@ (44e8 <ExynosMsqz::transformDQP_8B_OPT7(unsigned int, int, int, signed char const*, signed char, signed char*)@@Base+0x2a4>)
+    43d2:	f06f 0c09 	mvn.w	ip, #9
+    43d6:	f04f 0e0a 	mov.w	lr, #10
+    43da:	2600      	movs	r6, #0
+    43dc:	2400      	movs	r4, #0
+    43de:	447a      	add	r2, pc
+    43e0:	4690      	mov	r8, r2
+    43e2:	f810 2b01 	ldrb.w	r2, [r0], #1
+    43e6:	4645      	mov	r5, r8
+    43e8:	3a03      	subs	r2, #3
+    43ea:	b257      	sxtb	r7, r2
+    43ec:	f117 0f0a 	cmn.w	r7, #10
+    43f0:	bfd8      	it	le
+    43f2:	4662      	movle	r2, ip
+    43f4:	b257      	sxtb	r7, r2
+    43f6:	2f0a      	cmp	r7, #10
+    43f8:	bfa8      	it	ge
+    43fa:	4672      	movge	r2, lr
+    43fc:	4452      	add	r2, sl
+    43fe:	320c      	adds	r2, #12
+    4400:	fa49 f282 	sxtab	r2, r9, r2
+    4404:	f918 2002 	ldrsb.w	r2, [r8, r2]
+    4408:	4414      	add	r4, r2
+    440a:	1e57      	subs	r7, r2, #1
+    440c:	2c64      	cmp	r4, #100	@ 0x64
+    440e:	f1a4 0501 	sub.w	r5, r4, #1
+    4412:	bfd8      	it	le
+    4414:	4617      	movle	r7, r2
+    4416:	f107 0201 	add.w	r2, r7, #1
+    441a:	bfd8      	it	le
+    441c:	4625      	movle	r5, r4
+    441e:	f115 0f64 	cmn.w	r5, #100	@ 0x64
+    4422:	bfa8      	it	ge
+    4424:	463a      	movge	r2, r7
+    4426:	b254      	sxtb	r4, r2
+    4428:	1c77      	adds	r7, r6, #1
+    442a:	2c00      	cmp	r4, #0
+    442c:	bfc8      	it	gt
+    442e:	463e      	movgt	r6, r7
+    4430:	f803 2b01 	strb.w	r2, [r3], #1
+    4434:	b2d2      	uxtb	r2, r2
+    4436:	1c6c      	adds	r4, r5, #1
+    4438:	eb01 11d2 	add.w	r1, r1, r2, lsr #7
+    443c:	f115 0f64 	cmn.w	r5, #100	@ 0x64
+    4440:	bfa8      	it	ge
+    4442:	462c      	movge	r4, r5
+    4444:	f1bb 0b01 	subs.w	fp, fp, #1
+    4448:	d1cb      	bne.n	43e2 <ExynosMsqz::transformDQP_8B_OPT7(unsigned int, int, int, signed char const*, signed char, signed char*)@@Base+0x19e>
+    444a:	e03d      	b.n	44c8 <ExynosMsqz::transformDQP_8B_OPT7(unsigned int, int, int, signed char const*, signed char, signed char*)@@Base+0x284>
+    444c:	4a25      	ldr	r2, [pc, #148]	@ (44e4 <ExynosMsqz::transformDQP_8B_OPT7(unsigned int, int, int, signed char const*, signed char, signed char*)@@Base+0x2a0>)
+    444e:	f06f 0e09 	mvn.w	lr, #9
+    4452:	f04f 080a 	mov.w	r8, #10
+    4456:	2500      	movs	r5, #0
+    4458:	2400      	movs	r4, #0
+    445a:	447a      	add	r2, pc
+    445c:	4692      	mov	sl, r2
+    445e:	f810 2b01 	ldrb.w	r2, [r0], #1
+    4462:	eba2 020c 	sub.w	r2, r2, ip
+    4466:	b256      	sxtb	r6, r2
+    4468:	f116 0f0a 	cmn.w	r6, #10
+    446c:	bfd8      	it	le
+    446e:	4672      	movle	r2, lr
+    4470:	b256      	sxtb	r6, r2
+    4472:	2e0a      	cmp	r6, #10
+    4474:	bfa8      	it	ge
+    4476:	4642      	movge	r2, r8
+    4478:	4656      	mov	r6, sl
+    447a:	320c      	adds	r2, #12
+    447c:	fa49 f282 	sxtab	r2, r9, r2
+    4480:	f91a 2002 	ldrsb.w	r2, [sl, r2]
+    4484:	4414      	add	r4, r2
+    4486:	1e56      	subs	r6, r2, #1
+    4488:	2c64      	cmp	r4, #100	@ 0x64
+    448a:	f1a4 0701 	sub.w	r7, r4, #1
+    448e:	bfd8      	it	le
+    4490:	4616      	movle	r6, r2
+    4492:	f106 0201 	add.w	r2, r6, #1
+    4496:	bfd8      	it	le
+    4498:	4627      	movle	r7, r4
+    449a:	f117 0f64 	cmn.w	r7, #100	@ 0x64
+    449e:	bfa8      	it	ge
+    44a0:	4632      	movge	r2, r6
+    44a2:	b254      	sxtb	r4, r2
+    44a4:	1c6e      	adds	r6, r5, #1
+    44a6:	2c00      	cmp	r4, #0
+    44a8:	bfd8      	it	le
+    44aa:	462e      	movle	r6, r5
+    44ac:	f803 2b01 	strb.w	r2, [r3], #1
+    44b0:	b2d2      	uxtb	r2, r2
+    44b2:	4635      	mov	r5, r6
+    44b4:	1c7c      	adds	r4, r7, #1
+    44b6:	eb01 11d2 	add.w	r1, r1, r2, lsr #7
+    44ba:	f117 0f64 	cmn.w	r7, #100	@ 0x64
+    44be:	bfa8      	it	ge
+    44c0:	463c      	movge	r4, r7
+    44c2:	f1bb 0b01 	subs.w	fp, fp, #1
+    44c6:	d1ca      	bne.n	445e <ExynosMsqz::transformDQP_8B_OPT7(unsigned int, int, int, signed char const*, signed char, signed char*)@@Base+0x21a>
+    44c8:	1a70      	subs	r0, r6, r1
+    44ca:	9900      	ldr	r1, [sp, #0]
+    44cc:	6008      	str	r0, [r1, #0]
+    44ce:	2000      	movs	r0, #0
+    44d0:	b001      	add	sp, #4
+    44d2:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+    44d6:	bf00      	nop
+    44d8:	383c      	subs	r0, #60	@ 0x3c
+    44da:	0000      	movs	r0, r0
+    44dc:	da3c      	bge.n	4558 <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x68>
+    44de:	ffff dae7 	vtbx.8	d29, {d31-<overflow reg d33}, d23
+    44e2:	ffff d953 	vqrshrn.u64	d29, <illegal reg q1.5>, #1
+    44e6:	ffff d9cf 	vtbx.8	d29, {d31-<overflow reg d32}, d15
+    44ea:	ffff d4d4 	vsri.64	<illegal reg q14.5>, q2, #1
+    44ee:	d4d4      	bmi.n	449a <ExynosMsqz::transformDQP_8B_OPT7(unsigned int, int, int, signed char const*, signed char, signed char*)@@Base+0x256>
+
+000044f0 <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base>:
+    44f0:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+    44f4:	b081      	sub	sp, #4
+    44f6:	ed2d 8b02 	vpush	{d8}
+    44fa:	b08a      	sub	sp, #40	@ 0x28
+    44fc:	4683      	mov	fp, r0
+    44fe:	f8d0 0144 	ldr.w	r0, [r0, #324]	@ 0x144
+    4502:	eef7 0b00 	vmov.f64	d16, #112	@ 0x3f800000  1.0
+    4506:	461d      	mov	r5, r3
+    4508:	4616      	mov	r6, r2
+    450a:	460f      	mov	r7, r1
+    450c:	00c0      	lsls	r0, r0, #3
+    450e:	ee00 0a10 	vmov	s0, r0
+    4512:	ec51 0b30 	vmov	r0, r1, d16
+    4516:	eef8 1b40 	vcvt.f64.u32	d17, s0
+    451a:	ec53 2b31 	vmov	r2, r3, d17
+    451e:	f001 e928 	blx	5770 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x294>
+    4522:	ed9f 1ae3 	vldr	s2, [pc, #908]	@ 48b0 <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x3c0>
+    4526:	ec41 0b30 	vmov	d16, r0, r1
+    452a:	ee00 6a10 	vmov	s0, r6
+    452e:	ee02 7a10 	vmov	s4, r7
+    4532:	ee03 5a10 	vmov	s6, r5
+    4536:	eddf 2be0 	vldr	d18, [pc, #896]	@ 48b8 <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x3c8>
+    453a:	ee70 0ba0 	vadd.f64	d16, d16, d16
+    453e:	eeb8 0ac0 	vcvt.f32.s32	s0, s0
+    4542:	eeb8 2ac2 	vcvt.f32.s32	s4, s4
+    4546:	eeb7 4be0 	vcvt.f32.f64	s8, d16
+    454a:	eddf 0bdd 	vldr	d16, [pc, #884]	@ 48c0 <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x3d0>
+    454e:	ee24 5a03 	vmul.f32	s10, s8, s6
+    4552:	eef7 1ac4 	vcvt.f64.f32	d17, s8
+    4556:	ee80 0a01 	vdiv.f32	s0, s0, s2
+    455a:	ee82 1a01 	vdiv.f32	s2, s4, s2
+    455e:	ee80 0a05 	vdiv.f32	s0, s0, s10
+    4562:	ee81 1a05 	vdiv.f32	s2, s2, s10
+    4566:	ed9f 5ad8 	vldr	s10, [pc, #864]	@ 48c8 <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x3d8>
+    456a:	eeb5 0a40 	vcmp.f32	s0, #0.0
+    456e:	eeb1 4a41 	vneg.f32	s8, s2
+    4572:	ee61 0ba0 	vmul.f64	d16, d17, d16
+    4576:	eeb1 2a40 	vneg.f32	s4, s0
+    457a:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+    457e:	eeb5 1a40 	vcmp.f32	s2, #0.0
+    4582:	bf48      	it	mi
+    4584:	eeb0 0a42 	vmovmi.f32	s0, s4
+    4588:	eec0 0ba2 	vdiv.f64	d16, d16, d18
+    458c:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+    4590:	bf48      	it	mi
+    4592:	eeb0 1a44 	vmovmi.f32	s2, s8
+    4596:	ed9f 4acd 	vldr	s8, [pc, #820]	@ 48cc <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x3dc>
+    459a:	ee20 0a03 	vmul.f32	s0, s0, s6
+    459e:	eeb7 2be0 	vcvt.f32.f64	s4, d16
+    45a2:	ee21 1a03 	vmul.f32	s2, s2, s6
+    45a6:	ed9f 3aca 	vldr	s6, [pc, #808]	@ 48d0 <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x3e0>
+    45aa:	ee20 0a02 	vmul.f32	s0, s0, s4
+    45ae:	eeb0 6a45 	vmov.f32	s12, s10
+    45b2:	ee21 1a02 	vmul.f32	s2, s2, s4
+    45b6:	ee00 6a04 	vmla.f32	s12, s0, s8
+    45ba:	ee01 5a04 	vmla.f32	s10, s2, s8
+    45be:	ed9f 4ac5 	vldr	s8, [pc, #788]	@ 48d4 <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x3e4>
+    45c2:	eeb4 6a43 	vcmp.f32	s12, s6
+    45c6:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+    45ca:	eeb4 5a43 	vcmp.f32	s10, s6
+    45ce:	fe33 6a06 	vselgt.f32	s12, s6, s12
+    45d2:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+    45d6:	fe33 3a05 	vselgt.f32	s6, s6, s10
+    45da:	ee30 0a46 	vsub.f32	s0, s0, s12
+    45de:	ed9f 5abe 	vldr	s10, [pc, #760]	@ 48d8 <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x3e8>
+    45e2:	eeb5 0a40 	vcmp.f32	s0, #0.0
+    45e6:	ee31 1a43 	vsub.f32	s2, s2, s6
+    45ea:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+    45ee:	eeb5 1a40 	vcmp.f32	s2, #0.0
+    45f2:	bf48      	it	mi
+    45f4:	eeb0 0a44 	vmovmi.f32	s0, s8
+    45f8:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+    45fc:	bf48      	it	mi
+    45fe:	eeb0 1a44 	vmovmi.f32	s2, s8
+    4602:	ee21 1a05 	vmul.f32	s2, s2, s10
+    4606:	ee20 0a05 	vmul.f32	s0, s0, s10
+    460a:	ee81 1a02 	vdiv.f32	s2, s2, s4
+    460e:	ee80 0a02 	vdiv.f32	s0, s0, s4
+    4612:	feb8 3a41 	vrinta.f32	s6, s2
+    4616:	febc 1ac1 	vcvta.s32.f32	s2, s2
+    461a:	feb8 2a40 	vrinta.f32	s4, s0
+    461e:	febc 0ac0 	vcvta.s32.f32	s0, s0
+    4622:	ee11 1a10 	vmov	r1, s2
+    4626:	eebd 2ac2 	vcvt.s32.f32	s4, s4
+    462a:	eebd 3ac3 	vcvt.s32.f32	s6, s6
+    462e:	ee10 0a10 	vmov	r0, s0
+    4632:	f5b1 3f80 	cmp.w	r1, #65536	@ 0x10000
+    4636:	ed8b 3a53 	vstr	s6, [fp, #332]	@ 0x14c
+    463a:	ed8b 2a54 	vstr	s4, [fp, #336]	@ 0x150
+    463e:	d217      	bcs.n	4670 <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x180>
+    4640:	f5b0 3f80 	cmp.w	r0, #65536	@ 0x10000
+    4644:	d21b      	bcs.n	467e <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x18e>
+    4646:	4658      	mov	r0, fp
+    4648:	f001 e89a 	blx	5780 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x2a4>
+    464c:	b300      	cbz	r0, 4690 <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x1a0>
+    464e:	49a3      	ldr	r1, [pc, #652]	@ (48dc <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x3ec>)
+    4650:	4aa3      	ldr	r2, [pc, #652]	@ (48e0 <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x3f0>)
+    4652:	4ba4      	ldr	r3, [pc, #656]	@ (48e4 <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x3f4>)
+    4654:	4605      	mov	r5, r0
+    4656:	2006      	movs	r0, #6
+    4658:	4479      	add	r1, pc
+    465a:	447a      	add	r2, pc
+    465c:	447b      	add	r3, pc
+    465e:	f000 eff8 	blx	5650 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x174>
+    4662:	4628      	mov	r0, r5
+    4664:	b00a      	add	sp, #40	@ 0x28
+    4666:	ecbd 8b02 	vpop	{d8}
+    466a:	b001      	add	sp, #4
+    466c:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+    4670:	f64f 71ff 	movw	r1, #65535	@ 0xffff
+    4674:	f8cb 114c 	str.w	r1, [fp, #332]	@ 0x14c
+    4678:	f5b0 3f80 	cmp.w	r0, #65536	@ 0x10000
+    467c:	d3e3      	bcc.n	4646 <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x156>
+    467e:	f64f 70ff 	movw	r0, #65535	@ 0xffff
+    4682:	f8cb 0150 	str.w	r0, [fp, #336]	@ 0x150
+    4686:	4658      	mov	r0, fp
+    4688:	f001 e87a 	blx	5780 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x2a4>
+    468c:	2800      	cmp	r0, #0
+    468e:	d1de      	bne.n	464e <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x15e>
+    4690:	e9db 015b 	ldrd	r0, r1, [fp, #364]	@ 0x16c
+    4694:	f8db 5178 	ldr.w	r5, [fp, #376]	@ 0x178
+    4698:	2200      	movs	r2, #0
+    469a:	2301      	movs	r3, #1
+    469c:	e9cd 0200 	strd	r0, r2, [sp]
+    46a0:	2000      	movs	r0, #0
+    46a2:	2203      	movs	r2, #3
+    46a4:	f001 e84c 	blx	5740 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x264>
+    46a8:	4601      	mov	r1, r0
+    46aa:	f8cb 01a0 	str.w	r0, [fp, #416]	@ 0x1a0
+    46ae:	3001      	adds	r0, #1
+    46b0:	d01c      	beq.n	46ec <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x1fc>
+    46b2:	f8db 0190 	ldr.w	r0, [fp, #400]	@ 0x190
+    46b6:	e9dd 9816 	ldrd	r9, r8, [sp, #88]	@ 0x58
+    46ba:	f50b 74c0 	add.w	r4, fp, #384	@ 0x180
+    46be:	2802      	cmp	r0, #2
+    46c0:	d031      	beq.n	4726 <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x236>
+    46c2:	2801      	cmp	r0, #1
+    46c4:	d024      	beq.n	4710 <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x220>
+    46c6:	2800      	cmp	r0, #0
+    46c8:	d15c      	bne.n	4784 <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x294>
+    46ca:	f8db 2170 	ldr.w	r2, [fp, #368]	@ 0x170
+    46ce:	2a00      	cmp	r2, #0
+    46d0:	f000 8080 	beq.w	47d4 <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x2e4>
+    46d4:	f8db 01a8 	ldr.w	r0, [fp, #424]	@ 0x1a8
+    46d8:	f000 ef02 	blx	54e0 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x4>
+    46dc:	e9db 2362 	ldrd	r2, r3, [fp, #392]	@ 0x188
+    46e0:	e9db 0169 	ldrd	r0, r1, [fp, #420]	@ 0x1a4
+    46e4:	9000      	str	r0, [sp, #0]
+    46e6:	f001 e854 	blx	5790 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x2b4>
+    46ea:	e07e      	b.n	47ea <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x2fa>
+    46ec:	f001 e830 	blx	5750 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x274>
+    46f0:	6800      	ldr	r0, [r0, #0]
+    46f2:	f001 e836 	blx	5760 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x284>
+    46f6:	9000      	str	r0, [sp, #0]
+    46f8:	2006      	movs	r0, #6
+    46fa:	497b      	ldr	r1, [pc, #492]	@ (48e8 <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x3f8>)
+    46fc:	4a7b      	ldr	r2, [pc, #492]	@ (48ec <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x3fc>)
+    46fe:	4b7c      	ldr	r3, [pc, #496]	@ (48f0 <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x400>)
+    4700:	4479      	add	r1, pc
+    4702:	447a      	add	r2, pc
+    4704:	447b      	add	r3, pc
+    4706:	f000 efa4 	blx	5650 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x174>
+    470a:	f06f 057d 	mvn.w	r5, #125	@ 0x7d
+    470e:	e7a8      	b.n	4662 <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x172>
+    4710:	f8db 2170 	ldr.w	r2, [fp, #368]	@ 0x170
+    4714:	2a00      	cmp	r2, #0
+    4716:	d04f      	beq.n	47b8 <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x2c8>
+    4718:	f8db 01a4 	ldr.w	r0, [fp, #420]	@ 0x1a4
+    471c:	f000 eee0 	blx	54e0 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x4>
+    4720:	ed94 8b02 	vldr	d8, [r4, #8]
+    4724:	e2ac      	b.n	4c80 <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x790>
+    4726:	200f      	movs	r0, #15
+    4728:	edd4 0b00 	vldr	d16, [r4]
+    472c:	f2c8 0000 	movt	r0, #32768	@ 0x8000
+    4730:	ee81 0b90 	vdup.32	d17, r0
+    4734:	f89b 01ac 	ldrb.w	r0, [fp, #428]	@ 0x1ac
+    4738:	ef40 11b1 	vand	d17, d16, d17
+    473c:	effc 0030 	vshr.s32	d16, d16, #4
+    4740:	fff9 1021 	vcgt.s32	d17, d17, #0
+    4744:	ff20 88a1 	vsub.i32	d8, d16, d17
+    4748:	b170      	cbz	r0, 4768 <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x278>
+    474a:	2001      	movs	r0, #1
+    474c:	efc0 1011 	vmov.i32	d17, #1	@ 0x00000001
+    4750:	efff 2018 	vshr.s32	d18, d8, #1
+    4754:	f2c8 0000 	movt	r0, #32768	@ 0x8000
+    4758:	ee80 0b90 	vdup.32	d16, r0
+    475c:	ef48 0130 	vand	d16, d8, d16
+    4760:	ff60 08b1 	vceq.i32	d16, d16, d17
+    4764:	ff22 88a0 	vsub.i32	d8, d18, d16
+    4768:	f8db 2170 	ldr.w	r2, [fp, #368]	@ 0x170
+    476c:	ee38 4b10 	vmov.32	r4, d8[1]
+    4770:	ee18 6b10 	vmov.32	r6, d8[0]
+    4774:	9503      	str	r5, [sp, #12]
+    4776:	2a00      	cmp	r2, #0
+    4778:	d049      	beq.n	480e <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x31e>
+    477a:	f8db 01a8 	ldr.w	r0, [fp, #424]	@ 0x1a8
+    477e:	f000 eeb0 	blx	54e0 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x4>
+    4782:	e04f      	b.n	4824 <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x334>
+    4784:	edd4 0b00 	vldr	d16, [r4]
+    4788:	200f      	movs	r0, #15
+    478a:	f8db 2170 	ldr.w	r2, [fp, #368]	@ 0x170
+    478e:	9503      	str	r5, [sp, #12]
+    4790:	f2c8 0000 	movt	r0, #32768	@ 0x8000
+    4794:	ee81 0b90 	vdup.32	d17, r0
+    4798:	ef40 11b1 	vand	d17, d16, d17
+    479c:	effc 0030 	vshr.s32	d16, d16, #4
+    47a0:	2a00      	cmp	r2, #0
+    47a2:	fff9 1021 	vcgt.s32	d17, d17, #0
+    47a6:	ff20 88a1 	vsub.i32	d8, d16, d17
+    47aa:	f000 80b5 	beq.w	4918 <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x428>
+    47ae:	f8db 01a8 	ldr.w	r0, [fp, #424]	@ 0x1a8
+    47b2:	f000 ee96 	blx	54e0 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x4>
+    47b6:	e0ba      	b.n	492e <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x43e>
+    47b8:	2000      	movs	r0, #0
+    47ba:	9000      	str	r0, [sp, #0]
+    47bc:	2006      	movs	r0, #6
+    47be:	494d      	ldr	r1, [pc, #308]	@ (48f4 <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x404>)
+    47c0:	4a4d      	ldr	r2, [pc, #308]	@ (48f8 <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x408>)
+    47c2:	4b4e      	ldr	r3, [pc, #312]	@ (48fc <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x40c>)
+    47c4:	4479      	add	r1, pc
+    47c6:	447a      	add	r2, pc
+    47c8:	447b      	add	r3, pc
+    47ca:	f000 ef42 	blx	5650 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x174>
+    47ce:	ed94 8b02 	vldr	d8, [r4, #8]
+    47d2:	e255      	b.n	4c80 <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x790>
+    47d4:	2000      	movs	r0, #0
+    47d6:	9000      	str	r0, [sp, #0]
+    47d8:	2006      	movs	r0, #6
+    47da:	4949      	ldr	r1, [pc, #292]	@ (4900 <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x410>)
+    47dc:	4a49      	ldr	r2, [pc, #292]	@ (4904 <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x414>)
+    47de:	4b4a      	ldr	r3, [pc, #296]	@ (4908 <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x418>)
+    47e0:	4479      	add	r1, pc
+    47e2:	447a      	add	r2, pc
+    47e4:	447b      	add	r3, pc
+    47e6:	f000 ef34 	blx	5650 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x174>
+    47ea:	edd4 0b02 	vldr	d16, [r4, #8]
+    47ee:	2001      	movs	r0, #1
+    47f0:	efc0 2011 	vmov.i32	d18, #1	@ 0x00000001
+    47f4:	f2c8 0000 	movt	r0, #32768	@ 0x8000
+    47f8:	ee81 0b90 	vdup.32	d17, r0
+    47fc:	ef40 11b1 	vand	d17, d16, d17
+    4800:	efff 0030 	vshr.s32	d16, d16, #1
+    4804:	ff61 18b2 	vceq.i32	d17, d17, d18
+    4808:	ff20 88a1 	vsub.i32	d8, d16, d17
+    480c:	e238      	b.n	4c80 <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x790>
+    480e:	2000      	movs	r0, #0
+    4810:	9000      	str	r0, [sp, #0]
+    4812:	2006      	movs	r0, #6
+    4814:	493d      	ldr	r1, [pc, #244]	@ (490c <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x41c>)
+    4816:	4a3e      	ldr	r2, [pc, #248]	@ (4910 <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x420>)
+    4818:	4b3e      	ldr	r3, [pc, #248]	@ (4914 <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x424>)
+    481a:	4479      	add	r1, pc
+    481c:	447a      	add	r2, pc
+    481e:	447b      	add	r3, pc
+    4820:	f000 ef16 	blx	5650 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x174>
+    4824:	e9db 9269 	ldrd	r9, r2, [fp, #420]	@ 0x1a4
+    4828:	f006 0001 	and.w	r0, r6, #1
+    482c:	f004 0301 	and.w	r3, r4, #1
+    4830:	9008      	str	r0, [sp, #32]
+    4832:	1070      	asrs	r0, r6, #1
+    4834:	9306      	str	r3, [sp, #24]
+    4836:	2c02      	cmp	r4, #2
+    4838:	9009      	str	r0, [sp, #36]	@ 0x24
+    483a:	f2c0 821b 	blt.w	4c74 <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x784>
+    483e:	ea4f 0a64 	mov.w	sl, r4, asr #1
+    4842:	ea4f 0846 	mov.w	r8, r6, lsl #1
+    4846:	2e02      	cmp	r6, #2
+    4848:	f2c0 81f2 	blt.w	4c30 <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x740>
+    484c:	9909      	ldr	r1, [sp, #36]	@ 0x24
+    484e:	2701      	movs	r7, #1
+    4850:	f109 0c01 	add.w	ip, r9, #1
+    4854:	2901      	cmp	r1, #1
+    4856:	bfc8      	it	gt
+    4858:	460f      	movgt	r7, r1
+    485a:	eb06 0147 	add.w	r1, r6, r7, lsl #1
+    485e:	2400      	movs	r4, #0
+    4860:	9107      	str	r1, [sp, #28]
+    4862:	e007      	b.n	4874 <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x384>
+    4864:	9909      	ldr	r1, [sp, #36]	@ 0x24
+    4866:	3401      	adds	r4, #1
+    4868:	44c4      	add	ip, r8
+    486a:	44c1      	add	r9, r8
+    486c:	4554      	cmp	r4, sl
+    486e:	440a      	add	r2, r1
+    4870:	f280 8200 	bge.w	4c74 <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x784>
+    4874:	2300      	movs	r3, #0
+    4876:	4661      	mov	r1, ip
+    4878:	f812 e003 	ldrb.w	lr, [r2, r3]
+    487c:	1988      	adds	r0, r1, r6
+    487e:	f801 ec01 	strb.w	lr, [r1, #-1]
+    4882:	5cd5      	ldrb	r5, [r2, r3]
+    4884:	700d      	strb	r5, [r1, #0]
+    4886:	5cd5      	ldrb	r5, [r2, r3]
+    4888:	f800 5c01 	strb.w	r5, [r0, #-1]
+    488c:	5cd0      	ldrb	r0, [r2, r3]
+    488e:	3301      	adds	r3, #1
+    4890:	5588      	strb	r0, [r1, r6]
+    4892:	3102      	adds	r1, #2
+    4894:	429f      	cmp	r7, r3
+    4896:	d1ef      	bne.n	4878 <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x388>
+    4898:	9808      	ldr	r0, [sp, #32]
+    489a:	2800      	cmp	r0, #0
+    489c:	d0e2      	beq.n	4864 <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x374>
+    489e:	5dd1      	ldrb	r1, [r2, r7]
+    48a0:	9807      	ldr	r0, [sp, #28]
+    48a2:	f809 1017 	strb.w	r1, [r9, r7, lsl #1]
+    48a6:	5dd1      	ldrb	r1, [r2, r7]
+    48a8:	3201      	adds	r2, #1
+    48aa:	f809 1000 	strb.w	r1, [r9, r0]
+    48ae:	e7d9      	b.n	4864 <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x374>
+    48b0:	0000      	movs	r0, r0
+    48b2:	447a      	add	r2, pc
+    48b4:	bf00      	nop
+    48b6:	bf00      	nop
+    48b8:	2d18      	cmp	r5, #24
+    48ba:	5444      	strb	r4, [r0, r1]
+    48bc:	21fb      	movs	r1, #251	@ 0xfb
+    48be:	4009      	ands	r1, r1
+    48c0:	0000      	movs	r0, r0
+    48c2:	0000      	movs	r0, r0
+    48c4:	8000      	strh	r0, [r0, #0]
+    48c6:	4066      	eors	r6, r4
+    48c8:	999a      	ldr	r1, [sp, #616]	@ 0x268
+    48ca:	3e19      	subs	r6, #25
+    48cc:	e148      	b.n	4b60 <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x670>
+    48ce:	3f7a      	subs	r7, #122	@ 0x7a
+    48d0:	0000      	movs	r0, r0
+    48d2:	42a0      	cmp	r0, r4
+    48d4:	0000      	movs	r0, r0
+    48d6:	0000      	movs	r0, r0
+    48d8:	0000      	movs	r0, r0
+    48da:	4280      	cmp	r0, r0
+    48dc:	d5da      	bpl.n	4894 <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x3a4>
+    48de:	ffff d619 	vqshlu.s32	d29, d9, #31
+    48e2:	ffff d594 	vsli.64	d29, d4, #63	@ 0x3f
+    48e6:	ffff d532 	vsli.32	d29, d18, #31
+    48ea:	ffff d539 	vsli.32	d29, d25, #31
+    48ee:	ffff d4ec 	vmls.i<illegal width 64>	<illegal reg q14.5>, <illegal reg q15.5>, d28[0]
+    48f2:	ffff d46e 	vmls.i<illegal width 64>	<illegal reg q14.5>, <illegal reg q7.5>, d30[0]
+    48f6:	ffff d2a9 	vsubl.u<illegal width 64>	<illegal reg q14.5>, d31, d25
+    48fa:	ffff d428 	vraddhn.i<illegal width 128>	d29, <illegal reg q7.5>, q12
+    48fe:	ffff d452 	vsri.32	<illegal reg q14.5>, q1, #1
+    4902:	ffff d28d 	vsubl.u<illegal width 64>	<illegal reg q14.5>, d31, d13
+    4906:	ffff d40c 	vraddhn.i<illegal width 128>	d29, <illegal reg q7.5>, q6
+    490a:	ffff d418 	vsri.32	d29, d8, #1
+    490e:	ffff d253 	vrshr.u32	<illegal reg q14.5>, <illegal reg q1.5>, #1
+    4912:	ffff d3d2 	vrsra.u64	<illegal reg q14.5>, q1, #1
+    4916:	ffff 2000 	vaddl.u<illegal width 64>	q9, d15, d0
+    491a:	9000      	str	r0, [sp, #0]
+    491c:	2006      	movs	r0, #6
+    491e:	49cc      	ldr	r1, [pc, #816]	@ (4c50 <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x760>)
+    4920:	4acc      	ldr	r2, [pc, #816]	@ (4c54 <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x764>)
+    4922:	4bcd      	ldr	r3, [pc, #820]	@ (4c58 <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x768>)
+    4924:	4479      	add	r1, pc
+    4926:	447a      	add	r2, pc
+    4928:	447b      	add	r3, pc
+    492a:	f000 ee92 	blx	5650 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x174>
+    492e:	ee38 1b10 	vmov.32	r1, d8[1]
+    4932:	e9db c869 	ldrd	ip, r8, [fp, #420]	@ 0x1a4
+    4936:	108c      	asrs	r4, r1, #2
+    4938:	fb91 f0f4 	sdiv	r0, r1, r4
+    493c:	fb00 1014 	mls	r0, r0, r4, r1
+    4940:	9008      	str	r0, [sp, #32]
+    4942:	ee18 0b10 	vmov.32	r0, d8[0]
+    4946:	1083      	asrs	r3, r0, #2
+    4948:	fb90 f2f3 	sdiv	r2, r0, r3
+    494c:	2904      	cmp	r1, #4
+    494e:	fb02 0e13 	mls	lr, r2, r3, r0
+    4952:	f8cd e024 	str.w	lr, [sp, #36]	@ 0x24
+    4956:	db78      	blt.n	4a4a <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x55a>
+    4958:	eb00 0140 	add.w	r1, r0, r0, lsl #1
+    495c:	2601      	movs	r6, #1
+    495e:	eb0c 0500 	add.w	r5, ip, r0
+    4962:	eb0c 0740 	add.w	r7, ip, r0, lsl #1
+    4966:	ea4f 0980 	mov.w	r9, r0, lsl #2
+    496a:	f04f 0a00 	mov.w	sl, #0
+    496e:	4461      	add	r1, ip
+    4970:	2b01      	cmp	r3, #1
+    4972:	bfc8      	it	gt
+    4974:	461e      	movgt	r6, r3
+    4976:	e9cd 4306 	strd	r4, r3, [sp, #24]
+    497a:	e00a      	b.n	4992 <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x4a2>
+    497c:	e9dd 2306 	ldrd	r2, r3, [sp, #24]
+    4980:	f10a 0a01 	add.w	sl, sl, #1
+    4984:	444d      	add	r5, r9
+    4986:	444f      	add	r7, r9
+    4988:	4449      	add	r1, r9
+    498a:	44cc      	add	ip, r9
+    498c:	4498      	add	r8, r3
+    498e:	4592      	cmp	sl, r2
+    4990:	da5b      	bge.n	4a4a <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x55a>
+    4992:	2400      	movs	r4, #0
+    4994:	2804      	cmp	r0, #4
+    4996:	db39      	blt.n	4a0c <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x51c>
+    4998:	f818 2004 	ldrb.w	r2, [r8, r4]
+    499c:	eb0c 0384 	add.w	r3, ip, r4, lsl #2
+    49a0:	f80c 2024 	strb.w	r2, [ip, r4, lsl #2]
+    49a4:	f818 2004 	ldrb.w	r2, [r8, r4]
+    49a8:	705a      	strb	r2, [r3, #1]
+    49aa:	f818 2004 	ldrb.w	r2, [r8, r4]
+    49ae:	709a      	strb	r2, [r3, #2]
+    49b0:	f818 2004 	ldrb.w	r2, [r8, r4]
+    49b4:	70da      	strb	r2, [r3, #3]
+    49b6:	f818 2004 	ldrb.w	r2, [r8, r4]
+    49ba:	541a      	strb	r2, [r3, r0]
+    49bc:	4403      	add	r3, r0
+    49be:	f818 2004 	ldrb.w	r2, [r8, r4]
+    49c2:	705a      	strb	r2, [r3, #1]
+    49c4:	f818 2004 	ldrb.w	r2, [r8, r4]
+    49c8:	709a      	strb	r2, [r3, #2]
+    49ca:	f818 2004 	ldrb.w	r2, [r8, r4]
+    49ce:	70da      	strb	r2, [r3, #3]
+    49d0:	f818 2004 	ldrb.w	r2, [r8, r4]
+    49d4:	541a      	strb	r2, [r3, r0]
+    49d6:	4403      	add	r3, r0
+    49d8:	f818 2004 	ldrb.w	r2, [r8, r4]
+    49dc:	705a      	strb	r2, [r3, #1]
+    49de:	f818 2004 	ldrb.w	r2, [r8, r4]
+    49e2:	709a      	strb	r2, [r3, #2]
+    49e4:	f818 2004 	ldrb.w	r2, [r8, r4]
+    49e8:	70da      	strb	r2, [r3, #3]
+    49ea:	f818 2004 	ldrb.w	r2, [r8, r4]
+    49ee:	541a      	strb	r2, [r3, r0]
+    49f0:	4403      	add	r3, r0
+    49f2:	f818 2004 	ldrb.w	r2, [r8, r4]
+    49f6:	705a      	strb	r2, [r3, #1]
+    49f8:	f818 2004 	ldrb.w	r2, [r8, r4]
+    49fc:	709a      	strb	r2, [r3, #2]
+    49fe:	f818 2004 	ldrb.w	r2, [r8, r4]
+    4a02:	3401      	adds	r4, #1
+    4a04:	42a6      	cmp	r6, r4
+    4a06:	70da      	strb	r2, [r3, #3]
+    4a08:	d1c6      	bne.n	4998 <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x4a8>
+    4a0a:	4634      	mov	r4, r6
+    4a0c:	f1be 0f01 	cmp.w	lr, #1
+    4a10:	dbb4      	blt.n	497c <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x48c>
+    4a12:	4672      	mov	r2, lr
+    4a14:	ea4f 0e84 	mov.w	lr, r4, lsl #2
+    4a18:	f818 3004 	ldrb.w	r3, [r8, r4]
+    4a1c:	3a01      	subs	r2, #1
+    4a1e:	f80c 300e 	strb.w	r3, [ip, lr]
+    4a22:	f818 3004 	ldrb.w	r3, [r8, r4]
+    4a26:	f805 300e 	strb.w	r3, [r5, lr]
+    4a2a:	f818 3004 	ldrb.w	r3, [r8, r4]
+    4a2e:	f807 300e 	strb.w	r3, [r7, lr]
+    4a32:	f818 3004 	ldrb.w	r3, [r8, r4]
+    4a36:	f801 300e 	strb.w	r3, [r1, lr]
+    4a3a:	f10e 0e01 	add.w	lr, lr, #1
+    4a3e:	d1eb      	bne.n	4a18 <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x528>
+    4a40:	f8dd e024 	ldr.w	lr, [sp, #36]	@ 0x24
+    4a44:	f108 0801 	add.w	r8, r8, #1
+    4a48:	e798      	b.n	497c <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x48c>
+    4a4a:	9908      	ldr	r1, [sp, #32]
+    4a4c:	2901      	cmp	r1, #1
+    4a4e:	f2c0 8114 	blt.w	4c7a <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x78a>
+    4a52:	2804      	cmp	r0, #4
+    4a54:	f2c0 80b0 	blt.w	4bb8 <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x6c8>
+    4a58:	2701      	movs	r7, #1
+    4a5a:	f10c 0203 	add.w	r2, ip, #3
+    4a5e:	f02e 0a0f 	bic.w	sl, lr, #15
+    4a62:	2b01      	cmp	r3, #1
+    4a64:	bfc8      	it	gt
+    4a66:	461f      	movgt	r7, r3
+    4a68:	f10c 0302 	add.w	r3, ip, #2
+    4a6c:	eb08 0507 	add.w	r5, r8, r7
+    4a70:	1e79      	subs	r1, r7, #1
+    4a72:	f021 4040 	bic.w	r0, r1, #3221225472	@ 0xc0000000
+    4a76:	1a08      	subs	r0, r1, r0
+    4a78:	bf18      	it	ne
+    4a7a:	2001      	movne	r0, #1
+    4a7c:	2600      	movs	r6, #0
+    4a7e:	eb12 0281 	adds.w	r2, r2, r1, lsl #2
+    4a82:	f146 0200 	adc.w	r2, r6, #0
+    4a86:	4302      	orrs	r2, r0
+    4a88:	eb13 0381 	adds.w	r3, r3, r1, lsl #2
+    4a8c:	f146 0300 	adc.w	r3, r6, #0
+    4a90:	4303      	orrs	r3, r0
+    4a92:	431a      	orrs	r2, r3
+    4a94:	f10c 0301 	add.w	r3, ip, #1
+    4a98:	9305      	str	r3, [sp, #20]
+    4a9a:	eb13 0381 	adds.w	r3, r3, r1, lsl #2
+    4a9e:	f146 0300 	adc.w	r3, r6, #0
+    4aa2:	4303      	orrs	r3, r0
+    4aa4:	431a      	orrs	r2, r3
+    4aa6:	eb1c 0381 	adds.w	r3, ip, r1, lsl #2
+    4aaa:	eb0c 0181 	add.w	r1, ip, r1, lsl #2
+    4aae:	f146 0300 	adc.w	r3, r6, #0
+    4ab2:	4318      	orrs	r0, r3
+    4ab4:	4310      	orrs	r0, r2
+    4ab6:	eb0c 0287 	add.w	r2, ip, r7, lsl #2
+    4aba:	9007      	str	r0, [sp, #28]
+    4abc:	eb0e 0087 	add.w	r0, lr, r7, lsl #2
+    4ac0:	4460      	add	r0, ip
+    4ac2:	4285      	cmp	r5, r0
+    4ac4:	f04f 0000 	mov.w	r0, #0
+    4ac8:	bf38      	it	cc
+    4aca:	2001      	movcc	r0, #1
+    4acc:	1c6b      	adds	r3, r5, #1
+    4ace:	429a      	cmp	r2, r3
+    4ad0:	f04f 0300 	mov.w	r3, #0
+    4ad4:	bf38      	it	cc
+    4ad6:	2301      	movcc	r3, #1
+    4ad8:	4018      	ands	r0, r3
+    4ada:	9004      	str	r0, [sp, #16]
+    4adc:	4590      	cmp	r8, r2
+    4ade:	f04f 0000 	mov.w	r0, #0
+    4ae2:	f04f 0200 	mov.w	r2, #0
+    4ae6:	bf38      	it	cc
+    4ae8:	2001      	movcc	r0, #1
+    4aea:	45ac      	cmp	ip, r5
+    4aec:	bf38      	it	cc
+    4aee:	2201      	movcc	r2, #1
+    4af0:	4010      	ands	r0, r2
+    4af2:	f64f 72f0 	movw	r2, #65520	@ 0xfff0
+    4af6:	3104      	adds	r1, #4
+    4af8:	f6c7 72ff 	movt	r2, #32767	@ 0x7fff
+    4afc:	9106      	str	r1, [sp, #24]
+    4afe:	ea07 0902 	and.w	r9, r7, r2
+    4b02:	e004      	b.n	4b0e <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x61e>
+    4b04:	9908      	ldr	r1, [sp, #32]
+    4b06:	3601      	adds	r6, #1
+    4b08:	428e      	cmp	r6, r1
+    4b0a:	f000 80b6 	beq.w	4c7a <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x78a>
+    4b0e:	2100      	movs	r1, #0
+    4b10:	2f10      	cmp	r7, #16
+    4b12:	bf38      	it	cc
+    4b14:	2101      	movcc	r1, #1
+    4b16:	9a07      	ldr	r2, [sp, #28]
+    4b18:	4311      	orrs	r1, r2
+    4b1a:	4301      	orrs	r1, r0
+    4b1c:	f04f 0100 	mov.w	r1, #0
+    4b20:	d113      	bne.n	4b4a <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x65a>
+    4b22:	4649      	mov	r1, r9
+    4b24:	4643      	mov	r3, r8
+    4b26:	4662      	mov	r2, ip
+    4b28:	f963 0a0d 	vld1.8	{d16-d17}, [r3]!
+    4b2c:	3910      	subs	r1, #16
+    4b2e:	ef60 21f0 	vorr	q9, q8, q8
+    4b32:	ef60 41f0 	vorr	q10, q8, q8
+    4b36:	ef60 61f0 	vorr	q11, q8, q8
+    4b3a:	f942 010d 	vst4.8	{d16,d18,d20,d22}, [r2]!
+    4b3e:	f942 110d 	vst4.8	{d17,d19,d21,d23}, [r2]!
+    4b42:	d1f1      	bne.n	4b28 <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x638>
+    4b44:	454f      	cmp	r7, r9
+    4b46:	4649      	mov	r1, r9
+    4b48:	d017      	beq.n	4b7a <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x68a>
+    4b4a:	9a05      	ldr	r2, [sp, #20]
+    4b4c:	eb08 0e01 	add.w	lr, r8, r1
+    4b50:	eb02 0481 	add.w	r4, r2, r1, lsl #2
+    4b54:	1a79      	subs	r1, r7, r1
+    4b56:	f89e 2000 	ldrb.w	r2, [lr]
+    4b5a:	3901      	subs	r1, #1
+    4b5c:	f804 2c01 	strb.w	r2, [r4, #-1]
+    4b60:	f89e 2000 	ldrb.w	r2, [lr]
+    4b64:	f804 2b04 	strb.w	r2, [r4], #4
+    4b68:	f89e 2000 	ldrb.w	r2, [lr]
+    4b6c:	f804 2c03 	strb.w	r2, [r4, #-3]
+    4b70:	f81e 2b01 	ldrb.w	r2, [lr], #1
+    4b74:	f804 2c02 	strb.w	r2, [r4, #-2]
+    4b78:	d1ed      	bne.n	4b56 <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x666>
+    4b7a:	9b09      	ldr	r3, [sp, #36]	@ 0x24
+    4b7c:	2b01      	cmp	r3, #1
+    4b7e:	dbc1      	blt.n	4b04 <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x614>
+    4b80:	2200      	movs	r2, #0
+    4b82:	2100      	movs	r1, #0
+    4b84:	2b10      	cmp	r3, #16
+    4b86:	bf38      	it	cc
+    4b88:	2101      	movcc	r1, #1
+    4b8a:	9c04      	ldr	r4, [sp, #16]
+    4b8c:	4321      	orrs	r1, r4
+    4b8e:	d10a      	bne.n	4ba6 <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x6b6>
+    4b90:	f9e5 0c2f 	vld1.8	{d16[]-d17[]}, [r5]
+    4b94:	9a06      	ldr	r2, [sp, #24]
+    4b96:	4651      	mov	r1, sl
+    4b98:	f942 0a0d 	vst1.8	{d16-d17}, [r2]!
+    4b9c:	3910      	subs	r1, #16
+    4b9e:	d1fb      	bne.n	4b98 <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x6a8>
+    4ba0:	4553      	cmp	r3, sl
+    4ba2:	4652      	mov	r2, sl
+    4ba4:	d0ae      	beq.n	4b04 <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x614>
+    4ba6:	9906      	ldr	r1, [sp, #24]
+    4ba8:	4411      	add	r1, r2
+    4baa:	1a9a      	subs	r2, r3, r2
+    4bac:	782b      	ldrb	r3, [r5, #0]
+    4bae:	3a01      	subs	r2, #1
+    4bb0:	f801 3b01 	strb.w	r3, [r1], #1
+    4bb4:	d1fa      	bne.n	4bac <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x6bc>
+    4bb6:	e7a5      	b.n	4b04 <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x614>
+    4bb8:	f1be 0f01 	cmp.w	lr, #1
+    4bbc:	db5d      	blt.n	4c7a <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x78a>
+    4bbe:	f108 0101 	add.w	r1, r8, #1
+    4bc2:	2000      	movs	r0, #0
+    4bc4:	f8dd 9058 	ldr.w	r9, [sp, #88]	@ 0x58
+    4bc8:	eb0c 020e 	add.w	r2, ip, lr
+    4bcc:	f02e 070f 	bic.w	r7, lr, #15
+    4bd0:	458c      	cmp	ip, r1
+    4bd2:	f04f 0100 	mov.w	r1, #0
+    4bd6:	bf38      	it	cc
+    4bd8:	2101      	movcc	r1, #1
+    4bda:	4590      	cmp	r8, r2
+    4bdc:	f04f 0200 	mov.w	r2, #0
+    4be0:	bf38      	it	cc
+    4be2:	2201      	movcc	r2, #1
+    4be4:	4011      	ands	r1, r2
+    4be6:	e004      	b.n	4bf2 <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x702>
+    4be8:	9a08      	ldr	r2, [sp, #32]
+    4bea:	3001      	adds	r0, #1
+    4bec:	4290      	cmp	r0, r2
+    4bee:	f000 80c6 	beq.w	4d7e <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x88e>
+    4bf2:	2200      	movs	r2, #0
+    4bf4:	f1be 0f10 	cmp.w	lr, #16
+    4bf8:	f04f 0300 	mov.w	r3, #0
+    4bfc:	bf38      	it	cc
+    4bfe:	2201      	movcc	r2, #1
+    4c00:	430a      	orrs	r2, r1
+    4c02:	d10a      	bne.n	4c1a <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x72a>
+    4c04:	f9e8 0c2f 	vld1.8	{d16[]-d17[]}, [r8]
+    4c08:	463a      	mov	r2, r7
+    4c0a:	4663      	mov	r3, ip
+    4c0c:	f943 0a0d 	vst1.8	{d16-d17}, [r3]!
+    4c10:	3a10      	subs	r2, #16
+    4c12:	d1fb      	bne.n	4c0c <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x71c>
+    4c14:	45be      	cmp	lr, r7
+    4c16:	463b      	mov	r3, r7
+    4c18:	d0e6      	beq.n	4be8 <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x6f8>
+    4c1a:	eb0c 0203 	add.w	r2, ip, r3
+    4c1e:	ebae 0303 	sub.w	r3, lr, r3
+    4c22:	f898 6000 	ldrb.w	r6, [r8]
+    4c26:	3b01      	subs	r3, #1
+    4c28:	f802 6b01 	strb.w	r6, [r2], #1
+    4c2c:	d1f9      	bne.n	4c22 <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x732>
+    4c2e:	e7db      	b.n	4be8 <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x6f8>
+    4c30:	2101      	movs	r1, #1
+    4c32:	f1ba 0f01 	cmp.w	sl, #1
+    4c36:	bfc8      	it	gt
+    4c38:	4651      	movgt	r1, sl
+    4c3a:	9808      	ldr	r0, [sp, #32]
+    4c3c:	b970      	cbnz	r0, 4c5c <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x76c>
+    4c3e:	9809      	ldr	r0, [sp, #36]	@ 0x24
+    4c40:	fb00 2201 	mla	r2, r0, r1, r2
+    4c44:	fb06 f001 	mul.w	r0, r6, r1
+    4c48:	eb09 0940 	add.w	r9, r9, r0, lsl #1
+    4c4c:	e012      	b.n	4c74 <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x784>
+    4c4e:	bf00      	nop
+    4c50:	d30e      	bcc.n	4c70 <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x780>
+    4c52:	ffff d149 			@ <UNDEFINED> instruction: 0xffffd149
+    4c56:	ffff d2c8 	vmlal.u<illegal width 64>	<illegal reg q14.5>, d31, d8[0]
+    4c5a:	ffff 7810 	vqshrun.s64	d23, q0, #1
+    4c5e:	f889 0000 	strb.w	r0, [r9]
+    4c62:	7810      	ldrb	r0, [r2, #0]
+    4c64:	f809 0006 	strb.w	r0, [r9, r6]
+    4c68:	9809      	ldr	r0, [sp, #36]	@ 0x24
+    4c6a:	44c1      	add	r9, r8
+    4c6c:	4410      	add	r0, r2
+    4c6e:	1c42      	adds	r2, r0, #1
+    4c70:	3901      	subs	r1, #1
+    4c72:	d1f3      	bne.n	4c5c <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x76c>
+    4c74:	9806      	ldr	r0, [sp, #24]
+    4c76:	2800      	cmp	r0, #0
+    4c78:	d14f      	bne.n	4d1a <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x82a>
+    4c7a:	9d03      	ldr	r5, [sp, #12]
+    4c7c:	e9dd 9816 	ldrd	r9, r8, [sp, #88]	@ 0x58
+    4c80:	f8db 11a4 	ldr.w	r1, [fp, #420]	@ 0x1a4
+    4c84:	f8db 019c 	ldr.w	r0, [fp, #412]	@ 0x19c
+    4c88:	f8dd a060 	ldr.w	sl, [sp, #96]	@ 0x60
+    4c8c:	b26d      	sxtb	r5, r5
+    4c8e:	ee18 7b10 	vmov.32	r7, d8[0]
+    4c92:	ee38 6b10 	vmov.32	r6, d8[1]
+    4c96:	463a      	mov	r2, r7
+    4c98:	4633      	mov	r3, r6
+    4c9a:	e9cd 1500 	strd	r1, r5, [sp]
+    4c9e:	4649      	mov	r1, r9
+    4ca0:	9002      	str	r0, [sp, #8]
+    4ca2:	f000 ed7e 	blx	57a0 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x2c4>
+    4ca6:	f1b8 0f00 	cmp.w	r8, #0
+    4caa:	d003      	beq.n	4cb4 <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x7c4>
+    4cac:	4628      	mov	r0, r5
+    4cae:	4641      	mov	r1, r8
+    4cb0:	f000 ed86 	blx	57c0 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x2e4>
+    4cb4:	f8dd 8064 	ldr.w	r8, [sp, #100]	@ 0x64
+    4cb8:	f1ba 0f00 	cmp.w	sl, #0
+    4cbc:	d007      	beq.n	4cce <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x7de>
+    4cbe:	f8db 2170 	ldr.w	r2, [fp, #368]	@ 0x170
+    4cc2:	f8db 01a8 	ldr.w	r0, [fp, #424]	@ 0x1a8
+    4cc6:	2101      	movs	r1, #1
+    4cc8:	4653      	mov	r3, sl
+    4cca:	f000 ed82 	blx	57d0 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x2f4>
+    4cce:	9d1a      	ldr	r5, [sp, #104]	@ 0x68
+    4cd0:	f1b8 0f00 	cmp.w	r8, #0
+    4cd4:	d007      	beq.n	4ce6 <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x7f6>
+    4cd6:	f8db 019c 	ldr.w	r0, [fp, #412]	@ 0x19c
+    4cda:	fb07 f206 	mul.w	r2, r7, r6
+    4cde:	2101      	movs	r1, #1
+    4ce0:	4643      	mov	r3, r8
+    4ce2:	f000 ed76 	blx	57d0 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x2f4>
+    4ce6:	b13d      	cbz	r5, 4cf8 <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x808>
+    4ce8:	f8db 01a4 	ldr.w	r0, [fp, #420]	@ 0x1a4
+    4cec:	fb07 f206 	mul.w	r2, r7, r6
+    4cf0:	2101      	movs	r1, #1
+    4cf2:	462b      	mov	r3, r5
+    4cf4:	f000 ed6c 	blx	57d0 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x2f4>
+    4cf8:	f89b 01ad 	ldrb.w	r0, [fp, #429]	@ 0x1ad
+    4cfc:	2500      	movs	r5, #0
+    4cfe:	2800      	cmp	r0, #0
+    4d00:	f43f acaf 	beq.w	4662 <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x172>
+    4d04:	f8db 019c 	ldr.w	r0, [fp, #412]	@ 0x19c
+    4d08:	fb07 f106 	mul.w	r1, r7, r6
+    4d0c:	f88b 51ad 	strb.w	r5, [fp, #429]	@ 0x1ad
+    4d10:	f000 ecd6 	blx	56c0 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x1e4>
+    4d14:	f8cb 519c 	str.w	r5, [fp, #412]	@ 0x19c
+    4d18:	e4a3      	b.n	4662 <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x172>
+    4d1a:	2e02      	cmp	r6, #2
+    4d1c:	db20      	blt.n	4d60 <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x870>
+    4d1e:	9809      	ldr	r0, [sp, #36]	@ 0x24
+    4d20:	2701      	movs	r7, #1
+    4d22:	2801      	cmp	r0, #1
+    4d24:	bfc8      	it	gt
+    4d26:	4607      	movgt	r7, r0
+    4d28:	2f10      	cmp	r7, #16
+    4d2a:	d306      	bcc.n	4d3a <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x84a>
+    4d2c:	19d0      	adds	r0, r2, r7
+    4d2e:	4581      	cmp	r9, r0
+    4d30:	d229      	bcs.n	4d86 <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x896>
+    4d32:	eb09 0047 	add.w	r0, r9, r7, lsl #1
+    4d36:	4282      	cmp	r2, r0
+    4d38:	d225      	bcs.n	4d86 <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x896>
+    4d3a:	9d03      	ldr	r5, [sp, #12]
+    4d3c:	f8dd 805c 	ldr.w	r8, [sp, #92]	@ 0x5c
+    4d40:	2100      	movs	r1, #0
+    4d42:	eb09 0041 	add.w	r0, r9, r1, lsl #1
+    4d46:	1853      	adds	r3, r2, r1
+    4d48:	1a7e      	subs	r6, r7, r1
+    4d4a:	1c41      	adds	r1, r0, #1
+    4d4c:	7818      	ldrb	r0, [r3, #0]
+    4d4e:	3e01      	subs	r6, #1
+    4d50:	f801 0c01 	strb.w	r0, [r1, #-1]
+    4d54:	f813 0b01 	ldrb.w	r0, [r3], #1
+    4d58:	f801 0b02 	strb.w	r0, [r1], #2
+    4d5c:	d1f6      	bne.n	4d4c <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x85c>
+    4d5e:	e003      	b.n	4d68 <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x878>
+    4d60:	9d03      	ldr	r5, [sp, #12]
+    4d62:	f8dd 805c 	ldr.w	r8, [sp, #92]	@ 0x5c
+    4d66:	2700      	movs	r7, #0
+    4d68:	9808      	ldr	r0, [sp, #32]
+    4d6a:	b910      	cbnz	r0, 4d72 <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x882>
+    4d6c:	f8dd 9058 	ldr.w	r9, [sp, #88]	@ 0x58
+    4d70:	e786      	b.n	4c80 <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x790>
+    4d72:	5dd0      	ldrb	r0, [r2, r7]
+    4d74:	f809 0017 	strb.w	r0, [r9, r7, lsl #1]
+    4d78:	f8dd 9058 	ldr.w	r9, [sp, #88]	@ 0x58
+    4d7c:	e780      	b.n	4c80 <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x790>
+    4d7e:	9d03      	ldr	r5, [sp, #12]
+    4d80:	f8dd 805c 	ldr.w	r8, [sp, #92]	@ 0x5c
+    4d84:	e77c      	b.n	4c80 <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x790>
+    4d86:	f64f 70f0 	movw	r0, #65520	@ 0xfff0
+    4d8a:	4616      	mov	r6, r2
+    4d8c:	464d      	mov	r5, r9
+    4d8e:	f6c7 70ff 	movt	r0, #32767	@ 0x7fff
+    4d92:	ea07 0100 	and.w	r1, r7, r0
+    4d96:	460b      	mov	r3, r1
+    4d98:	f966 0a0d 	vld1.8	{d16-d17}, [r6]!
+    4d9c:	3b10      	subs	r3, #16
+    4d9e:	ef60 21f0 	vorr	q9, q8, q8
+    4da2:	f945 030d 	vst2.8	{d16-d19}, [r5]!
+    4da6:	d1f7      	bne.n	4d98 <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x8a8>
+    4da8:	9d03      	ldr	r5, [sp, #12]
+    4daa:	f8dd 805c 	ldr.w	r8, [sp, #92]	@ 0x5c
+    4dae:	428f      	cmp	r7, r1
+    4db0:	d1c7      	bne.n	4d42 <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x852>
+    4db2:	e7d9      	b.n	4d68 <ExynosMsqz::run_test(int, int, float, int, __sFILE*, __sFILE*, __sFILE*, __sFILE*)@@Base+0x878>
+
+00004db4 <ExynosSqzBase::ExynosSqzBase()@@Base>:
+    4db4:	b510      	push	{r4, lr}
+    4db6:	4604      	mov	r4, r0
+    4db8:	f04f 30ff 	mov.w	r0, #4294967295	@ 0xffffffff
+    4dbc:	f44f 719a 	mov.w	r1, #308	@ 0x134
+    4dc0:	60a0      	str	r0, [r4, #8]
+    4dc2:	2000      	movs	r0, #0
+    4dc4:	80a0      	strh	r0, [r4, #4]
+    4dc6:	4810      	ldr	r0, [pc, #64]	@ (4e08 <ExynosSqzBase::ExynosSqzBase()@@Base+0x54>)
+    4dc8:	4478      	add	r0, pc
+    4dca:	6800      	ldr	r0, [r0, #0]
+    4dcc:	3008      	adds	r0, #8
+    4dce:	6020      	str	r0, [r4, #0]
+    4dd0:	f104 000c 	add.w	r0, r4, #12
+    4dd4:	f000 eb8e 	blx	54f4 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x18>
+    4dd8:	efc0 0050 	vmov.i32	q8, #0	@ 0x00000000
+    4ddc:	f504 70b6 	add.w	r0, r4, #364	@ 0x16c
+    4de0:	f940 0a0f 	vst1.8	{d16-d17}, [r0]
+    4de4:	f504 70b0 	add.w	r0, r4, #352	@ 0x160
+    4de8:	f940 0a0f 	vst1.8	{d16-d17}, [r0]
+    4dec:	f504 70a8 	add.w	r0, r4, #336	@ 0x150
+    4df0:	f940 0a0f 	vst1.8	{d16-d17}, [r0]
+    4df4:	f504 70a0 	add.w	r0, r4, #320	@ 0x140
+    4df8:	f940 0a0f 	vst1.8	{d16-d17}, [r0]
+    4dfc:	2001      	movs	r0, #1
+    4dfe:	f8c4 013c 	str.w	r0, [r4, #316]	@ 0x13c
+    4e02:	4620      	mov	r0, r4
+    4e04:	bd10      	pop	{r4, pc}
+    4e06:	bf00      	nop
+    4e08:	1c08      	adds	r0, r1, #0
+	...
+
+00004e0c <ExynosSqzBase::~ExynosSqzBase()@@Base>:
+    4e0c:	4902      	ldr	r1, [pc, #8]	@ (4e18 <ExynosSqzBase::~ExynosSqzBase()@@Base+0xc>)
+    4e0e:	4479      	add	r1, pc
+    4e10:	6809      	ldr	r1, [r1, #0]
+    4e12:	3108      	adds	r1, #8
+    4e14:	6001      	str	r1, [r0, #0]
+    4e16:	4770      	bx	lr
+    4e18:	1bc2      	subs	r2, r0, r7
+	...
+
+00004e1c <ExynosSqzBase::~ExynosSqzBase()@@Base>:
+    4e1c:	f000 bb82 	b.w	5524 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x48>
+
+00004e20 <ExynosSqzBase::create()@@Base>:
+    4e20:	b510      	push	{r4, lr}
+    4e22:	4604      	mov	r4, r0
+    4e24:	7900      	ldrb	r0, [r0, #4]
+    4e26:	b110      	cbz	r0, 4e2e <ExynosSqzBase::create()@@Base+0xe>
+    4e28:	f06f 00ff 	mvn.w	r0, #255	@ 0xff
+    4e2c:	bd10      	pop	{r4, pc}
+    4e2e:	4620      	mov	r0, r4
+    4e30:	f000 ecd6 	blx	57e0 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x304>
+    4e34:	b100      	cbz	r0, 4e38 <ExynosSqzBase::create()@@Base+0x18>
+    4e36:	bd10      	pop	{r4, pc}
+    4e38:	2001      	movs	r0, #1
+    4e3a:	efc0 0050 	vmov.i32	q8, #0	@ 0x00000000
+    4e3e:	7120      	strb	r0, [r4, #4]
+    4e40:	f504 70a0 	add.w	r0, r4, #320	@ 0x140
+    4e44:	f940 0a0f 	vst1.8	{d16-d17}, [r0]
+    4e48:	f504 70a8 	add.w	r0, r4, #336	@ 0x150
+    4e4c:	f940 0a0f 	vst1.8	{d16-d17}, [r0]
+    4e50:	f504 70b0 	add.w	r0, r4, #352	@ 0x160
+    4e54:	f940 0a0f 	vst1.8	{d16-d17}, [r0]
+    4e58:	f504 70b6 	add.w	r0, r4, #364	@ 0x16c
+    4e5c:	f940 0a0f 	vst1.8	{d16-d17}, [r0]
+    4e60:	2004      	movs	r0, #4
+    4e62:	4904      	ldr	r1, [pc, #16]	@ (4e74 <ExynosSqzBase::create()@@Base+0x54>)
+    4e64:	4a04      	ldr	r2, [pc, #16]	@ (4e78 <ExynosSqzBase::create()@@Base+0x58>)
+    4e66:	4479      	add	r1, pc
+    4e68:	447a      	add	r2, pc
+    4e6a:	f000 ebf2 	blx	5650 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x174>
+    4e6e:	2000      	movs	r0, #0
+    4e70:	bd10      	pop	{r4, pc}
+    4e72:	bf00      	nop
+    4e74:	cdcc      	ldmia	r5!, {r2, r3, r6, r7}
+    4e76:	ffff ccd2 			@ <UNDEFINED> instruction: 0xffffccd2
+    4e7a:	Address 0x4e7a is out of bounds.
+
+
+00004e7c <ExynosSqzBase::openJsqz()@@Base>:
+    4e7c:	f000 bb70 	b.w	5560 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x84>
+
+00004e80 <ExynosSqzBase::destroy()@@Base>:
+    4e80:	b5b0      	push	{r4, r5, r7, lr}
+    4e82:	b082      	sub	sp, #8
+    4e84:	4604      	mov	r4, r0
+    4e86:	7900      	ldrb	r0, [r0, #4]
+    4e88:	b1d0      	cbz	r0, 4ec0 <ExynosSqzBase::destroy()@@Base+0x40>
+    4e8a:	68a0      	ldr	r0, [r4, #8]
+    4e8c:	3001      	adds	r0, #1
+    4e8e:	d017      	beq.n	4ec0 <ExynosSqzBase::destroy()@@Base+0x40>
+    4e90:	4620      	mov	r0, r4
+    4e92:	f000 ecae 	blx	57f0 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x314>
+    4e96:	b1b0      	cbz	r0, 4ec6 <ExynosSqzBase::destroy()@@Base+0x46>
+    4e98:	f000 ec5a 	blx	5750 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x274>
+    4e9c:	6805      	ldr	r5, [r0, #0]
+    4e9e:	4628      	mov	r0, r5
+    4ea0:	f000 ec5e 	blx	5760 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x284>
+    4ea4:	e9cd 5000 	strd	r5, r0, [sp]
+    4ea8:	2006      	movs	r0, #6
+    4eaa:	490f      	ldr	r1, [pc, #60]	@ (4ee8 <ExynosSqzBase::destroy()@@Base+0x68>)
+    4eac:	4a0f      	ldr	r2, [pc, #60]	@ (4eec <ExynosSqzBase::destroy()@@Base+0x6c>)
+    4eae:	4b10      	ldr	r3, [pc, #64]	@ (4ef0 <ExynosSqzBase::destroy()@@Base+0x70>)
+    4eb0:	4479      	add	r1, pc
+    4eb2:	447a      	add	r2, pc
+    4eb4:	447b      	add	r3, pc
+    4eb6:	f000 ebcc 	blx	5650 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x174>
+    4eba:	f06f 05fc 	mvn.w	r5, #252	@ 0xfc
+    4ebe:	e003      	b.n	4ec8 <ExynosSqzBase::destroy()@@Base+0x48>
+    4ec0:	f06f 05fa 	mvn.w	r5, #250	@ 0xfa
+    4ec4:	e000      	b.n	4ec8 <ExynosSqzBase::destroy()@@Base+0x48>
+    4ec6:	2500      	movs	r5, #0
+    4ec8:	2000      	movs	r0, #0
+    4eca:	7120      	strb	r0, [r4, #4]
+    4ecc:	f04f 30ff 	mov.w	r0, #4294967295	@ 0xffffffff
+    4ed0:	60a0      	str	r0, [r4, #8]
+    4ed2:	2004      	movs	r0, #4
+    4ed4:	4907      	ldr	r1, [pc, #28]	@ (4ef4 <ExynosSqzBase::destroy()@@Base+0x74>)
+    4ed6:	4a08      	ldr	r2, [pc, #32]	@ (4ef8 <ExynosSqzBase::destroy()@@Base+0x78>)
+    4ed8:	4479      	add	r1, pc
+    4eda:	447a      	add	r2, pc
+    4edc:	f000 ebb8 	blx	5650 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x174>
+    4ee0:	4628      	mov	r0, r5
+    4ee2:	b002      	add	sp, #8
+    4ee4:	bdb0      	pop	{r4, r5, r7, pc}
+    4ee6:	bf00      	nop
+    4ee8:	cd82      	ldmia	r5!, {r1, r7}
+    4eea:	ffff ca22 	vtbl.8	d28, {d15-d17}, d18
+    4eee:	ffff cc31 	vcvt.f16.u16	d28, d17, #1
+    4ef2:	ffff cd5a 	vcvt.u16.f16	q14, q5, #1
+    4ef6:	ffff c936 	vqshrn.u64	d28, q11, #1
+    4efa:	Address 0x4efa is out of bounds.
+
+
+00004efc <ExynosSqzBase::getJsqzConfig()@@Base>:
+    4efc:	b580      	push	{r7, lr}
+    4efe:	7901      	ldrb	r1, [r0, #4]
+    4f00:	b109      	cbz	r1, 4f06 <ExynosSqzBase::getJsqzConfig()@@Base+0xa>
+    4f02:	3034      	adds	r0, #52	@ 0x34
+    4f04:	bd80      	pop	{r7, pc}
+    4f06:	4905      	ldr	r1, [pc, #20]	@ (4f1c <ExynosSqzBase::getJsqzConfig()@@Base+0x20>)
+    4f08:	4a05      	ldr	r2, [pc, #20]	@ (4f20 <ExynosSqzBase::getJsqzConfig()@@Base+0x24>)
+    4f0a:	4b06      	ldr	r3, [pc, #24]	@ (4f24 <ExynosSqzBase::getJsqzConfig()@@Base+0x28>)
+    4f0c:	2006      	movs	r0, #6
+    4f0e:	4479      	add	r1, pc
+    4f10:	447a      	add	r2, pc
+    4f12:	447b      	add	r3, pc
+    4f14:	f000 eb9c 	blx	5650 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x174>
+    4f18:	2000      	movs	r0, #0
+    4f1a:	bd80      	pop	{r7, pc}
+    4f1c:	cd24      	ldmia	r5, {r2, r5}
+    4f1e:	ffff cd80 			@ <UNDEFINED> instruction: 0xffffcd80
+    4f22:	ffff ca12 	vshll.u32	q14, d2, #31
+    4f26:	Address 0x4f26 is out of bounds.
+
+
+00004f28 <ExynosSqzBase::resetBuf(hwSQZ_buffer*)@@Base>:
+    4f28:	2000      	movs	r0, #0
+    4f2a:	6088      	str	r0, [r1, #8]
+    4f2c:	6048      	str	r0, [r1, #4]
+    4f2e:	6008      	str	r0, [r1, #0]
+    4f30:	7208      	strb	r0, [r1, #8]
+    4f32:	4770      	bx	lr
+
+00004f34 <ExynosSqzBase::setBuf(hwSQZ_buffer*, int, unsigned int)@@Base>:
+    4f34:	b580      	push	{r7, lr}
+    4f36:	7900      	ldrb	r0, [r0, #4]
+    4f38:	b188      	cbz	r0, 4f5e <ExynosSqzBase::setBuf(hwSQZ_buffer*, int, unsigned int)@@Base+0x2a>
+    4f3a:	b1e1      	cbz	r1, 4f76 <ExynosSqzBase::setBuf(hwSQZ_buffer*, int, unsigned int)@@Base+0x42>
+    4f3c:	b33a      	cbz	r2, 4f8e <ExynosSqzBase::setBuf(hwSQZ_buffer*, int, unsigned int)@@Base+0x5a>
+    4f3e:	6808      	ldr	r0, [r1, #0]
+    4f40:	2800      	cmp	r0, #0
+    4f42:	bf18      	it	ne
+    4f44:	2000      	movne	r0, #0
+    4f46:	bf18      	it	ne
+    4f48:	6048      	strne	r0, [r1, #4]
+    4f4a:	bf18      	it	ne
+    4f4c:	6008      	strne	r0, [r1, #0]
+    4f4e:	bf18      	it	ne
+    4f50:	6088      	strne	r0, [r1, #8]
+    4f52:	e9c1 2300 	strd	r2, r3, [r1]
+    4f56:	2001      	movs	r0, #1
+    4f58:	7208      	strb	r0, [r1, #8]
+    4f5a:	2000      	movs	r0, #0
+    4f5c:	bd80      	pop	{r7, pc}
+    4f5e:	4912      	ldr	r1, [pc, #72]	@ (4fa8 <ExynosSqzBase::setBuf(hwSQZ_buffer*, int, unsigned int)@@Base+0x74>)
+    4f60:	4a12      	ldr	r2, [pc, #72]	@ (4fac <ExynosSqzBase::setBuf(hwSQZ_buffer*, int, unsigned int)@@Base+0x78>)
+    4f62:	4b13      	ldr	r3, [pc, #76]	@ (4fb0 <ExynosSqzBase::setBuf(hwSQZ_buffer*, int, unsigned int)@@Base+0x7c>)
+    4f64:	2006      	movs	r0, #6
+    4f66:	4479      	add	r1, pc
+    4f68:	447a      	add	r2, pc
+    4f6a:	447b      	add	r3, pc
+    4f6c:	f000 eb70 	blx	5650 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x174>
+    4f70:	f06f 00f9 	mvn.w	r0, #249	@ 0xf9
+    4f74:	bd80      	pop	{r7, pc}
+    4f76:	490f      	ldr	r1, [pc, #60]	@ (4fb4 <ExynosSqzBase::setBuf(hwSQZ_buffer*, int, unsigned int)@@Base+0x80>)
+    4f78:	4a0f      	ldr	r2, [pc, #60]	@ (4fb8 <ExynosSqzBase::setBuf(hwSQZ_buffer*, int, unsigned int)@@Base+0x84>)
+    4f7a:	4b10      	ldr	r3, [pc, #64]	@ (4fbc <ExynosSqzBase::setBuf(hwSQZ_buffer*, int, unsigned int)@@Base+0x88>)
+    4f7c:	2006      	movs	r0, #6
+    4f7e:	4479      	add	r1, pc
+    4f80:	447a      	add	r2, pc
+    4f82:	447b      	add	r3, pc
+    4f84:	f000 eb64 	blx	5650 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x174>
+    4f88:	f06f 007c 	mvn.w	r0, #124	@ 0x7c
+    4f8c:	bd80      	pop	{r7, pc}
+    4f8e:	490c      	ldr	r1, [pc, #48]	@ (4fc0 <ExynosSqzBase::setBuf(hwSQZ_buffer*, int, unsigned int)@@Base+0x8c>)
+    4f90:	4a0c      	ldr	r2, [pc, #48]	@ (4fc4 <ExynosSqzBase::setBuf(hwSQZ_buffer*, int, unsigned int)@@Base+0x90>)
+    4f92:	4b0d      	ldr	r3, [pc, #52]	@ (4fc8 <ExynosSqzBase::setBuf(hwSQZ_buffer*, int, unsigned int)@@Base+0x94>)
+    4f94:	2006      	movs	r0, #6
+    4f96:	4479      	add	r1, pc
+    4f98:	447a      	add	r2, pc
+    4f9a:	447b      	add	r3, pc
+    4f9c:	f000 eb58 	blx	5650 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x174>
+    4fa0:	f06f 00ed 	mvn.w	r0, #237	@ 0xed
+    4fa4:	bd80      	pop	{r7, pc}
+    4fa6:	bf00      	nop
+    4fa8:	cccc      	ldmia	r4!, {r2, r3, r6, r7}
+    4faa:	ffff cd28 			@ <UNDEFINED> instruction: 0xffffcd28
+    4fae:	ffff c923 	vtbl.8	d28, {d15-d16}, d19
+    4fb2:	ffff ccb4 			@ <UNDEFINED> instruction: 0xffffccb4
+    4fb6:	ffff ca9c 			@ <UNDEFINED> instruction: 0xffffca9c
+    4fba:	ffff c90b 	vtbl.8	d28, {d15-d16}, d11
+    4fbe:	ffff cc9c 			@ <UNDEFINED> instruction: 0xffffcc9c
+    4fc2:	ffff c9c9 	vtbx.8	d28, {d31-<overflow reg d32}, d9
+    4fc6:	ffff c8f3 			@ <UNDEFINED> instruction: 0xffffc8f3
+    4fca:	Address 0x4fca is out of bounds.
+
+
+00004fcc <ExynosSqzBase::setBuf(hwSQZ_buffer*, int*, unsigned int*, int)@@Base>:
+    4fcc:	b5b0      	push	{r4, r5, r7, lr}
+    4fce:	7900      	ldrb	r0, [r0, #4]
+    4fd0:	b140      	cbz	r0, 4fe4 <ExynosSqzBase::setBuf(hwSQZ_buffer*, int*, unsigned int*, int)@@Base+0x18>
+    4fd2:	b199      	cbz	r1, 4ffc <ExynosSqzBase::setBuf(hwSQZ_buffer*, int*, unsigned int*, int)@@Base+0x30>
+    4fd4:	f8dd c010 	ldr.w	ip, [sp, #16]
+    4fd8:	f1bc 0f02 	cmp.w	ip, #2
+    4fdc:	dd1a      	ble.n	5014 <ExynosSqzBase::setBuf(hwSQZ_buffer*, int*, unsigned int*, int)@@Base+0x48>
+    4fde:	f06f 00f4 	mvn.w	r0, #244	@ 0xf4
+    4fe2:	bdb0      	pop	{r4, r5, r7, pc}
+    4fe4:	4936      	ldr	r1, [pc, #216]	@ (50c0 <ExynosSqzBase::setBuf(hwSQZ_buffer*, int*, unsigned int*, int)@@Base+0xf4>)
+    4fe6:	4a37      	ldr	r2, [pc, #220]	@ (50c4 <ExynosSqzBase::setBuf(hwSQZ_buffer*, int*, unsigned int*, int)@@Base+0xf8>)
+    4fe8:	4b37      	ldr	r3, [pc, #220]	@ (50c8 <ExynosSqzBase::setBuf(hwSQZ_buffer*, int*, unsigned int*, int)@@Base+0xfc>)
+    4fea:	2006      	movs	r0, #6
+    4fec:	4479      	add	r1, pc
+    4fee:	447a      	add	r2, pc
+    4ff0:	447b      	add	r3, pc
+    4ff2:	f000 eb2e 	blx	5650 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x174>
+    4ff6:	f06f 00f9 	mvn.w	r0, #249	@ 0xf9
+    4ffa:	bdb0      	pop	{r4, r5, r7, pc}
+    4ffc:	4933      	ldr	r1, [pc, #204]	@ (50cc <ExynosSqzBase::setBuf(hwSQZ_buffer*, int*, unsigned int*, int)@@Base+0x100>)
+    4ffe:	4a34      	ldr	r2, [pc, #208]	@ (50d0 <ExynosSqzBase::setBuf(hwSQZ_buffer*, int*, unsigned int*, int)@@Base+0x104>)
+    5000:	4b34      	ldr	r3, [pc, #208]	@ (50d4 <ExynosSqzBase::setBuf(hwSQZ_buffer*, int*, unsigned int*, int)@@Base+0x108>)
+    5002:	2006      	movs	r0, #6
+    5004:	4479      	add	r1, pc
+    5006:	447a      	add	r2, pc
+    5008:	447b      	add	r3, pc
+    500a:	f000 eb22 	blx	5650 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x174>
+    500e:	f06f 007c 	mvn.w	r0, #124	@ 0x7c
+    5012:	bdb0      	pop	{r4, r5, r7, pc}
+    5014:	f1bc 0f01 	cmp.w	ip, #1
+    5018:	db23      	blt.n	5062 <ExynosSqzBase::setBuf(hwSQZ_buffer*, int*, unsigned int*, int)@@Base+0x96>
+    501a:	f1bc 0f02 	cmp.w	ip, #2
+    501e:	d122      	bne.n	5066 <ExynosSqzBase::setBuf(hwSQZ_buffer*, int*, unsigned int*, int)@@Base+0x9a>
+    5020:	6810      	ldr	r0, [r2, #0]
+    5022:	2800      	cmp	r0, #0
+    5024:	d03f      	beq.n	50a6 <ExynosSqzBase::setBuf(hwSQZ_buffer*, int*, unsigned int*, int)@@Base+0xda>
+    5026:	680c      	ldr	r4, [r1, #0]
+    5028:	b12c      	cbz	r4, 5036 <ExynosSqzBase::setBuf(hwSQZ_buffer*, int*, unsigned int*, int)@@Base+0x6a>
+    502a:	2000      	movs	r0, #0
+    502c:	6088      	str	r0, [r1, #8]
+    502e:	6048      	str	r0, [r1, #4]
+    5030:	6008      	str	r0, [r1, #0]
+    5032:	7208      	strb	r0, [r1, #8]
+    5034:	6810      	ldr	r0, [r2, #0]
+    5036:	6008      	str	r0, [r1, #0]
+    5038:	2401      	movs	r4, #1
+    503a:	6818      	ldr	r0, [r3, #0]
+    503c:	720c      	strb	r4, [r1, #8]
+    503e:	6048      	str	r0, [r1, #4]
+    5040:	6850      	ldr	r0, [r2, #4]
+    5042:	b380      	cbz	r0, 50a6 <ExynosSqzBase::setBuf(hwSQZ_buffer*, int*, unsigned int*, int)@@Base+0xda>
+    5044:	460c      	mov	r4, r1
+    5046:	f854 5f0c 	ldr.w	r5, [r4, #12]!
+    504a:	b12d      	cbz	r5, 5058 <ExynosSqzBase::setBuf(hwSQZ_buffer*, int*, unsigned int*, int)@@Base+0x8c>
+    504c:	2000      	movs	r0, #0
+    504e:	60a0      	str	r0, [r4, #8]
+    5050:	6060      	str	r0, [r4, #4]
+    5052:	6020      	str	r0, [r4, #0]
+    5054:	7508      	strb	r0, [r1, #20]
+    5056:	6850      	ldr	r0, [r2, #4]
+    5058:	60c8      	str	r0, [r1, #12]
+    505a:	2201      	movs	r2, #1
+    505c:	6858      	ldr	r0, [r3, #4]
+    505e:	750a      	strb	r2, [r1, #20]
+    5060:	6108      	str	r0, [r1, #16]
+    5062:	2000      	movs	r0, #0
+    5064:	bdb0      	pop	{r4, r5, r7, pc}
+    5066:	f04f 0e01 	mov.w	lr, #1
+    506a:	2400      	movs	r4, #0
+    506c:	6810      	ldr	r0, [r2, #0]
+    506e:	b1d0      	cbz	r0, 50a6 <ExynosSqzBase::setBuf(hwSQZ_buffer*, int*, unsigned int*, int)@@Base+0xda>
+    5070:	680d      	ldr	r5, [r1, #0]
+    5072:	2d00      	cmp	r5, #0
+    5074:	bf18      	it	ne
+    5076:	608c      	strne	r4, [r1, #8]
+    5078:	bf18      	it	ne
+    507a:	604c      	strne	r4, [r1, #4]
+    507c:	bf18      	it	ne
+    507e:	600c      	strne	r4, [r1, #0]
+    5080:	bf18      	it	ne
+    5082:	720c      	strbne	r4, [r1, #8]
+    5084:	bf18      	it	ne
+    5086:	6810      	ldrne	r0, [r2, #0]
+    5088:	6008      	str	r0, [r1, #0]
+    508a:	3204      	adds	r2, #4
+    508c:	f853 0b04 	ldr.w	r0, [r3], #4
+    5090:	f881 e008 	strb.w	lr, [r1, #8]
+    5094:	f1bc 0c01 	subs.w	ip, ip, #1
+    5098:	6048      	str	r0, [r1, #4]
+    509a:	f101 010c 	add.w	r1, r1, #12
+    509e:	f04f 0000 	mov.w	r0, #0
+    50a2:	d1e3      	bne.n	506c <ExynosSqzBase::setBuf(hwSQZ_buffer*, int*, unsigned int*, int)@@Base+0xa0>
+    50a4:	bdb0      	pop	{r4, r5, r7, pc}
+    50a6:	490c      	ldr	r1, [pc, #48]	@ (50d8 <ExynosSqzBase::setBuf(hwSQZ_buffer*, int*, unsigned int*, int)@@Base+0x10c>)
+    50a8:	4a0c      	ldr	r2, [pc, #48]	@ (50dc <ExynosSqzBase::setBuf(hwSQZ_buffer*, int*, unsigned int*, int)@@Base+0x110>)
+    50aa:	4b0d      	ldr	r3, [pc, #52]	@ (50e0 <ExynosSqzBase::setBuf(hwSQZ_buffer*, int*, unsigned int*, int)@@Base+0x114>)
+    50ac:	2006      	movs	r0, #6
+    50ae:	4479      	add	r1, pc
+    50b0:	447a      	add	r2, pc
+    50b2:	447b      	add	r3, pc
+    50b4:	f000 eacc 	blx	5650 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x174>
+    50b8:	f06f 00ed 	mvn.w	r0, #237	@ 0xed
+    50bc:	bdb0      	pop	{r4, r5, r7, pc}
+    50be:	bf00      	nop
+    50c0:	cc46      	ldmia	r4!, {r1, r2, r6}
+    50c2:	ffff cca2 	vmull.u<illegal width 64>	q14, d31, d18
+    50c6:	ffff c89d 			@ <UNDEFINED> instruction: 0xffffc89d
+    50ca:	ffff cc2e 	vdup.8	d28, d30[7]
+    50ce:	ffff ca16 	vshll.u32	q14, d6, #31
+    50d2:	ffff c885 	vtbl.8	d28, {d31}, d5
+    50d6:	ffff cb84 	vtbl.8	d28, {d31-<overflow reg d34}, d4
+    50da:	ffff c8b1 			@ <UNDEFINED> instruction: 0xffffc8b1
+    50de:	ffff c7db 	vqshl.u64	q14, <illegal reg q5.5>, #63	@ 0x3f
+    50e2:	Address 0x50e2 is out of bounds.
+
+
+000050e4 <ExynosSqzBase::setBuf(hwSQZ_buffer*, char*, unsigned int)@@Base>:
+    50e4:	b580      	push	{r7, lr}
+    50e6:	7900      	ldrb	r0, [r0, #4]
+    50e8:	b188      	cbz	r0, 510e <ExynosSqzBase::setBuf(hwSQZ_buffer*, char*, unsigned int)@@Base+0x2a>
+    50ea:	b1e1      	cbz	r1, 5126 <ExynosSqzBase::setBuf(hwSQZ_buffer*, char*, unsigned int)@@Base+0x42>
+    50ec:	b33a      	cbz	r2, 513e <ExynosSqzBase::setBuf(hwSQZ_buffer*, char*, unsigned int)@@Base+0x5a>
+    50ee:	6808      	ldr	r0, [r1, #0]
+    50f0:	2800      	cmp	r0, #0
+    50f2:	bf18      	it	ne
+    50f4:	2000      	movne	r0, #0
+    50f6:	bf18      	it	ne
+    50f8:	6048      	strne	r0, [r1, #4]
+    50fa:	bf18      	it	ne
+    50fc:	6008      	strne	r0, [r1, #0]
+    50fe:	bf18      	it	ne
+    5100:	6088      	strne	r0, [r1, #8]
+    5102:	e9c1 2300 	strd	r2, r3, [r1]
+    5106:	2002      	movs	r0, #2
+    5108:	7208      	strb	r0, [r1, #8]
+    510a:	2000      	movs	r0, #0
+    510c:	bd80      	pop	{r7, pc}
+    510e:	4912      	ldr	r1, [pc, #72]	@ (5158 <ExynosSqzBase::setBuf(hwSQZ_buffer*, char*, unsigned int)@@Base+0x74>)
+    5110:	4a12      	ldr	r2, [pc, #72]	@ (515c <ExynosSqzBase::setBuf(hwSQZ_buffer*, char*, unsigned int)@@Base+0x78>)
+    5112:	4b13      	ldr	r3, [pc, #76]	@ (5160 <ExynosSqzBase::setBuf(hwSQZ_buffer*, char*, unsigned int)@@Base+0x7c>)
+    5114:	2006      	movs	r0, #6
+    5116:	4479      	add	r1, pc
+    5118:	447a      	add	r2, pc
+    511a:	447b      	add	r3, pc
+    511c:	f000 ea98 	blx	5650 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x174>
+    5120:	f06f 00f9 	mvn.w	r0, #249	@ 0xf9
+    5124:	bd80      	pop	{r7, pc}
+    5126:	490f      	ldr	r1, [pc, #60]	@ (5164 <ExynosSqzBase::setBuf(hwSQZ_buffer*, char*, unsigned int)@@Base+0x80>)
+    5128:	4a0f      	ldr	r2, [pc, #60]	@ (5168 <ExynosSqzBase::setBuf(hwSQZ_buffer*, char*, unsigned int)@@Base+0x84>)
+    512a:	4b10      	ldr	r3, [pc, #64]	@ (516c <ExynosSqzBase::setBuf(hwSQZ_buffer*, char*, unsigned int)@@Base+0x88>)
+    512c:	2006      	movs	r0, #6
+    512e:	4479      	add	r1, pc
+    5130:	447a      	add	r2, pc
+    5132:	447b      	add	r3, pc
+    5134:	f000 ea8c 	blx	5650 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x174>
+    5138:	f06f 007c 	mvn.w	r0, #124	@ 0x7c
+    513c:	bd80      	pop	{r7, pc}
+    513e:	490c      	ldr	r1, [pc, #48]	@ (5170 <ExynosSqzBase::setBuf(hwSQZ_buffer*, char*, unsigned int)@@Base+0x8c>)
+    5140:	4a0c      	ldr	r2, [pc, #48]	@ (5174 <ExynosSqzBase::setBuf(hwSQZ_buffer*, char*, unsigned int)@@Base+0x90>)
+    5142:	4b0d      	ldr	r3, [pc, #52]	@ (5178 <ExynosSqzBase::setBuf(hwSQZ_buffer*, char*, unsigned int)@@Base+0x94>)
+    5144:	2006      	movs	r0, #6
+    5146:	4479      	add	r1, pc
+    5148:	447a      	add	r2, pc
+    514a:	447b      	add	r3, pc
+    514c:	f000 ea80 	blx	5650 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x174>
+    5150:	f06f 00ed 	mvn.w	r0, #237	@ 0xed
+    5154:	bd80      	pop	{r7, pc}
+    5156:	bf00      	nop
+    5158:	cb1c      	ldmia	r3, {r2, r3, r4}
+    515a:	ffff cb78 			@ <UNDEFINED> instruction: 0xffffcb78
+    515e:	ffff c773 	vqshl.u32	q14, <illegal reg q9.5>, #31
+    5162:	ffff cb04 	vtbl.8	d28, {d15-d18}, d4
+    5166:	ffff c8ec 	vtbx.8	d28, {d31}, d28
+    516a:	ffff c75b 	vqshl.u32	q14, <illegal reg q5.5>, #31
+    516e:	ffff caec 	vtbx.8	d28, {d31-<overflow reg d33}, d28
+    5172:	ffff c6e4 	vmlsl.u<illegal width 64>	q14, d31, d20[0]
+    5176:	ffff c743 			@ <UNDEFINED> instruction: 0xffffc743
+    517a:	Address 0x517a is out of bounds.
+
+
+0000517c <ExynosSqzBase::execute()@@Base>:
+    517c:	b510      	push	{r4, lr}
+    517e:	b082      	sub	sp, #8
+    5180:	4604      	mov	r4, r0
+    5182:	7900      	ldrb	r0, [r0, #4]
+    5184:	b1f0      	cbz	r0, 51c4 <ExynosSqzBase::execute()@@Base+0x48>
+    5186:	f104 011c 	add.w	r1, r4, #28
+    518a:	4620      	mov	r0, r4
+    518c:	f000 eb38 	blx	5800 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x324>
+    5190:	b328      	cbz	r0, 51de <ExynosSqzBase::execute()@@Base+0x62>
+    5192:	f8d4 013c 	ldr.w	r0, [r4, #316]	@ 0x13c
+    5196:	2802      	cmp	r0, #2
+    5198:	d105      	bne.n	51a6 <ExynosSqzBase::execute()@@Base+0x2a>
+    519a:	f104 0128 	add.w	r1, r4, #40	@ 0x28
+    519e:	4620      	mov	r0, r4
+    51a0:	f000 eb2e 	blx	5800 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x324>
+    51a4:	b3c0      	cbz	r0, 5218 <ExynosSqzBase::execute()@@Base+0x9c>
+    51a6:	68a0      	ldr	r0, [r4, #8]
+    51a8:	f644 5100 	movw	r1, #19712	@ 0x4d00
+    51ac:	f104 020c 	add.w	r2, r4, #12
+    51b0:	f2cc 1134 	movt	r1, #49460	@ 0xc134
+    51b4:	f000 eb2c 	blx	5810 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x334>
+    51b8:	f1b0 3fff 	cmp.w	r0, #4294967295	@ 0xffffffff
+    51bc:	dd16      	ble.n	51ec <ExynosSqzBase::execute()@@Base+0x70>
+    51be:	2000      	movs	r0, #0
+    51c0:	b002      	add	sp, #8
+    51c2:	bd10      	pop	{r4, pc}
+    51c4:	491c      	ldr	r1, [pc, #112]	@ (5238 <ExynosSqzBase::execute()@@Base+0xbc>)
+    51c6:	4a1d      	ldr	r2, [pc, #116]	@ (523c <ExynosSqzBase::execute()@@Base+0xc0>)
+    51c8:	4b1d      	ldr	r3, [pc, #116]	@ (5240 <ExynosSqzBase::execute()@@Base+0xc4>)
+    51ca:	2006      	movs	r0, #6
+    51cc:	4479      	add	r1, pc
+    51ce:	447a      	add	r2, pc
+    51d0:	447b      	add	r3, pc
+    51d2:	f000 ea3e 	blx	5650 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x174>
+    51d6:	f06f 00f9 	mvn.w	r0, #249	@ 0xf9
+    51da:	b002      	add	sp, #8
+    51dc:	bd10      	pop	{r4, pc}
+    51de:	2000      	movs	r0, #0
+    51e0:	9000      	str	r0, [sp, #0]
+    51e2:	4918      	ldr	r1, [pc, #96]	@ (5244 <ExynosSqzBase::execute()@@Base+0xc8>)
+    51e4:	4a18      	ldr	r2, [pc, #96]	@ (5248 <ExynosSqzBase::execute()@@Base+0xcc>)
+    51e6:	4479      	add	r1, pc
+    51e8:	447a      	add	r2, pc
+    51ea:	e01b      	b.n	5224 <ExynosSqzBase::execute()@@Base+0xa8>
+    51ec:	f000 eab0 	blx	5750 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x274>
+    51f0:	4604      	mov	r4, r0
+    51f2:	6800      	ldr	r0, [r0, #0]
+    51f4:	f000 eab4 	blx	5760 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x284>
+    51f8:	6821      	ldr	r1, [r4, #0]
+    51fa:	e9cd 0100 	strd	r0, r1, [sp]
+    51fe:	2006      	movs	r0, #6
+    5200:	4915      	ldr	r1, [pc, #84]	@ (5258 <ExynosSqzBase::execute()@@Base+0xdc>)
+    5202:	4a16      	ldr	r2, [pc, #88]	@ (525c <ExynosSqzBase::execute()@@Base+0xe0>)
+    5204:	4b16      	ldr	r3, [pc, #88]	@ (5260 <ExynosSqzBase::execute()@@Base+0xe4>)
+    5206:	4479      	add	r1, pc
+    5208:	447a      	add	r2, pc
+    520a:	447b      	add	r3, pc
+    520c:	f000 ea20 	blx	5650 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x174>
+    5210:	f06f 00f1 	mvn.w	r0, #241	@ 0xf1
+    5214:	b002      	add	sp, #8
+    5216:	bd10      	pop	{r4, pc}
+    5218:	2000      	movs	r0, #0
+    521a:	9000      	str	r0, [sp, #0]
+    521c:	490c      	ldr	r1, [pc, #48]	@ (5250 <ExynosSqzBase::execute()@@Base+0xd4>)
+    521e:	4a0d      	ldr	r2, [pc, #52]	@ (5254 <ExynosSqzBase::execute()@@Base+0xd8>)
+    5220:	4479      	add	r1, pc
+    5222:	447a      	add	r2, pc
+    5224:	4b09      	ldr	r3, [pc, #36]	@ (524c <ExynosSqzBase::execute()@@Base+0xd0>)
+    5226:	2006      	movs	r0, #6
+    5228:	447b      	add	r3, pc
+    522a:	f000 ea12 	blx	5650 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x174>
+    522e:	f06f 007f 	mvn.w	r0, #127	@ 0x7f
+    5232:	b002      	add	sp, #8
+    5234:	bd10      	pop	{r4, pc}
+    5236:	bf00      	nop
+    5238:	ca66      	ldmia	r2, {r1, r2, r5, r6}
+    523a:	ffff cac2 	vtbx.8	d28, {d31-<overflow reg d33}, d2
+    523e:	ffff ca29 	vtbl.8	d28, {d15-d17}, d25
+    5242:	ffff ca4c 	vtbx.8	d28, {d15-d17}, d12
+    5246:	ffff c856 	vqrshrun.s64	d28, q3, #1
+    524a:	ffff c9d1 			@ <UNDEFINED> instruction: 0xffffc9d1
+    524e:	ffff ca12 	vshll.u32	q14, d2, #31
+    5252:	ffff c9df 			@ <UNDEFINED> instruction: 0xffffc9df
+    5256:	ffff ca2c 	vtbl.8	d28, {d15-d17}, d28
+    525a:	ffff cb3b 			@ <UNDEFINED> instruction: 0xffffcb3b
+    525e:	ffff c9ef 	vtbx.8	d28, {d31-<overflow reg d32}, d31
+    5262:	Address 0x5262 is out of bounds.
+
+
+00005264 <ExynosSqzBase::execute_msqz()@@Base>:
+    5264:	b510      	push	{r4, lr}
+    5266:	b082      	sub	sp, #8
+    5268:	4604      	mov	r4, r0
+    526a:	7900      	ldrb	r0, [r0, #4]
+    526c:	b1a0      	cbz	r0, 5298 <ExynosSqzBase::execute_msqz()@@Base+0x34>
+    526e:	f504 71b0 	add.w	r1, r4, #352	@ 0x160
+    5272:	4620      	mov	r0, r4
+    5274:	f000 eac4 	blx	5800 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x324>
+    5278:	b1d8      	cbz	r0, 52b2 <ExynosSqzBase::execute_msqz()@@Base+0x4e>
+    527a:	68a0      	ldr	r0, [r4, #8]
+    527c:	f644 5101 	movw	r1, #19713	@ 0x4d01
+    5280:	f504 72a0 	add.w	r2, r4, #320	@ 0x140
+    5284:	f2cc 013c 	movt	r1, #49212	@ 0xc03c
+    5288:	f000 eac2 	blx	5810 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x334>
+    528c:	f1b0 3fff 	cmp.w	r0, #4294967295	@ 0xffffffff
+    5290:	dd1e      	ble.n	52d0 <ExynosSqzBase::execute_msqz()@@Base+0x6c>
+    5292:	2000      	movs	r0, #0
+    5294:	b002      	add	sp, #8
+    5296:	bd10      	pop	{r4, pc}
+    5298:	4918      	ldr	r1, [pc, #96]	@ (52fc <ExynosSqzBase::execute_msqz()@@Base+0x98>)
+    529a:	4a19      	ldr	r2, [pc, #100]	@ (5300 <ExynosSqzBase::execute_msqz()@@Base+0x9c>)
+    529c:	4b19      	ldr	r3, [pc, #100]	@ (5304 <ExynosSqzBase::execute_msqz()@@Base+0xa0>)
+    529e:	2006      	movs	r0, #6
+    52a0:	4479      	add	r1, pc
+    52a2:	447a      	add	r2, pc
+    52a4:	447b      	add	r3, pc
+    52a6:	f000 e9d4 	blx	5650 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x174>
+    52aa:	f06f 00f9 	mvn.w	r0, #249	@ 0xf9
+    52ae:	b002      	add	sp, #8
+    52b0:	bd10      	pop	{r4, pc}
+    52b2:	2000      	movs	r0, #0
+    52b4:	9000      	str	r0, [sp, #0]
+    52b6:	2006      	movs	r0, #6
+    52b8:	4913      	ldr	r1, [pc, #76]	@ (5308 <ExynosSqzBase::execute_msqz()@@Base+0xa4>)
+    52ba:	4a14      	ldr	r2, [pc, #80]	@ (530c <ExynosSqzBase::execute_msqz()@@Base+0xa8>)
+    52bc:	4b14      	ldr	r3, [pc, #80]	@ (5310 <ExynosSqzBase::execute_msqz()@@Base+0xac>)
+    52be:	4479      	add	r1, pc
+    52c0:	447a      	add	r2, pc
+    52c2:	447b      	add	r3, pc
+    52c4:	f000 e9c4 	blx	5650 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x174>
+    52c8:	f06f 007f 	mvn.w	r0, #127	@ 0x7f
+    52cc:	b002      	add	sp, #8
+    52ce:	bd10      	pop	{r4, pc}
+    52d0:	f000 ea3e 	blx	5750 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x274>
+    52d4:	4604      	mov	r4, r0
+    52d6:	6800      	ldr	r0, [r0, #0]
+    52d8:	f000 ea42 	blx	5760 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x284>
+    52dc:	6821      	ldr	r1, [r4, #0]
+    52de:	e9cd 0100 	strd	r0, r1, [sp]
+    52e2:	2006      	movs	r0, #6
+    52e4:	490b      	ldr	r1, [pc, #44]	@ (5314 <ExynosSqzBase::execute_msqz()@@Base+0xb0>)
+    52e6:	4a0c      	ldr	r2, [pc, #48]	@ (5318 <ExynosSqzBase::execute_msqz()@@Base+0xb4>)
+    52e8:	4b0c      	ldr	r3, [pc, #48]	@ (531c <ExynosSqzBase::execute_msqz()@@Base+0xb8>)
+    52ea:	4479      	add	r1, pc
+    52ec:	447a      	add	r2, pc
+    52ee:	447b      	add	r3, pc
+    52f0:	f000 e9ae 	blx	5650 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x174>
+    52f4:	f06f 00f1 	mvn.w	r0, #241	@ 0xf1
+    52f8:	b002      	add	sp, #8
+    52fa:	bd10      	pop	{r4, pc}
+    52fc:	c992      	ldmia	r1, {r1, r4, r7}
+    52fe:	ffff c9ee 	vtbx.8	d28, {d31-<overflow reg d32}, d30
+    5302:	ffff c673 	vqshlu.s32	q14, <illegal reg q9.5>, #31
+    5306:	ffff c974 	vqrshrn.u64	d28, q10, #1
+    530a:	ffff c77e 	vqshl.u32	q14, q15, #31
+    530e:	ffff c655 	vqshlu.s32	q14, <illegal reg q2.5>, #31
+    5312:	ffff c948 	vtbx.8	d28, {d15-d16}, d8
+    5316:	ffff ca57 			@ <UNDEFINED> instruction: 0xffffca57
+    531a:	ffff c629 	vrsubhn.i<illegal width 128>	d28, <illegal reg q7.5>, <illegal reg q12.5>
+    531e:	Address 0x531e is out of bounds.
+
+
+00005320 <instantiateJsqzHal@@Base>:
+    5320:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+    5324:	b086      	sub	sp, #24
+    5326:	4604      	mov	r4, r0
+    5328:	4834      	ldr	r0, [pc, #208]	@ (53fc <instantiateJsqzHal@@Base+0xdc>)
+    532a:	4478      	add	r0, pc
+    532c:	f8d0 8000 	ldr.w	r8, [r0]
+    5330:	f8d8 0000 	ldr.w	r0, [r8]
+    5334:	9005      	str	r0, [sp, #20]
+    5336:	b19c      	cbz	r4, 5360 <instantiateJsqzHal@@Base+0x40>
+    5338:	2000      	movs	r0, #0
+    533a:	e9cd 0002 	strd	r0, r0, [sp, #8]
+    533e:	9004      	str	r0, [sp, #16]
+    5340:	4620      	mov	r0, r4
+    5342:	f000 ea6e 	blx	5820 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x344>
+    5346:	f110 0f10 	cmn.w	r0, #16
+    534a:	d248      	bcs.n	53de <instantiateJsqzHal@@Base+0xbe>
+    534c:	4605      	mov	r5, r0
+    534e:	280b      	cmp	r0, #11
+    5350:	d210      	bcs.n	5374 <instantiateJsqzHal@@Base+0x54>
+    5352:	0068      	lsls	r0, r5, #1
+    5354:	f88d 0008 	strb.w	r0, [sp, #8]
+    5358:	a802      	add	r0, sp, #8
+    535a:	1c46      	adds	r6, r0, #1
+    535c:	b9b5      	cbnz	r5, 538c <instantiateJsqzHal@@Base+0x6c>
+    535e:	e01a      	b.n	5396 <instantiateJsqzHal@@Base+0x76>
+    5360:	4927      	ldr	r1, [pc, #156]	@ (5400 <instantiateJsqzHal@@Base+0xe0>)
+    5362:	4a28      	ldr	r2, [pc, #160]	@ (5404 <instantiateJsqzHal@@Base+0xe4>)
+    5364:	4b28      	ldr	r3, [pc, #160]	@ (5408 <instantiateJsqzHal@@Base+0xe8>)
+    5366:	2006      	movs	r0, #6
+    5368:	4479      	add	r1, pc
+    536a:	447a      	add	r2, pc
+    536c:	447b      	add	r3, pc
+    536e:	f000 e970 	blx	5650 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x174>
+    5372:	e029      	b.n	53c8 <instantiateJsqzHal@@Base+0xa8>
+    5374:	f105 0010 	add.w	r0, r5, #16
+    5378:	f020 070f 	bic.w	r7, r0, #15
+    537c:	4638      	mov	r0, r7
+    537e:	f000 e978 	blx	5670 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x194>
+    5382:	4606      	mov	r6, r0
+    5384:	e9cd 5003 	strd	r5, r0, [sp, #12]
+    5388:	1c78      	adds	r0, r7, #1
+    538a:	9002      	str	r0, [sp, #8]
+    538c:	4630      	mov	r0, r6
+    538e:	4621      	mov	r1, r4
+    5390:	462a      	mov	r2, r5
+    5392:	f000 e8a6 	blx	54e0 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x4>
+    5396:	2000      	movs	r0, #0
+    5398:	5570      	strb	r0, [r6, r5]
+    539a:	a802      	add	r0, sp, #8
+    539c:	491b      	ldr	r1, [pc, #108]	@ (540c <instantiateJsqzHal@@Base+0xec>)
+    539e:	4479      	add	r1, pc
+    53a0:	f000 ea46 	blx	5830 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x354>
+    53a4:	b148      	cbz	r0, 53ba <instantiateJsqzHal@@Base+0x9a>
+    53a6:	9400      	str	r4, [sp, #0]
+    53a8:	2006      	movs	r0, #6
+    53aa:	4919      	ldr	r1, [pc, #100]	@ (5410 <instantiateJsqzHal@@Base+0xf0>)
+    53ac:	4a19      	ldr	r2, [pc, #100]	@ (5414 <instantiateJsqzHal@@Base+0xf4>)
+    53ae:	4b1a      	ldr	r3, [pc, #104]	@ (5418 <instantiateJsqzHal@@Base+0xf8>)
+    53b0:	4479      	add	r1, pc
+    53b2:	447a      	add	r2, pc
+    53b4:	447b      	add	r3, pc
+    53b6:	f000 e94c 	blx	5650 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x174>
+    53ba:	f89d 0008 	ldrb.w	r0, [sp, #8]
+    53be:	07c0      	lsls	r0, r0, #31
+    53c0:	d002      	beq.n	53c8 <instantiateJsqzHal@@Base+0xa8>
+    53c2:	9804      	ldr	r0, [sp, #16]
+    53c4:	f000 e91c 	blx	5600 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x124>
+    53c8:	f8d8 0000 	ldr.w	r0, [r8]
+    53cc:	9905      	ldr	r1, [sp, #20]
+    53ce:	4288      	cmp	r0, r1
+    53d0:	d103      	bne.n	53da <instantiateJsqzHal@@Base+0xba>
+    53d2:	2000      	movs	r0, #0
+    53d4:	b006      	add	sp, #24
+    53d6:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+    53da:	f000 e9ea 	blx	57b0 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x2d4>
+    53de:	a802      	add	r0, sp, #8
+    53e0:	f000 ea2e 	blx	5840 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x364>
+    53e4:	4604      	mov	r4, r0
+    53e6:	f89d 0008 	ldrb.w	r0, [sp, #8]
+    53ea:	07c0      	lsls	r0, r0, #31
+    53ec:	d002      	beq.n	53f4 <instantiateJsqzHal@@Base+0xd4>
+    53ee:	9804      	ldr	r0, [sp, #16]
+    53f0:	f000 e906 	blx	5600 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x124>
+    53f4:	4620      	mov	r0, r4
+    53f6:	f000 e94c 	blx	5690 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x1b4>
+    53fa:	bf00      	nop
+    53fc:	16a2      	asrs	r2, r4, #26
+    53fe:	0000      	movs	r0, r0
+    5400:	c8ca      	ldmia	r0!, {r1, r3, r6, r7}
+    5402:	ffff c73e 	vqshl.u32	d28, d30, #31
+    5406:	ffff ca0a 	vtbl.8	d28, {d15-d17}, d10
+    540a:	ffff c759 	vqshl.u32	q14, <illegal reg q4.5>, #31
+    540e:	ffff c882 	vtbl.8	d28, {d31}, d2
+    5412:	ffff c49b 	vsri.64	d28, d11, #1
+    5416:	ffff c9c2 	vtbx.8	d28, {d31-<overflow reg d32}, d2
+    541a:	Address 0x541a is out of bounds.
+
+
+0000541c <destroyJsqzHal@@Base>:
+    541c:	b110      	cbz	r0, 5424 <destroyJsqzHal@@Base+0x8>
+    541e:	6801      	ldr	r1, [r0, #0]
+    5420:	6849      	ldr	r1, [r1, #4]
+    5422:	4708      	bx	r1
+    5424:	4770      	bx	lr
+    5426:	d4d4      	bmi.n	53d2 <instantiateJsqzHal@@Base+0xb2>
+
+00005428 <ExynosSqzBase::openNode()@@Base>:
+    5428:	b570      	push	{r4, r5, r6, lr}
+    542a:	b084      	sub	sp, #16
+    542c:	4c14      	ldr	r4, [pc, #80]	@ (5480 <ExynosSqzBase::openNode()@@Base+0x58>)
+    542e:	4605      	mov	r5, r0
+    5430:	2102      	movs	r1, #2
+    5432:	2200      	movs	r2, #0
+    5434:	2600      	movs	r6, #0
+    5436:	447c      	add	r4, pc
+    5438:	4620      	mov	r0, r4
+    543a:	f000 ea0a 	blx	5850 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x374>
+    543e:	f1b0 3fff 	cmp.w	r0, #4294967295	@ 0xffffffff
+    5442:	60a8      	str	r0, [r5, #8]
+    5444:	dd02      	ble.n	544c <ExynosSqzBase::openNode()@@Base+0x24>
+    5446:	4630      	mov	r0, r6
+    5448:	b004      	add	sp, #16
+    544a:	bd70      	pop	{r4, r5, r6, pc}
+    544c:	f04f 30ff 	mov.w	r0, #4294967295	@ 0xffffffff
+    5450:	60a8      	str	r0, [r5, #8]
+    5452:	f000 e97e 	blx	5750 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x274>
+    5456:	6805      	ldr	r5, [r0, #0]
+    5458:	4628      	mov	r0, r5
+    545a:	f000 e982 	blx	5760 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x284>
+    545e:	9002      	str	r0, [sp, #8]
+    5460:	e9cd 4500 	strd	r4, r5, [sp]
+    5464:	2006      	movs	r0, #6
+    5466:	4907      	ldr	r1, [pc, #28]	@ (5484 <ExynosSqzBase::openNode()@@Base+0x5c>)
+    5468:	4a07      	ldr	r2, [pc, #28]	@ (5488 <ExynosSqzBase::openNode()@@Base+0x60>)
+    546a:	4b08      	ldr	r3, [pc, #32]	@ (548c <ExynosSqzBase::openNode()@@Base+0x64>)
+    546c:	4479      	add	r1, pc
+    546e:	447a      	add	r2, pc
+    5470:	447b      	add	r3, pc
+    5472:	f000 e8ee 	blx	5650 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x174>
+    5476:	f06f 06fd 	mvn.w	r6, #253	@ 0xfd
+    547a:	4630      	mov	r0, r6
+    547c:	b004      	add	sp, #16
+    547e:	bd70      	pop	{r4, r5, r6, pc}
+    5480:	c990      	ldmia	r1!, {r4, r7}
+    5482:	ffff c7c6 			@ <UNDEFINED> instruction: 0xffffc7c6
+    5486:	ffff c882 	vtbl.8	d28, {d31}, d2
+    548a:	ffff c50f 	vabal.u<illegal width 64>	q14, d15, d15
+    548e:	Address 0x548e is out of bounds.
+
+
+00005490 <ExynosSqzBase::closeNode()@@Base>:
+    5490:	b510      	push	{r4, lr}
+    5492:	b082      	sub	sp, #8
+    5494:	6880      	ldr	r0, [r0, #8]
+    5496:	f000 e91c 	blx	56d0 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x1f4>
+    549a:	f1b0 3fff 	cmp.w	r0, #4294967295	@ 0xffffffff
+    549e:	dd02      	ble.n	54a6 <ExynosSqzBase::closeNode()@@Base+0x16>
+    54a0:	2000      	movs	r0, #0
+    54a2:	b002      	add	sp, #8
+    54a4:	bd10      	pop	{r4, pc}
+    54a6:	f000 e954 	blx	5750 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x274>
+    54aa:	6804      	ldr	r4, [r0, #0]
+    54ac:	4620      	mov	r0, r4
+    54ae:	f000 e958 	blx	5760 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x284>
+    54b2:	e9cd 4000 	strd	r4, r0, [sp]
+    54b6:	2006      	movs	r0, #6
+    54b8:	4905      	ldr	r1, [pc, #20]	@ (54d0 <ExynosSqzBase::closeNode()@@Base+0x40>)
+    54ba:	4a06      	ldr	r2, [pc, #24]	@ (54d4 <ExynosSqzBase::closeNode()@@Base+0x44>)
+    54bc:	4b06      	ldr	r3, [pc, #24]	@ (54d8 <ExynosSqzBase::closeNode()@@Base+0x48>)
+    54be:	4479      	add	r1, pc
+    54c0:	447a      	add	r2, pc
+    54c2:	447b      	add	r3, pc
+    54c4:	f000 e8c4 	blx	5650 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x174>
+    54c8:	f06f 00fc 	mvn.w	r0, #252	@ 0xfc
+    54cc:	b002      	add	sp, #8
+    54ce:	bd10      	pop	{r4, pc}
+    54d0:	c774      	stmia	r7!, {r2, r4, r5, r6}
+    54d2:	ffff c414 	vsri.32	d28, d4, #1
+    54d6:	ffff c62b 	vrsubhn.i<illegal width 128>	d28, <illegal reg q7.5>, <illegal reg q13.5>
+    54da:	Address 0x54da is out of bounds.
+
+
+000054dc <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base>:
+    54dc:	7a08      	ldrb	r0, [r1, #8]
+    54de:	4770      	bx	lr
+    54e0:	00de      	lsls	r6, r3, #3
+    54e2:	ea00 3001 	and.w	r0, r0, r1, lsl #12
+    54e6:	e1a0      	b.n	582a <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x34e>
+    54e8:	1002      	asrs	r2, r0, #32
+    54ea:	e1a0      	b.n	582e <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x352>
+    54ec:	2003      	movs	r0, #3
+    54ee:	e1a0      	b.n	5832 <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x356>
+    54f0:	00de      	lsls	r6, r3, #3
+    54f2:	ea00 2001 	and.w	r0, r0, r1, lsl #8
+    54f6:	e1a0      	b.n	583a <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x35e>
+    54f8:	1000      	asrs	r0, r0, #32
+    54fa:	e3b0      	b.n	5c5e <ExynosSqzBase::getBufType(hwSQZ_buffer*)@@Base+0x782>
+    54fc:	00db      	lsls	r3, r3, #3
+    54fe:	ea00 f240 			@ <UNDEFINED> instruction: 0xea00f240
+    5502:	0c84      	lsrs	r4, r0, #18
+    5504:	f2c0 0c00 	movt	ip, #0
+    5508:	44fc      	add	ip, pc
+    550a:	4760      	bx	ip
+    550c:	f240 0ca8 	movw	ip, #168	@ 0xa8
+    5510:	f2c0 0c00 	movt	ip, #0
+    5514:	44fc      	add	ip, pc
+    5516:	4760      	bx	ip
+    5518:	f240 0c8c 	movw	ip, #140	@ 0x8c
+    551c:	f2c0 0c00 	movt	ip, #0
+    5520:	44fc      	add	ip, pc
+    5522:	4760      	bx	ip
+    5524:	f240 0cd0 	movw	ip, #208	@ 0xd0
+    5528:	f2c0 0c00 	movt	ip, #0
+    552c:	44fc      	add	ip, pc
+    552e:	4760      	bx	ip
+    5530:	f240 0cd4 	movw	ip, #212	@ 0xd4
+    5534:	f2c0 0c00 	movt	ip, #0
+    5538:	44fc      	add	ip, pc
+    553a:	4760      	bx	ip
+    553c:	f240 0cd8 	movw	ip, #216	@ 0xd8
+    5540:	f2c0 0c00 	movt	ip, #0
+    5544:	44fc      	add	ip, pc
+    5546:	4760      	bx	ip
+    5548:	f240 0cec 	movw	ip, #236	@ 0xec
+    554c:	f2c0 0c00 	movt	ip, #0
+    5550:	44fc      	add	ip, pc
+    5552:	4760      	bx	ip
+    5554:	f240 1c00 	movw	ip, #256	@ 0x100
+    5558:	f2c0 0c00 	movt	ip, #0
+    555c:	44fc      	add	ip, pc
+    555e:	4760      	bx	ip
+    5560:	f240 2c74 	movw	ip, #628	@ 0x274
+    5564:	f2c0 0c00 	movt	ip, #0
+    5568:	44fc      	add	ip, pc
+    556a:	4760      	bx	ip
+
+Disassembly of section .plt:
+
+00005570 <.plt>:
+    5570:	e52de004 	push	{lr}		@ (str lr, [sp, #-4]!)
+    5574:	e28fe600 	add	lr, pc, #0, 12
+    5578:	e28eea01 	add	lr, lr, #4096	@ 0x1000
+    557c:	e5bef464 	ldr	pc, [lr, #1124]!	@ 0x464
+    5580:	d4d4d4d4 	ldrble	sp, [r4], #1236	@ 0x4d4
+    5584:	d4d4d4d4 	ldrble	sp, [r4], #1236	@ 0x4d4
+    5588:	d4d4d4d4 	ldrble	sp, [r4], #1236	@ 0x4d4
+    558c:	d4d4d4d4 	ldrble	sp, [r4], #1236	@ 0x4d4
+    5590:	e28fc600 	add	ip, pc, #0, 12
+    5594:	e28cca01 	add	ip, ip, #4096	@ 0x1000
+    5598:	e5bcf44c 	ldr	pc, [ip, #1100]!	@ 0x44c
+    559c:	d4d4d4d4 	ldrble	sp, [r4], #1236	@ 0x4d4
+    55a0:	e28fc600 	add	ip, pc, #0, 12
+    55a4:	e28cca01 	add	ip, ip, #4096	@ 0x1000
+    55a8:	e5bcf440 	ldr	pc, [ip, #1088]!	@ 0x440
+    55ac:	d4d4d4d4 	ldrble	sp, [r4], #1236	@ 0x4d4
+    55b0:	e28fc600 	add	ip, pc, #0, 12
+    55b4:	e28cca01 	add	ip, ip, #4096	@ 0x1000
+    55b8:	e5bcf434 	ldr	pc, [ip, #1076]!	@ 0x434
+    55bc:	d4d4d4d4 	ldrble	sp, [r4], #1236	@ 0x4d4
+    55c0:	e28fc600 	add	ip, pc, #0, 12
+    55c4:	e28cca01 	add	ip, ip, #4096	@ 0x1000
+    55c8:	e5bcf428 	ldr	pc, [ip, #1064]!	@ 0x428
+    55cc:	d4d4d4d4 	ldrble	sp, [r4], #1236	@ 0x4d4
+    55d0:	e28fc600 	add	ip, pc, #0, 12
+    55d4:	e28cca01 	add	ip, ip, #4096	@ 0x1000
+    55d8:	e5bcf41c 	ldr	pc, [ip, #1052]!	@ 0x41c
+    55dc:	d4d4d4d4 	ldrble	sp, [r4], #1236	@ 0x4d4
+    55e0:	e28fc600 	add	ip, pc, #0, 12
+    55e4:	e28cca01 	add	ip, ip, #4096	@ 0x1000
+    55e8:	e5bcf410 	ldr	pc, [ip, #1040]!	@ 0x410
+    55ec:	d4d4d4d4 	ldrble	sp, [r4], #1236	@ 0x4d4
+    55f0:	e28fc600 	add	ip, pc, #0, 12
+    55f4:	e28cca01 	add	ip, ip, #4096	@ 0x1000
+    55f8:	e5bcf404 	ldr	pc, [ip, #1028]!	@ 0x404
+    55fc:	d4d4d4d4 	ldrble	sp, [r4], #1236	@ 0x4d4
+    5600:	e28fc600 	add	ip, pc, #0, 12
+    5604:	e28cca01 	add	ip, ip, #4096	@ 0x1000
+    5608:	e5bcf3f8 	ldr	pc, [ip, #1016]!	@ 0x3f8
+    560c:	d4d4d4d4 	ldrble	sp, [r4], #1236	@ 0x4d4
+    5610:	e28fc600 	add	ip, pc, #0, 12
+    5614:	e28cca01 	add	ip, ip, #4096	@ 0x1000
+    5618:	e5bcf3ec 	ldr	pc, [ip, #1004]!	@ 0x3ec
+    561c:	d4d4d4d4 	ldrble	sp, [r4], #1236	@ 0x4d4
+    5620:	e28fc600 	add	ip, pc, #0, 12
+    5624:	e28cca01 	add	ip, ip, #4096	@ 0x1000
+    5628:	e5bcf3e0 	ldr	pc, [ip, #992]!	@ 0x3e0
+    562c:	d4d4d4d4 	ldrble	sp, [r4], #1236	@ 0x4d4
+    5630:	e28fc600 	add	ip, pc, #0, 12
+    5634:	e28cca01 	add	ip, ip, #4096	@ 0x1000
+    5638:	e5bcf3d4 	ldr	pc, [ip, #980]!	@ 0x3d4
+    563c:	d4d4d4d4 	ldrble	sp, [r4], #1236	@ 0x4d4
+    5640:	e28fc600 	add	ip, pc, #0, 12
+    5644:	e28cca01 	add	ip, ip, #4096	@ 0x1000
+    5648:	e5bcf3c8 	ldr	pc, [ip, #968]!	@ 0x3c8
+    564c:	d4d4d4d4 	ldrble	sp, [r4], #1236	@ 0x4d4
+    5650:	e28fc600 	add	ip, pc, #0, 12
+    5654:	e28cca01 	add	ip, ip, #4096	@ 0x1000
+    5658:	e5bcf3bc 	ldr	pc, [ip, #956]!	@ 0x3bc
+    565c:	d4d4d4d4 	ldrble	sp, [r4], #1236	@ 0x4d4
+    5660:	e28fc600 	add	ip, pc, #0, 12
+    5664:	e28cca01 	add	ip, ip, #4096	@ 0x1000
+    5668:	e5bcf3b0 	ldr	pc, [ip, #944]!	@ 0x3b0
+    566c:	d4d4d4d4 	ldrble	sp, [r4], #1236	@ 0x4d4
+    5670:	e28fc600 	add	ip, pc, #0, 12
+    5674:	e28cca01 	add	ip, ip, #4096	@ 0x1000
+    5678:	e5bcf3a4 	ldr	pc, [ip, #932]!	@ 0x3a4
+    567c:	d4d4d4d4 	ldrble	sp, [r4], #1236	@ 0x4d4
+    5680:	e28fc600 	add	ip, pc, #0, 12
+    5684:	e28cca01 	add	ip, ip, #4096	@ 0x1000
+    5688:	e5bcf398 	ldr	pc, [ip, #920]!	@ 0x398
+    568c:	d4d4d4d4 	ldrble	sp, [r4], #1236	@ 0x4d4
+    5690:	e28fc600 	add	ip, pc, #0, 12
+    5694:	e28cca01 	add	ip, ip, #4096	@ 0x1000
+    5698:	e5bcf38c 	ldr	pc, [ip, #908]!	@ 0x38c
+    569c:	d4d4d4d4 	ldrble	sp, [r4], #1236	@ 0x4d4
+    56a0:	e28fc600 	add	ip, pc, #0, 12
+    56a4:	e28cca01 	add	ip, ip, #4096	@ 0x1000
+    56a8:	e5bcf380 	ldr	pc, [ip, #896]!	@ 0x380
+    56ac:	d4d4d4d4 	ldrble	sp, [r4], #1236	@ 0x4d4
+    56b0:	e28fc600 	add	ip, pc, #0, 12
+    56b4:	e28cca01 	add	ip, ip, #4096	@ 0x1000
+    56b8:	e5bcf374 	ldr	pc, [ip, #884]!	@ 0x374
+    56bc:	d4d4d4d4 	ldrble	sp, [r4], #1236	@ 0x4d4
+    56c0:	e28fc600 	add	ip, pc, #0, 12
+    56c4:	e28cca01 	add	ip, ip, #4096	@ 0x1000
+    56c8:	e5bcf368 	ldr	pc, [ip, #872]!	@ 0x368
+    56cc:	d4d4d4d4 	ldrble	sp, [r4], #1236	@ 0x4d4
+    56d0:	e28fc600 	add	ip, pc, #0, 12
+    56d4:	e28cca01 	add	ip, ip, #4096	@ 0x1000
+    56d8:	e5bcf35c 	ldr	pc, [ip, #860]!	@ 0x35c
+    56dc:	d4d4d4d4 	ldrble	sp, [r4], #1236	@ 0x4d4
+    56e0:	e28fc600 	add	ip, pc, #0, 12
+    56e4:	e28cca01 	add	ip, ip, #4096	@ 0x1000
+    56e8:	e5bcf350 	ldr	pc, [ip, #848]!	@ 0x350
+    56ec:	d4d4d4d4 	ldrble	sp, [r4], #1236	@ 0x4d4
+    56f0:	e28fc600 	add	ip, pc, #0, 12
+    56f4:	e28cca01 	add	ip, ip, #4096	@ 0x1000
+    56f8:	e5bcf344 	ldr	pc, [ip, #836]!	@ 0x344
+    56fc:	d4d4d4d4 	ldrble	sp, [r4], #1236	@ 0x4d4
+    5700:	e28fc600 	add	ip, pc, #0, 12
+    5704:	e28cca01 	add	ip, ip, #4096	@ 0x1000
+    5708:	e5bcf338 	ldr	pc, [ip, #824]!	@ 0x338
+    570c:	d4d4d4d4 	ldrble	sp, [r4], #1236	@ 0x4d4
+    5710:	e28fc600 	add	ip, pc, #0, 12
+    5714:	e28cca01 	add	ip, ip, #4096	@ 0x1000
+    5718:	e5bcf32c 	ldr	pc, [ip, #812]!	@ 0x32c
+    571c:	d4d4d4d4 	ldrble	sp, [r4], #1236	@ 0x4d4
+    5720:	e28fc600 	add	ip, pc, #0, 12
+    5724:	e28cca01 	add	ip, ip, #4096	@ 0x1000
+    5728:	e5bcf320 	ldr	pc, [ip, #800]!	@ 0x320
+    572c:	d4d4d4d4 	ldrble	sp, [r4], #1236	@ 0x4d4
+    5730:	e28fc600 	add	ip, pc, #0, 12
+    5734:	e28cca01 	add	ip, ip, #4096	@ 0x1000
+    5738:	e5bcf314 	ldr	pc, [ip, #788]!	@ 0x314
+    573c:	d4d4d4d4 	ldrble	sp, [r4], #1236	@ 0x4d4
+    5740:	e28fc600 	add	ip, pc, #0, 12
+    5744:	e28cca01 	add	ip, ip, #4096	@ 0x1000
+    5748:	e5bcf308 	ldr	pc, [ip, #776]!	@ 0x308
+    574c:	d4d4d4d4 	ldrble	sp, [r4], #1236	@ 0x4d4
+    5750:	e28fc600 	add	ip, pc, #0, 12
+    5754:	e28cca01 	add	ip, ip, #4096	@ 0x1000
+    5758:	e5bcf2fc 	ldr	pc, [ip, #764]!	@ 0x2fc
+    575c:	d4d4d4d4 	ldrble	sp, [r4], #1236	@ 0x4d4
+    5760:	e28fc600 	add	ip, pc, #0, 12
+    5764:	e28cca01 	add	ip, ip, #4096	@ 0x1000
+    5768:	e5bcf2f0 	ldr	pc, [ip, #752]!	@ 0x2f0
+    576c:	d4d4d4d4 	ldrble	sp, [r4], #1236	@ 0x4d4
+    5770:	e28fc600 	add	ip, pc, #0, 12
+    5774:	e28cca01 	add	ip, ip, #4096	@ 0x1000
+    5778:	e5bcf2e4 	ldr	pc, [ip, #740]!	@ 0x2e4
+    577c:	d4d4d4d4 	ldrble	sp, [r4], #1236	@ 0x4d4
+    5780:	e28fc600 	add	ip, pc, #0, 12
+    5784:	e28cca01 	add	ip, ip, #4096	@ 0x1000
+    5788:	e5bcf2d8 	ldr	pc, [ip, #728]!	@ 0x2d8
+    578c:	d4d4d4d4 	ldrble	sp, [r4], #1236	@ 0x4d4
+    5790:	e28fc600 	add	ip, pc, #0, 12
+    5794:	e28cca01 	add	ip, ip, #4096	@ 0x1000
+    5798:	e5bcf2cc 	ldr	pc, [ip, #716]!	@ 0x2cc
+    579c:	d4d4d4d4 	ldrble	sp, [r4], #1236	@ 0x4d4
+    57a0:	e28fc600 	add	ip, pc, #0, 12
+    57a4:	e28cca01 	add	ip, ip, #4096	@ 0x1000
+    57a8:	e5bcf2c0 	ldr	pc, [ip, #704]!	@ 0x2c0
+    57ac:	d4d4d4d4 	ldrble	sp, [r4], #1236	@ 0x4d4
+    57b0:	e28fc600 	add	ip, pc, #0, 12
+    57b4:	e28cca01 	add	ip, ip, #4096	@ 0x1000
+    57b8:	e5bcf2b4 	ldr	pc, [ip, #692]!	@ 0x2b4
+    57bc:	d4d4d4d4 	ldrble	sp, [r4], #1236	@ 0x4d4
+    57c0:	e28fc600 	add	ip, pc, #0, 12
+    57c4:	e28cca01 	add	ip, ip, #4096	@ 0x1000
+    57c8:	e5bcf2a8 	ldr	pc, [ip, #680]!	@ 0x2a8
+    57cc:	d4d4d4d4 	ldrble	sp, [r4], #1236	@ 0x4d4
+    57d0:	e28fc600 	add	ip, pc, #0, 12
+    57d4:	e28cca01 	add	ip, ip, #4096	@ 0x1000
+    57d8:	e5bcf29c 	ldr	pc, [ip, #668]!	@ 0x29c
+    57dc:	d4d4d4d4 	ldrble	sp, [r4], #1236	@ 0x4d4
+    57e0:	e28fc600 	add	ip, pc, #0, 12
+    57e4:	e28cca01 	add	ip, ip, #4096	@ 0x1000
+    57e8:	e5bcf290 	ldr	pc, [ip, #656]!	@ 0x290
+    57ec:	d4d4d4d4 	ldrble	sp, [r4], #1236	@ 0x4d4
+    57f0:	e28fc600 	add	ip, pc, #0, 12
+    57f4:	e28cca01 	add	ip, ip, #4096	@ 0x1000
+    57f8:	e5bcf284 	ldr	pc, [ip, #644]!	@ 0x284
+    57fc:	d4d4d4d4 	ldrble	sp, [r4], #1236	@ 0x4d4
+    5800:	e28fc600 	add	ip, pc, #0, 12
+    5804:	e28cca01 	add	ip, ip, #4096	@ 0x1000
+    5808:	e5bcf278 	ldr	pc, [ip, #632]!	@ 0x278
+    580c:	d4d4d4d4 	ldrble	sp, [r4], #1236	@ 0x4d4
+    5810:	e28fc600 	add	ip, pc, #0, 12
+    5814:	e28cca01 	add	ip, ip, #4096	@ 0x1000
+    5818:	e5bcf26c 	ldr	pc, [ip, #620]!	@ 0x26c
+    581c:	d4d4d4d4 	ldrble	sp, [r4], #1236	@ 0x4d4
+    5820:	e28fc600 	add	ip, pc, #0, 12
+    5824:	e28cca01 	add	ip, ip, #4096	@ 0x1000
+    5828:	e5bcf260 	ldr	pc, [ip, #608]!	@ 0x260
+    582c:	d4d4d4d4 	ldrble	sp, [r4], #1236	@ 0x4d4
+    5830:	e28fc600 	add	ip, pc, #0, 12
+    5834:	e28cca01 	add	ip, ip, #4096	@ 0x1000
+    5838:	e5bcf254 	ldr	pc, [ip, #596]!	@ 0x254
+    583c:	d4d4d4d4 	ldrble	sp, [r4], #1236	@ 0x4d4
+    5840:	e28fc600 	add	ip, pc, #0, 12
+    5844:	e28cca01 	add	ip, ip, #4096	@ 0x1000
+    5848:	e5bcf248 	ldr	pc, [ip, #584]!	@ 0x248
+    584c:	d4d4d4d4 	ldrble	sp, [r4], #1236	@ 0x4d4
+    5850:	e28fc600 	add	ip, pc, #0, 12
+    5854:	e28cca01 	add	ip, ip, #4096	@ 0x1000
+    5858:	e5bcf23c 	ldr	pc, [ip, #572]!	@ 0x23c
+    585c:	d4d4d4d4 	ldrble	sp, [r4], #1236	@ 0x4d4
+    5860:	e28fc600 	add	ip, pc, #0, 12
+    5864:	e28cca01 	add	ip, ip, #4096	@ 0x1000
+    5868:	e5bcf230 	ldr	pc, [ip, #560]!	@ 0x230
+    586c:	d4d4d4d4 	ldrble	sp, [r4], #1236	@ 0x4d4
+    5870:	e28fc600 	add	ip, pc, #0, 12
+    5874:	e28cca01 	add	ip, ip, #4096	@ 0x1000
+    5878:	e5bcf224 	ldr	pc, [ip, #548]!	@ 0x224
+    587c:	d4d4d4d4 	ldrble	sp, [r4], #1236	@ 0x4d4

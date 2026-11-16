@@ -1,0 +1,26 @@
+Uploaded target Samsung camera libraries
+Analysis time (UTC): 2026-11-16T09:14:28Z
+
+===== libhwjsqz.so =====
+Size: 21340 bytes
+63936c0cf08afdf919d6a0a6e38e3887c69a4b8c8b81a7abca5e9b1178a6f1fd  libhwjsqz.so
+libhwjsqz.so: ELF 32-bit LSB shared object, ARM, EABI5 version 1 (SYSV), dynamically linked, for Android 31, BuildID[md5/uuid]=2954034e91ab9505aef839b7d9feded0, stripped
+  Class:                             ELF32
+  Data:                              2's complement, little endian
+  Type:                              DYN (Shared object file)
+  Machine:                           ARM
+  Entry point address:               0x2dd8
+  GNU                  0x00000010	NT_GNU_BUILD_ID (unique build ID bitstring)
+    Build ID: 2954034e91ab9505aef839b7d9feded0
+
+===== libexynoscamera3.so =====
+Size: 1834728 bytes
+ec9a8f366cefbd4af14d84ec918c13949db5ec4d7c731be8bb72a50951715c0d  libexynoscamera3.so
+libexynoscamera3.so: ELF 32-bit LSB shared object, ARM, EABI5 version 1 (SYSV), dynamically linked, for Android 31, BuildID[md5/uuid]=1b7a6dfaf4dcbf7034b467a6fcec2fc1, stripped
+  Class:                             ELF32
+  Data:                              2's complement, little endian
+  Type:                              DYN (Shared object file)
+  Machine:                           ARM
+  Entry point address:               0xaabd8
+  GNU                  0x00000010	NT_GNU_BUILD_ID (unique build ID bitstring)
+    Build ID: 1b7a6dfaf4dcbf7034b467a6fcec2fc1
