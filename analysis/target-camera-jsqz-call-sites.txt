@@ -1,5 +1,37 @@
-Calls from the exact target libexynoscamera3.so into exact target libhwjsqz.so imports
-PLT labels for ExynosJsqz were resolved from this camera HAL's own .plt section.
-Resolved ExynosJsqz PLT destinations: 0
-Direct call instructions targeting those PLT entries: 0
+Resolved JSQZ calls in the exact installed target camera HAL
 
+The earlier automatic symbol-name scan was not capable of annotating the ARM32 PLT stubs and its "0 calls" result was a false negative. The correct mapping is derived from:
+- camera HAL .plt base: 0x199260
+- first R_ARM_JUMP_SLOT GOT address: 0x1a0b5c
+- each ARM32 PLT relocation consumes a 16-byte stub and a 4-byte GOT slot
+
+For a relocation at GOT address G:
+  PLT stub = 0x199280 + ((G - 0x1a0b5c) / 4) * 0x10
+
+The JSQZ import relocation table:
+  0x1a0de8 ExynosJsqz::ExynosJsqz()                          -> PLT 0x199cb0
+  0x1a0dec ExynosJsqz::create()                              -> PLT 0x199cc0
+  0x1a0df4 ExynosJsqz::destroy()                             -> PLT 0x199ce0
+  0x1a0dfc ExynosJsqz::setInBuf(int*, unsigned int*, int)   -> PLT 0x199d00
+  0x1a0e00 ExynosJsqz::setImageInfo(...)                    -> PLT 0x199d10
+  0x1a0e04 ExynosJsqz::setJsqzConfig(...)                   -> PLT 0x199d20
+  0x1a0e08 ExynosJsqz::run()                                -> PLT 0x199d30
+  0x1a0e0c ExynosJsqz::getResultQT(unsigned char*)           -> PLT 0x199d40
+
+The exact function android::ExynosCamera::m_jpegSqueezerThreadFunc() at 0x136dac contains:
+  0x136ee0: blx 0x199d00  -> ExynosJsqz::setInBuf(...)
+  0x136ef0: blx 0x199d10  -> ExynosJsqz::setImageInfo(...)
+  0x136efa: blx 0x199d20  -> ExynosJsqz::setJsqzConfig(...)
+  0x136f00: blx 0x199d30  -> ExynosJsqz::run()
+  0x136f0a: blx 0x199d40  -> ExynosJsqz::getResultQT(...)
+
+After the final call, the same function:
+  0x136f12: calls ExynosCameraConfigurations::setJpegQtable(...)
+  0x136f1a: calls ExynosCameraConfigurations::setJpegQtableStatus(1)
+
+This directly proves that the exact installed camera HAL contains a worker path which invokes the JSQZ API and forwards the generated Q-table.
+
+Runtime caveat:
+The worker has preconditions and early/error branches before these calls. The static call sites do not prove that the user's particular Camera2 JPEG capture reached them. The existing syscall trace observed no 0xC1344D00 ioctl, so runtime execution remains unconfirmed.
+
+See target-jsqz-confirmed-callflow.md for the underlying library open/create/run/execute chain and the limits of this finding.
