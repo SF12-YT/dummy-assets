@@ -1,6 +1,6 @@
 # Exynos 9820 JSQZ — camera HAL integration and access-control analysis
 
-**As of:** 15 November 2026  
+**As of:** 16 November 2026  
 **Target:** Samsung Galaxy S10e SM-G970F (beyond0lte), Exynos 9820  
 **Question:** Why does the camera HAL report `/dev/jsqz` open failure with error 13 when a root-run userspace probe can use the same device?
 
@@ -98,49 +98,70 @@ This device-tree configuration is particularly relevant because the S10e product
 
 ## 3. What the HAL evidence proves
 
-The user's capture log establishes that the installed camera path tried to open `/dev/jsqz` and that the open failed before a JSQZ task could be submitted for that capture. The fact that JPEG capture still completed means the camera stack can continue without a successful JSQZ open; the exact fallback implementation in the installed, build-mismatched camera HAL has not yet been reconstructed.
+The user's earlier EACCES log established that an earlier camera attempt could not open `/dev/jsqz`. The exact target binaries have now been extracted and analysed, so we can distinguish the intended code path from whether a particular capture actually reached it.
 
-A public Beyond0 reference camera HAL imports the `ExynosJsqz` API methods, including buffer setup, image configuration, `run()` and `getResultQT()`, and contains the Samsung hardware-JQ log strings. Its Build ID differs from the installed target camera HAL, so it establishes a reference implementation, not exact control flow for the target binary.
+The installed `libexynoscamera3.so` depends on the installed `libhwjsqz.so` and imports the JSQZ constructor, create/destroy, buffer setup, image-info, configuration, run and Q-table retrieval methods. Its `m_jpegSqueezerThreadFunc()` contains direct calls to the JSQZ API and then stores the returned Q-table in camera configuration.
 
-The corresponding public `libhwjsqz.so` reference is 32-bit ARM. Its disassembly exposes an `openNode()` path using read/write access and an `execute()` path submitting the 32-bit compat request `0xC1344D00`. The same library includes the `/dev/jsqz` string and an explicit diagnostic for device-node open failure. This supports the expected userspace interface but does not replace analysis of the installed binary.
+The exact target `libhwjsqz.so` opens `/dev/jsqz` read/write from `ExynosSqzBase::openNode()`. Its `ExynosJsqz::run()` dispatches to `ExynosSqzBase::execute()`, which submits `0xC1344D00` through libc `ioctl()` after checking the instance and input buffers. These are findings from the exact installed target build, not the public comparison binary.
 
-## 4. What the reference JSQZ HAL does at the node boundary
+## 4. Exact target library node and ioctl implementation
 
-The public 32-bit ARM `libhwjsqz.so` reference has an `ExynosSqzBase::openNode()` method. Its disassembly:
+The exact installed `libhwjsqz.so` is ELF32 ARM, Build ID `2954034e91ab9505aef839b7d9feded0`. Its `ExynosSqzBase::openNode()` at `0x5428`:
 
-- loads the `/dev/jsqz` path from a PC-relative literal;
-- sets the second argument to `2` (`O_RDWR`) and the mode argument to zero;
-- calls through a PLT/thunk target consistent with its imported libc `open()`;
-- stores the returned descriptor and explicitly compares it with `-1` before taking the failure path.
+- loads the embedded `/dev/jsqz` path;
+- sets `r1 = 2` (`O_RDWR`) and `r2 = 0`;
+- calls the PLT entry resolving to `open@LIBC`;
+- stores the descriptor at object offset `+8` and takes the error path when the result is negative.
 
-The library's strings include the diagnostic `JSQZ device node (%s) opening failed with error %d: %s`, matching the kind of failure shown in the user's camera capture log. Its `ExynosSqzBase::execute()` code constructs ioctl request `0xC1344D00`, the 32-bit compat ioctl confirmed by the target kernel and the library's 308-byte ABI.
+`ExynosSqzBase::create()` calls `openNode()` and only marks the instance initialised after a successful return. `ExynosJsqz::create()` dispatches to this base implementation.
 
-This makes the intended transaction sequence concrete in the reference implementation: open the node read/write, then submit the compat ioctl. The user's recorded EACCES occurs at the first step, so no JSQZ task would be submitted by that failed open attempt.
+The exact `ExynosSqzBase::execute()` at `0x517c` validates the initialised state and input buffer(s), loads the descriptor from object offset `+8`, constructs `0xC1344D00`, and calls `ioctl@LIBC` with a task structure at `this + 12`. `ExynosJsqz::run()` dispatches to this execute method. The separate `execute_msqz()` builds `0xC03C4D01` with a task structure at `this + 0x140`.
 
-The reference HAL's Build ID is still different from the installed target library. These method-level findings corroborate the API shape and failure point, but they are not exact disassembly of the installed target build.
+Thus the exact target transaction is:
 
-## 5. Why the previous zero-call-site scan is inconclusive
+```c
+fd = open("/dev/jsqz", O_RDWR, 0);
+ioctl(fd, 0xC1344D00, task);
+```
 
-The earlier reference-camera-HAL scan looked only for direct `bl`/`blx` instruction lines that literally contained a demangled `ExynosJsqz::...` name. It reported zero matches. That is not a reliable proof that no call exists: ARM32 position-independent code can load an external function address through the GOT/PLT and branch indirectly via a register; virtual dispatch can also use vtable-loaded function pointers. Those call instructions do not contain the target C++ symbol name as text.
+The code proves what the target library does when those methods are reached. It does not by itself prove that a particular Camera2 capture reached the ioctl instruction.
 
-The reference camera HAL's dynamic symbol table does contain undefined imports for the JSQZ methods, and the strings include Jpeg Squeezer log messages and Q-table forwarding diagnostics. That establishes a link-time dependency and integration code, not the reachability of every path in a particular capture. A stronger call graph would require a relocation-aware PLT/GOT scan and analysis of the actual installed camera HAL binary.
+## 5. Exact target camera HAL call path
+
+The exact installed `libexynoscamera3.so` is ELF32 ARM, Build ID `1b7a6dfaf4dcbf7034b467a6fcec2fc1`. It has a dynamic dependency on `libhwjsqz.so` and imports all methods used by the worker.
+
+Its `android::ExynosCamera::m_jpegSqueezerThreadFunc()` at `0x136dac` has these calls, resolved against the target camera HAL's own `R_ARM_JUMP_SLOT` relocation table and ARM32 PLT layout:
+
+```asm
+0x136ee0  blx 0x199d00   ; ExynosJsqz::setInBuf(...)
+0x136ef0  blx 0x199d10   ; ExynosJsqz::setImageInfo(...)
+0x136efa  blx 0x199d20   ; ExynosJsqz::setJsqzConfig(...)
+0x136f00  blx 0x199d30   ; ExynosJsqz::run()
+0x136f0a  blx 0x199d40   ; ExynosJsqz::getResultQT(...)
+```
+
+After retrieving the table, the same function calls `ExynosCameraConfigurations::setJpegQtable()` and sets Q-table status to 1. This is direct target-binary evidence of a real JPEG-squeezer code path, not just a linked dependency or a lifecycle log.
+
+The worker has early-return/error branches. It checks that a frame is queued, that capture setup succeeds, that the input format is one of its supported FourCC values (`NV21` or `NM21`), and that its size/count values are positive before entering the JSQZ call sequence. In addition, `ExynosSqzBase::execute()` can return before the ioctl if its instance or buffer checks fail.
+
+The earlier text-only call-site scan that reported zero calls was a PLT-symbol annotation false negative. The relocation-aware mapping above resolves the actual call instructions correctly.
 
 ## 6. Interpretation and limits
 
 **What is now strongly supported:**
 
 1. The hardware block and kernel driver can run when a privileged caller opens the node and submits a valid DMA-BUF task.
-2. The normal camera path attempts to access the JSQZ node.
-3. The target node's recorded `0600 root:root` mode is sufficient by itself to deny access to a non-root camera process.
-4. The Exynos 9820 common device tree explicitly solves this with a ueventd `0660 cameraserver:camera` rule and matching SELinux policy.
+2. The exact target JSQZ library opens `/dev/jsqz` read/write from its create path and submits `0xC1344D00` from its execute path.
+3. The exact target camera HAL has a JPEG-squeezer worker that calls `setInBuf()`, `setImageInfo()`, `setJsqzConfig()`, `run()` and `getResultQT()`, then stores the returned Q-table.
+4. The target node's recorded `0600 root:root` mode is sufficient by itself to deny access to the non-root camera HAL; the temporary `0660 1047:1006` correction is compatible with its UID/GID and the loaded SELinux allow rule.
+5. The Exynos 9820 common device tree explicitly solves the DAC issue with a ueventd `0660 cameraserver:camera` rule and matching SELinux policy.
 
 **What is not yet established:**
 
 - Whether the installed ROM has no matching ueventd rule, or whether another startup action later resets the mode.
-- The exact SELinux context of the live node on the target device.
-- Whether SELinux also denies the access (no relevant AVC record has been captured).
-- The exact target HAL fallback branch after `open()` fails.
-- Whether the installed target HAL and the public Beyond0 reference HAL are functionally identical.
+- Whether the JSQZ worker reached its JSQZ call sequence during the user's specific Camera2 capture.
+- Whether the target HAL's create path successfully opened the node and held a valid descriptor during that capture.
+- Why the captured provider syscall trace did not contain a known JSQZ ioctl despite the static route being present.
 
 No permissions, ownership, or SELinux policy have been changed on the user's device. A blanket `chmod 666`, running the camera service as root, or setting SELinux permissive is not an appropriate diagnostic fix. A ROM-level integration should use the narrowly scoped ueventd rule and SELinux type/allow rule shown above.
 
@@ -148,9 +169,9 @@ A ready-to-run, read-only collector is available at [`jsqz_camera_access_audit.s
 
 ## 7. Next useful verification
 
-The remaining device-side uncertainty is narrow: inspect the active node's SELinux label and the live camera service domain, then check whether an AVC record exists for the failed open. That distinguishes a missing DAC rule from an additional SELinux denial. It does not require another JSQZ ioctl or another synthetic frame.
+The device label, camera HAL domain, loaded JSQZ allow rule and absence of a matching AVC have since been checked. The remaining uncertainty is runtime control flow: whether the capture queued a frame that passed the squeezer worker's format/setup checks, and whether the JSQZ instance opened the node successfully.
 
-Until that is checked, the most accurate conclusion is: **the camera HAL's JSQZ open is being blocked at the device-node access layer; the recorded root:root 0600 mode is already sufficient to explain the failure.**
+The static call path is now understood from the exact target binaries. Do not repeat broad syscall captures or synthetic hardware ioctl tests just to reconfirm the method implementation. A future runtime test should be narrowly designed to distinguish the create/open stage from the worker/run stage, without changing firmware or kernel state.
 
 
 ## 8. Live permission test and HAL lifecycle follow-up — 15 November 2026
@@ -174,7 +195,7 @@ During camera use, the user captured:
 11-15 21:08:42.006  5446  6045 I jsqz_hal: jsqz instance is destroyed
 ```
 
-This is evidence that the JSQZ wrapper lifecycle is now being entered. The old open-failure message was not present in this capture. However, the create/destroy messages alone do **not** prove that `open("/dev/jsqz", O_RDWR)` succeeded or that ioctl `0xC1344D00` was submitted. The exact installed target HAL build (`2954034e91ab9505aef839b7d9feded0`) has not been disassembled here; the public comparison library has a different Build ID.
+This is evidence that the JSQZ wrapper lifecycle is now being entered. The old open-failure message was not present in this capture. However, the create/destroy messages alone do **not** prove that `open("/dev/jsqz", O_RDWR)` succeeded or that ioctl `0xC1344D00` was submitted. Exact target binaries were subsequently disassembled on 16 November; see sections 11 and 12 below. The static call path exists, but the earlier runtime syscall trace still did not show the expected ioctl.
 
 A stored earlier camera log (`mfp_10x_live.log`, 14 November) contained repeated errors from JSQZ wrapper calls stating that the device had to be created first. The 15 November lifecycle messages are a material change in the observed log output, but they still do not reveal the final ioctl result.
 
@@ -211,7 +232,37 @@ The current best status is:
 2. **SELinux policy and label:** consistent with access; no AVC observed.
 3. **Camera still works with the corrected node:** confirmed by the user.
 4. **JSQZ instance lifecycle during camera use:** confirmed by logcat.
-5. **Successful JSQZ open and ioctl from the installed HAL:** not yet directly confirmed.
+5. **Target HAL's intended open and ioctl implementation:** confirmed from exact binaries. **Successful open and ioctl during the user's particular Camera2 capture:** not yet directly confirmed.
 6. **Reboot-persistent permission change:** candidate designed from boot ordering, but not installed or tested.
 
 The least intrusive next verification of a successful open is to inspect the camera-provider process's open file descriptors while the JSQZ instance is active and look for `/dev/jsqz`. If the file descriptor is opened and retained during that lifetime, this proves the node open succeeded. A missing descriptor is inconclusive because the HAL may open/close it quickly. Direct ioctl confirmation would require tracing the provider's ioctl syscall or a target HAL instrumentation point; attaching a tracer can perturb the camera service and is not the first choice on this no-PC recovery situation.
+
+
+## 11. Exact installed target binary analysis — 16 November 2026
+
+The user uploaded the device's actual `libhwjsqz.so` and `libexynoscamera3.so` files to the repository. Their ELF Build IDs and SHA-256 hashes match the versions collected from the installed `/vendor/lib` directory:
+
+| Library | Build ID | SHA-256 |
+|---|---|---|
+| `libhwjsqz.so` | `2954034e91ab9505aef839b7d9feded0` | `63936c0cf08afdf919d6a0a6e38e3887c69a4b8c8b81a7abca5e9b1178a6f1fd` |
+| `libexynoscamera3.so` | `1b7a6dfaf4dcbf7034b467a6fcec2fc1` | `ec9a8f366cefbd4af14d84ec918c13949db5ec4d7c731be8bb72a50951715c0d` |
+
+This is no longer reference-build analysis. The exact Samsung target binaries are available in the repository root, and the disassembly reports are stored under `analysis/target-*.txt`.
+
+### Camera worker's JSQZ sequence
+
+The exact target camera HAL's `m_jpegSqueezerThreadFunc()` calls the JSQZ methods in order: `setInBuf()`, `setImageInfo()`, `setJsqzConfig()`, `run()`, and `getResultQT()`. It then stores the returned Q-table with `ExynosCameraConfigurations::setJpegQtable()` and sets the Q-table status to 1.
+
+The call sites are at `0x136ee0`, `0x136ef0`, `0x136efa`, `0x136f00`, and `0x136f0a`. They resolve through the camera HAL's own ARM32 PLT slots to the imported `ExynosJsqz` methods. The worker only reaches this block after its frame/setup/format/size checks; it is not executed unconditionally for every JPEG request.
+
+### Runtime discrepancy remains
+
+The Camera2 probe's logcat showed the JSQZ object lifecycle and Samsung hardware-JQ Q-table initialisation/deinitialisation logs. However, the existing syscall trace found no `0xC1344D00` or `0xC03C4D01` ioctl. These facts are compatible: the object and worker can be created while a particular frame still takes an early/error branch, or while the instance is not successfully initialised. The trace does not establish which condition occurred.
+
+The strongest current conclusion is therefore:
+
+- **Static integration:** confirmed. Samsung's installed camera HAL contains a real code path that calls the JSQZ library, and that library opens `/dev/jsqz` and issues the JSQZ ioctl when its validation passes.
+- **Observed use in that particular Camera2 capture:** not yet confirmed. No JSQZ ioctl was seen in the captured runtime trace.
+- **Stock/non-root public APK:** cannot directly access or repair permissions on `/dev/jsqz`; it can only ask the OEM Camera2 pipeline to perform a capture. Whether JSQZ actually runs depends on the OEM HAL's conditions and node access configuration.
+
+See the detailed address-by-address evidence in [`target-jsqz-confirmed-callflow.md`](target-jsqz-confirmed-callflow.md).
