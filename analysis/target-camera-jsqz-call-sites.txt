@@ -1,0 +1,5 @@
+Calls from the exact target libexynoscamera3.so into exact target libhwjsqz.so imports
+PLT labels for ExynosJsqz were resolved from this camera HAL's own .plt section.
+Resolved ExynosJsqz PLT destinations: 0
+Direct call instructions targeting those PLT entries: 0
+

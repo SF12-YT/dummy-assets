@@ -1,0 +1,197 @@
+
+libexynoscamera3.so:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+00136dac <android::ExynosCamera::m_jpegSqueezerThreadFunc()@@Base>:
+  136dac:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+  136db0:	f5ad 7d43 	sub.w	sp, sp, #780	@ 0x30c
+  136db4:	4604      	mov	r4, r0
+  136db6:	4877      	ldr	r0, [pc, #476]	@ (136f94 <android::ExynosCamera::m_jpegSqueezerThreadFunc()@@Base+0x1e8>)
+  136db8:	f44f 71c6 	mov.w	r1, #396	@ 0x18c
+  136dbc:	4478      	add	r0, pc
+  136dbe:	f8d0 8000 	ldr.w	r8, [r0]
+  136dc2:	f8d8 0000 	ldr.w	r0, [r8]
+  136dc6:	90c2      	str	r0, [sp, #776]	@ 0x308
+  136dc8:	af26      	add	r7, sp, #152	@ 0x98
+  136dca:	4638      	mov	r0, r7
+  136dcc:	f062 e8a2 	blx	198f14 <std::__1::pair<std::__1::__hash_iterator<std::__1::__hash_node<std::__1::__hash_value_type<unsigned int, int>, void*>*>, bool> std::__1::__hash_table<std::__1::__hash_value_type<unsigned int, int>, std::__1::__unordered_map_hasher<unsigned int, std::__1::__hash_value_type<unsigned int, int>, std::__1::hash<unsigned int>, true>, std::__1::__unordered_map_equal<unsigned int, std::__1::__hash_value_type<unsigned int, int>, std::__1::equal_to<unsigned int>, true>, std::__1::allocator<std::__1::__hash_value_type<unsigned int, int> > >::__emplace_unique_key_args<unsigned int, std::__1::pair<unsigned int, int> >(unsigned int const&, std::__1::pair<unsigned int, int>&&)@@Base+0x9e8>
+  136dd0:	f507 70b8 	add.w	r0, r7, #368	@ 0x170
+  136dd4:	2118      	movs	r1, #24
+  136dd6:	22ff      	movs	r2, #255	@ 0xff
+  136dd8:	f062 e894 	blx	198f04 <std::__1::pair<std::__1::__hash_iterator<std::__1::__hash_node<std::__1::__hash_value_type<unsigned int, int>, void*>*>, bool> std::__1::__hash_table<std::__1::__hash_value_type<unsigned int, int>, std::__1::__unordered_map_hasher<unsigned int, std::__1::__hash_value_type<unsigned int, int>, std::__1::hash<unsigned int>, true>, std::__1::__unordered_map_equal<unsigned int, std::__1::__hash_value_type<unsigned int, int>, std::__1::equal_to<unsigned int>, true>, std::__1::allocator<std::__1::__hash_value_type<unsigned int, int> > >::__emplace_unique_key_args<unsigned int, std::__1::pair<unsigned int, int> >(unsigned int const&, std::__1::pair<unsigned int, int>&&)@@Base+0x9d8>
+  136ddc:	2500      	movs	r5, #0
+  136dde:	2001      	movs	r0, #1
+  136de0:	f107 0b0c 	add.w	fp, r7, #12
+  136de4:	f04f 36ff 	mov.w	r6, #4294967295	@ 0xffffffff
+  136de8:	2188      	movs	r1, #136	@ 0x88
+  136dea:	22ff      	movs	r2, #255	@ 0xff
+  136dec:	e9cd 5027 	strd	r5, r0, [sp, #156]	@ 0x9c
+  136df0:	4658      	mov	r0, fp
+  136df2:	f88d 5220 	strb.w	r5, [sp, #544]	@ 0x220
+  136df6:	9626      	str	r6, [sp, #152]	@ 0x98
+  136df8:	f062 e884 	blx	198f04 <std::__1::pair<std::__1::__hash_iterator<std::__1::__hash_node<std::__1::__hash_value_type<unsigned int, int>, void*>*>, bool> std::__1::__hash_table<std::__1::__hash_value_type<unsigned int, int>, std::__1::__unordered_map_hasher<unsigned int, std::__1::__hash_value_type<unsigned int, int>, std::__1::hash<unsigned int>, true>, std::__1::__unordered_map_equal<unsigned int, std::__1::__hash_value_type<unsigned int, int>, std::__1::equal_to<unsigned int>, true>, std::__1::allocator<std::__1::__hash_value_type<unsigned int, int> > >::__emplace_unique_key_args<unsigned int, std::__1::pair<unsigned int, int> >(unsigned int const&, std::__1::pair<unsigned int, int>&&)@@Base+0x9d8>
+  136dfc:	f507 70c6 	add.w	r0, r7, #396	@ 0x18c
+  136e00:	2144      	movs	r1, #68	@ 0x44
+  136e02:	f062 e888 	blx	198f14 <std::__1::pair<std::__1::__hash_iterator<std::__1::__hash_node<std::__1::__hash_value_type<unsigned int, int>, void*>*>, bool> std::__1::__hash_table<std::__1::__hash_value_type<unsigned int, int>, std::__1::__unordered_map_hasher<unsigned int, std::__1::__hash_value_type<unsigned int, int>, std::__1::hash<unsigned int>, true>, std::__1::__unordered_map_equal<unsigned int, std::__1::__hash_value_type<unsigned int, int>, std::__1::equal_to<unsigned int>, true>, std::__1::allocator<std::__1::__hash_value_type<unsigned int, int> > >::__emplace_unique_key_args<unsigned int, std::__1::pair<unsigned int, int> >(unsigned int const&, std::__1::pair<unsigned int, int>&&)@@Base+0x9e8>
+  136e06:	f107 0994 	add.w	r9, r7, #148	@ 0x94
+  136e0a:	21cc      	movs	r1, #204	@ 0xcc
+  136e0c:	4648      	mov	r0, r9
+  136e0e:	f062 e882 	blx	198f14 <std::__1::pair<std::__1::__hash_iterator<std::__1::__hash_node<std::__1::__hash_value_type<unsigned int, int>, void*>*>, bool> std::__1::__hash_table<std::__1::__hash_value_type<unsigned int, int>, std::__1::__unordered_map_hasher<unsigned int, std::__1::__hash_value_type<unsigned int, int>, std::__1::hash<unsigned int>, true>, std::__1::__unordered_map_equal<unsigned int, std::__1::__hash_value_type<unsigned int, int>, std::__1::equal_to<unsigned int>, true>, std::__1::allocator<std::__1::__hash_value_type<unsigned int, int> > >::__emplace_unique_key_args<unsigned int, std::__1::pair<unsigned int, int> >(unsigned int const&, std::__1::pair<unsigned int, int>&&)@@Base+0x9e8>
+  136e12:	f507 70e8 	add.w	r0, r7, #464	@ 0x1d0
+  136e16:	2188      	movs	r1, #136	@ 0x88
+  136e18:	22ff      	movs	r2, #255	@ 0xff
+  136e1a:	f062 e874 	blx	198f04 <std::__1::pair<std::__1::__hash_iterator<std::__1::__hash_node<std::__1::__hash_value_type<unsigned int, int>, void*>*>, bool> std::__1::__hash_table<std::__1::__hash_value_type<unsigned int, int>, std::__1::__unordered_map_hasher<unsigned int, std::__1::__hash_value_type<unsigned int, int>, std::__1::hash<unsigned int>, true>, std::__1::__unordered_map_equal<unsigned int, std::__1::__hash_value_type<unsigned int, int>, std::__1::equal_to<unsigned int>, true>, std::__1::allocator<std::__1::__hash_value_type<unsigned int, int> > >::__emplace_unique_key_args<unsigned int, std::__1::pair<unsigned int, int> >(unsigned int const&, std::__1::pair<unsigned int, int>&&)@@Base+0x9d8>
+  136e1e:	efc0 0050 	vmov.i32	q8, #0	@ 0x00000000
+  136e22:	f507 70b0 	add.w	r0, r7, #352	@ 0x160
+  136e26:	e9cd 55bc 	strd	r5, r5, [sp, #752]	@ 0x2f0
+  136e2a:	96c0      	str	r6, [sp, #768]	@ 0x300
+  136e2c:	e9cd 66be 	strd	r6, r6, [sp, #760]	@ 0x2f8
+  136e30:	2180      	movs	r1, #128	@ 0x80
+  136e32:	f940 0acf 	vst1.64	{d16-d17}, [r0]
+  136e36:	a806      	add	r0, sp, #24
+  136e38:	f062 e86c 	blx	198f14 <std::__1::pair<std::__1::__hash_iterator<std::__1::__hash_node<std::__1::__hash_value_type<unsigned int, int>, void*>*>, bool> std::__1::__hash_table<std::__1::__hash_value_type<unsigned int, int>, std::__1::__unordered_map_hasher<unsigned int, std::__1::__hash_value_type<unsigned int, int>, std::__1::hash<unsigned int>, true>, std::__1::__unordered_map_equal<unsigned int, std::__1::__hash_value_type<unsigned int, int>, std::__1::equal_to<unsigned int>, true>, std::__1::allocator<std::__1::__hash_value_type<unsigned int, int> > >::__emplace_unique_key_args<unsigned int, std::__1::pair<unsigned int, int> >(unsigned int const&, std::__1::pair<unsigned int, int>&&)@@Base+0x9e8>
+  136e3c:	f24c 307c 	movw	r0, #50044	@ 0xc37c
+  136e40:	5821      	ldr	r1, [r4, r0]
+  136e42:	b1c9      	cbz	r1, 136e78 <android::ExynosCamera::m_jpegSqueezerThreadFunc()@@Base+0xcc>
+  136e44:	1827      	adds	r7, r4, r0
+  136e46:	6878      	ldr	r0, [r7, #4]
+  136e48:	f03a fae4 	bl	171414 <android::ExynosCamera::m_setupCaptureUniPP(android::sp<android::ExynosCameraFrame>, int, int, int)@@Base+0x540>
+  136e4c:	2801      	cmp	r0, #1
+  136e4e:	db24      	blt.n	136e9a <android::ExynosCamera::m_jpegSqueezerThreadFunc()@@Base+0xee>
+  136e50:	6878      	ldr	r0, [r7, #4]
+  136e52:	a926      	add	r1, sp, #152	@ 0x98
+  136e54:	f03a faf4 	bl	171440 <android::ExynosCamera::m_setupCaptureUniPP(android::sp<android::ExynosCameraFrame>, int, int, int)@@Base+0x56c>
+  136e58:	98be      	ldr	r0, [sp, #760]	@ 0x2f8
+  136e5a:	f245 614e 	movw	r1, #22094	@ 0x564e
+  136e5e:	f2c3 1132 	movt	r1, #12594	@ 0x3132
+  136e62:	4288      	cmp	r0, r1
+  136e64:	d02f      	beq.n	136ec6 <android::ExynosCamera::m_jpegSqueezerThreadFunc()@@Base+0x11a>
+  136e66:	f644 514e 	movw	r1, #19790	@ 0x4d4e
+  136e6a:	f2c3 1132 	movt	r1, #12594	@ 0x3132
+  136e6e:	4288      	cmp	r0, r1
+  136e70:	d159      	bne.n	136f26 <android::ExynosCamera::m_jpegSqueezerThreadFunc()@@Base+0x17a>
+  136e72:	4646      	mov	r6, r8
+  136e74:	2302      	movs	r3, #2
+  136e76:	e028      	b.n	136eca <android::ExynosCamera::m_jpegSqueezerThreadFunc()@@Base+0x11e>
+  136e78:	f8d4 3124 	ldr.w	r3, [r4, #292]	@ 0x124
+  136e7c:	494c      	ldr	r1, [pc, #304]	@ (136fb0 <android::ExynosCamera::m_jpegSqueezerThreadFunc()@@Base+0x204>)
+  136e7e:	f647 108e 	movw	r0, #31118	@ 0x798e
+  136e82:	f504 6230 	add.w	r2, r4, #2816	@ 0xb00
+  136e86:	9002      	str	r0, [sp, #8]
+  136e88:	2005      	movs	r0, #5
+  136e8a:	4479      	add	r1, pc
+  136e8c:	e9cd 2100 	strd	r2, r1, [sp]
+  136e90:	4948      	ldr	r1, [pc, #288]	@ (136fb4 <android::ExynosCamera::m_jpegSqueezerThreadFunc()@@Base+0x208>)
+  136e92:	4a49      	ldr	r2, [pc, #292]	@ (136fb8 <android::ExynosCamera::m_jpegSqueezerThreadFunc()@@Base+0x20c>)
+  136e94:	4479      	add	r1, pc
+  136e96:	447a      	add	r2, pc
+  136e98:	e056      	b.n	136f48 <android::ExynosCamera::m_jpegSqueezerThreadFunc()@@Base+0x19c>
+  136e9a:	6878      	ldr	r0, [r7, #4]
+  136e9c:	f8d4 5124 	ldr.w	r5, [r4, #292]	@ 0x124
+  136ea0:	f03a fab8 	bl	171414 <android::ExynosCamera::m_setupCaptureUniPP(android::sp<android::ExynosCameraFrame>, int, int, int)@@Base+0x540>
+  136ea4:	4a3f      	ldr	r2, [pc, #252]	@ (136fa4 <android::ExynosCamera::m_jpegSqueezerThreadFunc()@@Base+0x1f8>)
+  136ea6:	f647 118b 	movw	r1, #31115	@ 0x798b
+  136eaa:	f504 6330 	add.w	r3, r4, #2816	@ 0xb00
+  136eae:	e9cd 1002 	strd	r1, r0, [sp, #8]
+  136eb2:	2005      	movs	r0, #5
+  136eb4:	447a      	add	r2, pc
+  136eb6:	e9cd 3200 	strd	r3, r2, [sp]
+  136eba:	462b      	mov	r3, r5
+  136ebc:	493a      	ldr	r1, [pc, #232]	@ (136fa8 <android::ExynosCamera::m_jpegSqueezerThreadFunc()@@Base+0x1fc>)
+  136ebe:	4a3b      	ldr	r2, [pc, #236]	@ (136fac <android::ExynosCamera::m_jpegSqueezerThreadFunc()@@Base+0x200>)
+  136ec0:	4479      	add	r1, pc
+  136ec2:	447a      	add	r2, pc
+  136ec4:	e040      	b.n	136f48 <android::ExynosCamera::m_jpegSqueezerThreadFunc()@@Base+0x19c>
+  136ec6:	4646      	mov	r6, r8
+  136ec8:	2301      	movs	r3, #1
+  136eca:	e9dd a8bf 	ldrd	sl, r8, [sp, #764]	@ 0x2fc
+  136ece:	f1ba 0f01 	cmp.w	sl, #1
+  136ed2:	db3c      	blt.n	136f4e <android::ExynosCamera::m_jpegSqueezerThreadFunc()@@Base+0x1a2>
+  136ed4:	f1b8 0f00 	cmp.w	r8, #0
+  136ed8:	dd39      	ble.n	136f4e <android::ExynosCamera::m_jpegSqueezerThreadFunc()@@Base+0x1a2>
+  136eda:	6838      	ldr	r0, [r7, #0]
+  136edc:	4659      	mov	r1, fp
+  136ede:	464a      	mov	r2, r9
+  136ee0:	f062 ef0e 	blx	199d00 <std::__1::pair<std::__1::__hash_iterator<std::__1::__hash_node<std::__1::__hash_value_type<unsigned int, int>, void*>*>, bool> std::__1::__hash_table<std::__1::__hash_value_type<unsigned int, int>, std::__1::__unordered_map_hasher<unsigned int, std::__1::__hash_value_type<unsigned int, int>, std::__1::hash<unsigned int>, true>, std::__1::__unordered_map_equal<unsigned int, std::__1::__hash_value_type<unsigned int, int>, std::__1::equal_to<unsigned int>, true>, std::__1::allocator<std::__1::__hash_value_type<unsigned int, int> > >::__emplace_unique_key_args<unsigned int, std::__1::pair<unsigned int, int> >(unsigned int const&, std::__1::pair<unsigned int, int>&&)@@Base+0x17d4>
+  136ee4:	6838      	ldr	r0, [r7, #0]
+  136ee6:	9b5c      	ldr	r3, [sp, #368]	@ 0x170
+  136ee8:	2100      	movs	r1, #0
+  136eea:	4642      	mov	r2, r8
+  136eec:	9100      	str	r1, [sp, #0]
+  136eee:	4651      	mov	r1, sl
+  136ef0:	f062 ef0e 	blx	199d10 <std::__1::pair<std::__1::__hash_iterator<std::__1::__hash_node<std::__1::__hash_value_type<unsigned int, int>, void*>*>, bool> std::__1::__hash_table<std::__1::__hash_value_type<unsigned int, int>, std::__1::__unordered_map_hasher<unsigned int, std::__1::__hash_value_type<unsigned int, int>, std::__1::hash<unsigned int>, true>, std::__1::__unordered_map_equal<unsigned int, std::__1::__hash_value_type<unsigned int, int>, std::__1::equal_to<unsigned int>, true>, std::__1::allocator<std::__1::__hash_value_type<unsigned int, int> > >::__emplace_unique_key_args<unsigned int, std::__1::pair<unsigned int, int> >(unsigned int const&, std::__1::pair<unsigned int, int>&&)@@Base+0x17e4>
+  136ef4:	6838      	ldr	r0, [r7, #0]
+  136ef6:	2100      	movs	r1, #0
+  136ef8:	2200      	movs	r2, #0
+  136efa:	f062 ef12 	blx	199d20 <std::__1::pair<std::__1::__hash_iterator<std::__1::__hash_node<std::__1::__hash_value_type<unsigned int, int>, void*>*>, bool> std::__1::__hash_table<std::__1::__hash_value_type<unsigned int, int>, std::__1::__unordered_map_hasher<unsigned int, std::__1::__hash_value_type<unsigned int, int>, std::__1::hash<unsigned int>, true>, std::__1::__unordered_map_equal<unsigned int, std::__1::__hash_value_type<unsigned int, int>, std::__1::equal_to<unsigned int>, true>, std::__1::allocator<std::__1::__hash_value_type<unsigned int, int> > >::__emplace_unique_key_args<unsigned int, std::__1::pair<unsigned int, int> >(unsigned int const&, std::__1::pair<unsigned int, int>&&)@@Base+0x17f4>
+  136efe:	6838      	ldr	r0, [r7, #0]
+  136f00:	f062 ef16 	blx	199d30 <std::__1::pair<std::__1::__hash_iterator<std::__1::__hash_node<std::__1::__hash_value_type<unsigned int, int>, void*>*>, bool> std::__1::__hash_table<std::__1::__hash_value_type<unsigned int, int>, std::__1::__unordered_map_hasher<unsigned int, std::__1::__hash_value_type<unsigned int, int>, std::__1::hash<unsigned int>, true>, std::__1::__unordered_map_equal<unsigned int, std::__1::__hash_value_type<unsigned int, int>, std::__1::equal_to<unsigned int>, true>, std::__1::allocator<std::__1::__hash_value_type<unsigned int, int> > >::__emplace_unique_key_args<unsigned int, std::__1::pair<unsigned int, int> >(unsigned int const&, std::__1::pair<unsigned int, int>&&)@@Base+0x1804>
+  136f04:	6838      	ldr	r0, [r7, #0]
+  136f06:	ad06      	add	r5, sp, #24
+  136f08:	4629      	mov	r1, r5
+  136f0a:	f062 ef1a 	blx	199d40 <std::__1::pair<std::__1::__hash_iterator<std::__1::__hash_node<std::__1::__hash_value_type<unsigned int, int>, void*>*>, bool> std::__1::__hash_table<std::__1::__hash_value_type<unsigned int, int>, std::__1::__unordered_map_hasher<unsigned int, std::__1::__hash_value_type<unsigned int, int>, std::__1::hash<unsigned int>, true>, std::__1::__unordered_map_equal<unsigned int, std::__1::__hash_value_type<unsigned int, int>, std::__1::equal_to<unsigned int>, true>, std::__1::allocator<std::__1::__hash_value_type<unsigned int, int> > >::__emplace_unique_key_args<unsigned int, std::__1::pair<unsigned int, int> >(unsigned int const&, std::__1::pair<unsigned int, int>&&)@@Base+0x1814>
+  136f0e:	68e0      	ldr	r0, [r4, #12]
+  136f10:	4629      	mov	r1, r5
+  136f12:	f03d fce8 	bl	1748e6 <android::ExynosCameraConfigurations::setJpegQtable(unsigned char*)@@Base>
+  136f16:	68e0      	ldr	r0, [r4, #12]
+  136f18:	2101      	movs	r1, #1
+  136f1a:	f03d fc77 	bl	17480c <android::ExynosCameraConfigurations::setJpegQtableStatus(int)@@Base>
+  136f1e:	6878      	ldr	r0, [r7, #4]
+  136f20:	f03a fabe 	bl	1714a0 <android::ExynosCamera::m_setupCaptureUniPP(android::sp<android::ExynosCameraFrame>, int, int, int)@@Base+0x5cc>
+  136f24:	e028      	b.n	136f78 <android::ExynosCamera::m_jpegSqueezerThreadFunc()@@Base+0x1cc>
+  136f26:	f8d4 3124 	ldr.w	r3, [r4, #292]	@ 0x124
+  136f2a:	4a24      	ldr	r2, [pc, #144]	@ (136fbc <android::ExynosCamera::m_jpegSqueezerThreadFunc()@@Base+0x210>)
+  136f2c:	f647 1175 	movw	r1, #31093	@ 0x7975
+  136f30:	f504 6730 	add.w	r7, r4, #2816	@ 0xb00
+  136f34:	e9cd 1002 	strd	r1, r0, [sp, #8]
+  136f38:	2006      	movs	r0, #6
+  136f3a:	447a      	add	r2, pc
+  136f3c:	e9cd 7200 	strd	r7, r2, [sp]
+  136f40:	491f      	ldr	r1, [pc, #124]	@ (136fc0 <android::ExynosCamera::m_jpegSqueezerThreadFunc()@@Base+0x214>)
+  136f42:	4a20      	ldr	r2, [pc, #128]	@ (136fc4 <android::ExynosCamera::m_jpegSqueezerThreadFunc()@@Base+0x218>)
+  136f44:	4479      	add	r1, pc
+  136f46:	447a      	add	r2, pc
+  136f48:	f062 e9aa 	blx	1992a0 <std::__1::pair<std::__1::__hash_iterator<std::__1::__hash_node<std::__1::__hash_value_type<unsigned int, int>, void*>*>, bool> std::__1::__hash_table<std::__1::__hash_value_type<unsigned int, int>, std::__1::__unordered_map_hasher<unsigned int, std::__1::__hash_value_type<unsigned int, int>, std::__1::hash<unsigned int>, true>, std::__1::__unordered_map_equal<unsigned int, std::__1::__hash_value_type<unsigned int, int>, std::__1::equal_to<unsigned int>, true>, std::__1::allocator<std::__1::__hash_value_type<unsigned int, int> > >::__emplace_unique_key_args<unsigned int, std::__1::pair<unsigned int, int> >(unsigned int const&, std::__1::pair<unsigned int, int>&&)@@Base+0xd74>
+  136f4c:	e015      	b.n	136f7a <android::ExynosCamera::m_jpegSqueezerThreadFunc()@@Base+0x1ce>
+  136f4e:	f8d4 3124 	ldr.w	r3, [r4, #292]	@ 0x124
+  136f52:	4911      	ldr	r1, [pc, #68]	@ (136f98 <android::ExynosCamera::m_jpegSqueezerThreadFunc()@@Base+0x1ec>)
+  136f54:	f647 107b 	movw	r0, #31099	@ 0x797b
+  136f58:	f504 6230 	add.w	r2, r4, #2816	@ 0xb00
+  136f5c:	f8cd 8010 	str.w	r8, [sp, #16]
+  136f60:	e9cd 0a02 	strd	r0, sl, [sp, #8]
+  136f64:	2006      	movs	r0, #6
+  136f66:	4479      	add	r1, pc
+  136f68:	e9cd 2100 	strd	r2, r1, [sp]
+  136f6c:	490b      	ldr	r1, [pc, #44]	@ (136f9c <android::ExynosCamera::m_jpegSqueezerThreadFunc()@@Base+0x1f0>)
+  136f6e:	4a0c      	ldr	r2, [pc, #48]	@ (136fa0 <android::ExynosCamera::m_jpegSqueezerThreadFunc()@@Base+0x1f4>)
+  136f70:	4479      	add	r1, pc
+  136f72:	447a      	add	r2, pc
+  136f74:	f062 e994 	blx	1992a0 <std::__1::pair<std::__1::__hash_iterator<std::__1::__hash_node<std::__1::__hash_value_type<unsigned int, int>, void*>*>, bool> std::__1::__hash_table<std::__1::__hash_value_type<unsigned int, int>, std::__1::__unordered_map_hasher<unsigned int, std::__1::__hash_value_type<unsigned int, int>, std::__1::hash<unsigned int>, true>, std::__1::__unordered_map_equal<unsigned int, std::__1::__hash_value_type<unsigned int, int>, std::__1::equal_to<unsigned int>, true>, std::__1::allocator<std::__1::__hash_value_type<unsigned int, int> > >::__emplace_unique_key_args<unsigned int, std::__1::pair<unsigned int, int> >(unsigned int const&, std::__1::pair<unsigned int, int>&&)@@Base+0xd74>
+  136f78:	46b0      	mov	r8, r6
+  136f7a:	f8d8 0000 	ldr.w	r0, [r8]
+  136f7e:	99c2      	ldr	r1, [sp, #776]	@ 0x308
+  136f80:	4288      	cmp	r0, r1
+  136f82:	d104      	bne.n	136f8e <android::ExynosCamera::m_jpegSqueezerThreadFunc()@@Base+0x1e2>
+  136f84:	2000      	movs	r0, #0
+  136f86:	f50d 7d43 	add.w	sp, sp, #780	@ 0x30c
+  136f8a:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+  136f8e:	f062 e990 	blx	1992b0 <std::__1::pair<std::__1::__hash_iterator<std::__1::__hash_node<std::__1::__hash_value_type<unsigned int, int>, void*>*>, bool> std::__1::__hash_table<std::__1::__hash_value_type<unsigned int, int>, std::__1::__unordered_map_hasher<unsigned int, std::__1::__hash_value_type<unsigned int, int>, std::__1::hash<unsigned int>, true>, std::__1::__unordered_map_equal<unsigned int, std::__1::__hash_value_type<unsigned int, int>, std::__1::equal_to<unsigned int>, true>, std::__1::allocator<std::__1::__hash_value_type<unsigned int, int> > >::__emplace_unique_key_args<unsigned int, std::__1::pair<unsigned int, int> >(unsigned int const&, std::__1::pair<unsigned int, int>&&)@@Base+0xd84>
+  136f92:	bf00      	nop
+  136f94:	9994      	ldr	r1, [sp, #592]	@ 0x250
+  136f96:	0006      	movs	r6, r0
+  136f98:	ffb6 fff4 			@ <UNDEFINED> instruction: 0xffb6fff4
+  136f9c:	0f17      	lsrs	r7, r2, #28
+  136f9e:	fff3 bb4f 	vtbx.8	d27, {d3-d6}, d15
+  136fa2:	fff4 0068 	vrev64.16	q8, q12
+  136fa6:	fff5 0fc7 	vqrdmlsh.s<illegal width 64>	q8, <illegal reg q10.5>, d7[0]
+  136faa:	fff3 c4a5 	vraddhn.i<illegal width 128>	d28, <illegal reg q9.5>, <illegal reg q10.5>
+  136fae:	fff6 0092 	vshr.u64	d16, d2, #10
+  136fb2:	fff5 0ff3 			@ <UNDEFINED> instruction: 0xfff50ff3
+  136fb6:	fff3 ee58 	vcvt.f32.u32	q15, q4, #13
+  136fba:	fff6 ffe2 	vqrdmlsh.s<illegal width 64>	<illegal reg q15.5>, q11, d18[0]
+  136fbe:	fff4 0f43 	vqrdmlsh.s<illegal width 64>	q8, q2, d3[0]
+  136fc2:	fff3 38ab 	vtbl.8	d19, {d19}, d27
+  136fc6:	Address 0x136fc6 is out of bounds.
+

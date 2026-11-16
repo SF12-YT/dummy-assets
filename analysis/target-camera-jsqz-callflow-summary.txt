@@ -1,0 +1,25 @@
+Target camera HAL and JSQZ library identity
+Size: 21340 bytes
+    Build ID: 2954034e91ab9505aef839b7d9feded0
+Size: 1834728 bytes
+    Build ID: 1b7a6dfaf4dcbf7034b467a6fcec2fc1
+
+Camera HAL imports and links
+analysis/target-libexynoscamera3-elf.txt: 0x00000001 (NEEDED)                     Shared library: [libhwjsqz.so]
+analysis/target-libexynoscamera3-undefined-symbols.txt:         U ExynosJsqz::getResultQT(unsigned char*)
+analysis/target-libexynoscamera3-undefined-symbols.txt:         U ExynosJsqz::setImageInfo(int, int, int, hwJSQZ_input_cs_format)
+analysis/target-libexynoscamera3-undefined-symbols.txt:         U ExynosJsqz::setJsqzConfig(hwJSQZ_processing_function, hwJSQZ_processing_mode)
+analysis/target-libexynoscamera3-undefined-symbols.txt:         U ExynosJsqz::run()
+analysis/target-libexynoscamera3-undefined-symbols.txt:         U ExynosJsqz::create()
+analysis/target-libexynoscamera3-undefined-symbols.txt:         U ExynosJsqz::destroy()
+analysis/target-libexynoscamera3-undefined-symbols.txt:         U ExynosJsqz::setInBuf(int*, unsigned int*, int)
+analysis/target-libexynoscamera3-undefined-symbols.txt:         U ExynosJsqz::ExynosJsqz()
+
+JSQZ PLT labels
+
+Resolved JSQZ calls
+Calls from the exact target libexynoscamera3.so into exact target libhwjsqz.so imports
+PLT labels for ExynosJsqz were resolved from this camera HAL's own .plt section.
+Resolved ExynosJsqz PLT destinations: 0
+Direct call instructions targeting those PLT entries: 0
+
